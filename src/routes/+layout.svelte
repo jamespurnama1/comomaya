@@ -35,24 +35,33 @@
   onMount(() => {
     const cursor: HTMLDivElement | null = document.querySelector('.cursor'); 
     
-    let mouseX = 0;
-    let mouseY = 0;
+    let target = {x: "0", y: "0"};
+    // let customCursor = {x: 0, y: 0};
+    // const speed = 0.3;
+    let raf: (number | null) = requestAnimationFrame(render);
+    const lerp = (a: number, b: number, n: number) => (1 - n) * a + n * b;
+
     document.addEventListener('mousemove', function(e) {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      if (!cursor) return;
+      target.x = (e.clientX).toString();
+      target.y = (e.clientY).toString();
+      cursor ? cursor.style.opacity = "1" : null;
+      if (!raf) raf = requestAnimationFrame(render);
     });
 
-    function raf() {
+    function render() {
       if (!cursor) return;
-      cursor.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
-      cursor.style.opacity = "1";
-      requestAnimationFrame(raf)
-    }
+      if (linkSelected) {
+        cursor.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(3)`;
+      } else {
+        cursor.style.transform = `translate3d(${target.x}px, ${target.y}px, 0)`;
+      }
 
-    raf()
+      raf = requestAnimationFrame(render);
+    }
     
     function hoverLink() {
-      const links: NodeListOf<HTMLAnchorElement> | null = document.querySelectorAll('a');
+      const links: NodeListOf<HTMLAnchorElement> | null = document.querySelectorAll('a, button');
       if (!links || !links.length) return
 
       links.forEach(item => {
@@ -83,10 +92,9 @@
 
 <svelte:window bind:innerWidth bind:innerHeight bind:scrollY />
 
-<div class="cursor pointer-events-none z-50 absolute mix-blend-difference w-6 h-6 rounded-3xl bg-white opacity-0
-  {linkSelected ? 'transition-transform scale-150' : ''} {innerWidth < 570 ? '!opacity-0' : ''}" />
+<div class="cursor origin-center pointer-events-none z-50 fixed mix-blend-difference w-6 h-6 -top-3 -left-3 rounded-3xl bg-white opacity-0 transition-transform ease-out {innerWidth < 570 ? '!opacity-0' : ''}" />
 
-<nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-20 transition-all bg-beige bg-opacity-0 {scrollY > 50 ? 'bg-opacity-100' : ''}">
+<nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 {scrollY > 50 ? 'bg-opacity-100' : ''}">
   <!-- <img src="/COMOMAYA_Logo_Black_800x90.png" alt="COMOMAYA" width="800" height="91" class="img-responsive"> -->
   <a href="/"><img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class="transition-all duration-700 h-6 img-responsive {opened || (scrollY > 50) ? 'brightness-0' : ''}"></a>
   <!-- <span class="lines" on:click={handleNav} on:keydown={handleNav}><span></span></span> -->
@@ -114,7 +122,7 @@
   </nav>
 
   {#if opened}
-  <nav transition:fly="{{ y: -200, duration: 500, easing: cubicInOut }}" class="moreNav bg-beige w-screen fixed left-0 top-0 z-10">
+  <nav transition:fly="{{ y: -200, duration: 500, easing: cubicInOut }}" class="moreNav bg-beige w-screen fixed left-0 top-0 z-20">
     <ul class="text-center mt-24 mb-8">
       {#each links as link, i}
       <li transition:scaleFade="{{start: 2, duration: 500 + 50 * (i + 1)}}" class="my-3 text-lg hover:text-active {$page.url.pathname.includes(link) ? 'text-active' : ''}">
@@ -133,11 +141,12 @@
       </a>
     </span>
   </nav>
+  <div on:click={handleNav} on:keydown={handleNav} class="fixed w-screen h-screen bg-opacity-50 bg-black z-10" />
   {/if}
 
 {#if scrollY > 50}
-	<button transition:fade on:click={handleScrollUp} on:keypress={handleScrollUp} class="flex justify-center items-center fixed bottom-5 right-5 bg-black w-10 h-10 z-20">
-    <Fa icon={faAngleUp} size="1.4x" class="mx-2 text-beige" />
+	<button transition:fade on:click={handleScrollUp} on:keypress={handleScrollUp} class="flex justify-center items-center fixed bottom-10 right-10 bg-black w-10 h-10 z-20">
+    <Fa icon={faAngleUp} size="1.2x" class="mx-2 text-beige" />
   </button>
 {/if}
 
