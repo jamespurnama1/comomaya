@@ -29,18 +29,32 @@
 
 	let scrollProgress = 0;
 	let imageIndex = Math.min(bgImages.length - 1, Math.round(scrollProgress * (bgImages.length - 1)))
-
+	let proxy = { skew: 0 };
+	const clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond 20 degrees. 
+	
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger);
+		
+		const skewSetter = gsap.quickSetter(".projectList", "skewY", "deg"); // fast
+		// make the right edge "stick" to the scroll bar. force3D: true improves performance
+		gsap.set(".projectList", {transformOrigin: "right center", force3D: true});
 
 		ScrollTrigger.create({ 
 			trigger:".portfoliosList",
 			start: "top top",
 			end: "bottom bottom",
-			// backgroundImage: `/assets/${bgImages[Math.round(scrollProgress * bgImages.length)]}`,
-			onUpdate: self => {scrollProgress = self.progress}
+			onUpdate: self => {
+				scrollProgress = self.progress
+				let skew = clamp(self.getVelocity() / -300);
+				// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+				if (Math.abs(skew) > Math.abs(proxy.skew)) {
+					proxy.skew = skew;
+					gsap.to(proxy, {skew: 0, duration: 0.8, ease: "power3", overwrite: true, onUpdate: () => skewSetter(proxy.skew)});
+				}
+			}
 		})
 	})
+
 </script>
 
 <style>
@@ -59,7 +73,7 @@
 <main class="min-h-screen flex justify-center py-20">
 	<ul class="portfoliosList flex flex-col justify-center m-auto text-center group z-0">
 		{#each portfolios as portfolio, i}
-			<li on:mouseover={() => handleHover(i)} on:focus={() => handleHover(i)} class="py-52 md:py-24">
+			<li on:mouseover={() => handleHover(i)} on:focus={() => handleHover(i)} class="projectList py-52 md:py-24">
 				<a href="/portfolio/{portfolio}" class="transition-all group-hover:opacity-50 hover:!opacity-100">
 					<h1 class="listChildren text-5xl font-semibold text-beige md:text-9xl">{portfolio}</h1>
 				</a>
