@@ -24,30 +24,51 @@ function handleHover(index: number) {
 }
 
 //scrolltrigger
+const bgImages = [
+	'220212_Revolver_05_Website_Mobile-scaled.jpg',
+	'220212_Wizly_01_Logo-scaled.jpg',
+	'220212_Lovespun_03_Brand-scaled.jpg',
+	'220212_Gabongo_06_PPT-scaled.jpg',
+	'220212_Hamamoto_02_VC-scaled.jpg',
+];
+
+let scrollProgress = 0;
+
 onMount(() => {
 	gsap.registerPlugin(ScrollTrigger);
-	gsap.to(".bg", {
-		scrollTrigger: '.portfoliosList',
-		backgroundImage: '',
+
+	ScrollTrigger.create({ 
+		trigger:".portfoliosList",
+		start: "top top",
+		end: "bottom bottom",
+		// backgroundImage: `/assets/${bgImages[Math.round(scrollProgress * bgImages.length)]}`,
+		onUpdate: self => {scrollProgress = self.progress; console.log(self.progress, Math.min(bgImages.length - 1, Math.round(scrollProgress * (bgImages.length - 1))))}
 	})
 })
 </script>
 
 <style>
 	.bg {
-		background-image: url('/assets/220212_DEB_01_Logo-1536x988.jpg');
+		background-image: url('/assets/220212_Revolver_05_Website_Mobile-scaled.jpg');
+		transition: background 0.25s linear;
 	}
 </style>
 
-<main class="min-h-screen">
-	<ul class="portfoliosList m-auto text-center group">
+<svelte:head>
+  {#each bgImages as image}
+		<link rel="preload" as="image" href="/assets/{image}" />
+	{/each}
+</svelte:head>
+
+<main class="min-h-screen flex justify-center my-20">
+	<ul class="portfoliosList flex flex-col justify-center m-auto text-center group">
 		{#each portfolios as portfolio, i}
-			<li on:mouseover={() => handleHover(i)} on:focus={() => handleHover(i)} class="my-12">
+			<li on:mouseover={() => handleHover(i)} on:focus={() => handleHover(i)} class="py-52">
 				<a href="/portfolio/{portfolio}" class="transition-all group-hover:opacity-50 hover:!opacity-100">
-					<h1 class="listChildren text-5xl font-semibold text-white">{portfolio}</h1>
+					<h1 class="listChildren text-5xl font-semibold text-beige">{portfolio}</h1>
 				</a>
 			</li>
 		{/each}
 	</ul>
 </main>
-<div class="bg min-h-screen fixed top-0 left-0 w-screen -z-10" />
+<div class="bg bg-cover bg-center bg-fixed bg-no-repeat min-h-screen fixed top-0 left-0 w-screen -z-10" style="{`background-image: url(/assets/${bgImages[Math.min(bgImages.length - 1, Math.round(scrollProgress * (bgImages.length - 1)))]}`}" />
