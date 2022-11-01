@@ -5,6 +5,10 @@
 	import Fa from 'svelte-fa/src/fa.svelte';
   import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
+import { kql } from '$lib/graphql/_kitql/graphqlStores'
+
+await GetLandingQuery()
+
 	// Data
 	let portfolios = [
 		'Revolver',
@@ -74,7 +78,7 @@
 	<ul class="portfoliosList flex flex-col justify-center m-auto text-center group z-0">
 		{#each portfolios as portfolio, i}
 			<li on:mouseover={() => handleHover(i)} on:focus={() => handleHover(i)} class="projectList py-52 md:py-24">
-				<a href="/portfolio/{portfolio}" class="transition-all group-hover:opacity-50 hover:!opacity-100">
+				<a href="/portfolio/{portfolio.split(' ').join('-')}" class="transition-all group-hover:opacity-50 hover:!opacity-100">
 					<h1 class="listChildren text-5xl font-semibold text-beige md:text-9xl">{portfolio}</h1>
 				</a>
 			</li>
