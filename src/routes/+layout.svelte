@@ -21,7 +21,7 @@
   let genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full bg-beige transition ease transform duration-300`;
   let linkSelected = false;
   let links = [
-    '/',
+    '',
     'portfolio',
     'about',
     'contact'
@@ -89,6 +89,8 @@
   }
 </script>
 
+<title>{$page.data.title}</title>
+
 <svelte:window bind:innerWidth bind:innerHeight bind:scrollY />
 
 <div class="cursor origin-center pointer-events-none z-50 fixed mix-blend-difference w-6 h-6 -top-3 -left-3 rounded-3xl bg-white opacity-0 transition-transform ease-out {innerWidth < 570 ? '!opacity-0' : ''}" />
@@ -96,7 +98,7 @@
 <nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 origin-top-left {(scrollY > 50)  || $page.url.pathname !== '/' ? 'bg-opacity-100' : ''} {(scrollY > 50) ? 'scale-y-80' : ''}">
   <!-- <img src="/COMOMAYA_Logo_Black_800x90.png" alt="COMOMAYA" width="800" height="91" class="img-responsive"> -->
   <a href="/">
-    <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class="transition-all duration-700 h-6 img-responsive origin-top-left {opened || (scrollY > 50) || $page.url.pathname !== '/' ? 'brightness-0' : ''} {scrollY > 50 ? 'scale-75' : ''}">
+    <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class=" logo transition-all duration-700 h-6 img-responsive origin-top-left {opened || (scrollY > 50) || $page.url.pathname !== '/' ? 'brightness-0' : ''} {scrollY > 50 ? 'scale-75' : ''}">
   </a>
   <!-- <span class="lines" on:click={handleNav} on:keydown={handleNav}><span></span></span> -->
   <button
@@ -123,12 +125,12 @@
   </nav>
 
   {#if opened}
-  <nav transition:fly="{{ y: -200, duration: 500, easing: cubicInOut }}" class="moreNav bg-beige w-screen fixed left-0 top-0 z-20">
+  <nav transition:fly="{{ y: -200, duration: 500, easing: cubicInOut }}" class="moreNav bg-beige w-screen fixed left-0 top-0 z-20 md:h-screen flex items-center md:justify-center flex-col">
     <ul class="text-center mt-24 mb-8">
       {#each links as link, i}
-      <li transition:scaleFade="{{start: 2, duration: 500 + 50 * (i + 1)}}" class="my-3 text-lg hover:text-active {$page.url.pathname.includes(link) ? 'text-active' : ''}">
-        <a on:click="{handleNav}" href="{link}">
-          {link === '/' ? 'home' : link}
+      <li transition:scaleFade="{{start: 2, duration: 500 + 50 * (i + 1)}}" class="my-3 text-lg md:text-3xl hover:text-active {$page.url.pathname === `/${link}` ? 'text-active' : ''}">
+        <a on:click="{handleNav}" href="/{link}">
+          {link === '' ? 'home' : link}
         </a>
       </li>
       {/each}
@@ -156,3 +158,7 @@
     <slot />
   </Transition>
 {/key}
+
+<footer class="absolute bottom-0 my-5 ml-10">
+  <p class="text-xs mix-blend-difference text-white">© 2022 COMOMAYA. All rights reserved.</p>
+</footer>
