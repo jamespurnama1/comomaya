@@ -11,8 +11,8 @@
   import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
   import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
-  export const csr = false;
-  export const prerender = true;
+  // export const csr = false;
+  // export const prerender = true;
 
   // UI Logic
   let innerWidth = 0;

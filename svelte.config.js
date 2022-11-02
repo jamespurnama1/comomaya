@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -20,7 +20,19 @@ const config = {
 		alias: {
 			$src: 'src'
     },
-	}
+	},
+	// prerender: {
+  //     crawl: true,
+  //     enabled: true,
+  //     force: false,
+  //     entries: [
+  //       "*",
+	// 			"/about",
+	// 			"/contact",
+  //       "/portfolio",
+  //       // "/portfolio/",
+  //     ],
+  //   }
 };
 
 export default config;
