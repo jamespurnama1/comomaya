@@ -7,7 +7,7 @@
   import "../app.postcss";
   import "../fonts.css";
   import Fa from 'svelte-fa/src/fa.svelte';
-  import Transition from "$root/components/transition.svelte"
+  import Transition from "$src/components/transition.svelte"
   import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
   import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -95,14 +95,14 @@
 
 <div class="cursor origin-center pointer-events-none z-50 fixed mix-blend-difference w-6 h-6 -top-3 -left-3 rounded-3xl bg-white opacity-0 transition-transform ease-out {innerWidth < 570 ? '!opacity-0' : ''}" />
 
-<nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 origin-top-left {(scrollY > 50)  || $page.url.pathname !== '/' ? 'bg-opacity-100' : ''} {(scrollY > 50) ? 'scale-y-80' : ''}">
+<nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 origin-top-left {(scrollY > 50)  || $page.url.pathname !== '/' ? 'bg-opacity-100' : ''}">
   <!-- <img src="/COMOMAYA_Logo_Black_800x90.png" alt="COMOMAYA" width="800" height="91" class="img-responsive"> -->
   <a href="/">
-    <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class=" logo transition-all duration-700 h-6 img-responsive origin-top-left {opened || (scrollY > 50) || $page.url.pathname !== '/' ? 'brightness-0' : ''} {scrollY > 50 ? 'scale-75' : ''}">
+    <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class=" logo transition-all duration-700 h-6 img-responsive origin-top-left {opened || (scrollY > 50) || $page.url.pathname !== '/' ? 'brightness-0' : ''}">
   </a>
   <!-- <span class="lines" on:click={handleNav} on:keydown={handleNav}><span></span></span> -->
   <button
-    class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform {scrollY > 50 ? '-translate-y-2 scale-y-125' : ''}"
+    class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
     on:click={handleNav}
     on:keydown={handleNav}
   >
@@ -125,7 +125,7 @@
   </nav>
 
   {#if opened}
-  <nav transition:fly="{{ y: -200, duration: 500, easing: cubicInOut }}" class="moreNav bg-beige w-screen fixed left-0 top-0 z-20 md:h-screen flex items-center md:justify-center flex-col">
+  <nav transition:fly="{{ y: -200, duration: 500, easing: cubicInOut }}" class="moreNav bg-beige w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
     <ul class="text-center mt-24 mb-8">
       {#each links as link, i}
       <li transition:scaleFade="{{start: 2, duration: 500 + 50 * (i + 1)}}" class="my-3 text-lg md:text-3xl hover:text-active {$page.url.pathname === `/${link}` ? 'text-active' : ''}">

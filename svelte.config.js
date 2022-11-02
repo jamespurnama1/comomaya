@@ -18,7 +18,7 @@ const config = {
 	kit: {
 		adapter: adapter({precompress: true}),
 		alias: {
-			$root: 'src'
+			$src: 'src'
     },
 	}
 };

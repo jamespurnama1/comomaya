@@ -4,11 +4,16 @@
 	import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 	import Fa from 'svelte-fa/src/fa.svelte';
   import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+	import { data } from '$src/store'
 
 	async function load() {
+		if(Object.keys($data).length) return $data
 		const res = await fetch('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?query=%7B%22type%22%3A%22landing%22%2C%22slug%22%3A%22home%22%7D&pretty=true&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&props=metadata');
 		const landing = await res.json();
-		if(res.ok) return landing;
+		if(res.ok) {
+			data.set(landing)
+			return landing;
+		}
 
 		return {
 			status: res.status,
@@ -77,8 +82,7 @@
 				}
 			})
 		}
-	})
-
+	});
 </script>
 
 <style>
