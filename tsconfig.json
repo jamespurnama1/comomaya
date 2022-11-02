@@ -8,7 +8,10 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
-		"strict": true
+		"strict": true,
+		"typeRoots": [
+			"node_modules/@types"
+		]
 	},
 	"files": [
     "node_modules/gsap/types/index.d.ts",

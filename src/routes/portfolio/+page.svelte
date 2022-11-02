@@ -15,47 +15,13 @@
 		}
 	}
 
-	// Data
 	let res = load();
-
-  // let portfolios = {
-  //   "Bobba Group": "Branding, Web Design, Stationery",
-  //   "Duk Egg Blu": "Branding",
-  //   "Everstone": "Branding",
-  //   "Gabongo": "Branding, Presentation, Stationery",
-  //   "Hamamoto": "Branding, Stationery",
-  //   "Le Sal": "Branding, Web Design",
-  //   "Lovespun": "Branding, Web Design",
-  //   "Margie Warrell": "Branding, Web Design, Stationery",
-  //   "Revolver": "Branding, Web Design, Presentation, Stationery",
-  //   "Sazerac": "Branding, Web Design, Stationery",
-  //   "Studio Q": "Branding, Web Design, Stationery",
-  //   "The Urban Hotel": "Branding, Stationery",
-  //   "Wizly": "Branding, Web Design, Stationery",
-  // }
-
-  // let imgData = {
-  //   "Bobba Group": "220212_Bobba_04_Website_Mobile-scaled-uai-1032x774.jpg",
-  //   "Duk Egg Blu": "220212_DEB_01_Logo-scaled-uai-1032x774.jpg",
-  //   "Everstone": "220212_Everstone_01_Logo-scaled-uai-1032x774.jpg",
-  //   "Gabongo": "220212_Gabongo_06_PPT-scaled-uai-1032x774.jpg",
-  //   "Hamamoto": "220212_Hamamoto_02_VC-scaled-uai-1032x774.jpg",
-  //   "Le Sal": "220212_LeSal_01-scaled-uai-1032x774.jpg",
-  //   "Lovespun": "220212_Lovespun_03_Brand-scaled-uai-1032x774.jpg",
-  //   "Margie Warrell": "220212_MargieWarrell_01-scaled-uai-1032x774.jpg",
-  //   "Revolver": "220212_Revolver_05_Website_Mobile-scaled-uai-1032x774.jpg",
-  //   "Sazerac": "220212_Sazerac_04-scaled-uai-1032x774.jpg",
-  //   "Studio Q": "220212_StudioQ_01-scaled-uai-1032x774.jpg",
-  //   "The Urban Hotel": "220212_TheUrban_01-scaled-uai-1032x774.jpg",
-  //   "Wizly": "220212_Wizly_01_Logo-scaled-uai-1032x774.jpg",
-  // }
 
   let imgSrc = "";
   let imgAlt = "";
   let show = false;
-  // let x = 0;
-  // let y = 0;
   let handleHover: Function = () => {};
+  let handleClick: Function = () => {};
   let handleOut: Function = () => {};
 
   onMount(() => {
@@ -76,7 +42,19 @@
         show ? raf = requestAnimationFrame(render) : null;
       }
 
-      handleHover = (e: MouseEvent | FocusEvent, i: number) => {
+      let clicked: number | null = null;
+
+      handleClick = (e: Event, i: number) => {
+        console.log(e.currentTarget, (e.currentTarget as HTMLAnchorElement).getAttribute("href"))
+        if (window.innerWidth > 768 || clicked === i) {
+          e.target ? window.location.href = (e.currentTarget as HTMLAnchorElement).getAttribute("href")! : null;
+        } else {
+          clicked = i
+          handleHover(null, i)
+        }
+      }
+
+      handleHover = (_e: MouseEvent | FocusEvent, i: number) => {
         show = true;
         imgSrc = content.objects[0].metadata.list.map((x: {thumbnail: string}) => x.thumbnail)[i];
         imgAlt = content.objects[0].metadata.list.map((x: {title: string}) => x.title)[i];
@@ -110,25 +88,27 @@
 	{/await}
 </svelte:head>
 
-<img src={imgSrc} alt={imgAlt} class="imgP fixed max-w-md h-auto top-0 left-0 opacity-0 z-10 pointer-events-none" />
-<main class="min-h-screen flex justify-center py-32 bg-beige z-0 relative mx-28 md:justify-start">
+<img src={imgSrc} alt={imgAlt} class="imgP fixed max-w-[10rem] md:max-w-md h-auto top-0 left-0 opacity-0 z-10 pointer-events-none" />
+<main class="min-h-screen flex justify-center py-32 bg-beige z-0 relative mx-10 md:mx-28 md:justify-start">
   <ul class="grid">
     {#await res}
       <h1>Loading...</h1>
     {:then portfolios}
       {#each portfolios.objects[0].metadata.list as portfolio, i}
         <li>
-          <a href="/portfolio/{portfolio.slug}">
-            <span class="flex py-10" on:focus="{(e) => handleHover(e, i)}" on:mouseover="{(e) => handleHover(e, i)}" on:blur="{handleOut}" on:mouseout="{handleOut}">
-              <h2 class="text-7xl font-semibold">{portfolio.title}</h2>
-              <h3 class="text-s font-semibold">{portfolio.metadata.type}</h3>
+          <a href="/portfolio/{portfolio.slug}" on:click|preventDefault={(e) => handleClick(e, i)}>
+            <span class="flex py-3 md:py-10 flex-wrap" on:focus="{(e) => handleHover(e, i)}" on:mouseover="{(e) => handleHover(e, i)}" on:blur="{handleOut}" on:mouseout="{handleOut}">
+              <h2 class="text-4xl md:text-7xl whitespace-nowrap font-semibold">{portfolio.title}</h2>
+              <h3 class="text-xs md:text-s font-semibold whitespace-nowrap">{portfolio.metadata.type}</h3>
             </span>
           </a>
         </li>
       {/each}
     {:catch error}
-      <h1>Something weird is happening.</h1>
-      <h3>Try refreshing the page.</h3>
+      <span>
+        <h1>Something weird is happening.</h1>
+        <h3>Try refreshing the page.</h3>
+      </span>
     {/await}
   </ul>
 </main>

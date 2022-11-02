@@ -46,25 +46,13 @@
         <a href="tel:+14129342300"><p class="text-white font-semibold mb-5">+141-293-423-00</p></a>
       </span>
       <form action="https://formspree.io/f/xqkjgbng" method="POST" class="flex flex-wrap md:w-2/3 content-start">
-        <!-- <label class="text-white">
-          Name -->
           <span class="flex w-full">
             <input class="bg-black text-white placeholder-white border-white border-b mb-5 mr-5 w-1/2 focus:outline-none h-12" type="text" name="name" placeholder="Name">
-        <!-- </label> -->
-        <!-- <label class="text-white">
-          E-mail -->
             <input class="bg-black text-white placeholder-white border-white border-b mb-5 ml-5 w-1/2 focus:outline-none h-12" type="email" name="email" placeholder="E-mail">
           </span>
-        <!-- </label> -->
-        <!-- <label class="text-white">
-          Subject -->
         <input class="bg-black text-white placeholder-white border-white border-b my-5 w-full focus:outline-none h-12" type="text" name="subject" placeholder="Subject">
-        <!-- </label> -->
-        <!-- <label>
-          Your Message -->
           <textarea class="bg-black text-white placeholder-white border-white border-b my-5 resize-none w-full h-52 focus:outline-none" placeholder="Your Message" name="message"></textarea>
-        <!-- </label> -->
-        <button class="bg-white text-black py-3 px-1 w-full my-5 font-semibold h-12 hover:bg-black hover:text-white hover:ring-white" type="submit">Submit Message</button>
+        <button class="z-0 relative selection:bg-white text-black py-3 px-1 w-full my-5 font-semibold h-12 hover:bg-black hover:text-white hover:ring-white" type="submit">Submit Message</button>
       </form> 
   </section>
 </main>
