@@ -8,6 +8,7 @@
   import Siema from 'siema';
 	import { data } from '$src/store'
   import { browser } from '$app/environment';
+  import { fade } from 'svelte/transition';
 
   interface Content {
     title: string;
@@ -77,10 +78,12 @@
 			const content = await load();
       const mm = gsap.matchMedia();
 
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
       mm.add("(min-width: 768px)", () => {
         gsap.set('.content *', {
           y: "300px",
-          opacity: 0,
+          autoAlpha: 0,
         });
         gsap.to('.info', {
           scrollTrigger: {
@@ -106,13 +109,12 @@
     
     async function loadFeatured() {
       const content = await load2();
-      setTimeout(() => {
-        siema = new Siema({
-          perPage: count,
-          loop: true,
-          onChange: () => siema.drag.preventClick = true,
-        });
-      }, 100);
+      await new Promise(resolve => setTimeout(resolve, 500));
+      siema = new Siema({
+        perPage: count,
+        loop: true,
+        onChange: () => siema.drag.preventClick = true,
+      });
       carouselCount = 
         window.innerWidth > 768 ?
         Math.ceil(content.objects[0].metadata.featured.length / 3) :
@@ -141,15 +143,16 @@
     width: 100% !important;
     min-width: 100% !important;
     height: auto;
+    opacity: 0;
   }
 </style>
 
 <main class="leading-relaxed min-h-screen py-32 bg-beige z-0 relative mx-10">
   <section class="flex flex-col md:justify-start md:flex-row justify-center">
     {#await res}
-      <h1>Loading...</h1>
+      <h1 transition:fade>Loading...</h1>
     {:then portfolios}
-      <div class="content flex flex-col items-center -mt-10 md:mt-0 md:w-2/3 md:pr-20">
+      <div in:fade class="content flex flex-col items-center -mt-10 md:mt-0 md:w-2/3 md:pr-20">
         <!-- {#each imgData as images}
           <img class="pics my-5 origin-top" src="/assets/{images}" alt="" />
         {/each} -->
