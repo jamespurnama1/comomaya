@@ -1,6 +1,6 @@
 <script lang="ts">
 import {gsap} from 'gsap';
-import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
 import { onMount } from 'svelte';
 import Fa from 'svelte-fa/src/fa.svelte';
 import { faBook, faPencil, faLaptop, faTrophy } from '@fortawesome/free-solid-svg-icons';

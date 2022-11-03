@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { gsap } from "gsap";
-	import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
 	import Fa from 'svelte-fa/src/fa.svelte';
   import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 	import { data } from '$src/store'
