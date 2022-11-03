@@ -106,11 +106,13 @@
     
     async function loadFeatured() {
       const content = await load2();
-      siema = new Siema({
-        perPage: count,
-        loop: true,
-        onChange: () => siema.drag.preventClick = true,
-      });
+      setTimeout(() => {
+        siema = new Siema({
+          perPage: count,
+          loop: true,
+          onChange: () => siema.drag.preventClick = true,
+        });
+      }, 100);
       carouselCount = 
         window.innerWidth > 768 ?
         Math.ceil(content.objects[0].metadata.featured.length / 3) :
@@ -129,10 +131,15 @@
 </script>
 
 <style global>
-  img, img.fr-fic, img.fr-dib {
+  .content img,
+  .content img.fr-fic,
+  .content img.fr-dib,
+  .content picture,
+  .content video {
     margin: 0;
     transform-origin: "top";
     width: 100% !important;
+    min-width: 100% !important;
     height: auto;
   }
 </style>
