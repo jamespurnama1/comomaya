@@ -5,6 +5,7 @@
 	import Fa from 'svelte-fa/src/fa.svelte';
   import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 	import { data } from '$src/store'
+	import { fade } from 'svelte/transition';
 
 	async function load() {
 		if(Object.keys($data).length) return $data
@@ -101,9 +102,9 @@
 
 <main class="min-h-screen flex justify-center py-20">
 	{#await res}
-		<h1>Loading...</h1>
+		<h1 transition:fade>Loading...</h1>
 	{:then portfolios}
-		<ul class="portfoliosList flex flex-col justify-center m-auto text-center group z-0">
+		<ul in:fade class="portfoliosList flex flex-col justify-center m-auto text-center group z-0">
 			{#each portfolios.objects[0].metadata.featured as portfolio, i}
 				<li on:mouseover={() => handleHover(i)} on:focus={() => handleHover(i)} class="projectList py-52 md:py-24">
 					<a href="/portfolio/{portfolio.slug}" class="transition-all group-hover:opacity-50 hover:!opacity-100">
