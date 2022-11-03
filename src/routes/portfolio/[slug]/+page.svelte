@@ -4,7 +4,7 @@
   import Fa from 'svelte-fa/src/fa.svelte';
   import { faInstagram, faLinkedin, faTwitter, faPinterest, faTelegram } from '@fortawesome/free-brands-svg-icons';
 	import { gsap } from "gsap";
-	import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+  import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
   import Siema from 'siema';
 	import { data } from '$src/store'
   import { browser } from '$app/environment';
