@@ -95,10 +95,10 @@
 
 <div class="cursor origin-center pointer-events-none z-50 fixed mix-blend-difference w-6 h-6 -top-3 -left-3 rounded-3xl bg-white opacity-0 transition-transform ease-out {innerWidth < 570 ? '!opacity-0' : ''}" />
 
-<nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 origin-top-left {(scrollY > 50)  || $page.url.pathname !== '/' ? 'bg-opacity-100' : ''}">
+<nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 origin-top-left {((scrollY > 50) && $page.url.pathname !== '/')  || $page.url.pathname !== '/' ? 'bg-opacity-100' : ''}">
   <!-- <img src="/COMOMAYA_Logo_Black_800x90.png" alt="COMOMAYA" width="800" height="91" class="img-responsive"> -->
   <a href="/">
-    <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class=" logo transition-all duration-700 h-6 img-responsive origin-top-left {opened || (scrollY > 50) || $page.url.pathname !== '/' ? 'brightness-0' : ''}">
+    <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class=" logo transition-all duration-700 h-9 img-responsive origin-top-left {opened || ((scrollY > 50) && $page.url.pathname !== '/') || $page.url.pathname !== '/' ? 'brightness-0' : ''}">
   </a>
   <!-- <span class="lines" on:click={handleNav} on:keydown={handleNav}><span></span></span> -->
   <button
@@ -111,15 +111,15 @@
           opened
             ? "rotate-45 translate-y-1.5 opacity-100 !bg-black"
             : "opacity-100"
-        } {genericHamburgerLine} {(scrollY > 50)  || $page.url.pathname !== '/' ? 'bg-black' : ''}"
+        } {genericHamburgerLine} {((scrollY > 50) && $page.url.pathname !== '/')  || $page.url.pathname !== '/' ? 'bg-black' : ''}"
       />
-      <div class="{opened ? "opacity-0 !bg-black" : "opacity-100"} {genericHamburgerLine} {(scrollY > 50)  || $page.url.pathname !== '/' ? 'bg-black' : ''}" />
+      <div class="{opened ? "opacity-0 !bg-black" : "opacity-100"} {genericHamburgerLine} {((scrollY > 50) && $page.url.pathname !== '/')  || $page.url.pathname !== '/' ? 'bg-black' : ''}" />
       <div
         class="{
           opened
             ? "-rotate-45 -translate-y-1.5 opacity-100 !bg-black"
             : "opacity-100"
-          } {genericHamburgerLine} {(scrollY > 50)  || $page.url.pathname !== '/' ? 'bg-black' : ''}"
+          } {genericHamburgerLine} {((scrollY > 50) && $page.url.pathname !== '/')  || $page.url.pathname !== '/' ? 'bg-black' : ''}"
       />
     </button>
   </nav>

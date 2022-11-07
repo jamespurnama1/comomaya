@@ -84,7 +84,7 @@
       await new Promise(resolve => setTimeout(resolve, 500));
       
       mm.add("(min-width: 768px)", () => {
-        gsap.set('.content *', {
+        gsap.set('.content *:not(:first-child)', {
           y: "300px",
           autoAlpha: 0,
         });
@@ -93,18 +93,18 @@
             trigger: '.info',
             pin: true,
             start: "top 50vh",
-            end: "bottom top",
+            end: "bottom bottom",
           }
         })
       })
 
       ScrollTrigger.batch('.content *', {
-        start: "top 75%",
+        start: "top 70%",
         onEnter: batch => gsap.to(batch, {
           autoAlpha: 1,
           stagger: 0.1,
           y: 0,
-          duration: 1.5,
+          duration: 0.75,
         }),
       });
     }
