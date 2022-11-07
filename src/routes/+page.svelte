@@ -98,6 +98,7 @@
 			<link rel="preload" as="image" href={portfolio.thumbnail} />
 		{/each}
 	{/await}
+	<title>COMOMAYA - Branding | Design | Digital | Social Media</title>
 </svelte:head>
 
 <main class="min-h-screen flex justify-center py-20">

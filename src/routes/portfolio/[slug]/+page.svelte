@@ -5,7 +5,6 @@
   import { faInstagram, faLinkedin, faTwitter, faPinterest, faTelegram } from '@fortawesome/free-brands-svg-icons';
 	import { gsap } from "gsap";
   import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
-  import Siema from 'siema';
 	import { data } from '$src/store'
   import { browser } from '$app/environment';
   import { fade } from 'svelte/transition';
@@ -24,10 +23,9 @@
 
   let contentID: number;
   let thisPage: Content;
-  let carouselCount: number;
-  let handleCarousel: Function;
-  let siema: Siema;
-  let count: number = 1;
+  let carouselCount = 1;
+  let Carousel;
+  let count = 1;
 
  	async function load() {
 		const res = await fetch('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata');
@@ -61,16 +59,21 @@
 	}
 
   function handleResize() {
-    count = window.innerWidth > 768 ? 3 : 1
-    // if (window.innerWidth > 768)
+    count = window.innerWidth > 768 ?  3 : 1
+    ScrollTrigger.refresh();
   }
 
 	// Data
 	let res = load();
   let featured = load2();
 
-  onMount(() => {
+  function onLoad() {
+  }
+  
+  onMount(async() => {
     gsap.registerPlugin(ScrollTrigger);
+    const module = await import('svelte-carousel');
+    Carousel = module.default;
     handleResize();
     loadContent();
 		
@@ -85,51 +88,42 @@
           y: "300px",
           autoAlpha: 0,
         });
-        gsap.to('.info', {
+        gsap.to('.content', {
           scrollTrigger: {
             trigger: '.info',
             pin: true,
             start: "top 50vh",
+            end: "bottom top",
           }
         })
       })
 
       ScrollTrigger.batch('.content *', {
+        start: "top 75%",
         onEnter: batch => gsap.to(batch, {
           autoAlpha: 1,
           stagger: 0.1,
           y: 0,
+          duration: 1.5,
         }),
       });
     }
 
     loadFeatured();
 
-    window.addEventListener('resize', handleResize)
-    
     async function loadFeatured() {
       const content = await load2();
       await new Promise(resolve => setTimeout(resolve, 500));
-      siema = new Siema({
-        perPage: count,
-        loop: true,
-        onChange: () => siema.drag.preventClick = true,
-      });
       carouselCount = 
         window.innerWidth > 768 ?
         Math.ceil(content.objects[0].metadata.featured.length / 3) :
         Math.ceil(content.objects[0].metadata.featured.length);
 
-      handleCarousel = (i: number) => {
-        siema.goTo(i);
-      }
+      // handleCarousel = (i: number) => {
+      //   Carousel.goTo(i);
+      // }
     }
   });
-
-  onDestroy(() => {
-    if (!browser) return
-    window.removeEventListener("resize", handleResize)
-  })
 </script>
 
 <style global>
@@ -145,10 +139,21 @@
     height: auto;
     opacity: 0;
   }
+
+  .sc-carousel__carousel-container {
+    height: 24rem;
+    width: 100%;
+  }
 </style>
 
+<svelte:head >
+  <title>{thisPage ? `COMOMAYA - ${thisPage.title}` : "COMOMAYA - Loading..."}</title>
+</svelte:head>
+
+<svelte:window on:load={onLoad} on:resize={handleResize} />
+
 <main class="leading-relaxed min-h-screen py-32 bg-beige z-0 relative mx-10">
-  <section class="flex flex-col md:justify-start md:flex-row justify-center">
+  <section class="flex flex-col md:justify-start md:flex-row justify-center first">
     {#await res}
       <h1 transition:fade>Loading...</h1>
     {:then portfolios}
@@ -198,23 +203,27 @@
   {#await featured}
     <p>Loading...</p>
   {:then works}
-    <div class="siema h-96 w-full">
+    <!-- <div class="siema h-96 w-full"> -->
+    {#if browser}
+      <svelte:component this={Carousel} particlesToShow={count} particlesToScroll={Math.max(count, 1)}>
       {#each works.objects[0].metadata.featured as work}
-      <a href="/portfolio/{work.slug}">
-        <div class="overflow-hidden h-96 w-full bg-cover" style="background-image: url({work.thumbnail})">
-            <p class="absolute z-20 text-white bottom-5 left-10 text-2xl">{work.title}</p>
-            <div class="h-full w-full bg-gradient-to-t from-black via-transparent" />
-        </div>
-      </a>
-      {/each}
-    </div>
-    <div class="mx-auto w-min mt-10 flex">
+        <a href="/portfolio/{work.slug}">
+          <div class="overflow-hidden h-96 w-full bg-cover" style="background-image: url({work.thumbnail})">
+              <p class="absolute z-20 text-white bottom-5 left-10 text-2xl">{work.title}</p>
+              <div class="h-full w-full bg-gradient-to-t from-black via-transparent" />
+          </div>
+        </a>
+        {/each}
+    <!-- </div> -->
+      </svelte:component>
+    {/if}
+    <!-- <div class="mx-auto w-min mt-10 flex">
       {#each Array(carouselCount) as _, i}
         <svg height="20" width="20" on:click={(i) => handleCarousel(i)} on:keypress={(i) => handleCarousel(i)}>
-          <circle cx="10" cy="10" r="5" fill={siema && siema.currentSlide === i ? "#982eff" : "gray"} />
+          <circle cx="10" cy="10" r="5" />
         </svg>
       {/each}
-    </div>
+    </div> -->
     {:catch error}
       <span>
         <h1>Something weird is happening.</h1>

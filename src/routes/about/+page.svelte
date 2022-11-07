@@ -130,6 +130,9 @@ onMount(() => {
   }
 </style>
 
+<svelte:head>
+  <title>COMOMAYA - About Us</title>
+</svelte:head>
 
 <main class="relative bg-black mx-auto flex flex-col justify-center pt-10 md:pt-20">
   <section class="flex flex-col justify-center min-h-screen py-10 md:mx-40">

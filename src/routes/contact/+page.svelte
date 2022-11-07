@@ -33,6 +33,10 @@
   }
 </style>
 
+<svelte:head>
+  <title>COMOMAYA - Contact Us</title>
+</svelte:head>
+
 <main class="bg-black mx-auto flex flex-col justify-center pt-10 md:pt-20">
   <section class="flex flex-col mx-auto justify-center min-h-screen py-10">
     <h2 class="text-active mx-5 md:mx-0 font-semibold tracking-widest mb-3">CONTACT US</h2>
