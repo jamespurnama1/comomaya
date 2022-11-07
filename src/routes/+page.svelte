@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min';
 	import Fa from 'svelte-fa/src/fa.svelte';
@@ -84,6 +84,10 @@
 			})
 		}
 	});
+
+	onDestroy(() => {
+		// gsap.killTweensOf(".projectList, .bg");
+	})
 </script>
 
 <style>
@@ -107,9 +111,9 @@
 	{:then portfolios}
 		<ul in:fade class="portfoliosList flex flex-col justify-center m-auto text-center group z-0">
 			{#each portfolios.objects[0].metadata.featured as portfolio, i}
-				<li on:mouseover={() => handleHover(i)} on:focus={() => handleHover(i)} class="projectList py-52 md:py-24">
+				<li class="projectList py-52 md:py-24">
 					<a href="/portfolio/{portfolio.slug}" class="transition-all group-hover:opacity-50 hover:!opacity-100">
-						<h2 class="listChildren text-5xl font-semibold text-white md:text-9xl">{portfolio.title}</h2>
+						<h2 class="listChildren text-5xl font-bold text-white md:text-9xl">{portfolio.title}</h2>
 					</a>
 				</li>
 			{/each}

@@ -41,14 +41,18 @@
   <section class="flex flex-col mx-auto justify-center min-h-screen py-10">
     <h2 class="text-active mx-5 md:mx-0 font-semibold tracking-widest mb-3">CONTACT US</h2>
     <h1 class="split mx-5 md:mx-0 max-w-4xl text-white text-4xl md:text-9xl font-semibold overflow-hidden">
-      <span>Hey!</span><span>Let's</span><span>Kickstart</span>
-      <span><br />Your</span><span>New</span><span>Project...</span></h1>
+      <span>Let's</span><span>kickstart</span>
+      <span>your</span><span>new</span><span>project...</span>
+    </h1>
   </section>
   <section class="md:py-52 py-32 md:mx-52 flex md:flex-row mx-10 flex-col">
       <span class="mr-5 md:w-1/3">
         <p class="text-active font-semibold tracking-widest mb-3">GIVE US A CALL</p>
-        <a href="tel:+14129342300"><p class="text-white font-semibold mb-5">+141-293-423-00</p></a>
+        <a href="tel:+6594245994"><p class="text-white font-semibold mb-5">+65 9424 5994</p></a>
+        <p class="text-active font-semibold tracking-widest mb-3">WRITE TO US</p>
+        <a href="mailto:ridhisain@comomaya.com"><p class="text-white font-semibold mb-5">ridhisain@comomaya.com</p></a>
       </span>
+      
       <form action="https://formspree.io/f/xqkjgbng" method="POST" class="flex flex-wrap md:w-2/3 content-start">
           <span class="flex w-full">
             <input class="bg-black text-white placeholder-white border-white border-b mb-5 mr-5 w-1/2 focus:outline-none h-12" type="text" name="name" placeholder="Name">
