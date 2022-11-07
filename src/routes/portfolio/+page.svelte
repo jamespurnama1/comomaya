@@ -87,6 +87,7 @@
 			<link rel="preload" as="image" href={portfolio.thumbnail} />
 		{/each}
 	{/await}
+  <title>COMOMAYA - Portfolio</title>
 </svelte:head>
 
 <img src={imgSrc} alt={imgAlt} class="imgP fixed max-w-[10rem] md:max-w-md h-auto top-0 left-0 opacity-0 z-10 pointer-events-none" />
