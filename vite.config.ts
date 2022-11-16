@@ -1,11 +1,16 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
+/// <reference types="vite-ssg" />
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import Pages from 'vite-plugin-pages'
 
-const config: UserConfig = {
-	plugins: [sveltekit()],
-	optimizeDeps: {
-		include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep']
-	},
-};
-
-export default config;
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue(), Pages()],
+  ssgOptions: {
+    crittersOptions: {
+      // E.g., change the preload strategy
+      preload: "media",
+      // Other options: https://github.com/GoogleChromeLabs/critters#usage
+    },
+  },
+})

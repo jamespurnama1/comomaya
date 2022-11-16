@@ -1,48 +1,36 @@
 {
-	"name": "comomaya",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev --host",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/adapter-static": "^1.0.0-next.46",
-		"@sveltejs/kit": "next",
-		"@types/siema": "^1.4.8",
-		"@typescript-eslint/eslint-plugin": "^5.27.0",
-		"@typescript-eslint/parser": "^5.27.0",
-		"autoprefixer": "^10.4.7",
-		"dotenv": "^16.0.3",
-		"eslint": "^8.16.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-svelte3": "^4.0.0",
-		"postcss": "^8.4.14",
-		"postcss-load-config": "^4.0.1",
-		"prettier": "^2.6.2",
-		"prettier-plugin-svelte": "^2.7.0",
-		"sass": "^1.53.0",
-		"svelte": "^3.44.0",
-		"svelte-carousel": "^1.0.20",
-		"svelte-check": "^2.7.1",
-		"svelte-preprocess": "^4.10.7",
-		"tailwindcss": "^3.1.5",
-		"tslib": "^2.3.1",
-		"typescript": "^4.7.4",
-		"vite": "^3.1.0"
-	},
-	"type": "module",
-	"dependencies": {
-		"@fortawesome/free-brands-svg-icons": "^6.2.0",
-		"@fortawesome/free-solid-svg-icons": "^6.2.0",
-		"gsap": "^3.11.3",
-		"siema": "^1.5.1",
-		"svelte-fa": "^3.0.3"
-	}
+  "name": "comomaya",
+  "private": true,
+  "version": "0.0.2",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite-ssg build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-brands-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/vue-fontawesome": "^3.0.2",
+    "gsap": "^3.11.3",
+    "pinia": "^2.0.23",
+    "swiper": "^8.4.4",
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.2.0",
+    "@vueuse/head": "^0.9.8",
+    "autoprefixer": "^10.4.13",
+    "critters": "^0.0.16",
+    "postcss": "^8.4.19",
+    "sass": "^1.56.1",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vite-plugin-pages": "^0.27.1",
+    "vite-ssg": "^0.21.2",
+    "vue-router": "^4.1.6",
+    "vue-tsc": "^1.0.9"
+  }
 }
