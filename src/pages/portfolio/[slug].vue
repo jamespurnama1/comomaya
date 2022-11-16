@@ -22,16 +22,16 @@
   import { useStore } from '../../stores'
 
   interface Content {
-    title: string;
-    slug: string;
-    content: string
-    metadata: {
-      description: string;
-      client: string;
-      industry: string;
-      our_services: string;
-    };
-  }
+      title: string;
+      slug: string;
+      content: string
+      metadata: {
+        description: string;
+        client: string;
+        industry: string;
+        our_services: string;
+      }
+    }
 
   useHead({
     title: 'COMOMAYA - Portfolio',
@@ -46,17 +46,17 @@
   const store = useStore()
   const route = useRoute()
   let contentID: number;
-  let thisPage: Content = reactive({ content: {}});
+  let thisPage: {content: Content} | {} = reactive({});
   const modules = [Pagination]
 
   store.load()
 
  	async function load() {
 		const res = await fetch('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata');
-		const landing = await res.json();
+		const landing: {objects: Content[]} = await res.json();
 		if(res.ok) {
-      contentID = landing.objects.map(x => x.slug).indexOf(route.params.slug);
-      thisPage.content = landing.objects[contentID];
+      contentID = landing.objects.map(x => x.slug).indexOf(route.params.slug as string);
+      (thisPage as {content: Content}).content = landing.objects[contentID];
       return landing;
     }
 
@@ -124,9 +124,7 @@
   onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
     handleResize();
-
-    watch(() => thisPage.content, (x) => {
-      console.log(thisPage.content.content, x)
+    watch(() => thisPage, (x) => {
       if (!x) return
       loadContent()
     })
@@ -139,7 +137,7 @@
 
 <template>
   <main class="leading-relaxed min-h-screen py-32 bg-beige z-0 relative mx-10">
-    <transition-group tag="section" v-if="thisPage && Object.keys(thisPage.content).length" class="flex flex-col md:justify-start md:flex-row justify-center first">
+    <transition-group tag="section" v-if="'content' in thisPage && Object.keys(thisPage.content).length" class="flex flex-col md:justify-start md:flex-row justify-center first">
         <div
           key="content"
           v-html="thisPage.content.content"

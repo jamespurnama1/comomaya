@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useStore = defineStore('store', {
   state: () => {
     return {
-      featured: [],
+      featured: [] as Featured[],
       fetched: false
     }
   },
