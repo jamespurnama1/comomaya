@@ -1,26 +1,10 @@
 <script setup lang="ts">
   import { onMounted, onBeforeUnmount, watch } from 'vue'
   import { gsap } from 'gsap'
-  import { ScrollTrigger } from "gsap/ScrollTrigger"
-  import { HeadObject, HeadTag, useHead, UseHeadInput, VueUseHeadSchema } from '@vueuse/head'
+  import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+  import { useHead } from '@vueuse/head'
 	import { useStore } from '../stores'
-import { Link, LinkRelTypes } from '@zhead/schema'
-
-	// async function load(): Promise<Landing | {status: number}> {
-	// 	// if(Object.keys($data).length) return $data
-	// 	const res = await fetch('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?query=%7B%22type%22%3A%22landing%22%2C%22slug%22%3A%22home%22%7D&pretty=true&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&props=metadata');
-	// 	const landing: Landing = await res.json();
-	// 	if(res.ok) {
-	// 		// data.set(landing)
-	// 		return landing;
-	// 	}
-
-	// 	return {
-	// 		status: res.status,
-	// 		// error: new Error(res.status.toString())
-	// 	}
-	// }
-
+  
 	const store = useStore()
 
 	store.load()

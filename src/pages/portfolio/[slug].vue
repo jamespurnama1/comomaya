@@ -17,7 +17,7 @@
 	import { onBeforeUnmount, onMounted, watch } from 'vue'
   import { useRoute } from 'vue-router'
 	import { gsap } from "gsap"
-  import { ScrollTrigger } from "gsap/ScrollTrigger"
+  import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
   import { useHead } from '@vueuse/head'
   import { useStore } from '../../stores'
 
