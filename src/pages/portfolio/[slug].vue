@@ -1,5 +1,6 @@
 <script lang="ts">
   import { reactive } from 'vue'
+  import axios, { AxiosResponse } from 'axios'
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import { Pagination } from "swiper"
   import 'swiper/scss'
@@ -52,33 +53,16 @@
   store.load()
 
  	async function load() {
-		const res = await fetch('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata');
-		const landing: {objects: Content[]} = await res.json();
-		if(res.ok) {
-      contentID = landing.objects.map(x => x.slug).indexOf(route.params.slug as string);
-      (thisPage as {content: Content}).content = landing.objects[contentID];
-      return landing;
-    }
-
-		return {
-			status: res.status,
-			// error: new Error(res.status.toString())
-		}
+    axios.get('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata')
+    .then((res: AxiosResponse<{objects: Content[]}>) => {
+      contentID = res.data.objects.map(x => x.slug).indexOf(route.params.slug as string);
+      (thisPage as {content: Content}).content = res.data.objects[contentID];
+      return res.data;
+    }).catch((err) => {
+      console.error(err)
+      return err
+    })
 	}
-
-
-	// async function load() {
-	// 	const res2 = await fetch('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?query=%7B%22type%22%3A%22landing%22%2C%22slug%22%3A%22home%22%7D&pretty=true&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&props=metadata');
-	// 	const works = await res2.json();
-	// 	if(res2.ok) {
-	// 		return works;
-	// 	}
-
-	// 	return {
-	// 		status: res2.status,
-	// 		// error: new Error(res.status.toString())
-	// 	}
-	// }
 
   function handleResize() {
     ScrollTrigger.refresh();
