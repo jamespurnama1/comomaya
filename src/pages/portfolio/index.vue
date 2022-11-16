@@ -82,7 +82,7 @@
     }
   })
 
-  const link = res.list.map(x => ({
+  const link: any = res.list.map(x => ({
     rel: 'preload',
     as: 'image',
     href: x.thumbnail.toString()

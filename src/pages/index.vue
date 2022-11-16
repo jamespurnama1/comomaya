@@ -2,8 +2,9 @@
   import { onMounted, onBeforeUnmount, watch } from 'vue'
   import { gsap } from 'gsap'
   import { ScrollTrigger } from "gsap/ScrollTrigger"
-  import { useHead } from '@vueuse/head'
+  import { HeadObject, HeadTag, useHead, UseHeadInput, VueUseHeadSchema } from '@vueuse/head'
 	import { useStore } from '../stores'
+import { Link, LinkRelTypes } from '@zhead/schema'
 
 	// async function load(): Promise<Landing | {status: number}> {
 	// 	// if(Object.keys($data).length) return $data
@@ -25,7 +26,7 @@
 	store.load()
 
 	const	bgImages = await store.getFeatured.map(x => x.thumbnail);
-  const link = bgImages.map(x => ({
+  const link: any = bgImages.map(x => ({
     rel: 'preload',
     as: 'image',
     href: x.toString()
