@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { onUpdated, ref, reactive, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
+import { useStore } from './stores'
+
+const store = useStore()
 
 useHead({
   title: 'COMOMAYA - Branding | Design | Digital | Social Media',
@@ -12,7 +15,6 @@ useHead({
   ],
 })
 
-  const innerWidth = ref(0);
   const scrollY = ref(0);
   const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full bg-beige transition ease transform duration-300`;
   const linkSelected = ref(false);
@@ -26,13 +28,13 @@ useHead({
   let hoverables: NodeListOf<HTMLAnchorElement> | null = null
 
   onMounted(() => {
-    innerWidth.value = window.innerWidth
+    store.width = window.innerWidth
 
-    document.addEventListener('resize', () => {
-      innerWidth.value = window.innerWidth
+    window.addEventListener('resize', () => {
+      store.width = window.innerWidth
     })
 
-    document.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => {
       scrollY.value = window.scrollY
     })
 
@@ -90,7 +92,7 @@ useHead({
 
 <template>
   <div class="cursor origin-center pointer-events-none z-50 fixed mix-blend-difference w-6 h-6 -top-3 -left-3 rounded-3xl bg-white opacity-0 transition-transform ease-out"
-    :class="[innerWidth < 570 ? '!opacity-0' : '']"
+    :class="[store.getWidth < 768 ? '!opacity-0' : '']"
   />
 
   <nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 origin-top-left"

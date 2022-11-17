@@ -4,10 +4,9 @@
   import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
   import { useHead } from '@vueuse/head'
 	import { useStore } from '../stores'
+	import { computed } from '@vue/reactivity'
   
 	const store = useStore()
-
-	store.load()
 
 	const	bgImages = await store.getFeatured.map(x => x.thumbnail);
   const link: any = bgImages.map(x => ({
@@ -54,20 +53,32 @@
 		})
 	}
 
+	store.$onAction(
+	({
+		after, // hook after the action returns or resolves
+		onError, // hook if the action throws or rejects
+	}) => {
+		after(() => {
+			console.log('1')
+			loadContent()
+		})
+		onError((error) => {
+			console.error(error)
+		})
+	})
+
 	onMounted(() => {
 		gsap.registerPlugin(ScrollTrigger);
-
-		watch(() => store.isFetched, (x) => {
-      if (!x) return
-      loadContent()
-    })
+		store.load()
 	});
 
 	onBeforeUnmount(() => {
-		if (imageFade) imageFade.kill()
 		if (!ScrollTrigger.getById("main")) return
 		ScrollTrigger.getById("main")!.kill()
 	})
+
+	const reversed = computed(() => store.getFeatured.reverse())
+	const thumbnailReversed = computed(() => store.getFeatured.map(x => x.thumbnail).slice().reverse())
 </script>
 
 <template>
@@ -83,8 +94,8 @@
       </ul>
 			<img	
 				:src="image.toString()"
-				:alt="store.getFeatured.reverse()[i].title" 
-				v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()"
+				:alt="reversed[i].title" 
+				v-for="(image, i) in thumbnailReversed"
 				class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0"
 				:style="`z-index: ${-i-5}`"
 			/>

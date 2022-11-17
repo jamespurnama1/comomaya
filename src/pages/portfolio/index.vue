@@ -2,20 +2,25 @@
   import { useHead } from '@vueuse/head'
   import { gsap } from "gsap";
   import axios, { AxiosResponse } from 'axios'
-  import { onMounted, ref } from 'vue';
+  import { onMounted, ref, reactive, computed } from 'vue'
 
-  async function load(): Promise<Featured[]> {
-    let response: Featured[] = [];
+  const response: {list: Featured[]} = reactive({ list:[] })
+  const link: any = computed(() => {
+    return response.list.map(x => ({
+    rel: 'preload',
+    as: 'image',
+    href: x.thumbnail.toString()
+  }))
+})
+
+  async function load() {
      axios.get('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?query=%7B%22type%22%3A%22portfolio-list%22%2C%22slug%22%3A%22list%22%7D&pretty=true&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&props=metadata')
       .then((res: AxiosResponse<List>) => {
-        response = res.data.objects[0].metadata.list
+        response.list.push(...res.data.objects[0].metadata.list)
       }).catch((err) => {
         console.error(err)
       })
-      return response
 	}
-
-	let res = await load();
 
   const imgSrc = ref("");
   const imgAlt = ref("");
@@ -29,6 +34,7 @@
   }>()
 
   onMounted(() => {
+    load()
     loadContent()
 		
 		async function loadContent() {
@@ -59,8 +65,8 @@
 
       handleHover = (_e: MouseEvent | FocusEvent, i: number) => {
         show.value = true;
-        imgSrc.value = res.map(x => x.thumbnail.toString())[i];
-        imgAlt.value = res.map(x => x.title)[i];
+        imgSrc.value = response.list.map(x => x.thumbnail.toString())[i];
+        imgAlt.value = response.list.map(x => x.title)[i];
         gsap.to(imgEl, {
           opacity: 1,
           duration: 0.3,
@@ -82,12 +88,6 @@
     }
   })
 
-  const link: any = res.map(x => ({
-    rel: 'preload',
-    as: 'image',
-    href: x.thumbnail.toString()
-  }))
-
   useHead({
     title: 'COMOMAYA - Portfolio',
     meta: [
@@ -104,7 +104,7 @@
   <main class="min-h-screen flex justify-center py-32 bg-beige z-0 relative mx-10 md:mx-28 md:justify-start">
     <img :src="imgSrc" :alt="imgAlt" class="imgP fixed max-w-[10rem] md:max-w-md h-auto top-0 left-0 opacity-0 z-20 pointer-events-none" />
     <ul class="grid z-10">
-        <li v-for="(portfolio, i) in res">
+        <li v-for="(portfolio, i) in response.list">
           <a :href="`/portfolio/${portfolio.slug}`" @click.prevent="(e) => handleClick(e, i)">
             <div class="flex py-3 md:py-10 flex-wrap" @focus="(e) => handleHover(e, i)" @mouseenter="(e) => handleHover(e, i)" @onfocusout="handleOut" @mouseleave="() => handleOut()">
               <h2 class="text-4xl md:text-7xl whitespace-nowrap font-semibold">{{portfolio.title}}</h2>
