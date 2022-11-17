@@ -57,7 +57,7 @@
     .then((res: AxiosResponse<{objects: Content[]}>) => {
       contentID = res.data.objects.map(x => x.slug).indexOf(route.params.slug as string);
       (thisPage as {content: Content}).content = res.data.objects[contentID];
-      return res.data;
+      loadContent()
     }).catch((err) => {
       console.error(err)
       return err
@@ -68,10 +68,6 @@
     ScrollTrigger.refresh();
   }
 
-	// Data
-	// let res = load();
-  let featured = load();
-
   async function loadContent() {
 
     await new Promise(resolve => setTimeout(resolve, 500));
@@ -79,20 +75,23 @@
     const mm = gsap.matchMedia();
     
     mm.add("(min-width: 768px)", () => {
-      gsap.set('.content *:not(:first-child)', {
-        y: "300px",
-        autoAlpha: 0,
-      });
       gsap.to('.content', {
         scrollTrigger: {
           id: "pin",
           trigger: '.info',
+          endTrigger: ".endTrigger",
           pin: true,
           start: "top 50vh",
-          end: "bottom bottom",
+          end: "top bottom",
+          pinSpacing: false,
         }
       })
     })
+
+    gsap.set('.content *:not(:first-child)', {
+      y: "300px",
+      autoAlpha: 0,
+    });
 
     ScrollTrigger.batch('.content *', {
       start: "top 70%",
@@ -106,16 +105,14 @@
   }
   
   onMounted(() => {
+    load()
     gsap.registerPlugin(ScrollTrigger);
     handleResize();
-    watch(() => thisPage, (x) => {
-      if (!x) return
-      loadContent()
-    })
   })
 
   onBeforeUnmount(() => {
-    if (ScrollTrigger.getById("pin")) ScrollTrigger.getById("pin")!.kill()
+    // if (ScrollTrigger.getById("pin")) ScrollTrigger.getById("pin")!.kill()
+    ScrollTrigger.killAll( )
   })
 </script>
 
@@ -127,7 +124,7 @@
           v-html="thisPage.content.content"
           class="content flex flex-col items-center -mt-10 md:mt-0 md:w-2/3 md:pr-20"
         />
-        <div key="info" class="info md:w-1/3">
+        <div key="info" class="info md:w-1/3 h-min">
           <h1 class="text-3xl font-medium md:mt-4 mt-20 mb-5">{{thisPage.content.title}}</h1>
           <p>{{thisPage.content.metadata.description}}</p>
           <hr class="my-5 border-gray" />
@@ -166,7 +163,7 @@
           </span>
         </div>
     </transition-group>
-    <h2 class="text-3xl text-center font-medium mt-20 mb-3">Selected Works</h2>
+    <h2 class="endTrigger text-3xl text-center font-medium mt-20 mb-3">Selected Works</h2>
     <hr class="my-5 border-active border-2 mx-auto w-1/4" />
     <swiper
       v-if="store.isFetched"
@@ -175,7 +172,7 @@
         clickable: true
       }"
       :modules="modules"
-      :slides-per-view="3"
+      :slides-per-view="store.getWidth > 768 ? 3 : 1"
       :space-between="10"
     >
       <swiper-slide tag="a" v-for="work in store.getFeatured" :href="`/portfolio/${work.slug}`">
@@ -207,5 +204,10 @@
 
   .swiper-pagination-bullet-active {
 	  background-color: theme('colors.active');
+  }
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: initial;
+    left: initial;
   }
 </style>
