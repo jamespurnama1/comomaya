@@ -18,37 +18,37 @@ const posts = [
   {
     title: '',
     sub: '<strong>Why</strong><span> </span>us?',
-    content: "<strong>COMOMAYA</strong> exists in order to make international standards of branding & design more accessible to new and upcoming brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the best international talent there is, but without the exhorbitant price tag that comes with hiring a top global agency. To empower business owners & entrepreneurs with powerful brands that tell a story. To express them through great design that makes heads turn. To energise brands. And to add some magic.",
+    content: "<strong>COMOMAYA</strong> exists in order to make international standards of branding & design more accessible to new and upcoming brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the best international talent there is, but without the exhorbitant price tag that comes with hiring a top global agency. To empower business owners & entrepreneurs with powerful brands that tell a story. To express them through great design that makes heads turn. To energise brands. And to add some&nbsp;magic.",
     img: "/assets/aboutus.mp4"
   },
   {
     title: '',
     sub: '<strong>How</strong><span> </span>do<span> </span>we<span> </span>do<span> </span>it?',
-    content: "Let’s get this straight - what we are is value for money. What we are not is cheap. We have cherry picked some of best talent in the industry and across the globe. We keep things simple. We cut out the extra frills and layers of complexity that exist in large global agencies, and get straight to the point. We work in a fluid and organic way by engaging the right talent for the right job and don’t have unnecessary studio overheads. We almost always nail the creative work in the first stage, making it a seamless process right from the start.",
+    content: "Let’s get this straight - what we are is value for money. What we are not is cheap. We have cherry picked some of best talent in the industry and across the globe. We keep things simple. We cut out the extra frills and layers of complexity that exist in large global agencies, and get straight to the point. We work in a fluid and organic way by engaging the right talent for the right job and don’t have unnecessary studio overheads. We almost always nail the creative work in the first stage, making it a seamless process right from the&nbsp;start.",
     img: "/assets/how-we-do-it.jpg"
   },
   {
     title: '',
     sub: '<strong>What</strong> we<span> </span>offer',
-    content: "We build global brands and boutique & startup brands. We have a vibrant portfolio of clients ranging from FMCG to B2B and from corporate to boutique & luxury brands spread across various categories. We are multidisciplinary and provide holistic services for your brand woven together from day one.",
+    content: "We build global brands and boutique & startup brands. We have a vibrant portfolio of clients ranging from FMCG to B2B and from corporate to boutique & luxury brands spread across various categories. We are multidisciplinary and provide holistic services for your brand woven together from day&nbsp;one.",
     img: "/assets/220212_Bobba_04_Website_Mobile.jpg"
   },
   {
     title: 'Ridhi Sain',
     sub: '<strong>Owner</strong> & Director',
-    content: "Ridhi is an award-winning brand, identity & packaging designer, and founder of <strong>COMOMAYA</strong>. With a career spanning almost 20 years in the UK, Singapore & India, Ridhi is ex-Assoc Creative Director and Design Director of international agencies such as Coley Porter Bell (WPP Group), Pi Global, Holmes & Marchant and Cowan and has led and helped strategise, conceptualise & direct the creative work on many global brands. She has led the redesign of multiple bluechip brands including Unilever  in markets across the world and won design awards for her work on Comfort, Pernod Ricard and Johnsons Baby. More recently, she has worked with smaller boutique clients ranging from corporate to digital start ups and luxury brands, hand-holding them through their creative journey and helping them bring to life their vision.",
+    content: "Ridhi is an award-winning brand, identity & packaging designer, and founder of <strong>COMOMAYA</strong>. With a career spanning almost 20 years in the UK, Singapore & India, Ridhi is ex-Assoc Creative Director and Design Director of international agencies such as Coley Porter Bell (WPP Group), Pi Global, Holmes & Marchant and Cowan and has led and helped strategise, conceptualise & direct the creative work on many global brands. She has led the redesign of multiple bluechip brands including Unilever  in markets across the world and won design awards for her work on Comfort, Pernod Ricard and Johnsons Baby. More recently, she has worked with smaller boutique clients ranging from corporate to digital start ups and luxury brands, hand-holding them through their creative journey and helping them bring to life their&nbsp;vision.",
     img: "/assets/Ridhi.jpg"
   },
   {
     title: '',
     sub: '<strong>The</strong> Squad',
-    content: "We have cherry picked some of best talent in the industry and across the globe as our project partners depending on the project, budget and skillset required.",
+    content: "We have cherry picked some of best talent in the industry and across the globe as our project partners depending on the project, budget and skillset&nbsp;required.",
     img: "/assets/220212_Bobba_04_Website_Mobile.jpg"
   },
   {
     title: '',
     sub: "We are RMC certified",
-    content: "Lorem Ipsum",
+    content: "Lorem&nbsp;Ipsum",
     img: "/assets/220212_Bobba_04_Website_Mobile.jpg",
   }
 ];
@@ -180,7 +180,7 @@ onMounted(() => {
     <section class="flex flex-col justify-center p-10 py-20 md:py-52 md:p-52">
       <h4 class="text-white text-4xl md:text-8xl font-semibold text-center mb-10">Brands</h4>
       <p class="text-white text-center mb-10 md:mb-20">
-        Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition organically grow the holistic world view of innovation.
+        Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition organically grow the holistic world view of&nbsp;innovation.
       </p>
       <div class="grid grid-rows-3 md:grid-rows-2 gap-3 md:gap-10 grid-flow-col-dense">
         <img v-for="i in 12" class="md:w-52 h-auto" src="/assets/220212_Bobba_04_Website_Mobile.jpg" alt="">

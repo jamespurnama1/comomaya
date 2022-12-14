@@ -59,7 +59,6 @@
 		onError, // hook if the action throws or rejects
 	}) => {
 		after(() => {
-			console.log('1')
 			loadContent()
 		})
 		onError((error) => {
