@@ -71,7 +71,6 @@
   async function loadContent() {
 
     await new Promise(resolve => setTimeout(resolve, 500));
-    console.log(document.querySelectorAll('.content img').length)
     const mm = gsap.matchMedia();
     
     mm.add("(min-width: 768px)", () => {
