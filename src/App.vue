@@ -97,38 +97,12 @@ useHead({
 
   <nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 origin-top-left"
   :class="[((scrollY > 50) && $route.path !== '/')  || $route.path !== '/' ? 'bg-opacity-100' : '']">
-    <a href="/">
+    <a href="https://www.comomaya.com">
       <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA"
         class="logo transition-all duration-700 h-9 img-responsive origin-top-left"
         :class="[opened || ((scrollY > 50) && $route.path !== '/') || $route.path !== '/' ? 'brightness-0' : '']"
       />
     </a>
-    <button
-      class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
-      @click="handleNav"
-      @keydown="handleNav"
-    >
-      <div
-        :class="[
-          (opened ? 'rotate-45 translate-y-1.5 opacity-100 !bg-black' : 'opacity-100'),
-          genericHamburgerLine,
-          (((scrollY > 50) && $route.path !== '/')  || $route.path !== '/' ? 'bg-black' : '')
-        ]"
-      />
-      <div :class="[
-        (opened ? 'opacity-0 !bg-black' : 'opacity-100'),
-        genericHamburgerLine,
-        (((scrollY > 50) && $route.path !== '/')  || $route.path !== '/' ? 'bg-black' : '')
-        ]"
-      />
-      <div
-        :class="[
-          (opened ? '-rotate-45 -translate-y-1.5 opacity-100 !bg-black' : 'opacity-100'),
-          genericHamburgerLine,
-          (((scrollY > 50) && $route.path !== '/')  || $route.path !== '/' ? 'bg-black' : '')
-        ]"
-      />
-    </button>
   </nav>
 
   <transition name="fly">
