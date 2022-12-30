@@ -78,7 +78,6 @@
           pinType: 'fixed',
           start: "-50px 50vh",
           end: "bottom bottom",
-          markers: true
         }
       })
     })
