@@ -48,7 +48,6 @@
       let clicked: number | null = null;
 
       handleClick = (e: Event, i: number) => {
-        console.log(e.currentTarget, (e.currentTarget as HTMLAnchorElement).getAttribute("href"))
         if (window.innerWidth > 768 || clicked === i) {
           e.target ? window.location.href = (e.currentTarget as HTMLAnchorElement).getAttribute("href")! : null;
         } else {
