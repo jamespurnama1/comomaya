@@ -62,7 +62,7 @@ onMounted(() => {
       <!--- RIDHI --->
 
       <section class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 md:my-24 bg-black md:flex-row-reverse">
-        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-52">
+        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
           <span class="relative my-10 md:mb-3 flex items-center">
             <h3 class="text-active text-2xl font-semibold tracking-widest text-left">
               RIDHI&nbsp;SAIN
@@ -85,7 +85,7 @@ onMounted(() => {
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
-          <img class="w-full h-full object-cover"
+          <img class="w-full h-full object-contain"
             srcset="/assets/Ridhi_1.jpg 2x, /assets/Ridhi.jpg 4x"
             sizes="(max-width: 768px) 2x, 4x"
             src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
@@ -120,7 +120,7 @@ onMounted(() => {
       <!--- WHAT WE OFFER --->
       
       <section class="bg-black md:flex-row-reverse relative flex flex-col-reverse justify-center md:min-h-[65vh] my-12 md:my-24">
-        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-52">
+        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
           <h2 class="drama my-5 mb-1 md:mb-5 text-4xl md:text-7xl overflow-hidden text-left text-beige">
             <strong>What</strong> we offer
           </h2>
@@ -149,7 +149,7 @@ onMounted(() => {
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <img class="w-full h-full object-contain" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
+          <img class="w-full h-full object-cover" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
         </div>
       </section>
     </div>
@@ -164,7 +164,7 @@ onMounted(() => {
     </section> -->
     <section class="flex flex-col items-center justify-center p-20 md:px-72 md:p-72 bg-beige">
       <h3 class="text-active text-xl font-semibold tracking-widest mb-5">START A PROJECT</h3>
-      <h2 class="font-semibold p-2 mb-5 text-4xl text-center md:text-left md:text-5xl overflow-hidden">Ready to rock together?!</h2>
+      <h2 class="font-semibold p-2 mb-5 text-4xl text-center md:text-5xl overflow-hidden">Ready to rock together?!</h2>
       <button class="relative z-0 my-16 w-fit bg-black text-beige py-3 px-5 hover:bg-beige hover:outline hover:text-black outline-black">
         <a href="/contact">Contact Us</a>
       </button>
