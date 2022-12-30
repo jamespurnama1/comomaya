@@ -28,7 +28,7 @@ const feedbackList = [
 const addCSS = (s: string) => document.head.appendChild(document.createElement("style")).innerHTML = s;
 
 feedbackList.forEach(x => {
-	addCSS(`.rating-${x}>input:checked~label, .rating-${x}:not(:checked)>label:hover, .rating-${x}:not(:checked)>label:hover~label {
+	addCSS(`.rating-${x}>input.input${x}:checked~label.${x}, .rating-${x}:not(:checked)>label.${x}:hover, .rating-${x}:not(:checked)>label.${x}:hover~label.${x} {
 		color: #FFD700;
 	}`);
 })
@@ -47,7 +47,7 @@ useHead({
 
 <template>
 	<main class="bg-black mx-auto flex flex-col justify-center pt-10 md:pt-20">
-		<section class="flex flex-col mx-auto justify-center min-h-screen py-10">
+		<section class="flex flex-col mx-auto justify-center min-h-[40vh] pt-10">
 			<h2 class="text-active mx-5 md:mx-0 font-semibold tracking-widest mb-3">FEEDBACK</h2>
 			<h1 class="split mx-5 md:mx-0 max-w-4xl text-white text-4xl md:text-9xl font-semibold overflow-hidden">
 				<span>Tell</span><span>us</span>
@@ -57,39 +57,43 @@ useHead({
 		<section class="md:py-52 py-32 md:mx-52 flex md:flex-row mx-10 flex-col">
 			<span class="mr-5 md:w-1/3">
 				<p class="text-active font-semibold tracking-widest mb-3">GIVE US A CALL</p>
-				<a href="tel:+6594245994">
+				<a class="z-10" href="tel:+6594245994">
+					<p class="text-white font-semibold mb-5">+65 9424 5994</p>
+				</a>
+				<p class="text-active font-semibold tracking-widest mb-3">WHATSAPP US</p>
+				<a class="z-10" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
 					<p class="text-white font-semibold mb-5">+65 9424 5994</p>
 				</a>
 				<p class="text-active font-semibold tracking-widest mb-3">WRITE TO US</p>
-				<a href="mailto:ridhisain@comomaya.com">
+				<a class="z-10" href="mailto:ridhisain@comomaya.com">
 					<p class="text-white font-semibold mb-5">ridhisain@comomaya.com</p>
 				</a>
 			</span>
 
 			<form action="https://formspree.io/f/mknawlge" method="POST" class="flex flex-wrap md:w-2/3 content-start">
 				<div class="relative flex flex-col justify-start mr-10 mb-3 w-full" v-for="types in feedbackList">
-					<p class="text-active mx-5 md:mx-0 font-semibold tracking-widest">{{ types.toUpperCase() }}</p>
+					<p class="text-active mr-5 md:mx-0 font-semibold tracking-widest">{{ types.toUpperCase() }}</p>
 					<fieldset :class="`rating-${types}`">
-						<input type="radio" id="star5" :name="`${types}_rating`" value="5" />
-						<label class="full" for="star5" title="Awesome - 5 stars" />
-						<input type="radio" id="star4half" :name="`${types}_rating`" value="4 and a half" />
-						<label class="half" for="star4half" title="Pretty good - 4.5 stars" />
-						<input type="radio" id="star4" :name="`${types}_rating`" value="4" />
-						<label class="full" for="star4" title="Pretty good - 4 stars" />
-						<input type="radio" id="star3half" :name="`${types}_rating`" value="3 and a half" />
-						<label class="half" for="star3half" title="Meh - 3.5 stars" />
-						<input type="radio" id="star3" :name="`${types}_rating`" value="3" />
-						<label class="full" for="star3" title="Meh - 3 stars" />
-						<input type="radio" id="star2half" :name="`${types}_rating`" value="2 and a half" />
-						<label class="half" for="star2half" title="Kinda bad - 2.5 stars" />
-						<input type="radio" id="star2" :name="`${types}_rating`" value="2" />
-						<label class="full" for="star2" title="Kinda bad - 2 stars" />
-						<input type="radio" id="star1half" :name="`${types}_rating`" value="1 and a half" />
-						<label class="half" for="star1half" title="Meh - 1.5 stars" />
-						<input type="radio" id="star1" :name="`${types}_rating`" value="1" />
-						<label class="full" for="star1" title="Sucks big time - 1 star" />
-						<input type="radio" id="starhalf" :name="`${types}_rating`" value="half" />
-						<label class="half" for="starhalf" title="Sucks big time - 0.5 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star5${types}`" :name="`${types}_rating`" value="5" />
+						<label class="full" :class="types" :for="`star5${types}`" title="Awesome - 5 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star4half${types}`" :name="`${types}_rating`" value="4 and a half" />
+						<label class="half" :class="types" :for="`star4half`" title="Pretty good - 4.5 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star4${types}`" :name="`${types}_rating`" value="4" />
+						<label class="full" :class="types" :for="`star4${types}`" title="Pretty good - 4 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star3half${types}`" :name="`${types}_rating`" value="3 and a half" />
+						<label class="half" :class="types" :for="`star3half${types}`" title="Meh - 3.5 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star3${types}`" :name="`${types}_rating`" value="3" />
+						<label class="full" :class="types" :for="`star3${types}`" title="Meh - 3 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star2half${types}`" :name="`${types}_rating`" value="2 and a half" />
+						<label class="half" :class="types" :for="`star2half${types}`" title="Kinda bad - 2.5 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star2${types}`" :name="`${types}_rating`" value="2" />
+						<label class="full" :class="types" :for="`star2${types}`" title="Kinda bad - 2 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star1half${types}`" :name="`${types}_rating`" value="1 and a half" />
+						<label class="half" :class="types" :for="`star1half${types}`" title="Meh - 1.5 stars" />
+						<input type="radio" :class="`input${types}`" :id="`star1${types}`" :name="`${types}_rating`" value="1" />
+						<label class="full" :class="types" :for="`star1${types}`" title="Sucks big time - 1 star" />
+						<input type="radio" :class="`input${types}`" :id="`starhalf${types}`" :name="`${types}_rating`" value="half" />
+						<label class="half" :class="types" :for="`starhalf${types}`" title="Sucks big time - 0.5 stars" />
 					</fieldset>
 				</div>
 				<span class="flex w-full">
@@ -165,13 +169,7 @@ fieldset[class^="rating-"] > label {
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
-fieldset[class^="rating-"] > input:checked~label,
-/* show gold star when clicked */
-fieldset[class^="rating-"]:not(:checked) > label:hover,
-/* hover current star */
-fieldset[class^="rating-"]:not(:checked) > label:hover ~ label {
-	color: #FFD700;
-}
+
 
 /* hover previous stars in list */
 

@@ -95,8 +95,7 @@ useHead({
     :class="[store.getWidth < 768 ? '!opacity-0' : '']"
   />
 
-  <nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-beige bg-opacity-0 origin-top-left"
-  :class="[((scrollY > 50) && $route.path !== '/')  || $route.path !== '/' ? 'bg-opacity-100' : '']">
+  <nav class="fixed w-screen top-0 left-0 flex py-7 px-9 justify-between items-center z-30 transition-all bg-black origin-top-left">
     <a href="https://www.comomaya.com">
       <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA"
         class="logo transition-all duration-700 h-9 img-responsive origin-top-left"
@@ -164,7 +163,7 @@ useHead({
 
   <footer class="fixed bottom-0 my-5 ml-10">
     <p class="text-xs mix-blend-difference text-white">
-      © 2022 COMOMAYA. All rights reserved.
+      © 2023 COMOMAYA. All rights reserved.
     </p>
   </footer>
 </template>
