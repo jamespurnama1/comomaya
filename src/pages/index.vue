@@ -1,186 +1,100 @@
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
-import { onMounted } from 'vue'
+import { onMounted, onBeforeUnmount, watch } from 'vue'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useHead } from '@vueuse/head'
+import { useStore } from '../stores'
 
-onMounted(() => {
-	const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
-	if (split) {
-		gsap.to(split, {
-			y: "-0.1em",
-			duration: 0.5,
-			stagger: 0.2,
-		})
-		gsap.to(split, {
-			autoAlpha: 1,
-			stagger: 0.2,
-		})
-	}
-})
+const store = useStore()
 
-const feedbackList = [
-	'communication',
-	'revisions',
-	'punctuality',
-	'output'
-]
+store.load()
 
-const addCSS = (s: string) => document.head.appendChild(document.createElement("style")).innerHTML = s;
-
-feedbackList.forEach(x => {
-	addCSS(`.rating-${x}>input:checked~label, .rating-${x}:not(:checked)>label:hover, .rating-${x}:not(:checked)>label:hover~label {
-		color: #FFD700;
-	}`);
-})
+const bgImages = await store.getFeatured.map(x => x.thumbnail);
+const link = bgImages.map(x => ({
+	rel: 'preload',
+	as: 'image',
+	href: x.toString()
+}))
 
 useHead({
-	title: 'COMOMAYA - Feedback',
-	meta: [
-		{
-			name: 'COMOMAYA',
-			content: 'Feedback',
-		},
-	],
+	link,
 })
 
+let imageFade: GSAPTimeline;
+
+async function loadContent() {
+	await new Promise(resolve => setTimeout(resolve, 500));
+	const skewSetter = gsap.quickSetter(".projectList", "skewY", "deg");
+
+	let proxy = { skew: 0 };
+	const clamp = gsap.utils.clamp(-20, 20);
+	gsap.set(".projectList", { transformOrigin: "right center", force3D: true });
+
+	const allBGs = gsap.utils.toArray(".bg")
+
+	imageFade = gsap.timeline({ defaults: { ease: 'none', stagger: -2 } })
+		.to(allBGs, { autoAlpha: 1, duration: 0.5 })
+		.to({}, { duration: 1 }, 1)
+
+	ScrollTrigger.create({
+		trigger: "main",
+		start: "top top",
+		end: "bottom bottom",
+		id: "main",
+		animation: imageFade,
+		scrub: 0.3,
+		onUpdate: self => {
+			let skew = clamp(self.getVelocity() / -300);
+			// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+			if (Math.abs(skew) > Math.abs(proxy.skew)) {
+				proxy.skew = skew;
+				gsap.to(proxy, { skew: 0, duration: 0.8, ease: "power3", overwrite: true, onUpdate: () => skewSetter(proxy.skew) });
+			}
+		}
+	})
+}
+
+onMounted(() => {
+	gsap.registerPlugin(ScrollTrigger);
+
+	watch(() => store.isFetched, (x) => {
+		if (!x) return
+		loadContent()
+	})
+});
+
+onBeforeUnmount(() => {
+	if (imageFade) imageFade.kill()
+	if (!ScrollTrigger.getById("main")) return
+	ScrollTrigger.getById("main")!.kill()
+})
 </script>
 
 <template>
-	<main class="bg-black mx-auto flex flex-col justify-center pt-10 md:pt-20">
-		<section class="flex flex-col mx-auto justify-center min-h-screen py-10">
-			<h2 class="text-active mx-5 md:mx-0 font-semibold tracking-widest mb-3">FEEDBACK</h2>
-			<h1 class="split mx-5 md:mx-0 max-w-4xl text-white text-4xl md:text-9xl font-semibold overflow-hidden">
-				<span>Tell</span><span>us</span>
-				<span>how</span><span>to</span><span>be</span><span>better...</span>
-			</h1>
-		</section>
-		<section class="md:py-52 py-32 md:mx-52 flex md:flex-row mx-10 flex-col">
-			<span class="mr-5 md:w-1/3">
-				<p class="text-active font-semibold tracking-widest mb-3">GIVE US A CALL</p>
-				<a href="tel:+6594245994">
-					<p class="text-white font-semibold mb-5">+65 9424 5994</p>
+	<main v-if="store.getFeatured.length" class="min-h-screen flex justify-center py-20">
+		<ul class="portfoliosList flex flex-col justify-center m-auto text-center group z-0">
+			<li v-for="(portfolio, i) in store.getFeatured" class="projectList py-52 md:py-24">
+				<a :href="`/portfolio/${portfolio.slug}`" class="transition-all group-hover:opacity-50 hover:!opacity-100">
+					<h2 class="listChildren text-5xl font-bold text-white md:text-9xl">
+						{{ portfolio.title }}
+					</h2>
 				</a>
-				<p class="text-active font-semibold tracking-widest mb-3">WRITE TO US</p>
-				<a href="mailto:ridhisain@comomaya.com">
-					<p class="text-white font-semibold mb-5">ridhisain@comomaya.com</p>
-				</a>
-			</span>
-
-			<form action="https://formspree.io/f/mknawlge" method="POST" class="flex flex-wrap md:w-2/3 content-start">
-				<div class="relative flex flex-col justify-start mr-10 mb-3 w-full" v-for="types in feedbackList">
-					<p class="text-active mx-5 md:mx-0 font-semibold tracking-widest">{{ types.toUpperCase() }}</p>
-					<fieldset :class="`rating-${types}`">
-						<input type="radio" id="star5" :name="`${types}_rating`" value="5" />
-						<label class="full" for="star5" title="Awesome - 5 stars" />
-						<input type="radio" id="star4half" :name="`${types}_rating`" value="4 and a half" />
-						<label class="half" for="star4half" title="Pretty good - 4.5 stars" />
-						<input type="radio" id="star4" :name="`${types}_rating`" value="4" />
-						<label class="full" for="star4" title="Pretty good - 4 stars" />
-						<input type="radio" id="star3half" :name="`${types}_rating`" value="3 and a half" />
-						<label class="half" for="star3half" title="Meh - 3.5 stars" />
-						<input type="radio" id="star3" :name="`${types}_rating`" value="3" />
-						<label class="full" for="star3" title="Meh - 3 stars" />
-						<input type="radio" id="star2half" :name="`${types}_rating`" value="2 and a half" />
-						<label class="half" for="star2half" title="Kinda bad - 2.5 stars" />
-						<input type="radio" id="star2" :name="`${types}_rating`" value="2" />
-						<label class="full" for="star2" title="Kinda bad - 2 stars" />
-						<input type="radio" id="star1half" :name="`${types}_rating`" value="1 and a half" />
-						<label class="half" for="star1half" title="Meh - 1.5 stars" />
-						<input type="radio" id="star1" :name="`${types}_rating`" value="1" />
-						<label class="full" for="star1" title="Sucks big time - 1 star" />
-						<input type="radio" id="starhalf" :name="`${types}_rating`" value="half" />
-						<label class="half" for="starhalf" title="Sucks big time - 0.5 stars" />
-					</fieldset>
-				</div>
-				<span class="flex w-full">
-					<input
-						class="bg-black text-white placeholder-white border-white border-b mb-5 mr-5 w-1/2 focus:outline-none h-12"
-						type="text" name="name" placeholder="Name">
-					<input
-						class="bg-black text-white placeholder-white border-white border-b mb-5 ml-5 w-1/2 focus:outline-none h-12"
-						type="text" name="project" placeholder="Project">
-				</span>
-				<textarea
-					class="bg-black text-white placeholder-white border-white border-b my-5 resize-none w-full h-52 focus:outline-none"
-					placeholder="How can we improve?" name="message"></textarea>
-				<button
-					class="z-0 relative bg-beige text-black py-3 px-1 w-full my-5 font-semibold h-12 hover:bg-black hover:text-beige hover:ring-beige"
-					type="submit">Submit Message</button>
-			</form>
-			</section>
-			<section>
-
-		</section>
+			</li>
+		</ul>
+		<img :src="image.toString()" :alt="store.getFeatured.reverse()[i].title"
+			v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()"
+			class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0" :style="`z-index: ${-i - 5}`" />
+		<img class="h-screen fixed top-0 left-0 w-screen object-cover"
+			:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
+			:src="store.getFeatured.map(x => x.thumbnail)[store.getFeatured.length - 1].toString()"
+			:alt="store.getFeatured[store.getFeatured.length - 1].title" />
+		<span class="md:block fixed left-0 ml-8 bottom-10 flex flex-col justify-center">
+			<a href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
+				<font-awesome-icon :icon="['fab', 'instagram']" size="xl" class="text-beige m-2 hover:text-active" />
+			</a>
+			<a href="https://linkedin.com/comomaya" target="_blank" rel="noopener noreferrer">
+				<font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="text-beige m-2 hover:text-active" />
+			</a>
+		</span>
 	</main>
 </template>
-
-<style lang="scss" scoped>
-.split span {
-	opacity: 0;
-	visibility: hidden;
-	margin-right: 0.2em;
-	display: inline-block;
-	transform: translateY(400%);
-	line-height: 0.5;
-}
-
-button {
-	outline-style: solid;
-}
-
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
-fieldset,
-label {
-	margin: 0;
-	padding: 0;
-}
-
-/****** Style Star Rating Widget *****/
-
-fieldset[class^="rating-"] {
-	margin-right: auto;
-}
-
-fieldset[class^="rating-"] > input {
-	display: none;
-}
-
-fieldset[class^="rating-"] > label:before {
-	margin: 5px;
-	font-size: 1.25em;
-	font-family: FontAwesome;
-	display: inline-block;
-	content: "\f005";
-}
-
-fieldset[class^="rating-"] > .half:before {
-	content: "\f089";
-	position: absolute;
-}
-
-fieldset[class^="rating-"] > label {
-	color: #ddd;
-	float: right;
-}
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-fieldset[class^="rating-"] > input:checked~label,
-/* show gold star when clicked */
-fieldset[class^="rating-"]:not(:checked) > label:hover,
-/* hover current star */
-fieldset[class^="rating-"]:not(:checked) > label:hover ~ label {
-	color: #FFD700;
-}
-
-/* hover previous stars in list */
-
-fieldset[class^="rating-"] > input:checked+label:hover,
-/* hover current star when changing rating */
-fieldset[class^="rating-"] > input:checked~label:hover,
-fieldset[class^="rating-"] > label:hover~input:checked~label,
-/* lighten current selection */
-fieldset[class^="rating-"] > input:checked~label:hover~label {
-	color: #FFED85;
-}
-</style>
