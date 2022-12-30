@@ -20,9 +20,13 @@ useHead({
 	link,
 })
 
+let loaded = false;
+
 let imageFade: GSAPTimeline;
 
 async function loadContent() {
+	loaded = true;
+
 	await new Promise(resolve => setTimeout(resolve, 500));
 	const skewSetter = gsap.quickSetter(".projectList", "skewY", "deg");
 
@@ -56,12 +60,13 @@ async function loadContent() {
 
 onMounted(() => {
 	gsap.registerPlugin(ScrollTrigger);
-
-	watch(() => store.isFetched, (x) => {
-		if (!x) return
-		loadContent()
-	})
+	!loaded ? loadContent() : null
 });
+
+watch(() => store.isFetched, (x) => {
+	if (!x && loaded) return
+	loadContent()
+})
 
 onBeforeUnmount(() => {
 	if (imageFade) imageFade.kill()
@@ -81,13 +86,13 @@ onBeforeUnmount(() => {
 				</a>
 			</li>
 		</ul>
-		<img :src="image.toString()" :alt="store.getFeatured.reverse()[i].title"
+		<img :src="image.toString()" :alt="store.getFeatured.slice().reverse()[i].title"
 			v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()"
 			class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0" :style="`z-index: ${-i - 5}`" />
 		<img class="h-screen fixed top-0 left-0 w-screen object-cover"
 			:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
-			:src="store.getFeatured.map(x => x.thumbnail)[store.getFeatured.length - 1].toString()"
-			:alt="store.getFeatured[store.getFeatured.length - 1].title" />
+			:src="store.getFeatured.map(x => x.thumbnail)[0].toString()"
+			:alt="store.getFeatured[0].title" />
 		<span class="md:block fixed left-0 ml-8 bottom-10 flex flex-col justify-center">
 			<a href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
 				<font-awesome-icon :icon="['fab', 'instagram']" size="xl" class="text-beige m-2 hover:text-active" />
