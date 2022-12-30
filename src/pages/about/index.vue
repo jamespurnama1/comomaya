@@ -138,7 +138,7 @@ onMounted(() => {
       <!--- RMC --->
 
       <section class="bg-beige md:flex-row relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 md:my-24">
-        <div class="md:w-2/3 my-auto px-5 md:pr-52">
+        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pl-52">
           <h2 class="drama mb-1 md:mb-5 text-4xl md:text-7xl overflow-hidden text-right text-black">
             <strong>We are RMC</strong><br>certified
           </h2>
