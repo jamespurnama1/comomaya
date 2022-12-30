@@ -10,7 +10,7 @@ const store = useStore()
 store.load()
 
 const bgImages = await store.getFeatured.map(x => x.thumbnail);
-const link = bgImages.map(x => ({
+const link: any = bgImages.map(x => ({
 	rel: 'preload',
 	as: 'image',
 	href: x.toString()
@@ -78,9 +78,9 @@ onBeforeUnmount(() => {
 <template>
 	<main v-if="store.getFeatured.length" class="min-h-screen flex justify-center py-20">
 		<ul class="portfoliosList flex flex-col justify-center m-auto text-center group z-0">
-			<li v-for="(portfolio, i) in store.getFeatured" class="projectList py-52 md:py-24">
+			<li v-for="(portfolio, i) in store.getFeatured" class="projectList py-32 md:py-24">
 				<a :href="`/portfolio/${portfolio.slug}`" class="transition-all group-hover:opacity-50 hover:!opacity-100">
-					<h2 class="listChildren text-5xl font-bold text-white md:text-9xl">
+					<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
 						{{ portfolio.title }}
 					</h2>
 				</a>
@@ -93,9 +93,9 @@ onBeforeUnmount(() => {
 			:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
 			:src="store.getFeatured.map(x => x.thumbnail)[0].toString()"
 			:alt="store.getFeatured[0].title" />
-		<span class="md:block fixed left-0 ml-8 bottom-10 flex flex-col justify-center">
+		<span class="absolute left-0 ml-8 bottom-10 flex flex-col justify-center">
 			<a href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
-				<font-awesome-icon :icon="['fab', 'instagram']" size="xl" class="text-beige m-2 hover:text-active" />
+				<font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="text-beige m-2 hover:text-active" />
 			</a>
 			<a href="https://linkedin.com/comomaya" target="_blank" rel="noopener noreferrer">
 				<font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="text-beige m-2 hover:text-active" />

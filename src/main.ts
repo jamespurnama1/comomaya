@@ -6,13 +6,13 @@ import App from './App.vue'
 import routes from '~pages'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faInstagram, faLinkedin, faTwitter, faPinterest, faTelegram } from '@fortawesome/free-brands-svg-icons';
+import { faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faAngleUp, faBook, faPencil, faLaptop, faTrophy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import scaleFade from "./components/scaleFade.vue";
 import { createPinia } from 'pinia'
 
-library.add(faAngleUp, faInstagram, faLinkedin, faTwitter, faPinterest, faTelegram, faBook, faPencil, faLaptop, faTrophy)
+library.add(faAngleUp, faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp, faBook, faPencil, faLaptop, faTrophy)
 const store = createPinia()
 
 // `export const createApp` is required instead of the original `createApp(App).mount('#app')`
