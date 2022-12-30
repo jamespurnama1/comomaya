@@ -76,8 +76,9 @@
           trigger: '.info',
           pin: true,
           pinType: 'fixed',
-          start: "top 50vh",
+          start: "-50px 50vh",
           end: "bottom bottom",
+          markers: true
         }
       })
     })
@@ -127,7 +128,7 @@
           class="content flex flex-col items-center -mt-10 md:mt-0 md:w-2/3 md:pr-20"
         />
         <div key="info" class="info md:w-1/3">
-          <h1 class="text-3xl font-medium md:mt-4 mt-20 mb-5">{{thisPage.content.title}}</h1>
+          <h1 class="text-3xl font-medium md:mt-0 mt-20 mb-5">{{thisPage.content.title}}</h1>
           <p v-html="thisPage.content.metadata.description" />
           <hr class="my-5 border-gray" />
           <div class="flex">
