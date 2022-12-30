@@ -25,14 +25,6 @@ const feedbackList = [
 	'output'
 ]
 
-const addCSS = (s: string) => document.head.appendChild(document.createElement("style")).innerHTML = s;
-
-feedbackList.forEach(x => {
-	addCSS(`.rating-${x}>input.input${x}:checked~label.${x}, .rating-${x}:not(:checked)>label.${x}:hover, .rating-${x}:not(:checked)>label.${x}:hover~label.${x} {
-		color: #FFD700;
-	}`);
-})
-
 useHead({
 	title: 'COMOMAYA - Feedback',
 	meta: [
@@ -169,7 +161,13 @@ fieldset[class^="rating-"] > label {
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
-
+fieldset[class^="rating-"]>input:checked~label,
+/* show gold star when clicked */
+fieldset[class^="rating-"]:not(:checked)>label:hover,
+/* hover current star */
+fieldset[class^="rating-"]:not(:checked)>label:hover~label {
+	color: #FFD700;
+}
 
 /* hover previous stars in list */
 
