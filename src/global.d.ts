@@ -18,6 +18,7 @@ interface Featured {
   metadata: {
     description: string,
     type: string,
+    type_mobile?: string,
     client: string,
     our_services: string
     industry: string,

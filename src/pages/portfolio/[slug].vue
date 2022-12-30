@@ -1,17 +1,3 @@
-<script lang="ts">
-  import { reactive } from 'vue'
-  import { Swiper, SwiperSlide } from 'swiper/vue'
-  import { Pagination } from "swiper"
-  import 'swiper/scss'
-  import "swiper/scss/pagination"
-
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide
-    }
-  }
-</script>
 
 <script setup lang="ts">
 	import { onBeforeUnmount, onMounted, watch } from 'vue'
@@ -20,17 +6,23 @@
   import { ScrollTrigger } from "gsap/ScrollTrigger"
   import { useHead } from '@vueuse/head'
   import { useStore } from '../../stores'
+  import { reactive, ref } from 'vue'
+  import { Swiper, SwiperSlide } from 'swiper/vue'
+  import { Pagination } from "swiper"
+  import "swiper/scss/pagination"
+  import 'swiper/scss'
+  import axios, { AxiosResponse } from 'axios'
 
   interface Content {
-    title: string;
-    slug: string;
-    content: string
-    metadata: {
-      description: string;
-      client: string;
-      industry: string;
-      our_services: string;
-    };
+      title: string;
+      slug: string;
+      content: string
+      metadata: {
+        description: string;
+        client: string;
+        industry: string;
+        our_services: string;
+      };
   }
 
   useHead({
@@ -46,24 +38,21 @@
   const store = useStore()
   const route = useRoute()
   let contentID: number;
-  let thisPage: Content = reactive({ content: {}});
+  let thisPage = reactive({ content: {} as Content});
   const modules = [Pagination]
 
   store.load()
 
  	async function load() {
-		const res = await fetch('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata');
-		const landing = await res.json();
-		if(res.ok) {
-      contentID = landing.objects.map(x => x.slug).indexOf(route.params.slug);
-      thisPage.content = landing.objects[contentID];
-      return landing;
-    }
-
-		return {
-			status: res.status,
-			// error: new Error(res.status.toString())
-		}
+    axios.get('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata')
+      .then((res: AxiosResponse<{ objects: Content[] }>) => {
+        contentID = res.data.objects.map(x => x.slug).indexOf(route.params.slug as string);
+        (thisPage as { content: Content }).content = res.data.objects[contentID];
+        loadContent()
+      }).catch((err) => {
+        console.error(err)
+        return err
+      })
 	}
 
   function handleResize() {
@@ -103,10 +92,19 @@
       }),
     });
   }
+
+  const width = ref(0)
+
+  function resize() {
+    width.value = window.innerWidth
+    handleResize();
+  }
   
   onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
-    handleResize();
+
+    resize()
+    window.addEventListener('resize', resize)
 
     watch(() => thisPage.content, (x) => {
       if (!x) return
@@ -115,6 +113,7 @@
   })
 
   onBeforeUnmount(() => {
+    window.removeEventListener('resize', resize)
     if (ScrollTrigger.getById("pin")) ScrollTrigger.getById("pin")!.kill()
   })
 </script>
@@ -156,8 +155,8 @@
               <a :href="`https://pinterest.com/pin/create/button/?url=https://www.comomaya.com${$route.fullPath}&description=Check%20out%20${thisPage.content.title}`" target="_blank" rel="noreferrer noopener">
                 <font-awesome-icon :icon="['fab', 'pinterest']" size="lg" class="text-black mr-5 hover:text-active" />
               </a>
-              <a :href="`https://telegram.me/share/url?url=https://www.comomaya.com${$route.fullPath}&text=Check%20out%20${thisPage.content.title}`" target="_blank" rel="noreferrer noopener">
-                <font-awesome-icon :icon="['fab', 'telegram']" size="lg" class="text-black mr-5 hover:text-active" />
+              <a :href="`whatsapp://send?text=Check%20out%20${thisPage.content.title} on https://www.comomaya.com${$route.fullPath}`" target="_blank" rel="noreferrer noopener">
+                <font-awesome-icon :icon="['fab', 'whatsapp']" size="lg" class="text-black mr-5 hover:text-active" />
               </a>
             </span>
           </span>
@@ -172,7 +171,7 @@
         clickable: true
       }"
       :modules="modules"
-      :slides-per-view="3"
+      :slides-per-view="width > 768 ? 3 : 1"
       :space-between="10"
     >
       <swiper-slide tag="a" v-for="work in store.getFeatured" :href="`/portfolio/${work.slug}`">
@@ -187,7 +186,7 @@
 </template>
 
 <style lang="scss">
-  .content {
+.content {
     img,
     img.fr-fic,
     img.fr-dib,
@@ -204,5 +203,12 @@
 
   .swiper-pagination-bullet-active {
 	  background-color: theme('colors.active');
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .swiper-pagination {
+      bottom: initial !important;
+    }  
   }
 </style>

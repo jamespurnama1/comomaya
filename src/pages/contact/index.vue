@@ -32,21 +32,25 @@ useHead({
 
 <template>
   <main class="bg-black mx-auto flex flex-col justify-center pt-10 md:pt-20">
-    <section class="flex flex-col mx-auto justify-center min-h-screen py-10">
+    <section class="flex flex-col mx-auto justify-center min-h-[75vh]">
       <h2 class="text-active mx-5 md:mx-0 font-semibold tracking-widest mb-3">CONTACT US</h2>
       <h1 class="split mx-5 md:mx-0 max-w-4xl text-white text-4xl md:text-9xl font-semibold overflow-hidden">
         <span>Let's</span><span>kickstart</span>
         <span>your</span><span>new</span><span>project...</span>
       </h1>
     </section>
-    <section class="md:py-52 py-32 md:mx-52 flex md:flex-row mx-10 flex-col">
+    <section class="md:py-20 py-16 md:mx-52 flex md:flex-row mx-10 flex-col">
       <span class="mr-5 md:w-1/3">
-        <p class="text-active font-semibold tracking-widest mb-3">GIVE US A CALL</p>
-        <a href="tel:+6594245994">
+          <p class="text-active font-semibold tracking-widest mb-3">GIVE US A CALL</p>
+          <a class="z-10" href="tel:+6594245994">
+            <p class="text-white font-semibold mb-5">+65 9424 5994</p>
+          </a>
+        <p class="text-active font-semibold tracking-widest mb-3">WHATSAPP US</p>
+        <a class="z-10" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
           <p class="text-white font-semibold mb-5">+65 9424 5994</p>
         </a>
         <p class="text-active font-semibold tracking-widest mb-3">WRITE TO US</p>
-        <a href="mailto:ridhisain@comomaya.com">
+        <a class="z-10" href="mailto:ridhisain@comomaya.com">
           <p class="text-white font-semibold mb-5">ridhisain@comomaya.com</p>
         </a>
       </span>
@@ -61,7 +65,7 @@ useHead({
             type="email" name="email" placeholder="E-mail">
         </span>
         <input class="bg-black text-white placeholder-white border-white border-b my-5 w-full focus:outline-none h-12"
-          type="text" name="subject" placeholder="Subject">
+          type="text" name="company" placeholder="Company">
         <textarea
           class="bg-black text-white placeholder-white border-white border-b my-5 resize-none w-full h-52 focus:outline-none"
           placeholder="Your Message" name="message"></textarea>
