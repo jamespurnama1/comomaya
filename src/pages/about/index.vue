@@ -259,7 +259,9 @@ onMounted(() => {
     <!--- END --->
 
     <section class="flex flex-col items-center justify-center p-20 md:pt-64 md:p-72 bg-black">
-    <video class="mb-10" loop autoplay muted src="/assets/aboutus.mp4" />
+    <video class="mb-10" playsinline loop autoplay="true" muted>
+      <source src="/assets/aboutus.mp4" type="video/mp4" />
+    </video>
     <h3 class="text-beige text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3>
     <a class="z-10" key="ig" href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
       <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-active" />

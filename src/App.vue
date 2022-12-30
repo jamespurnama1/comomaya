@@ -51,9 +51,9 @@ onMounted(() => {
   function render() {
     if (!cursor) return;
     if (linkSelected.value) {
-      cursor.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(3)`;
+      cursor.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(1)`;
     } else {
-      cursor.style.transform = `translate3d(${target.x}px, ${target.y}px, 0)`;
+      cursor.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(33%)`;
     }
 
     raf = requestAnimationFrame(render);
@@ -103,7 +103,7 @@ function handleScrollUp() {
 
 <template>
   <div
-    class="cursor origin-center pointer-events-none z-50 fixed mix-blend-difference w-6 h-6 -top-3 -left-3 rounded-3xl bg-white opacity-0 transition-transform ease-out"
+    class="cursor origin-center transform-gpu pointer-events-none z-50 fixed mix-blend-difference w-16 h-16 -top-8 -left-8 rounded-full bg-white opacity-0 transition-transform ease-out"
     :class="[innerWidth < 570 ? '!opacity-0' : '']" />
 
   <nav

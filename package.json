@@ -20,6 +20,7 @@
     "vue": "^3.2.41"
   },
   "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vueuse/head": "^0.9.8",
     "autoprefixer": "^10.4.13",
