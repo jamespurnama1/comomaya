@@ -147,16 +147,16 @@
           <span class="flex items-center">
             <p class="w-28"><b class="font-medium">Share</b></p>
             <span class="ml-3 flex">
-              <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.comomaya.com${$route.fullPath}&title=Checkout%20${thisPage.content.title}&summary=[description]&source=https://www.comomaya.com`" target="_blank" rel="noreferrer noopener">
+              <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.comomaya.com${$route.fullPath}&title=Check%20out%20${thisPage.content.title}&summary=[description]&source=https://www.comomaya.com`" target="_blank" rel="noreferrer noopener">
                 <font-awesome-icon :icon="['fab', 'linkedin']" size="lg" class="text-black mr-5 hover:text-active" />
               </a>
-              <a :href="`https://twitter.com/share?text=Checkout%20${thisPage.content.title}%20at%20&url=https://www.comomaya.com${$route.fullPath}`" target="_blank" rel="noreferrer noopener">
+              <a :href="`https://twitter.com/share?text=Check%20out%20${thisPage.content.title}%20at%20&url=https://www.comomaya.com${$route.fullPath}`" target="_blank" rel="noreferrer noopener">
                 <font-awesome-icon :icon="['fab', 'twitter']" size="lg" class="text-black mr-5 hover:text-active" />
               </a>
-              <a :href="`https://pinterest.com/pin/create/button/?url=https://www.comomaya.com${$route.fullPath}&description=Checkout%20${thisPage.content.title}`" target="_blank" rel="noreferrer noopener">
+              <a :href="`https://pinterest.com/pin/create/button/?url=https://www.comomaya.com${$route.fullPath}&description=Check%20out%20${thisPage.content.title}`" target="_blank" rel="noreferrer noopener">
                 <font-awesome-icon :icon="['fab', 'pinterest']" size="lg" class="text-black mr-5 hover:text-active" />
               </a>
-              <a :href="`https://telegram.me/share/url?url=https://www.comomaya.com${$route.fullPath}&text=Checkout%20${thisPage.content.title}`" target="_blank" rel="noreferrer noopener">
+              <a :href="`https://telegram.me/share/url?url=https://www.comomaya.com${$route.fullPath}&text=Check%20out%20${thisPage.content.title}`" target="_blank" rel="noreferrer noopener">
                 <font-awesome-icon :icon="['fab', 'telegram']" size="lg" class="text-black mr-5 hover:text-active" />
               </a>
             </span>
