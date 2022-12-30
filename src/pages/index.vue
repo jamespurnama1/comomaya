@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, watch } from 'vue'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useHead } from '@vueuse/head'
 import { useStore } from '../stores'
 
