@@ -15,7 +15,7 @@
   })
 
   async function load() {
-    axios.get('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?query=%7B%22type%22%3A%22portfolio-list%22%2C%22slug%22%3A%22list%22%7D&pretty=true&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&props=metadata')
+    axios.get('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?query=%7B%22type%22%3A%22portfolio-list%22%2C%22slug%22%3A%22list%22%7D&pretty=true&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&props=metadata', { withCredentials: false })
       .then((res: AxiosResponse<List>) => {
         response.list = res.data.objects[0].metadata.list
       }).catch((err) => {

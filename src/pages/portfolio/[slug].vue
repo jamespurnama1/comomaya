@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-	import { onBeforeUnmount, onMounted, watch } from 'vue'
+	import { ImgHTMLAttributes, onBeforeUnmount, onMounted, watch } from 'vue'
   import { useRoute } from 'vue-router'
 	import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -44,11 +44,10 @@
   store.load()
 
  	async function load() {
-    axios.get('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata')
+      axios.get('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata', { withCredentials: false })
       .then((res: AxiosResponse<{ objects: Content[] }>) => {
         contentID = res.data.objects.map(x => x.slug).indexOf(route.params.slug as string);
         (thisPage as { content: Content }).content = res.data.objects[contentID];
-        loadContent()
       }).catch((err) => {
         console.error(err)
         return err
@@ -63,7 +62,7 @@
 
   async function loadContent() {
 
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 3000));
     const mm = gsap.matchMedia();
     
     mm.add("(min-width: 768px)", () => {
@@ -71,11 +70,12 @@
         y: "300px",
         autoAlpha: 0,
       });
-      gsap.to('.content', {
+      gsap.to('section', {
         scrollTrigger: {
           id: "pin",
           trigger: '.info',
           pin: true,
+          pinType: 'fixed',
           start: "top 50vh",
           end: "bottom bottom",
         }
