@@ -9,7 +9,6 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faAngleUp, faBook, faPencil, faLaptop, faTrophy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import scaleFade from "./components/scaleFade.vue";
 import { createPinia } from 'pinia'
 
 library.add(faAngleUp, faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp, faBook, faPencil, faLaptop, faTrophy)
@@ -27,7 +26,6 @@ export const createApp = ViteSSG(
   ({ app, router, routes, isClient, initialState }) => {
     // install plugins etc.
     app.component('font-awesome-icon', FontAwesomeIcon)
-    app.component('scaleFade', scaleFade)
     app.use(store)
   },
 )
