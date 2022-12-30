@@ -104,10 +104,10 @@
 				:style="`z-index: ${-i-5}`"
 			/>
 			<img
-				class="min-h-screen fixed top-0 left-0 w-screen object-cover"
+				class="h-screen fixed top-0 left-0 w-screen object-cover"
 				:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length-6}`"
-				:src="store.getFeatured.map(x => x.thumbnail)[0].toString()"
-				:alt="store.getFeatured[0].title"
+				:src="store.getFeatured.map(x => x.thumbnail)[store.getFeatured.length-1].toString()"
+				:alt="store.getFeatured[store.getFeatured.length-1].title"
 			/>
 			<span class="md:block fixed left-0 ml-8 bottom-10 flex flex-col justify-center">
 			<a href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">

@@ -66,26 +66,10 @@
 		}
 	}
 
-
-	// async function load() {
-	// 	const res2 = await fetch('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?query=%7B%22type%22%3A%22landing%22%2C%22slug%22%3A%22home%22%7D&pretty=true&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&props=metadata');
-	// 	const works = await res2.json();
-	// 	if(res2.ok) {
-	// 		return works;
-	// 	}
-
-	// 	return {
-	// 		status: res2.status,
-	// 		// error: new Error(res.status.toString())
-	// 	}
-	// }
-
   function handleResize() {
     ScrollTrigger.refresh();
   }
 
-	// Data
-	// let res = load();
   let featured = load();
 
   async function loadContent() {
@@ -147,7 +131,7 @@
         />
         <div key="info" class="info md:w-1/3">
           <h1 class="text-3xl font-medium md:mt-4 mt-20 mb-5">{{thisPage.content.title}}</h1>
-          <p>{{thisPage.content.metadata.description}}</p>
+          <p v-html="thisPage.content.metadata.description" />
           <hr class="my-5 border-gray" />
           <div class="flex">
             <span class="w-28">
