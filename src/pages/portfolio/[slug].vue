@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-	import { ImgHTMLAttributes, onBeforeUnmount, onMounted, watch } from 'vue'
+	import { onBeforeUnmount, onMounted, watch } from 'vue'
   import { useRoute } from 'vue-router'
 	import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -66,7 +66,7 @@
     const mm = gsap.matchMedia();
     
     mm.add("(min-width: 768px)", () => {
-      gsap.set('.content *:not(:first-child)', {
+      gsap.set('.content :nth-child(n+3)', {
         y: "300px",
         autoAlpha: 0,
       });
@@ -83,7 +83,7 @@
     })
 
     ScrollTrigger.batch('.content *', {
-      start: "top 70%",
+      start: "top 80%",
       onEnter: batch => gsap.to(batch, {
         autoAlpha: 1,
         stagger: 0.1,
@@ -134,7 +134,7 @@
             <span class="w-28">
               <p><b class="font-medium">Client</b></p>
               <p><b class="font-medium">Industry</b></p>
-              <p><b class="font-medium">Our Services</b></p>
+              <p><b class="font-medium">Our&nbsp;Services</b></p>
             </span>
             <span class="ml-3">
               <p>{{thisPage.content.metadata.client}}</p>
@@ -187,6 +187,13 @@
 
 <style lang="scss">
 .content {
+  p video:nth-child(-n + 2),
+  p img:nth-child(-n + 2),
+  p picture:nth-child(-n + 2) {
+      @media screen and (min-width: "768px") {
+        opacity: 1;
+      }
+    }
     img,
     img.fr-fic,
     img.fr-dib,

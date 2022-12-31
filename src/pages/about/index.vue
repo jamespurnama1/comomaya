@@ -23,7 +23,7 @@ let tl: GSAPTimeline
 
 const testimonials: {[key: string]: string}[] = [
   {
-    "TANUSHREE SETH | Chief Executive Officer | Mirror Mirror": "&quot;Ridhi's deep experience in branding, design, and strategy coupled with her consulting experience on top beauty and personal care brands globally has given her a distinctive ability to provide strategies that leverage first - principles thinking and propose solutions that are uniquely defined for the brand under&nbsp;study.&quot;",
+    "TANUSHREE SETH | Chief Executive Officer | Mirror Mirror": "&quot;Ridhi's deep experience in branding, design, and strategy coupled with her consulting experience on top beauty and personal care brands globally has given her a distinctive ability to provide strategies that leverage first-principles thinking and propose solutions that are uniquely defined for the brand under&nbsp;study.&quot;",
   },
   {
     "WILLIAM WATSON | Vice President | Everstone Group": "&quot;Ridhi Sain of COMOMAYA was instrumental in driving the successful delivery and launch of Culinary Brands. As a professional consultant, she worked tirelessly to meet and exceed our expectations, not only in terms of the quality of brand strategy &amp; design outputs, but also in terms of timely&nbsp;delivery.&quot;",
@@ -35,7 +35,7 @@ const testimonials: {[key: string]: string}[] = [
     "ROSHINI BAKSHI | Head of Impact | Managing Director | Private Equity | Everstone Group": "&quot;Ridhi &amp; COMOMAYA invested a lot of time in working on the brand strategy, vision, mission and proposition. Very good execution of the brand strategy in terms of identity and design elements. Differentiated and fresh approach. A pleasure working with COMOMAYA and we look forward to working with Ridhi Sain on our next project&nbsp;together.&quot;"
   },
   {
-    "KRISHNAN NARAYAN | Founder &amp; Chief Technologist | Netracity LLC": "&quot;I worked with Ridhi Sain in 2021 to help me with the market positioning, naming, design and brand strategy for my company, Netracity LLC based in Texas, USA. Ridhi &amp; COMOMAYA did a great job on the company mission &amp; vision and created the brand strategy &amp; logo to accurately communicate the company's strategy to my clients. Her interactions with me &amp; my team were very tidy and professional. I highly recommend Ridhi Sain &amp; COMOMAYA.&quot;"
+    "KRISHNAN NARAYAN | Founder &amp; Chief Technologist | Netracity LLC": "&quot;I worked with Ridhi Sain to help me with the market positioning, naming, design and brand strategy for my company, Netracity LLC based in Texas, USA. Ridhi &amp; COMOMAYA did a great job on the company mission &amp; vision and created the brand strategy &amp; logo to accurately communicate the company's strategy to my clients. Her interactions with me &amp; my team were very timely and professional. I highly recommend Ridhi Sain &amp;&nbsp;COMOMAYA.&quot;"
   }
 ]
 
@@ -129,15 +129,15 @@ onMounted(() => {
         </div>
       </section>
 
-      <!--- THE PEOPLE --->
+      <!--- OUR PEOPLE --->
       <section class="flex justify-center mt-12 lg:mt-24 bg-black flex-col">
-        <h3 class="text-active pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-left">
+        <h3 class="text-active pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
           THE COMOMAYA&nbsp;SQUAD
         </h3>
-        <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-left text-beige font-medium">
+        <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-beige font-medium">
           <strong>Our</strong> people
         </h2>
-        <h3 v-if="width > 768" class="text-beige font-medium text-5xl pb-5 px-12 mx-16 leading-tight">
+        <h3 v-if="width > 768" class="text-beige font-medium text-right text-5xl pb-5 px-12 mx-16 leading-tight">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
           with some of the best talent in the industry and across the&nbsp;globe.
         </h3>
@@ -148,7 +148,7 @@ onMounted(() => {
           <img class="object-cover min-w-full min-h-full h-auto" src="/assets/globe.jpg" alt="globe" />
         </div>
         <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-black md:flex-row">
-          <h3 class="text-beige text-2xl font-medium py-5 mx-16 leading-tight">
+          <h3 class="text-beige text-2xl text-right font-medium py-5 mx-16 leading-tight">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
             with some of the best talent in the industry and across the&nbsp;globe.
           </h3>
@@ -189,25 +189,6 @@ onMounted(() => {
           <img class="w-full h-full object-contain" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
         </div>
       </section>
-      
-      <!-- <section id="ourServices" class="bg-beige md:flex-row-reverse relative flex flex-col-reverse justify-center md:min-h-[65vh] my-12 md:my-24">
-        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
-          <h3 class="text-active text-2xl font-semibold tracking-widest text-left">
-            OUR&nbsp;SERVICES
-          </h3>
-          <h2 class="drama my-3 mb-1 md:mb-3 text-4xl md:text-7xl overflow-hidden text-left text-black">
-            <strong>What</strong> we offer
-          </h2>
-          <p class="text-lg text-left text-black">
-            We build global brands and boutique &amp; startup brands. We have a vibrant portfolio of clients ranging from FMCG to B2B
-            and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary and provide
-            holistic services for your brand woven together from day&nbsp;one.
-          </p>
-        </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <img class="w-full h-full object-cover" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
-        </div>
-      </section> -->
 
       <!--- RMC --->
 
@@ -220,11 +201,11 @@ onMounted(() => {
             <strong>We are RMC</strong><br>certified
           </h2>
           <p class="pb-10 text-lg text-right text-beige">
+            We are certified as a Registered Management Consultant (*RMC)
+            with IMC Singapore (Institute of Management Consultants).
             Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small & Medium Enterprises) can apply for up
-            to 80% of government funding towards their costs with us. We are certified as a Registered Management Consultant (*RMC)
-            with IMC Singapore (Institute of Management Consultants). If you qualify for this grant and are interested in this
-            opportunity you can find out more 
-            <a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" href="https://www.enterprisesg.gov.sg/financial-assistance/grants/for-local-companies/enterprise-development-grant/apply/pre-application">here.</a>
+            to 80% of government funding towards their costs with us. If you qualify for this grant and are interested in this
+            opportunity you can find out more&nbsp;<a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" href="https://www.enterprisesg.gov.sg/financial-assistance/grants/for-local-companies/enterprise-development-grant/apply/pre-application">here.</a>
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
