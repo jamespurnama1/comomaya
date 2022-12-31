@@ -32,9 +32,9 @@ useHead({
 
 <template>
   <main class="bg-black mx-auto flex flex-col justify-center pt-10 md:pt-20">
-    <section class="flex flex-col mx-auto justify-center min-h-[75vh]">
-      <h2 class="text-active mx-5 md:mx-0 font-semibold tracking-widest mb-3">CONTACT US</h2>
-      <h1 class="split mx-5 md:mx-0 max-w-4xl text-white text-4xl md:text-9xl font-semibold overflow-hidden">
+    <section class="flex flex-col mx-auto justify-center min-h-[50vh] md:min-h-[75vh]">
+      <h2 class="text-active mx-7 md:mx-0 font-semibold tracking-widest mb-3">CONTACT US</h2>
+      <h1 class="split mx-7 md:mx-0 max-w-4xl text-white text-5xl md:text-9xl font-semibold overflow-hidden">
         <span>Let's</span><span>start</span>
         <span>a</span><span>conversation...</span>
       </h1>
@@ -58,16 +58,16 @@ useHead({
       <form action="https://formspree.io/f/xqkjgbng" method="POST" class="flex flex-wrap md:w-2/3 content-start">
         <span class="flex w-full">
           <input
-            class="bg-black text-white placeholder-white font-semibold border-white border-b mb-5 mr-5 w-1/2 focus:outline-none h-12"
+            class="bg-black text-white placeholder-darkGray font-semibold border-white border-b mb-5 mr-5 w-1/2 focus:outline-none h-12"
             type="text" name="name" placeholder="Name">
           <input
-            class="bg-black text-white placeholder-white font-semibold border-white border-b mb-5 ml-5 w-1/2 focus:outline-none h-12"
+            class="bg-black text-white placeholder-darkGray font-semibold border-white border-b mb-5 ml-5 w-1/2 focus:outline-none h-12"
             type="email" name="email" placeholder="E-mail">
         </span>
-        <input class="bg-black text-white placeholder-white font-semibold border-white border-b my-5 w-full focus:outline-none h-12"
+        <input class="bg-black text-white placeholder-darkGray font-semibold border-white border-b my-5 w-full focus:outline-none h-12"
           type="text" name="company" placeholder="Company">
         <textarea
-          class="bg-black text-white placeholder-white border-white font-semibold border-b my-5 resize-none w-full h-36 focus:outline-none"
+          class="bg-black text-white placeholder-darkGray border-white font-semibold border-b my-5 resize-none w-full h-36 focus:outline-none"
           placeholder="Your Message" name="message"></textarea>
         <button
           class="z-0 relative bg-beige text-black py-3 px-1 w-full my-5 font-semibold h-12 hover:bg-black hover:text-beige hover:ring-beige"
