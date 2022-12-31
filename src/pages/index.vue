@@ -19,18 +19,19 @@ onMounted(() => {
 })
 
 const feedbackList = [
-	'communication',
-	'revisions',
-	'punctuality',
-	'output'
+	'DESIGN',
+	'COMMUNICATION',
+	'VALUE',
+	'SERVICE',
+	'FINAL&nbsp;DELIVERY'
 ]
 
 useHead({
-	title: 'COMOMAYA - Feedback',
+	title: 'COMOMAYA - Feedback Form',
 	meta: [
 		{
 			name: 'COMOMAYA',
-			content: 'Feedback',
+			content: 'Feedback Form',
 		},
 	],
 })
@@ -38,33 +39,21 @@ useHead({
 </script>
 
 <template>
-	<main class="bg-black mx-auto flex flex-col justify-center pt-10 md:pt-20">
+	<main class="bg-black mx-auto flex flex-col justify-center pt-16 md:pt-20">
 		<section class="flex flex-col mx-auto justify-center min-h-[40vh] pt-10">
-			<h2 class="text-active mx-5 md:mx-0 font-semibold tracking-widest mb-3">FEEDBACK</h2>
-			<h1 class="split mx-5 md:mx-0 max-w-4xl text-white text-4xl md:text-9xl font-semibold overflow-hidden">
+			<h2 class="text-active mx-7 md:mx-0 font-semibold tracking-widest mb-3">FEEDBACK FORM</h2>
+			<h1 class="split mx-7 md:mx-0 max-w-4xl text-beige text-6xl md:text-9xl font-semibold overflow-hidden">
 				<span>Tell</span><span>us</span>
-				<span>how</span><span>to</span><span>be</span><span>better...</span>
+				<span>the</span><span>way</span><span>it</span>&nbsp;<span>is...</span>
 			</h1>
+			<h3 class="text-beige text-xl mx-7">There is nothing we would appreciate more than you sharing your experience with us as we strive to get better with
+			serving&nbsp;you</h3>
 		</section>
-		<section class="md:py-52 py-32 md:mx-52 flex md:flex-row mx-10 flex-col">
-			<span class="mr-5 md:w-1/3">
-				<p class="text-active font-semibold tracking-widest mb-3">GIVE US A CALL</p>
-				<a class="z-10" href="tel:+6594245994">
-					<p class="text-white font-semibold mb-5">+65 9424 5994</p>
-				</a>
-				<p class="text-active font-semibold tracking-widest mb-3">WHATSAPP US</p>
-				<a class="z-10" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
-					<p class="text-white font-semibold mb-5">+65 9424 5994</p>
-				</a>
-				<p class="text-active font-semibold tracking-widest mb-3">WRITE TO US</p>
-				<a class="z-10" href="mailto:ridhisain@comomaya.com">
-					<p class="text-white font-semibold mb-5">ridhisain@comomaya.com</p>
-				</a>
-			</span>
+		<section class="md:py-52 py-16 md:mx-52 flex justify-center md:flex-row mx-10 flex-col">
 
-			<form action="https://formspree.io/f/mknawlge" method="POST" class="flex flex-wrap md:w-2/3 content-start">
+			<form action="https://formspree.io/f/mknawlge" method="POST" class="flex my-auto flex-wrap md:w-2/3 content-start">
 				<div class="relative flex flex-col justify-start mr-10 mb-3 w-full" v-for="types in feedbackList">
-					<p class="text-active mr-5 md:mx-0 font-semibold tracking-widest">{{ types.toUpperCase() }}</p>
+					<p class="text-active mr-5 md:mx-0 font-semibold tracking-widest" v-html="types"></p>
 					<fieldset :class="`rating-${types}`">
 						<input type="radio" :class="`input${types}`" :id="`star5${types}`" :name="`${types}_rating`" value="5" />
 						<label class="full" :class="types" :for="`star5${types}`" title="Awesome - 5 stars" />
@@ -90,15 +79,15 @@ useHead({
 				</div>
 				<span class="flex w-full">
 					<input
-						class="bg-black text-white placeholder-white border-white border-b mb-5 mr-5 w-1/2 focus:outline-none h-12"
+						class="bg-black text-white placeholder-darkGray border-white border-b font-semibold mb-5 mr-5 w-1/2 focus:outline-none h-12"
 						type="text" name="name" placeholder="Name">
 					<input
-						class="bg-black text-white placeholder-white border-white border-b mb-5 ml-5 w-1/2 focus:outline-none h-12"
+						class="bg-black text-white placeholder-darkGray border-white border-b font-semibold mb-5 ml-5 w-1/2 focus:outline-none h-12"
 						type="text" name="project" placeholder="Project">
 				</span>
 				<textarea
-					class="bg-black text-white placeholder-white border-white border-b my-5 resize-none w-full h-52 focus:outline-none"
-					placeholder="How can we improve?" name="message"></textarea>
+					class="bg-black text-white placeholder-darkGray border-white border-b my-5 font-semibold resize-none w-full h-36 focus:outline-none"
+					placeholder="Speak your mind and tell us what would make you come back to us for more" name="message"></textarea>
 				<button
 					class="z-0 relative bg-beige text-black py-3 px-1 w-full my-5 font-semibold h-12 hover:bg-black hover:text-beige hover:ring-beige"
 					type="submit">Submit Message</button>

@@ -104,43 +104,12 @@ useHead({
     </a>
   </nav>
 
-  <transition name="fly">
-  <nav v-show="opened" class="moreNav bg-beige w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
-    <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
-      <li v-for="(link, i) in links"
-        :key="i"
-        :style="{'--i': i}"
-        class="my-3 text-lg md:text-3xl hover:text-active"
-        :class="[$route.path === `/${link}` ? 'text-active' : '']"
-      >
-        <a @click="handleNav" :href="`/${link}`">
-          {{link === '' ? 'home' : link}}
-        </a>
-      </li>
-      </transition-group>
-    <transition-group name="fade" tag="span" class="flex justify-center mb-10">
-      <a key="ig" @click="handleNav" href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
-        <font-awesome-icon :icon="['fab', 'instagram']" size="xl" class="mx-2 hover:text-active" />
-      </a>
-      <a key="linkedin" @click="handleNav" href="https://linkedin.com/comomaya" target="_blank" rel="noopener noreferrer">
-        <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 hover:text-active" />
-      </a>
-    </transition-group>
-  </nav>
-  </transition>
-
-  <transition name="fade">
-    <div v-show="opened" @click="handleNav" @keydown="handleNav"
-      class="fixed w-screen h-screen bg-opacity-50 bg-black z-10"
-    />
-  </transition>
-
   <transition name="fade">
     <button
       v-show="scrollY > 50"
       @click="handleScrollUp"
       @keypress="handleScrollUp"
-      class="flex justify-center items-center fixed bottom-10 right-10 bg-black w-10 h-10 z-20"
+      class="flex justify-center items-center absolute bottom-10 right-10 bg-black w-10 h-10 z-20"
     >
       <font-awesome-icon :icon="['fas', 'angle-up']" size="lg" class="mx-2 text-beige" />
     </button>
@@ -161,7 +130,7 @@ useHead({
     </template>
   </router-view>
 
-  <footer class="fixed bottom-0 my-5 ml-10">
+  <footer class="absolute bottom-0 my-5 ml-10">
     <p class="text-xs mix-blend-difference text-white">
       © 2023 COMOMAYA. All rights reserved.
     </p>
