@@ -29,7 +29,7 @@ const testimonials: {[key: string]: string}[] = [
     "WILLIAM WATSON | Vice President | Everstone Group": "&quot;Ridhi Sain of COMOMAYA was instrumental in driving the successful delivery and launch of Culinary Brands. As a professional consultant, she worked tirelessly to meet and exceed our expectations, not only in terms of the quality of brand strategy &amp; design outputs, but also in terms of timely&nbsp;delivery.&quot;",
   },
   {
-    "TANUSHREE SETH | Chief Executive Officer | Mirror Mirror": "&quot;Not only did she exhibit a strong creative, design-led skillset, but Ridhi also demonstrated the ability to build confidence and trust as a true consulting partner with every single member of the Mirror&nbsp;Mirror&nbsp;team.&quot;",
+    "TANUSHREE SETH | Chief Executive Officer | Mirror Mirror": "&quot;Every interaction with Ridhi is a pleasure; in fact the branding &amp; logo design project outcome was so successful, that we reached out to Ridhi again to join hands on a new project that has been recently kicked-off. The success of the branding and logo design project was largely attributable to Ridhi’s strong analytical, yet creative and design-led strategic consulting skills. We have been so happy to have her expertise as a consulting partner on this&nbsp;brand.&quot;",
   },
   {
     "ROSHINI BAKSHI | Head of Impact | Managing Director | Private Equity | Everstone Group": "&quot;Ridhi &amp; COMOMAYA invested a lot of time in working on the brand strategy, vision, mission and proposition. Very good execution of the brand strategy in terms of identity and design elements. Differentiated and fresh approach. A pleasure working with COMOMAYA and we look forward to working with Ridhi Sain on our next project&nbsp;together.&quot;"
@@ -44,7 +44,7 @@ const testimonialsDate = [
   "November 2022",
   "October 2022",
   "November 2022",
-  "December 2021"
+  "September 2022"
 ]
 
 const width = ref(0)
@@ -89,8 +89,8 @@ onMounted(() => {
     <section class="flex flex-col justify-center min-h-screen py-10 md:mx-40">
       <h2 class="text-beige mx-5 md:mx-0 font-semibold tracking-widest mb-5">HELLO</h2>
       <h1 class="split leading-10 mb-5 mx-5 md:mx-0 text-active text-4xl md:text-8xl font-semibold overflow-hidden">
-        <span>We</span><span>are</span><strong><span>a</span><span>creative</span><span>boutique</span><span>agency</span></strong><span>and</span><span>we</span><strong><span>build</span><span>powerful</span><span>brands</span></strong></h1>
-      <p class="text-white text-xl mx-5 md:mx-0"><strong>COMOMAYA</strong> exists in order to make international standards of branding & design more accessible to new and upcoming
+        <span>We</span><span>are</span><strong><span>a</span><span>creative</span><span>boutique</span><span>agency</span></strong><span>and</span><span>we</span><strong><span>build</span><span>powerful</span>&nbsp;<span>brands</span></strong></h1>
+      <p class="text-white text-xl mx-5 md:mx-0"><strong>COMOMAYA</strong> exists in order to make international standards of branding &amp; design more accessible to new and upcoming
       brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the best
       international talent there is, but without the exhorbitant price tag that comes with hiring a top global agency. We are here to empower new business owners &amp; entrepreneurs with great design and powerful brands that tell a&nbsp;story…</p>
     </section>
@@ -107,7 +107,7 @@ onMounted(() => {
               <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards" />
           </span>
           <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
-            <strong>Owner</strong> &amp; Director
+            <strong>Founder</strong> &amp; Creative&nbsp;Director
           </h2>
           <p class="pb-10 text-lg text-left text-black">
             Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of <strong>COMOMAYA</strong> which she launched in March 2022. With a
@@ -197,8 +197,8 @@ onMounted(() => {
           <h3 class="text-active text-lg md:text-2xl font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
-          <h2 class="drama mb-1 md:mb-3 text-5xl md:text-7xl overflow-hidden text-right text-beige">
-            <strong>We are RMC</strong><br>certified
+          <h2 class="drama mb-1 md:mb-3 text-5xl md:text-7xl overflow-hidden font-medium text-right text-beige">
+            Grants<br><strong>for&nbsp;SMEs</strong>
           </h2>
           <p class="pb-10 text-lg text-right text-beige">
             We are certified as a Registered Management Consultant (*RMC)
@@ -223,7 +223,7 @@ onMounted(() => {
       <swiper
       class="min-h-[40vh] bg-black"
       :autoplay="{
-        delay: 5000,
+        delay: 8000,
         disableOnInteraction: false,
       }"
       :loop="true"

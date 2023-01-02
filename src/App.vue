@@ -18,9 +18,9 @@ const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full bg-beige transition 
 const linkSelected = ref(false);
 const links = [
   '',
-  'work',
-  'about',
-  'grants & subsidies',
+  'clients & work',
+  'people & services',
+  'grants for SMEs',
   'contact'
 ];
 const target = reactive({ x: 0, y: 0 })
@@ -58,7 +58,15 @@ onMounted(() => {
 
     raf = requestAnimationFrame(render);
   }
+
 })
+
+function whatisLink(l: string) {
+  if(l === 'grants for SMEs') return '/about#grant'
+  if (l === 'clients & work') return '/work'
+  if (l === 'people & services') return '/about'
+  return `/${l}`
+}
 
 function hoverLink() {
   hoverables = document.querySelectorAll('a, button');
@@ -111,7 +119,7 @@ function handleScrollUp() {
     :class="[((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? '!bg-opacity-100' : '!bg-opacity-0']">
     <a href="/">
       <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA"
-        class="logo transition-all duration-700 h-9 img-responsive origin-top-left"
+        class="logo transition-all duration-700 h-9 md:h-10 img-responsive origin-top-left"
         :class="[(opened && innerWidth > 768) || ((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' && innerWidth > 768) ? 'brightness-0' : '']" />
     </a>
     <button class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
@@ -140,7 +148,7 @@ function handleScrollUp() {
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }" class="font-bold my-10 md:my-5 text-3xl hover:text-active"
           :class="[$route.path === `/${link}` ? 'text-active' : '']">
-          <a @click="handleNav" :href="link === 'grants & subsidies' ? '/about#grant' : `/${link}`">
+          <a @click="handleNav" :href="whatisLink(link)">
             {{ link === '' ? 'home' : link }}
           </a>
           <!-- <Transition name="fade">
