@@ -76,10 +76,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-	<main v-if="store.getFeatured.length" class="min-h-screen flex justify-center py-20">
-		<ul class="portfoliosList flex flex-col justify-center m-auto text-center group z-0">
+	<main v-if="store.getFeatured.length" class="min-h-screen flex md:justify-start justify-center py-20">
+		<ul class="portfoliosList flex flex-col md:justify-start justify-center md:mx-10 m-auto md:text-left text-center group z-0">
 			<li v-for="(portfolio, i) in store.getFeatured" class="projectList py-32 md:py-24">
-				<a :href="`/portfolio/${portfolio.slug}`" class="transition-all group-hover:opacity-50 hover:!opacity-100">
+				<a :href="`/work/${portfolio.slug}`" class="transition-all group-hover:opacity-50 hover:!opacity-100">
 					<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
 						{{ portfolio.title }}
 					</h2>
