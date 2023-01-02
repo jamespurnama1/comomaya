@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onUpdated, ref, reactive, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
-import { width } from 'dom7';
 
 useHead({
   title: 'COMOMAYA - Branding | Design | Digital | Social Media',
@@ -19,8 +18,9 @@ const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full bg-beige transition 
 const linkSelected = ref(false);
 const links = [
   '',
-  'portfolio',
+  'work',
   'about',
+  'grants & subsidies',
   'contact'
 ];
 const target = reactive({ x: 0, y: 0 })
@@ -79,22 +79,22 @@ onUpdated(() => {
 })
 
 const opened = ref(false)
-const aboutOpen = ref(false);
+// const aboutOpen = ref(false);
 
 function handleNav() {
   opened.value = !opened.value;
-  aboutOpen.value = false;
+  // aboutOpen.value = false;
 }
 
 
-function handleLink(e: Event, l: string) {
-  if (l === 'about' && !aboutOpen.value) {
-    e.preventDefault()
-    aboutOpen.value = true
-  } else {
-    handleNav()
-  }
-}
+// function handleLink(e: Event, l: string) {
+//   if (l === 'about' && !aboutOpen.value) {
+//     e.preventDefault()
+//     aboutOpen.value = true
+//   } else {
+//     handleNav()
+//   }
+// }
 
 function handleScrollUp() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -140,17 +140,17 @@ function handleScrollUp() {
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }" class="font-bold my-10 md:my-5 text-3xl hover:text-active"
           :class="[$route.path === `/${link}` ? 'text-active' : '']">
-          <a @click="handleLink($event, link)" :href="`/${link}`">
+          <a @click="handleNav" :href="link === 'grants & subsidies' ? '/about#grant' : `/${link}`">
             {{ link === '' ? 'home' : link }}
           </a>
-          <Transition name="fade">
+          <!-- <Transition name="fade">
             <ul class="mt-3" v-if="aboutOpen && i === 2">
               <li @click="handleNav" class="my-5 font-normal text-xl md:text-xl text-black hover:text-active"><a class="z-20" href="/about#ourPeople">our people</a></li>
               <li @click="handleNav" class="my-5 font-normal text-xl md:text-xl text-black hover:text-active"><a class="z-20" href="/about#ourServices">our services</a></li>
               <li @click="handleNav" class="my-5 font-normal text-xl md:text-xl text-black hover:text-active"><a class="z-20" href="/about#grant">grants &amp; subsidies</a></li>
               <li @click="handleNav" class="my-5 font-normal text-xl md:text-xl text-black hover:text-active"><a class="z-20" href="/about#testimonials">testimonials</a></li>
             </ul>
-          </Transition>
+          </Transition> -->
         </li>
       </transition-group>
       <transition-group name="fade" tag="span" class="flex flex-col justify-center mb-10">

@@ -97,11 +97,11 @@
   })
 
   useHead({
-    title: 'COMOMAYA - Portfolio',
+    title: 'COMOMAYA - Work',
     meta: [
       {
         name: 'COMOMAYA',
-        content: 'Portfolio',
+        content: 'Work',
       },
     ],
     link,
@@ -117,7 +117,7 @@
     <img :src="imgSrc" :alt="imgAlt" class="imgP fixed max-w-[10rem] md:max-w-md h-auto top-0 left-0 opacity-0 z-20 pointer-events-none" />
     <ul class="grid z-10">
         <li v-for="(portfolio, i) in response.list">
-          <a :href="`/portfolio/${portfolio.slug}`" @click.prevent="(e) => handleClick(e, i)">
+          <a :href="`/work/${portfolio.slug}`" @click.prevent="(e) => handleClick(e, i)">
             <div class="flex py-3 md:py-10 flex-wrap" @focus="(e) => handleHover(e, i)" @mouseenter="(e) => handleHover(e, i)" @onfocusout="handleOut" @mouseleave="() => handleOut()">
               <h2 class="text-4xl md:text-7xl whitespace-nowrap font-semibold">{{portfolio.title}}</h2>
               <h3 v-if="width > 768 || !portfolio.metadata.type_mobile" class="text-xs md:text-s font-semibold whitespace-nowrap">{{portfolio.metadata.type}}</h3>
