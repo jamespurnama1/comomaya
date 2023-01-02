@@ -165,7 +165,7 @@ function handleScrollUp() {
         <a key="ig" @click="handleNav" href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
           <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 hover:text-active" />
         </a>
-        <a key="linkedin" @click="handleNav" href="https://linkedin.com/comomaya" target="_blank"
+        <a key="linkedin" @click="handleNav" href="https://www.linkedin.com/in/ridhisain/" target="_blank"
           rel="noopener noreferrer">
           <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 hover:text-active" />
         </a>

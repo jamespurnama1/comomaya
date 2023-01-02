@@ -128,7 +128,7 @@ function scrollDown() {
 			<a href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
 				<font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="text-beige m-2 hover:text-active" />
 			</a>
-			<a href="https://linkedin.com/comomaya" target="_blank" rel="noopener noreferrer">
+			<a href="https://www.linkedin.com/in/ridhisain/" target="_blank" rel="noopener noreferrer">
 				<font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="text-beige m-2 hover:text-active" />
 			</a>
 		</span>
