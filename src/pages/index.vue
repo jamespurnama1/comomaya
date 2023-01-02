@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, watch } from 'vue'
+import { onMounted, onBeforeUnmount, watch, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useHead } from '@vueuse/head'
@@ -24,15 +24,18 @@ let loaded = false;
 
 let imageFade: GSAPTimeline;
 
+const projectList = ref()
+const main = ref()
+
 async function loadContent() {
 	loaded = true;
 
 	await new Promise(resolve => setTimeout(resolve, 500));
-	const skewSetter = gsap.quickSetter(".projectList", "skewY", "deg");
+	const skewSetter = gsap.quickSetter(projectList.value, "skewY", "deg");
 
 	let proxy = { skew: 0 };
 	const clamp = gsap.utils.clamp(-20, 20);
-	gsap.set(".projectList", { transformOrigin: "right center", force3D: true });
+	gsap.set(projectList.value, { transformOrigin: "right center", force3D: true });
 
 	const allBGs = gsap.utils.toArray(".bg")
 
@@ -41,7 +44,7 @@ async function loadContent() {
 		.to({}, { duration: 1 }, 1)
 
 	ScrollTrigger.create({
-		trigger: "main",
+		trigger: main.value,
 		start: "top top",
 		end: "bottom bottom",
 		id: "main",
@@ -58,9 +61,27 @@ async function loadContent() {
 	})
 }
 
+const scroll = ref(0)
+
+const bounce = ref()
+
+function updateScroll() {
+	scroll.value = window.scrollY
+}
+
+gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
-	gsap.registerPlugin(ScrollTrigger);
-	!loaded ? loadContent() : null
+
+	window.addEventListener('scroll', updateScroll)
+
+	// gsap.to(bounce, {
+	// 	y: '+3em',
+	// 	yoyo: true,
+	// })
+
+		setTimeout(() => {
+			loadContent()
+		}, 1000);
 });
 
 watch(() => store.isFetched, (x) => {
@@ -70,28 +91,38 @@ watch(() => store.isFetched, (x) => {
 
 onBeforeUnmount(() => {
 	if (imageFade) imageFade.kill()
+	window.removeEventListener('scroll', updateScroll)
 	if (!ScrollTrigger.getById("main")) return
 	ScrollTrigger.getById("main")!.kill()
 })
+
+function scrollDown() {
+	window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+}
 </script>
 
 <template>
-	<main v-if="store.getFeatured.length" class="min-h-screen flex md:justify-start justify-center py-20">
-		<ul class="portfoliosList flex flex-col md:justify-start justify-center md:mx-10 m-auto md:text-left text-center group z-0">
-			<li v-for="(portfolio, i) in store.getFeatured" class="projectList py-32 md:py-24">
-				<a :href="`/work/${portfolio.slug}`" class="transition-all group-hover:opacity-50 hover:!opacity-100">
+	<main ref="main" v-if="store.getFeatured.length" class="relative min-h-screen flex justify-center py-20">
+		<!-- <p class="fixed top-12 text-beige text-7xl md:text-9xl font-bold">scroll down</p> -->
+		<ul class="portfoliosList flex flex-col justify-center md:mx-10 m-auto text-center group z-0">
+			<li v-for="(portfolio, i) in store.getFeatured" ref="projectList" class="projectList py-32 md:py-24">
+				<a :href="`/work/${portfolio.slug}`" class="transition-all opacity-50 group-hover:opacity-20 hover:!opacity-100">
 					<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
 						{{ portfolio.title }}
 					</h2>
 				</a>
 			</li>
 		</ul>
-		<img :src="image.toString()" :alt="store.getFeatured.slice().reverse()[i].title"
+
+		<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']" size="2x"
+			class="text-beige fixed left-1/2 top-[90vh] cursor-pointer transition" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
+
+		<img :src="`${image.toString()}?w=2000`" :alt="store.getFeatured.slice().reverse()[i].title"
 			v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()"
 			class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0" :style="`z-index: ${-i - 5}`" />
 		<img class="h-screen fixed top-0 left-0 w-screen object-cover"
 			:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
-			:src="store.getFeatured.map(x => x.thumbnail)[0].toString()"
+			:src="`${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w = 500`"
 			:alt="store.getFeatured[0].title" />
 		<span class="absolute left-0 ml-8 bottom-10 flex flex-col justify-center">
 			<a href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
