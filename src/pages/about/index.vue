@@ -32,7 +32,7 @@ const testimonials: {[key: string]: string}[] = [
     "TANUSHREE SETH | Chief Executive Officer | Mirror Mirror": "&quot;Every interaction with Ridhi is a pleasure; in fact the branding &amp; logo design project outcome was so successful, that we reached out to Ridhi again to join hands on a new project that has been recently kicked-off. The success of the branding and logo design project was largely attributable to Ridhi’s strong analytical, yet creative and design-led strategic consulting skills. We have been so happy to have her expertise as a consulting partner on this&nbsp;brand.&quot;",
   },
   {
-    "ROSHINI BAKSHI | Head of Impact | Managing Director | Private Equity | Everstone Group": "&quot;Ridhi &amp; COMOMAYA invested a lot of time in working on the brand strategy, vision, mission and proposition. Very good execution of the brand strategy in terms of identity and design elements. Differentiated and fresh approach. A pleasure working with COMOMAYA and we look forward to working with Ridhi Sain on our next project&nbsp;together.&quot;"
+    "ROSHINI BAKSHI | Head of Impact | Managing Director | Private Equity | Everstone Group": "&quot;Ridhi &amp; COMOMAYA invested a lot of time in working on the brand strategy, vision, mission and proposition. Very good execution of the brand strategy in terms of identity and design elements. Differentiated and fresh approach. A pleasure working with COMOMAYA and we look forward to working with Ridhi Sain<wbr>on our next project&nbsp;together.&quot;"
   },
   {
     "KRISHNAN NARAYAN | Founder &amp; Chief Technologist | Netracity LLC": "&quot;I worked with Ridhi Sain to help me with the market positioning, naming, design and brand strategy for my company, Netracity LLC based in Texas, USA. Ridhi &amp; COMOMAYA did a great job on the company mission &amp; vision and created the brand strategy &amp; logo to accurately communicate the company's strategy to my clients. Her interactions with me &amp; my team were very timely and professional. I highly recommend Ridhi Sain &amp;&nbsp;COMOMAYA.&quot;"
@@ -74,7 +74,10 @@ onMounted(() => {
     }
   setTimeout(() => {
     if (location.hash) {
-      document.querySelector(location.hash) ? document.querySelector(location.hash)!.scrollIntoView() : null
+      document.querySelector(location.hash) ? window.scrollTo({
+        top: document.querySelector(location.hash)!.getBoundingClientRect().top - 50,
+        behavior: "smooth"
+      }) : null
     }
   }, 500);
 });
@@ -85,7 +88,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="relative bg-black mx-auto flex flex-col justify-center pt-10 md:pt-20">
+  <main class="relative bg-black mx-auto flex flex-col justify-center pt-0 md:pt-20">
     <section class="flex flex-col justify-center min-h-screen py-10 md:mx-40">
       <h2 class="text-beige mx-5 md:mx-0 font-semibold tracking-widest mb-5">HELLO</h2>
       <h1 class="split leading-10 mb-5 mx-5 md:mx-0 text-active text-4xl md:text-8xl font-semibold overflow-hidden">
@@ -189,10 +192,10 @@ onMounted(() => {
           <img class="w-full h-full object-contain" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
         </div>
       </section>
-
+      <span id="grant" />
       <!--- RMC --->
 
-      <section id="grant" class="bg-black md:flex-row relative flex flex-col justify-center md:min-h-[40vh] my-12 lg:my-24">
+      <section class="bg-black md:flex-row relative flex flex-col justify-center md:min-h-[40vh] my-12 lg:my-24">
         <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-5 lg:px-16 lg:pl-52">
           <h3 class="text-active text-lg md:text-2xl font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
