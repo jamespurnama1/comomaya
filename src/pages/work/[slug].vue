@@ -83,7 +83,7 @@
     })
 
     ScrollTrigger.batch('.content *', {
-      start: "top 80%",
+      start: "top bottom",
       onEnter: batch => gsap.to(batch, {
         autoAlpha: 1,
         stagger: 0.1,
