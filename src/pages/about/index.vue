@@ -89,7 +89,7 @@ onMounted(() => {
 
 <template>
   <main class="relative bg-black mx-auto flex flex-col justify-center pt-0 md:pt-20">
-    <section class="flex flex-col justify-center min-h-screen py-10 md:mx-40">
+    <section class="flex flex-col justify-center min-h-screen py-10 md:mx-32">
       <h2 class="text-beige mx-5 md:mx-0 font-semibold tracking-widest mb-5">HELLO</h2>
       <h1 class="split leading-10 mb-5 mx-5 md:mx-0 text-active text-4xl md:text-8xl font-semibold overflow-hidden">
         <span>We</span><span>are</span><strong><span>a</span><span>creative</span><span>boutique</span><span>agency</span></strong><span>and</span><span>we</span><strong><span>build</span><wbr><span>powerful</span>&nbsp;<span>brands</span></strong></h1>
