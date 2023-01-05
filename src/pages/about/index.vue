@@ -250,7 +250,7 @@ onMounted(() => {
     <a class="z-10" key="ig" href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
       <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-active" />
     </a>
-    <a class="z-10" key="linkedin" href="https://www.linkedin.com/in/ridhisain/" target="_blank" rel="noopener noreferrer">
+    <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya" target="_blank" rel="noopener noreferrer">
       <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-active" />
     </a>
     </section>
