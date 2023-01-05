@@ -23,19 +23,19 @@ let tl: GSAPTimeline
 
 const testimonials: {[key: string]: string}[] = [
   {
-    "TANUSHREE SETH | Chief Executive Officer | Mirror Mirror": "&quot;Ridhi's deep experience in branding, design, and strategy coupled with her consulting experience on top beauty and personal care brands globally has given her a distinctive ability to provide strategies that leverage first-principles thinking and propose solutions that are uniquely defined for the brand under&nbsp;study.&quot;",
+    "TANUSHREE SETH | Chief Executive&nbsp;Officer | Mirror&nbsp;Mirror, Guild&nbsp;Capital": "&quot;Ridhi's deep experience in branding, design, and strategy coupled with her consulting experience on top beauty and personal care brands globally has given her a distinctive ability to provide strategies that leverage first-principles thinking and propose solutions that are uniquely defined for the brand under&nbsp;study.&quot;",
   },
   {
-    "WILLIAM WATSON | Vice President | Everstone Group": "&quot;Ridhi Sain of COMOMAYA was instrumental in driving the successful delivery and launch of Culinary Brands. As a professional consultant, she worked tirelessly to meet and exceed our expectations, not only in terms of the quality of brand strategy &amp; design outputs, but also in terms of timely&nbsp;delivery.&quot;",
+    "WILLIAM WATSON | Vice&nbsp;President | Everstone&nbsp;Group": "&quot;Ridhi Sain of COMOMAYA was instrumental in driving the successful delivery and launch of Culinary Brands. As a professional consultant, she worked tirelessly to meet and exceed our expectations, not only in terms of the quality of brand strategy &amp; design outputs, but also in terms of timely&nbsp;delivery.&quot;",
   },
   {
-    "TANUSHREE SETH | Chief Executive Officer | Mirror Mirror": "&quot;Every interaction with Ridhi is a pleasure; in fact the branding &amp; logo design project outcome was so successful, that we reached out to Ridhi again to join hands on a new project that has been recently kicked-off. The success of the branding and logo design project was largely attributable to Ridhi’s strong analytical, yet creative and design-led strategic consulting skills. We have been so happy to have her expertise as a consulting partner on this&nbsp;brand.&quot;",
+    "TANUSHREE SETH | Chief Executive&nbsp;Officer | Mirror&nbsp;Mirror, Guild&nbsp;Capital": "&quot;Every interaction with Ridhi is a pleasure; in fact the branding &amp; logo design project outcome was so successful, that we reached out to Ridhi again to join hands on a new project that has been recently kicked-off. The success of the branding and logo design project was largely attributable to Ridhi’s strong analytical, yet creative and design-led strategic consulting skills. We have been so happy to have her expertise as a consulting partner on this&nbsp;brand.&quot;",
   },
   {
-    "ROSHINI BAKSHI | Head of Impact | Managing Director | Private Equity | Everstone Group": "&quot;Ridhi &amp; COMOMAYA invested a lot of time in working on the brand strategy, vision, mission and proposition. Very good execution of the brand strategy in terms of identity and design elements. Differentiated and fresh approach. A pleasure working with COMOMAYA and we look forward to working with Ridhi Sain<wbr>on our next project&nbsp;together.&quot;"
+    "ROSHINI BAKSHI | Head of&nbsp;Impact | Managing&nbsp;Director | Private&nbsp;Equity | Everstone&nbsp;Group": "&quot;Ridhi &amp; COMOMAYA invested a lot of time in working on the brand strategy, vision, mission and proposition. Very good execution of the brand strategy in terms of identity and design elements. Differentiated and fresh approach. A pleasure working with COMOMAYA and we look forward to working with Ridhi Sain<wbr>on our next project&nbsp;together.&quot;"
   },
   {
-    "KRISHNAN NARAYAN | Founder &amp; Chief Technologist | Netracity LLC": "&quot;I worked with Ridhi Sain to help me with the market positioning, naming, design and brand strategy for my company, Netracity LLC based in Texas, USA. Ridhi &amp; COMOMAYA did a great job on the company mission &amp; vision and created the brand strategy &amp; logo to accurately communicate the company's strategy to my clients. Her interactions with me &amp; my team were very timely and professional. I highly recommend Ridhi Sain &amp;&nbsp;COMOMAYA.&quot;"
+    "KRISHNAN NARAYAN | Founder &amp; Chief&nbsp;Technologist | Netracity&nbsp;LLC": "&quot;I worked with Ridhi Sain to help me with the market positioning, naming, design and brand strategy for my company, Netracity LLC based in Texas, USA. Ridhi &amp; COMOMAYA did a great job on the company mission &amp; vision and created the brand strategy &amp; logo to accurately communicate the company's strategy to my clients. Her interactions with me &amp; my team were very timely and professional. I highly recommend Ridhi Sain &amp;&nbsp;COMOMAYA.&quot;"
   }
 ]
 
