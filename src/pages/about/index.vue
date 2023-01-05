@@ -95,7 +95,7 @@ onMounted(() => {
         <span>We</span><span>are</span><strong><span>a</span><span>creative</span><span>boutique</span><span>agency</span></strong><span>and</span><span>we</span><strong><span>build</span><wbr><span>powerful</span>&nbsp;<span>brands</span></strong></h1>
       <p class="text-white text-xl mx-5 md:mx-0"><strong>COMOMAYA</strong> exists in order to make international standards of branding &amp; design more accessible to new and upcoming
       brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the best
-      international talent there is, but without the exhorbitant price tag that comes with hiring a top global agency. We are here to empower new business owners &amp; entrepreneurs with great design and powerful brands that tell a&nbsp;story…</p>
+      international talent there is, but without the exorbitant price tag that comes with hiring a top global agency. We are here to empower new business owners &amp; entrepreneurs with great design and powerful brands that tell a&nbsp;story…</p>
     </section>
     <div class="bg-white">
 
