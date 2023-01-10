@@ -140,7 +140,7 @@ onMounted(() => {
         <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-beige font-medium">
           <strong>Our</strong> people
         </h2>
-        <h3 v-if="width > 768" class="text-beige font-medium text-right text-5xl pb-5 px-12 mx-16 leading-tight">
+        <h3 v-if="width > 768" class="text-beige font-medium text-right text-3xl pb-5 px-12 mx-16 leading-tight">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
           with some of the best talent in the industry and across the&nbsp;globe.
         </h3>
