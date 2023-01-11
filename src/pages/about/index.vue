@@ -46,7 +46,7 @@ const testimonialsDate = [
   "October 2022",
   "November 2022",
   "September 2022",
-  "December 2022"
+  ""
 ]
 
 const width = ref(0)
