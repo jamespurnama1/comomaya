@@ -106,7 +106,7 @@ function scrollDown() {
 		<!-- <p class="fixed top-12 text-beige text-7xl md:text-9xl font-bold">scroll down</p> -->
 		<ul class="portfoliosList flex flex-col justify-center md:mx-10 m-auto text-center group z-0">
 			<li v-for="(portfolio, i) in store.getFeatured" ref="projectList" class="projectList py-32 md:py-24 transition-all opacity-50 md:group-hover:opacity-20 md:hover:!opacity-100">
-				<a :href="`/work/${portfolio.slug}`">
+				<a :aria-label="`Go to ${portfolio.title}`" :href="`/work/${portfolio.slug}`">
 					<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
 						{{ portfolio.title }}
 					</h2>
@@ -117,18 +117,31 @@ function scrollDown() {
 		<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']" size="2x"
 			class="text-beige fixed left-1/2 top-[90vh] cursor-pointer transition" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
 
-		<img :src="`${image.toString()}?w=2000`" :alt="store.getFeatured.slice().reverse()[i].title"
+		<img
 			v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()"
-			class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0" :style="`z-index: ${-i - 5}`" />
+			:srcset="`
+				${image.toString()}?w=1920&auto=format 1920w,
+				${image.toString()}?w=1024&auto=format 1024w,
+				${image.toString()}?w=640&auto=format 640w,
+				${image.toString()}?w=480&auto=format 480w`"
+			:src="`${image.toString()}?auto=format`"
+			:alt="store.getFeatured.slice().reverse()[i].title"
+			class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0" :style="`z-index: ${-i - 5}`"
+		/>
 		<img class="h-screen fixed top-0 left-0 w-screen object-cover"
 			:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
-			:src="`${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w = 500`"
+			:src="`${store.getFeatured.map(x => x.thumbnail)[0].toString()}?auto=format`"
+			:srcset="`
+				${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w=1920&auto=format 1920w,
+				${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w=1024&auto=format 1024w,
+				${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w=640&auto=format 640w,
+				${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w=480&auto=format 480w`"
 			:alt="store.getFeatured[0].title" />
 		<span class="absolute left-0 ml-8 bottom-10 flex flex-col justify-center">
-			<a href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
+			<a href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
 				<font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="text-beige m-2 hover:text-active" />
 			</a>
-			<a href="https://www.linkedin.com/company/comomaya" target="_blank" rel="noopener noreferrer">
+			<a href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
 				<font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="text-beige m-2 hover:text-active" />
 			</a>
 		</span>
