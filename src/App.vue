@@ -117,12 +117,15 @@ function handleScrollUp() {
   <nav
     class="fixed w-screen top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-black md:bg-beige items-center z-30 transition-all origin-top-left"
     :class="[((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? '!bg-opacity-100' : '!bg-opacity-0']">
-    <a href="/">
-      <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA"
-        class="logo transition-all duration-700 h-9 md:h-10 img-responsive origin-top-left"
-        :class="[(opened && innerWidth > 768) || ((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' && innerWidth > 768) ? 'brightness-0' : '']" />
+    <a aria-label="Go to Landing Page" href="/">
+      <picture
+        :class="[(opened && innerWidth > 768) || ((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' && innerWidth > 768) ? 'brightness-0' : '']">
+        <source srcset="/COMOMAYA_Logo_Beige_800x90.webp" type="image/webp">
+        <source srcset="/COMOMAYA_Logo_Beige_800x90.png" type="image/png">
+        <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class="logo transition-all duration-700 h-9 md:h-10 img-responsive origin-top-left w-[225.156px] md:w-[250.172px]" />
+      </picture>
     </a>
-    <button class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
+    <button aria-label="Navigation" class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
       @click="handleNav" @keydown="handleNav">
       <div :class="[
   (opened ? 'rotate-45 translate-y-1.5 opacity-100 !bg-beige md:!bg-black' : 'opacity-100'),
@@ -148,24 +151,16 @@ function handleScrollUp() {
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }" class="font-bold my-10 md:my-5 text-3xl hover:text-active"
           :class="[$route.path === `/${link}` ? 'text-active' : '']">
-          <a @click="handleNav" :href="whatisLink(link)">
+          <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">
             {{ link === '' ? 'home' : link }}
           </a>
-          <!-- <Transition name="fade">
-            <ul class="mt-3" v-if="aboutOpen && i === 2">
-              <li @click="handleNav" class="my-5 font-normal text-xl md:text-xl text-black hover:text-active"><a class="z-20" href="/about#ourPeople">our people</a></li>
-              <li @click="handleNav" class="my-5 font-normal text-xl md:text-xl text-black hover:text-active"><a class="z-20" href="/about#ourServices">our services</a></li>
-              <li @click="handleNav" class="my-5 font-normal text-xl md:text-xl text-black hover:text-active"><a class="z-20" href="/about#grant">grants &amp; subsidies</a></li>
-              <li @click="handleNav" class="my-5 font-normal text-xl md:text-xl text-black hover:text-active"><a class="z-20" href="/about#testimonials">testimonials</a></li>
-            </ul>
-          </Transition> -->
         </li>
       </transition-group>
       <transition-group name="fade" tag="span" class="flex flex-col justify-center mb-10">
-        <a key="ig" @click="handleNav" href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
+        <a key="ig" @click="handleNav" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
           <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 hover:text-active" />
         </a>
-        <a key="linkedin" @click="handleNav" href="https://www.linkedin.com/company/comomaya" target="_blank"
+        <a key="linkedin" @click="handleNav" href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
           rel="noopener noreferrer">
           <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 hover:text-active" />
         </a>
@@ -179,7 +174,7 @@ function handleScrollUp() {
   </transition>
 
   <transition name="fade">
-    <button v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
+    <button aria-label="Scroll Up" v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
       class="flex justify-center items-center absolute bottom-10 right-10 bg-black w-10 h-10 z-20">
       <font-awesome-icon :icon="['fas', 'angle-up']" size="lg" class="mx-2 text-beige" />
     </button>
@@ -200,13 +195,9 @@ function handleScrollUp() {
     </template>
   </router-view>
 
-  <footer class="absolute bottom-0 my-5 ml-10">
+  <footer class="my-5 ml-10">
     <p class="text-xs mix-blend-difference text-white">
       © 2023 COMOMAYA. All rights reserved.
     </p>
   </footer>
 </template>
-
-<style lang="scss">
-
-</style>

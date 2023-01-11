@@ -19,8 +19,6 @@
     ],
   })
 
-let tl: GSAPTimeline
-
 const testimonials: {[key: string]: string}[] = [
   {
     "TANUSHREE SETH | Chief Executive&nbsp;Officer | Mirror&nbsp;Mirror, Guild&nbsp;Capital": "&quot;Ridhi's deep experience in branding, design, and strategy coupled with her consulting experience on top beauty and personal care brands globally has given her a distinctive ability to provide strategies that leverage first-principles thinking and propose solutions that are uniquely defined for the brand under&nbsp;study.&quot;",
@@ -36,6 +34,9 @@ const testimonials: {[key: string]: string}[] = [
   },
   {
     "KRISHNAN NARAYAN | Founder &amp; Chief&nbsp;Technologist | Netracity&nbsp;LLC": "&quot;I worked with Ridhi Sain to help me with the market positioning, naming, design and brand strategy for my company, Netracity LLC based in Texas, USA. Ridhi &amp; COMOMAYA did a great job on the company mission &amp; vision and created the brand strategy &amp; logo to accurately communicate the company's strategy to my clients. Her interactions with me &amp; my team were very timely and professional. I highly recommend Ridhi Sain &amp;&nbsp;COMOMAYA.&quot;"
+  },
+  {
+    "MARGIE WARRELL, PhD | Bestselling Author &amp; Keynote Speaker	| CEO, Global Courage Leadership": "&quot;Love my new branding by the very talented Ridhi&nbsp;Sain&quot;"
   }
 ]
 
@@ -44,7 +45,8 @@ const testimonialsDate = [
   "November 2022",
   "October 2022",
   "November 2022",
-  "September 2022"
+  "September 2022",
+  "December 2022"
 ]
 
 const width = ref(0)
@@ -61,7 +63,6 @@ onMounted(() => {
 
   const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
     if (split) {
-      const tl = gsap.timeline();
       gsap.to(split, {
         y: "-0.1em",
         duration: 0.5,
@@ -91,9 +92,9 @@ onMounted(() => {
   <main class="relative bg-black mx-auto flex flex-col justify-center pt-0 md:pt-20">
     <section class="flex flex-col justify-center min-h-screen py-10 md:mx-32">
       <h2 class="text-beige mx-5 md:mx-0 font-semibold tracking-widest mb-5">HELLO</h2>
-      <h1 class="split leading-10 mb-5 mx-5 md:mx-0 text-active text-4xl md:text-8xl font-semibold overflow-hidden">
+      <h1 class="split leading-10 mb-5 mx-5 md:mx-0 text-active text-4xl md:text-8xl font-semibold overflow-hidden md:w-2/3">
         <span>We</span><span>are</span><strong><span>a</span><span>creative</span><span>boutique</span><span>agency</span></strong><span>and</span><span>we</span><strong><span>build</span><wbr><span>powerful</span>&nbsp;<span>brands</span></strong></h1>
-      <p class="text-white text-xl mx-5 md:mx-0"><strong>COMOMAYA</strong> exists in order to make international standards of branding &amp; design more accessible to new and upcoming
+      <p class="text-white text-xl mx-5 md:mx-0 md:w-2/3"><strong>COMOMAYA</strong> exists in order to make international standards of branding &amp; design more accessible to new and upcoming
       brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the best
       international talent there is, but without the exorbitant price tag that comes with hiring a top global agency. We are here to empower new business owners &amp; entrepreneurs with great design and powerful brands that tell a&nbsp;story…</p>
     </section>
@@ -107,28 +108,32 @@ onMounted(() => {
             <h3 class="text-active text-2xl font-semibold tracking-widest text-left">
               RIDHI&nbsp;SAIN
             </h3>
-              <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards" />
+              <picture class="md:ml-5 md:max-h-12 max-h-6 mx-5">
+                <source srcset="/assets/awards.webp" type="image/webp">
+                <source srcset="/assets/awards.jpg" type="image/jpeg">
+                <img src="/assets/awards.jpg" alt="Awards">
+              </picture>
           </span>
           <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
             <strong>Founder</strong> &amp; Creative&nbsp;Director
           </h2>
           <p class="pb-10 text-lg text-left text-black">
-            Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of <strong>COMOMAYA</strong> which she launched in March 2022. With a
-            career spanning almost 20 years in the UK, Singapore &amp; India, Ridhi is ex-Assoc Creative Director and Design Director of
+            Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of <strong>COMOMAYA</strong> which she launched in March 2022. With a career spanning almost 20 years in the UK, Singapore &amp; India, Ridhi is ex-Assoc Creative Director and Design Director of
             international agencies such as Coley Porter Bell (WPP Group), Pi Global, Holmes &amp; Marchant and Cowan and has led and
             helped strategise, conceptualise &amp; direct creative work on many global brands. More recently, she has worked with
             smaller boutique clients ranging from luxury to corporate and digital start ups, bringing her vast experience and
             immense passion to help them through their creative journey.<br><br>You can check out some of her past work at 
-            <a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" href='https://www.ridhisain.com'>
+            <a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Ridhi's Past Work" href='https://www.ridhisain.com'>
               www.ridhisain.com
             </a>
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
-          <img class="w-full h-full object-contain"
-            srcset="/assets/Ridhi.jpg 2x, /assets/Ridhi.jpg 4x"
-            sizes="(max-width: 768px) 2x, 4x"
-            src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
+          <picture class="w-full h-full object-contain">
+            <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
+            <source srcset="/assets/Ridhi.webp" type="image/webp">
+            <img src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
+          </picture>
         </div>
       </section>
 
@@ -140,7 +145,7 @@ onMounted(() => {
         <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-beige font-medium">
           <strong>Our</strong> people
         </h2>
-        <h3 v-if="width > 768" class="text-beige font-medium text-right text-3xl pb-5 px-12 mx-16 leading-tight">
+        <h3 v-if="width > 768" class="text-beige font-medium text-right text-3xl pb-5 px-12 mx-16 leading-tight md:w-2/3 md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
           with some of the best talent in the industry and across the&nbsp;globe.
         </h3>
@@ -148,16 +153,24 @@ onMounted(() => {
 
       <section class="flex flex-col justify-center md:min-h-[40vh] my-12 mt-0 lg:mb-24 bg-beige md:flex-row">
         <div class="md:w-2/3 p-0 m-0">
-          <img class="object-cover min-w-full min-h-full h-auto" src="/assets/globe.jpg" alt="globe" />
+          <picture class="object-cover min-w-full min-h-full h-auto">
+            <source srcset="/assets/globe.jpg" type="image/jpeg">
+            <source srcset="/assets/globe.webp" type="image/webp">
+            <img src="/assets/globe.jpg" alt="Globe" />
+          </picture>
         </div>
         <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-black md:flex-row">
-          <h3 class="text-beige text-2xl text-right font-medium py-5 mx-16 leading-tight">
+          <h3 class="text-beige text-2xl text-right font-medium py-5 mx-16 leading-tight md:w-2/3">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
             with some of the best talent in the industry and across the&nbsp;globe.
           </h3>
         </section>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <img class="w-full h-full object-contain" src="/assets/theSquad.jpg" alt="The Squad" />
+          <picture class="w-full h-full object-contain">
+            <source srcset="/assets/theSquad.jpg" type="image/jpeg">
+            <source srcset="/assets/theSquad.webp" type="image/webp">
+            <img src="/assets/theSquad.jpg" alt="The Squad" />
+          </picture>
         </div>
       </section>
 
@@ -170,7 +183,7 @@ onMounted(() => {
         <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-left text-black font-medium">
           <strong>Our</strong> services
         </h2>
-        <h3 v-if="width > 768" class="text-black font-medium text-3xl pb-10 md:px-12 mx-16">
+        <h3 v-if="width > 768" class="text-black font-medium text-3xl pb-10 md:px-12 mx-16 md:w-2/3">
             We have a vibrant portfolio of clients ranging from FMCG to
             B2B and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary and
             provide holistic services for your brand woven together from day&nbsp;one.
@@ -179,7 +192,11 @@ onMounted(() => {
       
       <section class="flex flex-col justify-center md:min-h-[40vh] my-12 mt-0 lg:mb-24 bg-beige md:flex-row">
         <div class="md:w-2/3 p-0 m-0 bg-black">
-          <img class="object-contain min-w-full min-h-full h-auto" src="/assets/services.jpg" alt="list of services" />
+          <picture class="object-contain min-w-full min-h-full h-auto">
+            <source srcset="/assets/services.jpg" type="image/jpeg">
+            <source srcset="/assets/services.webp" type="image/webp">
+            <img src="/assets/services.jpg" alt="list of services" />
+          </picture>
         </div>
         <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-beige md:flex-row">
           <h3 class="text-black text-2xl font-medium py-5 mx-10">
@@ -189,7 +206,11 @@ onMounted(() => {
           </h3>
         </section>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <img class="w-full h-full object-contain" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
+          <picture class="w-full h-full object-contain">
+            <source srcset="/assets/WhatWeOffer.jpg" type="image/jpeg">
+            <source srcset="/assets/WhatWeOffer.webp" type="image/webp">
+            <img src="/assets/WhatWeOffer.jpg" alt="What we offer" />
+          </picture>
         </div>
       </section>
       <span id="grant" />
@@ -206,13 +227,17 @@ onMounted(() => {
           <p class="pb-10 text-lg text-right text-beige">
             We are certified as a Registered Management Consultant (*RMC)
             with IMC Singapore (Institute of Management Consultants).
-            Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small & Medium Enterprises) can apply for up
+            Under the EDG (Enterprise Development Grant) program, Singapore&#8209;based SMEs (Small &amp; Medium Enterprises) can apply for up
             to 80% of government funding towards their costs with us. If you qualify for this grant and are interested in this
-            opportunity you can find out more&nbsp;<a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" href="https://www.enterprisesg.gov.sg/financial-assistance/grants/for-local-companies/enterprise-development-grant/apply/pre-application">here.</a>
+            opportunity you can find out more&nbsp;<a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application" href="https://www.enterprisesg.gov.sg/financial-assistance/grants/for-local-companies/enterprise-development-grant/apply/pre-application">here.</a>
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <img class="w-full h-full object-cover" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
+          <picture class="w-full h-full object-cover">
+            <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
+            <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
+            <img src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
+          </picture>
         </div>
       </section>
 
@@ -247,10 +272,10 @@ onMounted(() => {
       <source src="/assets/aboutus.mp4" type="video/mp4" />
     </video>
     <h3 class="text-beige text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3>
-    <a class="z-10" key="ig" href="https://instagram.com/comomaya" target="_blank" rel="noopener noreferrer">
+    <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
       <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-active" />
     </a>
-    <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya" target="_blank" rel="noopener noreferrer">
+    <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
       <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-active" />
     </a>
     </section>
