@@ -108,10 +108,10 @@ onMounted(() => {
             <h3 class="text-active text-2xl font-semibold tracking-widest text-left">
               RIDHI&nbsp;SAIN
             </h3>
-              <picture class="md:ml-5 md:max-h-12 max-h-6 mx-5">
+              <picture>
                 <source srcset="/assets/awards.webp" type="image/webp">
                 <source srcset="/assets/awards.jpg" type="image/jpeg">
-                <img src="/assets/awards.jpg" alt="Awards">
+                <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards">
               </picture>
           </span>
           <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
@@ -129,10 +129,10 @@ onMounted(() => {
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
-          <picture class="w-full h-full object-contain">
+          <picture>
             <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
             <source srcset="/assets/Ridhi.webp" type="image/webp">
-            <img src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
+            <img class="w-full h-full object-contain" src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
           </picture>
         </div>
       </section>
@@ -153,10 +153,10 @@ onMounted(() => {
 
       <section class="flex flex-col justify-center md:min-h-[40vh] my-12 mt-0 lg:mb-24 bg-beige md:flex-row">
         <div class="md:w-2/3 p-0 m-0">
-          <picture class="object-cover min-w-full min-h-full h-auto">
+          <picture>
             <source srcset="/assets/globe.jpg" type="image/jpeg">
             <source srcset="/assets/globe.webp" type="image/webp">
-            <img src="/assets/globe.jpg" alt="Globe" />
+            <img class="object-cover min-w-full min-h-full h-auto" src="/assets/globe.jpg" alt="Globe" />
           </picture>
         </div>
         <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-black md:flex-row">
@@ -166,10 +166,10 @@ onMounted(() => {
           </h3>
         </section>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <picture class="w-full h-full object-contain">
+          <picture>
             <source srcset="/assets/theSquad.jpg" type="image/jpeg">
             <source srcset="/assets/theSquad.webp" type="image/webp">
-            <img src="/assets/theSquad.jpg" alt="The Squad" />
+            <img class="w-full h-full object-contain" src="/assets/theSquad.jpg" alt="The Squad" />
           </picture>
         </div>
       </section>
@@ -192,10 +192,10 @@ onMounted(() => {
       
       <section class="flex flex-col justify-center md:min-h-[40vh] my-12 mt-0 lg:mb-24 bg-beige md:flex-row">
         <div class="md:w-2/3 p-0 m-0 bg-black">
-          <picture class="object-contain min-w-full min-h-full h-auto">
+          <picture>
             <source srcset="/assets/services.jpg" type="image/jpeg">
             <source srcset="/assets/services.webp" type="image/webp">
-            <img src="/assets/services.jpg" alt="list of services" />
+            <img class="object-contain min-w-full min-h-full h-auto" src="/assets/services.jpg" alt="list of services" />
           </picture>
         </div>
         <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-beige md:flex-row">
@@ -206,10 +206,10 @@ onMounted(() => {
           </h3>
         </section>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <picture class="w-full h-full object-contain">
+          <picture>
             <source srcset="/assets/WhatWeOffer.jpg" type="image/jpeg">
             <source srcset="/assets/WhatWeOffer.webp" type="image/webp">
-            <img src="/assets/WhatWeOffer.jpg" alt="What we offer" />
+            <img class="w-full h-full object-contain" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
           </picture>
         </div>
       </section>
@@ -233,10 +233,10 @@ onMounted(() => {
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <picture class="w-full h-full object-cover">
+          <picture>
             <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
             <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
-            <img src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
+            <img class="w-full h-full object-cover" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
           </picture>
         </div>
       </section>
