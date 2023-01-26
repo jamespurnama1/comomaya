@@ -227,7 +227,7 @@ onMounted(() => {
             Grants<br><strong>for&nbsp;SMEs</strong>
           </h2>
           <p class="pb-10 text-lg text-right text-beige">
-            We are certified as a Registered Management Consultant (*RMC)
+            We are certified as a Registered Management Consultant (RMC)
             with IMC Singapore (Institute of Management Consultants).
             Under the EDG (Enterprise Development Grant) program, Singapore&#8209;based SMEs (Small &amp; Medium Enterprises) can apply for up
             to 80% of government funding towards their costs with us. If you qualify for this grant and are interested in this
