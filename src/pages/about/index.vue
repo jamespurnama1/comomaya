@@ -139,6 +139,36 @@ onMounted(() => {
         </div>
       </section>
 
+            <!--- RIDHI --->
+
+        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row">
+          <div class="md:w-2/3 my-auto px-5 md:px-16 md:pl-12 lg:pl-52">
+            <!-- <span class="relative pt-16 md:mb-1 flex items-center"> -->
+              <h3 class="text-active text-2xl pt-16  font-semibold tracking-widest md:text-right">
+                SONALI&nbsp;SANI
+              </h3>
+                <!-- <picture>
+                  <source srcset="/assets/awards.webp" type="image/webp">
+                  <source srcset="/assets/awards.jpg" type="image/jpeg">
+                  <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards">
+                </picture> -->
+            <!-- </span> -->
+            <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden md:text-right text-black">
+              <strong>Client</strong>&nbsp;Director
+            </h2>
+            <p class="pb-10 text-lg md:text-right text-black">
+              Sonali Sani has had over a decade of experience in Client Services. She has worked at both big international agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining strong relationships with all of our clients, helping them meet their business needs and growth potential, whilst ensuring this is done on time and on&nbsp;budget.
+            </p>
+          </div>
+          <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
+            <picture>
+              <source srcset="/assets/Sonali.jpg" type="image/jpeg">
+              <source srcset="/assets/Sonali.webp" type="image/webp">
+              <img class="w-full h-full object-contain" src="/assets/Sonali.jpg" alt="Sonali Sani" />
+            </picture>
+          </div>
+        </section>
+
       <!--- OUR PEOPLE --->
       <section class="flex justify-center mt-12 lg:mt-24 bg-black flex-col">
         <h3 class="text-active pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
