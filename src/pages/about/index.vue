@@ -157,7 +157,9 @@ onMounted(() => {
               <strong>Client</strong>&nbsp;Director
             </h2>
             <p class="pb-10 text-lg md:text-right text-black">
-              Sonali Sani has had over a decade of experience in Client Services. She has worked at both big international agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining strong relationships with all of our clients, helping them meet their business needs and growth potential, whilst ensuring this is done on time and on&nbsp;budget.
+              Sonali Sani has had over a decade of experience in Client Services. She has worked with at both big international agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX, Pan Pacific Hotels &amp; Resorts, Intercontinental Hotels Group, Twinings Tea, McCormick, GSK, Reckitt Benckiser and Moneycorp to name a few.
+              <br /><br />
+              Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining strong relationships with all of our clients, helping them meet their business needs and growth potential, whilst ensuring this is done on time and on&nbsp;budget.
             </p>
           </div>
           <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
