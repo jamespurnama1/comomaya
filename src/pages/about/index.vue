@@ -9,23 +9,6 @@
 
   const modules = [Autoplay, Navigation]
 
-  const profiles = [
-    { name: 'Sonali Sani', images: { jpeg: 'sonali.jpg', webp: 'sonali.webp'}, desc: 'Sonali Sani has had over a decade of experience in Client Services. She has worked at both big international agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining strong relationships with all of our clients, helping them meet their business needs and growth potential, whilst ensuring this is done on time and on&nbsp;budget.'},
-    { name: 'James Henry', images: {jpeg: 'james.jpg', webp: 'james.webp'}, desc: 'Although the baby of our squad, James is a serious design whiz kid. He supports the team on literally everything design. He also happens to be our man on UX/UI and coding.'},
-    { name: 'Albert Wijaya', images: {jpeg: 'albert.jpg', webp: 'albert.webp'}, desc: 'Lorem Ipsum Dolor'},
-    { name: 'Lorem',images: {jpeg: '1.jpg', webp: '1.webp'}, desc: 'Lorem Ipsum Dolor'},
-    { name: 'Lorem',images: {jpeg: '2.jpg', webp: '2.webp'}, desc: 'Lorem Ipsum Dolor'},
-    { name: 'Adam', images: {jpeg: 'adam.jpg', webp: 'adam.webp'}, desc: 'Adam is a creative genius. He has worked on multiple Bluechip brands and won more awards for his design work than any designer we know.'},
-    { name: 'Lorem', images: {jpeg: '4.jpg', webp: '4.webp'}, desc: 'Sit Amet'},
-    { name: 'Lorem', images: {jpeg: '5.jpg', webp: '5.webp'}, desc: '123'},
-    { name: 'Lorem',images: {jpeg: '6.jpg', webp: '6.webp'}, desc: '456'},
-    { name: 'Lorem',images: {jpeg: '7.jpg', webp: '7.webp'}, desc: '786'},
-  ]
-
-  const hover = ref(null as null | number);
-
-  const squad = "Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating with some of the best talent in the industry and across the&nbsp;globe."
-
   useHead({
     title: 'COMOMAYA - About',
     meta: [
@@ -147,51 +130,52 @@ onMounted(() => {
             </a>
           </p>
         </div>
-        <div class="w-full min-h-[20rem] md:w-1/2 overflow-hidden bg-beige">
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
           <picture>
-            <source srcset="/assets/profiles/ridhi.jpg" type="image/jpeg">
-            <source srcset="/assets/profiles/ridhi.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/profiles/ridhi.jpg" alt="Ridhi Sain" />
+            <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
+            <source srcset="/assets/Ridhi.webp" type="image/webp">
+            <img class="w-full h-full object-contain" src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
           </picture>
         </div>
       </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex bg-black flex-col-reverse justify-between md:min-h-[78vh] lg:flex-row mt-12 lg:mt-24">
-        <section class="flex flex-col justify-start bg-black lg:w-[30%]">
-          <h3 class="text-active pt-10 md:pt-16 lg:ml-16 px-12 lg:px-0 text-lg md:text-2xl font-semibold tracking-widest text-left">
-            THE COMOMAYA&nbsp;SQUAD
-          </h3>
-          <transition name="fade" mode="out-in">
-            <h2 v-if="typeof hover !== 'number'" class="drama md:pt-3 lg:ml-16 pb-5 px-12 lg:px-0 text-5xl md:text-7xl overflow-hidden text-left text-beige font-medium">
-              <strong>Our</strong> people
-            </h2>
-            <h2 v-else class="drama md:pt-3 lg:ml-16 pb-5 px-12 lg:px-0 text-5xl md:text-7xl overflow-hidden text-left text-beige font-medium">
-              <strong>{{ profiles[hover].name }}</strong>
-            </h2>
-          </transition>
-          <transition name="fade" mode="out-in">
-            <h3 :key="hover ? hover : 0" v-html="typeof hover === 'number' ? profiles[hover].desc : squad" class="text-beige text-2xl text-left font-medium py-5 px-12 lg:px-0 lg:ml-16 leading-tight" />
-          </transition>
-        </section>
-        <div class="w-full min-h-[15rem] lg:w-[60%] overflow-hidden bg-black grid gap-0 grid-cols-5">
-          <picture v-for="(profile, index) in profiles" @mouseover="hover = index" @mouseleave="hover = null">
-            <source :srcset="`/assets/profiles/${profile.images.jpeg}`" type="image/jpeg">
-            <source :srcset="`/assets/profiles/${profile.images.webp}`" type="image/webp">
-            <img class="w-full h-full object-cover transition-all hover:brightness-100" :class="[typeof hover !== 'number' ? '!brightness-100' : 'brightness-50']" :src="`/assets/profiles/${profile.images.jpeg}`" :alt="profile.images.jpeg.substring(0, profile.images.jpeg.lastIndexOf('.')) || profile.images.jpeg" />
-          </picture>
-        </div>
+      <section class="flex justify-center mt-12 lg:mt-24 bg-black flex-col">
+        <h3 class="text-active pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
+          THE COMOMAYA&nbsp;SQUAD
+        </h3>
+        <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-beige font-medium">
+          <strong>Our</strong> people
+        </h2>
+        <h3 v-if="width > 768" class="text-beige font-medium text-right text-3xl pb-5 px-12 mx-16 leading-tight md:w-2/3 md:ml-auto">
+          Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
+          with some of the best talent in the industry and across the&nbsp;globe.
+        </h3>
       </section>
 
-      <section class="flex justify-center bg-black flex-col mb-12 lg:mb-24 mt-0">
-        <div class="w-full p-0 m-0">
+      <section class="flex flex-col justify-center md:min-h-[40vh] my-12 mt-0 lg:mb-24 bg-beige md:flex-row">
+        <div class="md:w-2/3 p-0 m-0">
           <picture>
             <source srcset="/assets/globe.jpg" type="image/jpeg">
             <source srcset="/assets/globe.webp" type="image/webp">
             <img class="object-cover min-w-full min-h-full h-auto" src="/assets/globe.jpg" alt="Globe" />
           </picture>
         </div>
+        <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-black md:flex-row">
+          <h3 class="text-beige text-2xl text-right font-medium py-5 mx-16 leading-tight md:w-2/3">
+            Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
+            with some of the best talent in the industry and across the&nbsp;globe.
+          </h3>
+        </section>
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
+          <picture>
+            <source srcset="/assets/theSquad.jpg" type="image/jpeg">
+            <source srcset="/assets/theSquad.webp" type="image/webp">
+            <img class="w-full h-full object-contain" src="/assets/theSquad.jpg" alt="The Squad" />
+          </picture>
+        </div>
       </section>
+
       <!--- WHAT WE OFFER --->
 
       <section id="ourServices" class="flex justify-center mt-12 lg:mt-24 bg-beige flex-col">
