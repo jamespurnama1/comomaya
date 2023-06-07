@@ -39,10 +39,10 @@ interface Listing {
 }
 
 interface List {
-  objects: {
+  object: {
     metadata: {
       list: Featured[]
     }
-  }[],
+  },
   total: number
 }

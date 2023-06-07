@@ -45,7 +45,7 @@
 
  	async function load() {
       axios.get('https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects?pretty=true&query=%7B%22type%22:%22portfolios%22%7D&limit=10&read_key=Yz8ifYSRHxv4SzRygKNMbdGZnUaTUAUZBbseBGOILB3eWpiwh1&depth=1&props=slug,title,metadata,content', { withCredentials: false })
-      .then((res: AxiosResponse<{ object: Content[] }>) => {
+      .then((res: AxiosResponse<{ objects: Content[] }>) => {
         contentID = res.data.objects.map(x => x.slug).indexOf(route.params.slug as string);
         (thisPage as { content: Content }).content = res.data.objects[contentID];
       }).catch((err) => {
