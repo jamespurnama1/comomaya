@@ -106,9 +106,9 @@ function scrollDown() {
 		<!-- <p class="fixed top-12 text-beige text-7xl md:text-9xl font-bold">scroll down</p> -->
 		<ul class="portfoliosList flex flex-col justify-center md:mx-10 m-auto text-center group z-0">
 			<li v-for="(portfolio, i) in store.getFeatured" ref="projectList" class="projectList py-32 md:py-24 transition-all opacity-50 md:group-hover:opacity-20 md:hover:!opacity-100">
-				<a :aria-label="`Go to ${portfolio.title}`" :href="`/work/${portfolio.slug}`">
+				<a :aria-label="`Go to ${portfolio.metadata.featured_as}`" :href="`/work/${portfolio.slug}`">
 					<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
-						{{ portfolio.title }}
+						{{ portfolio.metadata.featured_as }}
 					</h2>
 				</a>
 			</li>
