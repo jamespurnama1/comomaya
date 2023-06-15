@@ -22,6 +22,7 @@ interface Featured {
     client: string,
     our_services: string
     industry: string,
+    featured_as: string,
   }
 }
   
