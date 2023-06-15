@@ -119,12 +119,10 @@ onMounted(() => {
           </h2>
           <p class="pb-10 text-lg text-left text-black">
             Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of <strong>COMOMAYA</strong> which she launched in March
-            2022. With a career spanning almost 20 years in the UK, Singapore &amp; India, Ridhi has worked with international agencies
-            such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also ex-Assoc Creative
-            Director and ex-Design Director of Pi Global, Holmes &amp; Marchant and Cowan where she has led and helped strategise,
-            conceptualise and direct creative work on many global brands. More recently, she has worked with smaller boutique
-            clients ranging from luxury to corporate and digital start ups, bringing her vast experience and immense passion to help
-            them through their creative journey.<br><br>You can check out some of her past work at 
+            2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK, Singapore &amp; India, Ridhi has worked with international agencies
+            such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also ex-Assoc Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led and helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's Dove, Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod Ricard, Kellogg's and many more.<br class="mt-2 block" style="content: ''">More recently, she has worked with smaller boutique
+            clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense passion to help
+            them through their creative journey.<br class="mt-2 block" style="content: ''">You can check out some of her past work at 
             <a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Ridhi's Past Work" href='https://www.ridhisain.com'>
               www.ridhisain.com
             </a>
@@ -158,7 +156,7 @@ onMounted(() => {
             </h2>
             <p class="pb-10 text-lg md:text-right text-black">
               Sonali Sani has had over a decade of experience in Client Services. She has worked with big international agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX, Pan Pacific Hotels &amp; Resorts, Intercontinental Hotels Group, Twinings Tea, McCormick, GSK, Reckitt Benckiser and Moneycorp to name a&nbsp;few.
-              <br /><br />
+              <br class="mt-2 block" style="content: ''">
               Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining strong relationships with all of our clients, helping them meet their business needs and growth potential, whilst ensuring this is done on time and on&nbsp;budget.
             </p>
           </div>
