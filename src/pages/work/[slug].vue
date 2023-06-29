@@ -175,7 +175,7 @@
       :space-between="10"
     >
       <swiper-slide tag="a" v-for="work in store.getFeatured" :href="`/work/${work.slug}`">
-        <div class="overflow-hidden h-96 w-full bg-cover" :style="`background-image: url(${work.thumbnail})`">
+        <div class="overflow-hidden h-96 w-full bg-cover bg-center" :style="`background-image: url(${work.thumbnail})`">
           <p class="absolute z-20 text-white bottom-5 left-10 text-2xl">{{work.title}}</p>
           <div class="h-full w-full bg-gradient-to-t from-black via-transparent" />
         </div>
