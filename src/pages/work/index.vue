@@ -73,7 +73,7 @@
 
       handleHover = (_e: MouseEvent | FocusEvent, i: number) => {
         show.value = true;
-        imgSrc.value = response.list.map(x => x.thumbnail.toString())[i];
+        imgSrc.value = response.list.map(x => `${x.thumbnail.toString()}?q=75&auto=format,compress`)[i];
         imgAlt.value = response.list.map(x => x.title)[i];
         gsap.to(imgEl, {
           opacity: 1,
