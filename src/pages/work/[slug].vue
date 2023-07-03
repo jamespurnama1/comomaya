@@ -62,7 +62,7 @@
 
   async function loadContent() {
 
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 500));
     const mm = gsap.matchMedia();
     
     mm.add("(min-width: 768px)", () => {
@@ -82,13 +82,13 @@
       })
     })
 
-    ScrollTrigger.batch('.content *', {
+    ScrollTrigger.batch('.content :nth-child(n+2)', {
       start: "top bottom",
       onEnter: batch => gsap.to(batch, {
         autoAlpha: 1,
         stagger: 0.1,
-        y: 0,
-        duration: 0.75,
+        y: '-1px',
+        duration: 0.35,
       }),
     });
   }
@@ -175,7 +175,7 @@
       :space-between="10"
     >
       <swiper-slide tag="a" v-for="work in store.getFeatured" :href="`/work/${work.slug}`">
-        <div class="overflow-hidden h-96 w-full bg-cover bg-center" :style="`background-image: url(${work.thumbnail})`">
+        <div class="overflow-hidden h-96 w-full bg-cover bg-center" :style="`background-image: url(${work.thumbnail}?q=75&auto=format,compress)`">
           <p class="absolute z-20 text-white bottom-5 left-10 text-2xl">{{work.title}}</p>
           <div class="h-full w-full bg-gradient-to-t from-black via-transparent" />
         </div>
