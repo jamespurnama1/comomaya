@@ -75,7 +75,7 @@
           id: "pin",
           trigger: '.info',
           pin: true,
-          pinType: 'fixed',
+          pinType: 'fixed', 
           start: "-50px 50vh",
           end: "bottom bottom",
         }
