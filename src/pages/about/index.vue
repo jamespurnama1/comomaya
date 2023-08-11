@@ -137,12 +137,12 @@ onMounted(() => {
         </div>
       </section>
 
-            <!--- RIDHI --->
+            <!--- SONALI --->
 
         <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row">
           <div class="md:w-2/3 my-auto px-5 md:px-16 md:pl-12 lg:pl-52">
             <!-- <span class="relative pt-16 md:mb-1 flex items-center"> -->
-              <h3 class="text-active text-2xl pt-16  font-semibold tracking-widest md:text-right">
+              <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest md:text-right">
                 SONALI&nbsp;SANI
               </h3>
                 <!-- <picture>
@@ -165,6 +165,29 @@ onMounted(() => {
               <source srcset="/assets/Sonali.jpg" type="image/jpeg">
               <source srcset="/assets/Sonali.webp" type="image/webp">
               <img class="w-full h-full object-contain" src="/assets/Sonali.jpg" alt="Sonali Sani" />
+            </picture>
+          </div>
+        </section>
+
+        <!--- Nishaa Bhojwani --->
+
+        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row-reverse">
+          <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
+              <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest text-left">
+                NISHAA&nbsp;BHOJWANI
+              </h3>
+            <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
+              <strong>Business</strong>&nbsp;Head
+            </h2>
+            <p class="pb-10 text-lg text-left text-black">
+             Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media and technology. She has worked for companies such as Google and Mastercard and her past client list includes some of the biggest names in media and technology across North America and Asia Pacific. Through a consultative sales approach, she is able to truly understand her clients needs and help deliver on hyper-targeted custom solutions. Nishaa has built a reputation of being results oriented and brings to Comomaya a proven track record of successfully cultivating and growing strategic relationships with SMEs as well as large&nbsp;enterprises.
+            </p>
+          </div>
+          <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
+            <picture>
+              <source srcset="/assets/Nishaa.jpg" type="image/jpeg">
+              <source srcset="/assets/Nishaa.webp" type="image/webp">
+              <img class="w-full h-full object-contain" src="/assets/Nishaa.jpg" alt="Nishaa Bhojwani" />
             </picture>
           </div>
         </section>
