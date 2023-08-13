@@ -98,7 +98,7 @@ onMounted(() => {
       brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the best
       international talent there is, but without the exorbitant price tag that comes with hiring a top global agency. We are here to empower new business owners &amp; entrepreneurs with great design and powerful brands that tell a&nbsp;story…</p>
     </section>
-    <div class="bg-white">
+    <div class="bg-brown">
 
       <!--- RIDHI --->
 
@@ -139,7 +139,7 @@ onMounted(() => {
 
             <!--- SONALI --->
 
-        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row">
+        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 py-16 bg-beige md:flex-row">
           <div class="md:w-2/3 my-auto px-5 md:px-16 md:pl-12 lg:pl-52">
             <!-- <span class="relative pt-16 md:mb-1 flex items-center"> -->
               <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest md:text-right">
@@ -171,7 +171,7 @@ onMounted(() => {
 
         <!--- Nishaa Bhojwani --->
 
-        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row-reverse">
+        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] py-16 my-12 lg:my-24 bg-beige md:flex-row-reverse">
           <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
               <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest text-left">
                 NISHAA&nbsp;BHOJWANI
@@ -328,10 +328,10 @@ onMounted(() => {
     </video>
     <h3 class="text-beige text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3>
     <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
-      <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-active" />
+      <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige" />
     </a>
     <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-      <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-active" />
+      <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige" />
     </a>
     </section>
   </main>

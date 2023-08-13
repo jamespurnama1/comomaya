@@ -94,6 +94,7 @@
         })
       }
     }
+    gsap.to('html', { backgroundColor: "black" })
   })
 
   useHead({
@@ -108,12 +109,13 @@
   })
 
   onBeforeUnmount(() => {
+    gsap.to('html', {backgroundColor: "theme(colors.brown)"})
     window.removeEventListener('resize', resize)
   })
 </script>
 
 <template>
-  <main class="min-h-screen flex justify-center py-32 bg-beige z-0 relative mx-10 md:mx-28 md:justify-start">
+  <main class="min-h-screen flex justify-center py-32 bg-black text-beige z-0 relative mx-10 md:mx-28 md:justify-start">
     <img
       :src="`${imgSrc}?auto=format`"
 			:srcset="`${imgSrc}?w=1024&auto=format 2048w,
