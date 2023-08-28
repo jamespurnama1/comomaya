@@ -8,7 +8,7 @@
 }
 
 html {
-  @apply bg-beige;
+  @apply bg-brown;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -19,6 +19,7 @@ html {
 
 body {
   position: relative;
+  /* perspective: 1000px; */
 }
 
 a, button {
