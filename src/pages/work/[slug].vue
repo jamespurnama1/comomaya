@@ -119,7 +119,7 @@
 </script>
 
 <template>
-  <main class="leading-relaxed min-h-screen py-32 bg-beige z-0 relative mx-10">
+  <main class="leading-relaxed min-h-screen py-32 bg-brown z-0 relative mx-10">
     <transition-group tag="section" v-if="thisPage && Object.keys(thisPage.content).length" class="flex flex-col md:justify-start md:flex-row justify-center first">
         <div
           key="content"
@@ -127,9 +127,9 @@
           class="content flex flex-col items-center -mt-10 md:mt-0 md:w-2/3 md:pr-20"
         />
         <div key="info" class="info md:w-1/3">
-          <h1 class="text-3xl font-medium md:mt-0 mt-20 mb-5">{{thisPage.content.title}}</h1>
+          <h1 class="drama text-6xl font-medium md:mt-0 mt-20 mb-5">{{thisPage.content.title}}</h1>
           <p v-html="thisPage.content.metadata.description" />
-          <hr class="my-5 border-gray" />
+          <hr class="my-5 border-black" />
           <div class="flex">
             <span class="w-28">
               <p><b class="font-medium">Client</b></p>
@@ -142,7 +142,7 @@
               <p>{{thisPage.content.metadata.our_services}}</p>
             </span>
           </div>
-          <hr class="my-5 border-gray"/>
+          <hr class="my-5 border-black"/>
           <span class="flex items-center">
             <p class="w-28"><b class="font-medium">Share</b></p>
             <span class="ml-3 flex">
@@ -163,7 +163,7 @@
         </div>
     </transition-group>
     <h2 class="text-3xl text-center font-medium mt-20 mb-3">Selected Works</h2>
-    <hr class="my-5 border-active border-2 mx-auto w-1/4" />
+    <hr class="my-5 border-black border-2 mx-auto w-1/4" />
     <swiper
       v-if="store.isFetched"
       :pagination="{
@@ -184,6 +184,13 @@
     <div class="swiper-pagination" />
   </main>
 </template>
+
+<style lang="scss" scoped>
+.drama {
+  font-family: Narziss;
+  font-weight: regular;
+}
+</style>
 
 <style lang="scss">
 .content {
@@ -209,7 +216,7 @@
   }
 
   .swiper-pagination-bullet-active {
-	  background-color: theme('colors.active');
+	  background-color: theme('colors.black');
   }
 
 
