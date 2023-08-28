@@ -44,7 +44,7 @@
   store.load()
 
  	async function load() {
-      axios.get('https://api.cosmicjs.com/v2/buckets/comomaya-production/objects?pretty=true&query=%7B%22type%22%3A%22portfolios%22%7D&read_key=a59I38Pp6PQ3OIRd6QnAQNvatVHRuIAfN3dzAnv8bFMD7p0qAF&limit=20&props=slug,title,content,metadata', { withCredentials: false })
+      axios.get('https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects?pretty=true&query=%7B%22type%22:%22portfolios%22%7D&limit=10&read_key=Yz8ifYSRHxv4SzRygKNMbdGZnUaTUAUZBbseBGOILB3eWpiwh1&depth=1&props=slug,title,metadata,content', { withCredentials: false })
       .then((res: AxiosResponse<{ objects: Content[] }>) => {
         contentID = res.data.objects.map(x => x.slug).indexOf(route.params.slug as string);
         (thisPage as { content: Content }).content = res.data.objects[contentID];
@@ -62,7 +62,7 @@
 
   async function loadContent() {
 
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 500));
     const mm = gsap.matchMedia();
     
     mm.add("(min-width: 768px)", () => {
@@ -75,20 +75,20 @@
           id: "pin",
           trigger: '.info',
           pin: true,
-          pinType: 'fixed',
+          pinType: 'fixed', 
           start: "-50px 50vh",
           end: "bottom bottom",
         }
       })
     })
 
-    ScrollTrigger.batch('.content *', {
+    ScrollTrigger.batch('.content :nth-child(n+2)', {
       start: "top bottom",
       onEnter: batch => gsap.to(batch, {
         autoAlpha: 1,
         stagger: 0.1,
-        y: 0,
-        duration: 0.75,
+        y: '-1px',
+        duration: 0.35,
       }),
     });
   }
@@ -175,7 +175,7 @@
       :space-between="10"
     >
       <swiper-slide tag="a" v-for="work in store.getFeatured" :href="`/work/${work.slug}`">
-        <div class="overflow-hidden h-96 w-full bg-cover" :style="`background-image: url(${work.thumbnail})`">
+        <div class="overflow-hidden h-96 w-full bg-cover bg-center" :style="`background-image: url(${work.thumbnail}?q=75&auto=format,compress)`">
           <p class="absolute z-20 text-white bottom-5 left-10 text-2xl">{{work.title}}</p>
           <div class="h-full w-full bg-gradient-to-t from-black via-transparent" />
         </div>

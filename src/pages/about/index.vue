@@ -9,23 +9,6 @@
 
   const modules = [Autoplay, Navigation]
 
-  const profiles = [
-    { name: 'Sonali Sani', images: { jpeg: 'sonali.jpg', webp: 'sonali.webp'}, desc: 'Sonali Sani has had over a decade of experience in Client Services. She has worked at both big international agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining strong relationships with all of our clients, helping them meet their business needs and growth potential, whilst ensuring this is done on time and on&nbsp;budget.'},
-    { name: 'James Henry', images: {jpeg: 'james.jpg', webp: 'james.webp'}, desc: 'Although the baby of our squad, James is a serious design whiz kid. He supports the team on literally everything design. He also happens to be our man on UX/UI and coding.'},
-    { name: 'Albert Wijaya', images: {jpeg: 'albert.jpg', webp: 'albert.webp'}, desc: 'Lorem Ipsum Dolor'},
-    { name: 'Lorem',images: {jpeg: '1.jpg', webp: '1.webp'}, desc: 'Lorem Ipsum Dolor'},
-    { name: 'Lorem',images: {jpeg: '2.jpg', webp: '2.webp'}, desc: 'Lorem Ipsum Dolor'},
-    { name: 'Adam', images: {jpeg: 'adam.jpg', webp: 'adam.webp'}, desc: 'Adam is a creative genius. He has worked on multiple Bluechip brands and won more awards for his design work than any designer we know.'},
-    { name: 'Lorem', images: {jpeg: '4.jpg', webp: '4.webp'}, desc: 'Sit Amet'},
-    { name: 'Lorem', images: {jpeg: '5.jpg', webp: '5.webp'}, desc: '123'},
-    { name: 'Lorem',images: {jpeg: '6.jpg', webp: '6.webp'}, desc: '456'},
-    { name: 'Lorem',images: {jpeg: '7.jpg', webp: '7.webp'}, desc: '786'},
-  ]
-
-  const hover = ref(null as null | number);
-
-  const squad = "Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating with some of the best talent in the industry and across the&nbsp;globe."
-
   useHead({
     title: 'COMOMAYA - About',
     meta: [
@@ -136,62 +119,116 @@ onMounted(() => {
           </h2>
           <p class="pb-10 text-lg text-left text-black">
             Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of <strong>COMOMAYA</strong> which she launched in March
-            2022. With a career spanning almost 20 years in the UK, Singapore &amp; India, Ridhi has worked with international agencies
-            such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also ex-Assoc Creative
-            Director and ex-Design Director of Pi Global, Holmes &amp; Marchant and Cowan where she has led and helped strategise,
-            conceptualise and direct creative work on many global brands. More recently, she has worked with smaller boutique
-            clients ranging from luxury to corporate and digital start ups, bringing her vast experience and immense passion to help
-            them through their creative journey.<br><br>You can check out some of her past work at 
+            2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK, Singapore &amp; India, Ridhi has worked with international agencies
+            such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also ex-Assoc Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led and helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's Dove, Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod Ricard, Kellogg's and many more.<br class="mt-2 block" style="content: ''">More recently, she has worked with smaller boutique
+            clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense passion to help
+            them through their creative journey.<br class="mt-2 block" style="content: ''">You can check out some of her past work at 
             <a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Ridhi's Past Work" href='https://www.ridhisain.com'>
               www.ridhisain.com
             </a>
           </p>
         </div>
-        <div class="w-full min-h-[20rem] md:w-1/2 overflow-hidden bg-beige">
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
           <picture>
-            <source srcset="/assets/profiles/ridhi.jpg" type="image/jpeg">
-            <source srcset="/assets/profiles/ridhi.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/profiles/ridhi.jpg" alt="Ridhi Sain" />
+            <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
+            <source srcset="/assets/Ridhi.webp" type="image/webp">
+            <img class="w-full h-full object-contain" src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
           </picture>
         </div>
       </section>
+
+            <!--- SONALI --->
+
+        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row">
+          <div class="md:w-2/3 my-auto px-5 md:px-16 md:pl-12 lg:pl-52">
+            <!-- <span class="relative pt-16 md:mb-1 flex items-center"> -->
+              <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest md:text-right">
+                SONALI&nbsp;SANI
+              </h3>
+                <!-- <picture>
+                  <source srcset="/assets/awards.webp" type="image/webp">
+                  <source srcset="/assets/awards.jpg" type="image/jpeg">
+                  <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards">
+                </picture> -->
+            <!-- </span> -->
+            <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden md:text-right text-black">
+              <strong>Client</strong>&nbsp;Director
+            </h2>
+            <p class="pb-10 text-lg md:text-right text-black">
+              Sonali Sani has had over a decade of experience in Client Services. She has worked with big international agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX, Pan Pacific Hotels &amp; Resorts, Intercontinental Hotels Group, Twinings Tea, McCormick, GSK, Reckitt Benckiser and Moneycorp to name a&nbsp;few.
+              <br class="mt-2 block" style="content: ''">
+              Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining strong relationships with all of our clients, helping them meet their business needs and growth potential, whilst ensuring this is done on time and on&nbsp;budget.
+            </p>
+          </div>
+          <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
+            <picture>
+              <source srcset="/assets/Sonali.jpg" type="image/jpeg">
+              <source srcset="/assets/Sonali.webp" type="image/webp">
+              <img class="w-full h-full object-contain" src="/assets/Sonali.jpg" alt="Sonali Sani" />
+            </picture>
+          </div>
+        </section>
+
+        <!--- Nishaa Bhojwani --->
+
+        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row-reverse">
+          <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
+              <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest text-left">
+                NISHAA&nbsp;BHOJWANI
+              </h3>
+            <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
+              <strong>Business</strong>&nbsp;Head
+            </h2>
+            <p class="pb-10 text-lg text-left text-black">
+             Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media and technology. She has worked for companies such as Google and Mastercard and her past client list includes some of the biggest names in media and technology across North America and Asia Pacific. Through a consultative sales approach, she is able to truly understand her clients needs and help deliver on hyper-targeted custom solutions. Nishaa has built a reputation of being results oriented and brings to Comomaya a proven track record of successfully cultivating and growing strategic relationships with SMEs as well as large&nbsp;enterprises.
+            </p>
+          </div>
+          <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
+            <picture>
+              <source srcset="/assets/Nishaa.jpg" type="image/jpeg">
+              <source srcset="/assets/Nishaa.webp" type="image/webp">
+              <img class="w-full h-full object-contain" src="/assets/Nishaa.jpg" alt="Nishaa Bhojwani" />
+            </picture>
+          </div>
+        </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex bg-black flex-col-reverse justify-between md:min-h-[78vh] lg:flex-row mt-12 lg:mt-24">
-        <section class="flex flex-col justify-start bg-black lg:w-[30%]">
-          <h3 class="text-active pt-10 md:pt-16 lg:ml-16 px-12 lg:px-0 text-lg md:text-2xl font-semibold tracking-widest text-left">
-            THE COMOMAYA&nbsp;SQUAD
-          </h3>
-          <transition name="fade" mode="out-in">
-            <h2 v-if="typeof hover !== 'number'" class="drama md:pt-3 lg:ml-16 pb-5 px-12 lg:px-0 text-5xl md:text-7xl overflow-hidden text-left text-beige font-medium">
-              <strong>Our</strong> people
-            </h2>
-            <h2 v-else class="drama md:pt-3 lg:ml-16 pb-5 px-12 lg:px-0 text-5xl md:text-7xl overflow-hidden text-left text-beige font-medium">
-              <strong>{{ profiles[hover].name }}</strong>
-            </h2>
-          </transition>
-          <transition name="fade" mode="out-in">
-            <h3 :key="hover ? hover : 0" v-html="typeof hover === 'number' ? profiles[hover].desc : squad" class="text-beige text-2xl text-left font-medium py-5 px-12 lg:px-0 lg:ml-16 leading-tight" />
-          </transition>
-        </section>
-        <div class="w-full min-h-[15rem] lg:w-[60%] overflow-hidden bg-black grid gap-0 grid-cols-5">
-          <picture v-for="(profile, index) in profiles" @mouseover="hover = index" @mouseleave="hover = null">
-            <source :srcset="`/assets/profiles/${profile.images.jpeg}`" type="image/jpeg">
-            <source :srcset="`/assets/profiles/${profile.images.webp}`" type="image/webp">
-            <img class="w-full h-full object-cover transition-all hover:brightness-100" :class="[typeof hover !== 'number' ? '!brightness-100' : 'brightness-50']" :src="`/assets/profiles/${profile.images.jpeg}`" :alt="profile.images.jpeg.substring(0, profile.images.jpeg.lastIndexOf('.')) || profile.images.jpeg" />
-          </picture>
-        </div>
+      <section class="flex justify-center mt-12 lg:mt-24 bg-black flex-col">
+        <h3 class="text-active pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
+          THE COMOMAYA&nbsp;SQUAD
+        </h3>
+        <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-beige font-medium">
+          <strong>Our</strong> people
+        </h2>
+        <h3 v-if="width > 768" class="text-beige font-medium text-right text-3xl pb-5 px-12 mx-16 leading-tight md:w-2/3 md:ml-auto">
+          Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
+          with some of the best talent in the industry and across the&nbsp;globe.
+        </h3>
       </section>
 
-      <section class="flex justify-center bg-black flex-col mb-12 lg:mb-24 mt-0">
-        <div class="w-full p-0 m-0">
+      <section class="flex flex-col justify-center md:min-h-[40vh] my-12 mt-0 lg:mb-24 bg-beige md:flex-row">
+        <div class="md:w-2/3 p-0 m-0">
           <picture>
             <source srcset="/assets/globe.jpg" type="image/jpeg">
             <source srcset="/assets/globe.webp" type="image/webp">
             <img class="object-cover min-w-full min-h-full h-auto" src="/assets/globe.jpg" alt="Globe" />
           </picture>
         </div>
+        <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-black md:flex-row">
+          <h3 class="text-beige text-2xl text-right font-medium py-5 mx-16 leading-tight md:w-2/3">
+            Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
+            with some of the best talent in the industry and across the&nbsp;globe.
+          </h3>
+        </section>
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
+          <picture>
+            <source srcset="/assets/theSquad.jpg" type="image/jpeg">
+            <source srcset="/assets/theSquad.webp" type="image/webp">
+            <img class="w-full h-full object-contain" src="/assets/theSquad.jpg" alt="The Squad" />
+          </picture>
+        </div>
       </section>
+
       <!--- WHAT WE OFFER --->
 
       <section id="ourServices" class="flex justify-center mt-12 lg:mt-24 bg-beige flex-col">
