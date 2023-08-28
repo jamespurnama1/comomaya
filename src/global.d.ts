@@ -18,6 +18,9 @@ interface Featured {
   metadata: {
     description: string,
     type: string,
+    typejson: {
+      type: string[]
+    },
     type_mobile?: string,
     client: string,
     our_services: string

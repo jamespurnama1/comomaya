@@ -58,18 +58,17 @@ onMounted(() => {
 
     raf = requestAnimationFrame(render);
   }
-
 })
 
 function whatisLink(l: string) {
-  if(l === 'grants for SMEs') return '/about#grant'
+  if (l === 'grants for SMEs') return '/about#grant'
   if (l === 'clients & work') return '/work'
   if (l === 'people & services') return '/about'
   return `/${l}`
 }
 
 function hoverLink() {
-  hoverables = document.querySelectorAll('a, button');
+  hoverables = document.querySelectorAll('a, button, input, label');
   if (!hoverables || !hoverables.length) return
   hoverables.forEach(item => {
     if (item.getAttribute('listener') === 'true') return
@@ -82,27 +81,19 @@ function hoverLink() {
   })
 }
 
+function flip(e: MouseEvent) {
+  // console.log(e)
+}
+
 onUpdated(() => {
   hoverLink()
 })
 
 const opened = ref(false)
-// const aboutOpen = ref(false);
 
 function handleNav() {
   opened.value = !opened.value;
-  // aboutOpen.value = false;
 }
-
-
-// function handleLink(e: Event, l: string) {
-//   if (l === 'about' && !aboutOpen.value) {
-//     e.preventDefault()
-//     aboutOpen.value = true
-//   } else {
-//     handleNav()
-//   }
-// }
 
 function handleScrollUp() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -110,59 +101,70 @@ function handleScrollUp() {
 </script>
 
 <template>
+  <!-- Cursor -->
+
   <div
     class="cursor origin-center transform-gpu pointer-events-none z-50 fixed mix-blend-difference w-16 h-16 -top-8 -left-8 rounded-full bg-white opacity-0 transition-transform ease-out"
     :class="[innerWidth < 570 ? '!opacity-0' : '']" />
 
+  <!-- Nav Button + Logo -->
+
   <nav
-    class="fixed w-screen top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-black md:bg-brown items-center z-30 transition-all origin-top-left"
+    class="fixed w-screen top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-brown items-center z-30 transition-all origin-top-left"
     :class="[((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? '!bg-opacity-100' : '!bg-opacity-0']">
+
     <a aria-label="Go to Landing Page" href="/">
       <picture
-        :class="[(opened && innerWidth > 768) || ((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' && innerWidth > 768) ? '' : '']">
+        :class="[(opened) || ((scrollY > 50) && $route.path !== '/') || ($route.path !== '/') ? 'brightness-0' : '']">
         <source srcset="/COMOMAYA_Logo_Beige_800x90.webp" type="image/webp">
         <source srcset="/COMOMAYA_Logo_Beige_800x90.png" type="image/png">
-        <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA" class="logo transition-all duration-700 h-9 md:h-10 img-responsive origin-top-left w-[225.156px] md:w-[250.172px]" />
+        <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA"
+          class="logo transition-all duration-700 h-9 md:h-10 img-responsive origin-top-left w-[225.156px] md:w-[250.172px]" />
       </picture>
     </a>
-    <button aria-label="Navigation" class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
-      @click="handleNav" @keydown="handleNav">
-      <div :class="[
-  (opened ? 'rotate-45 translate-y-1.5 opacity-100 !bg-beige md:!bg-beige' : 'opacity-100'),
-  genericHamburgerLine,
-  (((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' && innerWidth > 768) ? 'bg-beige' : '')
-]" />
-      <div :class="[
-  (opened ? 'opacity-0 !bg-beige md:!bg-beige' : 'opacity-100'),
-  genericHamburgerLine,
-  (((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' && innerWidth > 768) ? 'bg-beige' : '')
-]" />
-      <div :class="[
-  (opened ? '-rotate-45 -translate-y-1.5 opacity-100 !bg-beige md:!bg-beige' : 'opacity-100'),
-  genericHamburgerLine,
-  (((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' && innerWidth > 768) ? 'bg-beige' : '')
-]" />
+
+    <button aria-label="Navigation"
+      class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform" @click="handleNav"
+      @keydown="handleNav">
+      <div v-for="i in 3" :class="[
+        (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black' : ''),
+        (i === 2 && opened ? 'opacity-0' : ''),
+        (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black' : ''),
+        genericHamburgerLine,
+        (((scrollY > 50) && $route.path !== '/') || ($route.path !== '/') ? 'bg-black' : '')
+      ]" />
     </button>
   </nav>
+
+  <!-- Nav Menu -->
 
   <transition name="fly">
     <nav v-show="opened"
       class="moreNav bg-brown w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
-        <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }" class="font-bold my-10 md:my-5 text-3xl text-active hover:text-beige"
-          :class="[$route.path === `/${link}` ? 'text-beige' : '']">
-          <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">
-            {{ link === '' ? 'home' : link }}
-          </a>
+        <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
+          class="cube my-3 md:my-0" @mouseover="e => flip(e)">
+            <!-- <p class="flap">
+              <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+            </p> -->
+            <p class="flip">
+              <span>{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+              <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+              <span>{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+            </p>
+            <p class="flop">
+              <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+            </p>
         </li>
       </transition-group>
-      <transition-group name="fade" tag="span" class="flex flex-col justify-center mb-10">
-        <a key="ig" @click="handleNav" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
-          <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige hover:text-active" />
+      <transition-group name="fade" tag="span" class="flex justify-center text-center gap-20 mb-10 text-xs md:text-base">
+        <a key="ig" @click="handleNav" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
+          target="_blank" rel="noopener noreferrer">
+          <p>(INSTAGRAM)</p>
         </a>
-        <a key="linkedin" @click="handleNav" href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
-          rel="noopener noreferrer">
-          <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige hover:text-active" />
+        <a key="linkedin" @click="handleNav" href="https://www.linkedin.com/company/comomaya"
+          aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
+          (LINKEDIN)
         </a>
       </transition-group>
     </nav>
@@ -173,12 +175,16 @@ function handleScrollUp() {
       class="fixed w-screen h-screen bg-opacity-50 bg-black z-10" />
   </transition>
 
+  <!-- Scroll up -->
+
   <transition name="fade">
     <button aria-label="Scroll Up" v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
       class="flex justify-center items-center absolute bottom-10 right-10 bg-black w-10 h-10 z-20">
       <font-awesome-icon :icon="['fas', 'angle-up']" size="lg" class="mx-2 text-beige" />
     </button>
   </transition>
+
+  <!-- Main component -->
 
   <router-view v-slot="{ Component }">
     <template v-if="Component">
@@ -195,9 +201,62 @@ function handleScrollUp() {
     </template>
   </router-view>
 
+  <!-- Footer -->
+
   <footer class="my-5 ml-10">
-    <p class="text-xs text-beige">
+    <p class="text-xs text-black" :class="[$route.path === '/' ? 'mix-blend-difference text-white' : '']">
       © 2023 COMOMAYA. All rights reserved.
     </p>
   </footer>
 </template>
+
+<style lang="scss" scoped>
+.flip {
+  transition: all 0.5s ease;
+  transform: translateZ(0.9375rem);
+  font-family: "Narziss";
+  font-weight: 600;
+  color: black;
+  @apply flex justify-center gap-5 text-3xl md:text-9xl leading-[1.5rem] md:leading-[8rem] h-20 md:h-32 items-center;
+
+  @media (min-width: 768px) {
+    transform: translateZ(4rem);
+  }
+
+  span {
+    @apply text-xs md:text-base;
+    font-family: barlow;
+    font-weight: normal;
+    margin: auto 0;
+  }
+}
+
+.flop {
+  transition: all 0.5s ease;
+	transform: rotateX(-90deg) translateZ(-0.9375rem);
+  font-family: "Barlow";
+  font-weight: 800;
+  color: white;
+  opacity: 0;
+  @apply flex justify-center gap-5 text-3xl md:text-9xl leading-[1.5rem] md:leading-[8rem] h-20 md:h-32 items-center;
+
+  @media (min-width: 768px) {
+    transform: rotateX(-90deg) translateZ(-4rem);
+  }
+}
+
+.cube {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  perspective: 5000px;
+  @apply text-3xl md:text-9xl leading-[1.875rem] md:leading-[8rem] h-20 md:h-32;
+
+  &:hover {
+  transform: rotateX(90deg);
+
+    .flop, .flap {
+      opacity: 1;
+    }
+  }
+}
+</style>
