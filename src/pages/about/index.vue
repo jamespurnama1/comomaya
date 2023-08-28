@@ -146,7 +146,7 @@ onBeforeUnmount(() => {
             passion to help
             them through their creative journey.<br class="mt-2 block" style="content: ''">You can check out some of her
             past work at
-            <a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer"
+            <a class='text-active hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer"
               aria-label="Open Ridhi's Past Work" href='https://www.ridhisain.com'>
               www.ridhisain.com
             </a>
@@ -329,7 +329,7 @@ onBeforeUnmount(() => {
             with IMC Singapore (Institute of Management Consultants).
             Under the EDG (Enterprise Development Grant) program, Singapore&#8209;based SMEs (Small &amp; Medium Enterprises) can apply for up
             to 80% of government funding towards their costs with us. If you qualify for this grant and are interested in this
-            opportunity you can find out more&nbsp;<a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application" href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
+            opportunity you can find out more&nbsp;<a class='text-white hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application" href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
