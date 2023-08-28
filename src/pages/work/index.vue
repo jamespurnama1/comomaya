@@ -187,8 +187,8 @@ onBeforeUnmount(() => {
               class="w-full h-full object-cover hover:scale-125 transition-all" />
           </div>
           <!-- <div class="flex py-3 md:py-10 flex-wrap" @focus="(e) => handleHover(e, i)" @mouseenter="(e) => handleHover(e, i)" @onfocusout="handleOut" @mouseleave="() => handleOut()"> -->
-          <div class="flex items-center mt-2">
-            <img src="plus.svg" class="plus cursor-pointer h-12 w-12 mr-3" />
+          <div class="flex items-center mt-2 select">
+            <img src="/plus.svg" class="plus cursor-pointer h-12 w-12 mr-3" />
             <span>
               <h2 class="text-lg whitespace-nowrap font-semibold uppercase tracking-widest">{{ portfolio.title }}</h2>
               <!-- <h3 v-if="width > 768 || !portfolio.metadata.type_mobile" class="text-xs md:text-s whitespace-nowrap">{{portfolio.metadata.type}}</h3> -->
