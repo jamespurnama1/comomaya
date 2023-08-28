@@ -7,11 +7,11 @@ import routes from '~pages'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faSquareXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { createPinia } from 'pinia'
 
-library.add(faAngleUp, faSquareInstagram, faAnglesDown, faLinkedin, faTwitter, faPinterest, faWhatsapp, faBook, faPencil, faLaptop, faTrophy)
+library.add(faAngleUp, faSquareXmark, faSquareInstagram, faAnglesDown, faLinkedin, faTwitter, faPinterest, faWhatsapp, faBook, faPencil, faLaptop, faTrophy)
 const store = createPinia()
 
 // `export const createApp` is required instead of the original `createApp(App).mount('#app')`

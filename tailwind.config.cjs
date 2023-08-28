@@ -12,7 +12,7 @@ module.exports = {
       "black": "#000000",
       "beige": "#faf8f4",
       "active": "#96886D",
-      "brown": "#23140D"
+      "brown": "#AE7F6B"
     },
   },
   plugins: []
