@@ -68,7 +68,7 @@ function whatisLink(l: string) {
 }
 
 function hoverLink() {
-  hoverables = document.querySelectorAll('a, button, input, label');
+  hoverables = document.querySelectorAll('a, button, input, label, .select');
   if (!hoverables || !hoverables.length) return
   hoverables.forEach(item => {
     if (item.getAttribute('listener') === 'true') return
