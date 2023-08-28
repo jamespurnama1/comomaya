@@ -1,3 +1,16 @@
+
+type type =
+  "Branding" |
+  "Logo" |
+  "Naming" |
+  "Identity" |
+  "Brand Guide" |
+  "Strategy" |
+  "Digital" |
+  "Investor Deck" |
+  "Brand Film" |
+  "Packaging";
+
 interface Featured {
   id: string,
   slug: string,
@@ -19,7 +32,7 @@ interface Featured {
     description: string,
     type: string,
     typejson: {
-      type: string[]
+      type: type[]
     },
     type_mobile?: string,
     client: string,
