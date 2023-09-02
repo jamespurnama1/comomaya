@@ -104,7 +104,7 @@ function handleScrollUp() {
   <!-- Cursor -->
 
   <div
-    class="cursor origin-center transform-gpu pointer-events-none z-50 fixed mix-blend-difference w-16 h-16 -top-8 -left-8 rounded-full bg-white opacity-0 transition-transform ease-out"
+    class="cursor origin-center transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full bg-active opacity-0 transition-transform ease-out"
     :class="[innerWidth < 570 ? '!opacity-0' : '']" />
 
   <!-- Nav Button + Logo -->
@@ -115,7 +115,7 @@ function handleScrollUp() {
 
     <a aria-label="Go to Landing Page" href="/">
       <picture
-        :class="[(opened) || ((scrollY > 50) && $route.path !== '/') || ($route.path !== '/') ? 'brightness-0' : '']">
+        :class="[(opened) || ((scrollY > 50) && $route.path !== '/') || ($route.path !== '/') ? 'brightness-0 logoInv' : 'logoNorm']">
         <source srcset="/COMOMAYA_Logo_Beige_800x90.webp" type="image/webp">
         <source srcset="/COMOMAYA_Logo_Beige_800x90.png" type="image/png">
         <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA"
@@ -140,7 +140,7 @@ function handleScrollUp() {
 
   <transition name="fly">
     <nav v-show="opened"
-      class="moreNav bg-brown w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
+      class="moreNav bg-stone-300 w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
           class="cube my-3 md:my-0" @mouseover="e => flip(e)">
@@ -148,21 +148,21 @@ function handleScrollUp() {
               <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
             </p> -->
             <p class="flip">
-              <span>{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+              <span class="text-stone-700">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
               <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-              <span>{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+              <span class="text-stone-700">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
             </p>
-            <p class="flop">
+            <p class="flop text-active">
               <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
             </p>
         </li>
       </transition-group>
       <transition-group name="fade" tag="span" class="flex justify-center text-center gap-20 mb-10 text-xs md:text-base">
-        <a key="ig" @click="handleNav" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
+        <a key="ig" @click="handleNav" class="text-stone-700 hover:text-active" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
           target="_blank" rel="noopener noreferrer">
           <p>(INSTAGRAM)</p>
         </a>
-        <a key="linkedin" @click="handleNav" href="https://www.linkedin.com/company/comomaya"
+        <a key="linkedin" @click="handleNav" class="text-stone-700 hover:text-active" href="https://www.linkedin.com/company/comomaya"
           aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
           (LINKEDIN)
         </a>
@@ -179,8 +179,8 @@ function handleScrollUp() {
 
   <transition name="fade">
     <button aria-label="Scroll Up" v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
-      class="flex justify-center items-center absolute bottom-10 right-10 bg-black w-10 h-10 z-20">
-      <font-awesome-icon :icon="['fas', 'angle-up']" size="lg" class="mx-2 text-beige" />
+      class="flex justify-center items-center absolute bottom-10 right-10 bg-black hover:bg-active w-10 h-10 z-20">
+      <font-awesome-icon :icon="['fas', 'angle-up']" size="lg" class="mx-2 text-beige hover:text-black" />
     </button>
   </transition>
 
@@ -211,12 +211,20 @@ function handleScrollUp() {
 </template>
 
 <style lang="scss" scoped>
+
+.logoInv:hover {
+  filter: invert(22%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
+}
+
+.logoNorm:hover {
+  filter: invert(22%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
+}
 .flip {
   transition: all 0.5s ease;
   transform: translateZ(0.9375rem);
   font-family: "Narziss";
   font-weight: 600;
-  color: black;
+  color: theme("colors.stone.700");
   @apply flex justify-center gap-5 text-3xl md:text-9xl leading-[1.5rem] md:leading-[8rem] h-20 md:h-32 items-center;
 
   @media (min-width: 768px) {
@@ -236,7 +244,6 @@ function handleScrollUp() {
 	transform: rotateX(-90deg) translateZ(-0.9375rem);
   font-family: "Barlow";
   font-weight: 800;
-  color: white;
   opacity: 0;
   @apply flex justify-center gap-5 text-3xl md:text-9xl leading-[1.5rem] md:leading-[8rem] h-20 md:h-32 items-center;
 

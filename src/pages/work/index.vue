@@ -3,6 +3,7 @@ import { useHead } from '@vueuse/head'
 import { onMounted, onBeforeUnmount, reactive, ref, computed } from 'vue';
 import axios, { AxiosResponse } from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { gsap } from 'gsap';
 
 const filterList = reactive({
   "Branding": 0,
@@ -140,7 +141,7 @@ onMounted(() => {
   //   })
   // }
   // }
-  // gsap.to('html', { backgroundColor: "black" })
+  gsap.to('html', { backgroundColor: "#E8E6E5" })
 })
 
 useHead({
@@ -154,20 +155,20 @@ useHead({
 })
 
 onBeforeUnmount(() => {
-  // gsap.to('html', {backgroundColor: "theme(colors.brown)"})
+  gsap.to('html', {backgroundColor: "#A0AAC4"})
   window.removeEventListener('resize', resize)
 })
 </script>
 
 <template>
   <main
-    class="min-h-screen flex flex-col justify-center py-32 bg-brown text-black z-0 relative mx-10 md:mx-28 md:justify-start">
+    class="min-h-screen flex flex-col justify-center py-32 bg-beige text-black z-0 relative mx-10 md:mx-28 md:justify-start">
     <h1 class="text-7xl font-bold tracking-tight">selected <strong>projects</strong></h1>
     <div class="h-[1px] w-full bg-black my-5" />
     <p class="text-xl mb-5 pointer-cursor w-1/2">
       <span v-for="(value, key, i) in filterList" @click="filtered[key] = !filtered[key]">
         <input :name="key" v-model="filtered[key]" type="checkbox" class="hidden bg-transparent text-transparent" />
-        <label class="hover:underline whitespace-nowrap" :class="[filtered[key] ? 'font-bold' : '']">{{ key }} <sup
+        <label class="hover:underline whitespace-nowrap" :class="[filtered[key] ? 'font-bold text-active' : '']">{{ key }} <sup :class="[filtered[key] ? 'bg-active !text-black' : 'bg-black']"
             v-if="typeof value === 'number'">{{ value }}</sup>{{ (i + 1 !== Object.keys(filterList).length) ||
               Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
         <wbr>
@@ -188,6 +189,9 @@ onBeforeUnmount(() => {
           </div>
           <!-- <div class="flex py-3 md:py-10 flex-wrap" @focus="(e) => handleHover(e, i)" @mouseenter="(e) => handleHover(e, i)" @onfocusout="handleOut" @mouseleave="() => handleOut()"> -->
           <div class="flex items-center mt-2 select">
+          <!-- <svg class="cursor-pointer mr-3 h-12 w-12">
+            <use href="/plus.svg" style="--color_fill: #000; --height: 48; --width: 48;" />
+          </svg> -->
             <img src="/plus.svg" class="plus cursor-pointer h-12 w-12 mr-3" />
             <span>
               <h2 class="text-lg whitespace-nowrap font-semibold uppercase tracking-widest">{{ portfolio.title }}</h2>
@@ -208,18 +212,19 @@ strong {
 }
 
 sup {
-  background-color: black;
   border-radius: 20px;
   color: white;
   padding: 0 5px;
   font-size: 12px;
   text-align: center;
 }
+</style>
 
+<style lang="scss">
 li:hover {
   .plus {
     transition: all 0.5s ease;
-    filter: invert(1);
+    filter: invert(78%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
   }
 }
 </style>

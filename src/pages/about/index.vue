@@ -89,19 +89,19 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <main class="relative bg-brown mx-auto flex flex-col justify-center pt-0 md:pt-20">
+  <main class="relative bg-stone-300 mx-auto flex flex-col justify-center pt-0 md:pt-20">
     <section class="relative z-0 overflow-hidden">
-      <div class="flex px-10 bg-black flex-col py-10 md:mx-32 mt-20 relative z-10">
-        <h2 class="text-beige mx-5 md:mx-0 font-bold text-xl md:text-3xl">comomaya</h2>
-        <p class="italic text-beige mx-5 md:mx-0 leading-tight text-base md:text-xl">
+      <div class="flex px-10 flex-col py-10 md:mx-32 mt-20 relative z-10">
+        <h2 class="text-stone-800 mx-5 md:mx-0 font-bold text-xl md:text-3xl">comomaya</h2>
+        <p class="italic text-stone-800 mx-5 md:mx-0 leading-tight text-base md:text-xl">
           <span class="font-semibold">noun</span><br>
           como: (Spanish) as, like maya: (Sanskrit) energy,&nbsp;magic
         </p>
         <h1
-          class="split my-5 mx-5 md:mx-0 text-white text-4xl md:text-8xl leading-tight font-semibold overflow-hidden md:w-2/3">
+          class="split my-5 mx-5 md:mx-0 text-800 text-4xl md:text-8xl leading-tight font-semibold overflow-hidden md:w-2/3">
           <span>We</span><span>are</span><span>a</span><span>creative</span><span>boutique</span><span>agency</span><span>and</span><span>we</span><span>build</span><wbr><span>powerful</span>&nbsp;<span>brands</span>
         </h1>
-        <p class="text-white text-xl mx-5 md:mx-0 md:w-2/3"><strong>COMOMAYA</strong> exists in order to make
+        <p class="text-800 text-xl mx-5 md:mx-0 md:w-2/3"><strong>COMOMAYA</strong> exists in order to make
           international standards of branding &amp; design more accessible to new and upcoming
           brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the
           best
@@ -109,26 +109,26 @@ onBeforeUnmount(() => {
           We are here to empower new business owners &amp; entrepreneurs with great design and powerful brands that tell
           a&nbsp;story…</p>
       </div>
-      <div class="bg-beige absolute w-full h-1/2 bottom-0 -z-0" />
+      <!-- <div class="bg-beige absolute w-full h-1/2 bottom-0 -z-0" /> -->
     </section>
-    <div class="bg-white">
+    <div>
 
       <!--- RIDHI --->
 
       <section id="ourPeople"
-        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] bg-beige md:flex-row-reverse">
+        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] bg-stone-200 md:flex-row-reverse">
         <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
-          <span class="relative pt-16 md:mb-1 flex items-center">
-            <h3 class="text-active text-2xl font-semibold tracking-widest text-left">
+          <span class="relative md:pt-16 md:mb-1 flex items-center">
+            <h3 class="text-stone-800 text-2xl font-semibold tracking-widest text-left">
               RIDHI&nbsp;SAIN
             </h3>
             <picture>
               <source srcset="/assets/awards.webp" type="image/webp">
               <source srcset="/assets/awards.jpg" type="image/jpeg">
-              <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards">
+              <img class="md:ml-5 md:max-h-12 max-h-6 mx-5 mix-blend-multiply brightness-125" src="/assets/awards.jpg" alt="Awards">
             </picture>
           </span>
-          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
+          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-active">
             <strong>Founder</strong> &amp; Creative&nbsp;Head
           </h2>
           <p class="pb-10 text-lg text-left text-black">
@@ -152,11 +152,11 @@ onBeforeUnmount(() => {
             </a>
           </p>
         </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden ">
           <picture>
             <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
             <source srcset="/assets/Ridhi.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
+            <img class="w-full h-full object-contain max-w-[250px] py-16 m-auto" src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
           </picture>
         </div>
       </section>
@@ -164,10 +164,10 @@ onBeforeUnmount(() => {
       <!--- SONALI --->
 
       <section id="ourPeople"
-        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige md:flex-row">
+        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-300 md:flex-row">
         <div class="md:w-2/3 my-auto px-5 md:px-16 md:pl-12 lg:pl-52">
           <!-- <span class="relative pt-16 md:mb-1 flex items-center"> -->
-          <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest md:text-right">
+          <h3 class="text-stone-800 text-2xl pt-16 font-semibold tracking-widest md:text-right">
             SONALI&nbsp;SANI
           </h3>
           <!-- <picture>
@@ -176,7 +176,7 @@ onBeforeUnmount(() => {
                   <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards">
                 </picture> -->
           <!-- </span> -->
-          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden md:text-right text-black">
+          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden md:text-right text-active">
             <strong>Client</strong>&nbsp;Lead
           </h2>
           <p class="pb-10 text-lg md:text-right text-black">
@@ -190,7 +190,7 @@ onBeforeUnmount(() => {
             whilst ensuring this is done on time and on&nbsp;budget.
           </p>
         </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden">
           <picture>
             <source srcset="/assets/Sonali.jpg" type="image/jpeg">
             <source srcset="/assets/Sonali.webp" type="image/webp">
@@ -202,12 +202,12 @@ onBeforeUnmount(() => {
       <!--- Nishaa Bhojwani --->
 
       <section id="ourPeople"
-        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige md:flex-row-reverse">
+        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-400 md:flex-row-reverse">
         <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
-          <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest text-left">
+          <h3 class="text-stone-800 text-2xl pt-16 font-semibold tracking-widest text-left">
             NISHAA&nbsp;BHOJWANI
           </h3>
-          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
+          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-active">
             <strong>Business</strong>&nbsp;Head
           </h2>
           <p class="pb-10 text-lg text-left text-black">
@@ -220,7 +220,7 @@ onBeforeUnmount(() => {
             large&nbsp;enterprises.
           </p>
         </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden">
           <picture>
             <source srcset="/assets/Nishaa.jpg" type="image/jpeg">
             <source srcset="/assets/Nishaa.webp" type="image/webp">
@@ -231,11 +231,11 @@ onBeforeUnmount(() => {
 
       <!--- OUR PEOPLE --->
       <section class="flex justify-center bg-brown flex-col">
-        <h3 class="text-black pt-5 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
+        <h3 class="text-stone-800 pt-5 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
           THE COMOMAYA&nbsp;SQUAD
         </h3>
         <h2
-          class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-black font-medium">
+          class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-active font-medium">
           <strong>Our</strong> people
         </h2>
         <h3 v-if="width > 768"
@@ -246,7 +246,7 @@ onBeforeUnmount(() => {
         </h3>
       </section>
 
-      <section class="flex flex-col justify-center md:min-h-[40vh] bg-beige md:flex-row">
+      <section class="flex flex-col justify-center md:min-h-[40vh] md:flex-row">
         <div class="md:w-2/3 p-0 m-0">
           <picture>
             <source srcset="/assets/globe.jpg" type="image/jpeg">
@@ -254,14 +254,14 @@ onBeforeUnmount(() => {
             <img class="object-cover min-w-full min-h-full h-auto" src="/assets/globe.jpg" alt="Globe" />
           </picture>
         </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-black md:flex-row">
-          <h3 class="text-beige text-2xl text-right font-medium py-5 mx-16 leading-tight md:w-2/3">
+        <section v-if="width <= 768" class="flex flex-col-reverse justify-center md:flex-row">
+          <h3 class="text-stone-800 text-2xl text-right font-medium py-5 mx-16 leading-tight md:w-2/3">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
             collaborating
             with some of the best talent in the industry and across the&nbsp;globe.
           </h3>
         </section>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden">
           <picture>
             <source srcset="/assets/theSquad.jpg" type="image/jpeg">
             <source srcset="/assets/theSquad.webp" type="image/webp">
@@ -272,12 +272,12 @@ onBeforeUnmount(() => {
 
       <!--- WHAT WE OFFER --->
 
-      <section id="ourServices" class="flex justify-center bg-beige flex-col">
-        <h3 class="text-active pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-left">
+      <section id="ourServices" class="flex justify-center flex-col">
+        <h3 class="text-stone-800 pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-left">
           WHAT WE&nbsp;OFFER
         </h3>
         <h2
-          class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-left text-black font-medium">
+          class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-left text-active font-medium">
           <strong>Our</strong> services
         </h2>
         <h3 v-if="width > 768" class="text-black font-medium text-3xl pb-10 md:px-12 mx-16 md:w-2/3">
@@ -288,7 +288,7 @@ onBeforeUnmount(() => {
         </h3>
       </section>
 
-      <section class="flex flex-col justify-center md:min-h-[40vh] bg-beige md:flex-row">
+      <section class="flex flex-col justify-center md:min-h-[40vh] md:flex-row">
         <div class="md:w-2/3 p-0 m-0 bg-black">
           <picture>
             <source srcset="/assets/services.jpg" type="image/jpeg">
@@ -296,7 +296,7 @@ onBeforeUnmount(() => {
             <img class="object-contain min-w-full min-h-full h-auto" src="/assets/services.jpg" alt="list of services" />
           </picture>
         </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-beige md:flex-row">
+        <section v-if="width <= 768" class="flex flex-col-reverse justify-center md:flex-row">
           <h3 class="text-black text-2xl font-medium py-5 mx-10">
             We have a vibrant portfolio of clients ranging from FMCG to B2B
             and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary
@@ -318,7 +318,7 @@ onBeforeUnmount(() => {
 
       <section class="bg-brown md:flex-row relative flex flex-col justify-center md:min-h-[40vh]">
         <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-5 lg:px-16 lg:pl-52">
-          <h3 class="text-black text-lg md:text-2xl font-semibold tracking-widest text-right">
+          <h3 class="text-active text-lg md:text-2xl font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
           <h2 class="drama mb-1 md:mb-3 text-5xl md:text-7xl overflow-hidden font-medium text-right text-black">
@@ -329,7 +329,7 @@ onBeforeUnmount(() => {
             with IMC Singapore (Institute of Management Consultants).
             Under the EDG (Enterprise Development Grant) program, Singapore&#8209;based SMEs (Small &amp; Medium Enterprises) can apply for up
             to 80% of government funding towards their costs with us. If you qualify for this grant and are interested in this
-            opportunity you can find out more&nbsp;<a class='text-white hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application" href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
+            opportunity you can find out more&nbsp;<a class='text-active hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application" href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
@@ -343,23 +343,23 @@ onBeforeUnmount(() => {
 
       <!--- TESTIMONIALS --->
 
-      <section id="testimonials" class="bg-brown flex flex-col justify-center relative">
-        <h3 class="text-black tracking-[1em] pb-16 pt-32 text-lg md:text-2xl font-semibold text-center">
+      <section id="testimonials" class="bg-stone-200 flex flex-col justify-center relative">
+        <h3 class="text-stone-800 tracking-[1em] pb-16 pt-32 text-lg md:text-2xl font-semibold text-center">
           TESTIMONIALS
         </h3>
       </section>
-      <swiper class="min-h-[40vh] bg-brown" :autoplay="{
+      <swiper class="min-h-[40vh] bg-stone-200" :autoplay="{
         delay: 8000,
         disableOnInteraction: false,
       }" :loop="true" :navigation="true" :modules="modules">
         <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle" v-for="(items, i) in testimonials">
-          <h3 class="md:leading-10 text-xl md:text-3xl md:text-center font-medium text-black px-16 md:px-20 my-auto"
+          <h3 class="md:leading-10 text-xl md:text-3xl md:text-center font-medium text-stone-800 px-16 md:px-20 my-auto"
             v-html="`${items[Object.keys(items)[0]]}`" />
           <h2
-            class="text-black md:px-0 px-16 mt-7 font-medium text-lg md:text-2xl tracking-wider text-left md:text-center"
+            class="text-stone-800 md:px-0 px-16 mt-7 font-medium text-lg md:text-2xl tracking-wider text-left md:text-center"
             v-html="`${Object.keys(items)[0]}`" />
           <h2
-            class="text-black md:px-0 px-16 mt-2 font-medium text-base md:text-xl tracking-wider text-left md:text-center">
+            class="text-stone-800 md:px-0 px-16 mt-2 font-medium text-base md:text-xl tracking-wider text-left md:text-center">
             {{ testimonialsDate[i] }}</h2>
         </swiper-slide>
       </swiper>
@@ -367,21 +367,21 @@ onBeforeUnmount(() => {
 
     <!--- END --->
 
-    <section class="flex flex-col items-center justify-center p-20 md:pt-64 md:p-72 bg-black">
-      <video class="mb-10" playsinline loop autoplay="true" muted>
+    <section class="flex flex-col items-center justify-center p-20 md:pt-64 md:p-72">
+      <video class="mb-10 recolor" playsinline loop autoplay="true" muted>
         <source src="/assets/aboutus.mp4" type="video/mp4" />
       </video>
-      <h3 class="text-beige text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
+      <h3 class="text-stone-800 text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
         INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3>
       <div class="flex gap-10">
         <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
           target="_blank" rel="noopener noreferrer">
           <!-- <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige" /> -->
-          <p class="text-beige">(INSTAGRAM)</p>
+          <p class="text-active">(INSTAGRAM)</p>
         </a>
       <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya"
         aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-        <p class="text-beige">(LINKEDIN)</p>
+        <p class="text-active">(LINKEDIN)</p>
         <!-- <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige" /> -->
       </a>
     </div>
@@ -389,7 +389,8 @@ onBeforeUnmount(() => {
 </main>
 </template>
 
-<style lang="scss">.split span {
+<style lang="scss">
+.split span {
   opacity: 0;
   visibility: hidden;
   margin-right: 0.2em;
@@ -425,4 +426,12 @@ onBeforeUnmount(() => {
 
 .swiper-button-prev {
   transform: translateX(1em) scale(0.6);
-}</style>
+}
+</style>
+
+<style lang="scss" scoped>
+.recolor {
+  mix-blend-mode: darken;
+  filter: invert(88%) sepia(21%) saturate(1170%) hue-rotate(186deg) brightness(110%) contrast(67%);
+}
+</style>

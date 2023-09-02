@@ -10,9 +10,20 @@ module.exports = {
       "gray": "#eaeaea",
       "darkGray": "#606060",
       "black": "#000000",
-      "beige": "#faf8f4",
-      "active": "#96886D",
-      "brown": "#AE7F6B"
+      "beige": "#E8E6E5",
+      "active": "#7BFF47",
+      "brown": "#A0AAC4",
+      "stone": {
+        100: "#F2F4F7",
+        200: "#CDD2E0",
+        300: "#A0AAC4",
+        400: "#828FB0",
+        500: "#6878A1",
+        600: "#56658A",
+        700: "#3F4964",
+        800: "#272E3F",
+        900: "#181C26"
+      }
     },
   },
   plugins: []
