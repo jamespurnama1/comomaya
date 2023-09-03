@@ -1,16 +1,12 @@
 
 type type =
-  "Branding" |
-  "Logo" |
-  "Naming" |
-  "Identity" |
-  "Brand Guide" |
   "Strategy" |
-  "Digital" |
-  "Investor Deck" |
-  "Brand Film" |
+  "Naming" |
+  "Logo" |
+  "Identity" |
+  "Packaging" |
   "Website" |
-  "Packaging";
+  "Digital";
 
 interface Featured {
   id: string,

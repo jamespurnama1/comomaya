@@ -13,20 +13,16 @@ const filterList = reactive({
   "Packaging": 0,
   "Website": 0,
   "Digital": 0,
-} as Partial<{ [key in type]: number }>)
+} as { [key in type]: number })
 
 const filtered = ref({
-  "Branding": false,
-  "Logo": false,
-  "Naming": false,
-  "Identity": false,
   "Strategy": false,
-  "Brand Guide": false,
-  "Digital": false,
-  "Investor Deck": false,
-  "Brand Film": false,
+  "Naming": false,
+  "Logo": false,
+  "Identity": false,
   "Packaging": false,
   "Website": false,
+  "Digital": false,
 } as { [key in type]: boolean })
 
 
