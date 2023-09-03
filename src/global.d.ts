@@ -9,6 +9,7 @@ type type =
   "Digital" |
   "Investor Deck" |
   "Brand Film" |
+  "Website" |
   "Packaging";
 
 interface Featured {

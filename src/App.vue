@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { onUpdated, ref, reactive, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 useHead({
   title: 'COMOMAYA - Branding | Design | Digital | Social Media',
@@ -81,8 +84,16 @@ function hoverLink() {
   })
 }
 
-function flip(e: MouseEvent) {
-  // console.log(e)
+function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
+  if (touch) {
+    setTimeout(() => {
+      router.push(whatisLink(href))
+      handleNav()
+    }, 600);
+  } else if ((e as PointerEvent).pointerType !== 'touch') {
+    router.push(whatisLink(href))
+    handleNav()
+  }
 }
 
 onUpdated(() => {
@@ -110,15 +121,14 @@ function handleScrollUp() {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-screen top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-brown items-center z-30 transition-all origin-top-left"
+    class="fixed w-screen top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-stone-300 items-center z-30 transition-all origin-top-left"
     :class="[((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? '!bg-opacity-100' : '!bg-opacity-0']">
 
     <a aria-label="Go to Landing Page" href="/">
-      <picture
-        :class="[(opened) || ((scrollY > 50) && $route.path !== '/') || ($route.path !== '/') ? 'brightness-0 logoInv' : 'logoNorm']">
-        <source srcset="/COMOMAYA_Logo_Beige_800x90.webp" type="image/webp">
-        <source srcset="/COMOMAYA_Logo_Beige_800x90.png" type="image/png">
-        <img src="/COMOMAYA_Logo_Beige_800x90.png" alt="COMOMAYA"
+      <picture>
+        <source srcset="/COMOMAYA_Logo_800x90.webp" type="image/webp">
+        <source srcset="/COMOMAYA_Logo_800x90.png" type="image/png">
+        <img src="/COMOMAYA_Logo_800x90.png" alt="COMOMAYA"
           class="logo transition-all duration-700 h-9 md:h-10 img-responsive origin-top-left w-[225.156px] md:w-[250.172px]" />
       </picture>
     </a>
@@ -143,17 +153,17 @@ function handleScrollUp() {
       class="moreNav bg-stone-300 w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
-          class="cube my-3 md:my-0" @mouseover="e => flip(e)">
+          class="cube my-3 md:my-0 lg:text-9xl md:text-7xl text-4xl leading-[2rem] md:leading-[5rem] lg:leading-[8rem]" @touchstart="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
             <!-- <p class="flap">
               <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
             </p> -->
             <p class="flip">
               <span class="text-stone-700">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-              <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+              <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
               <span class="text-stone-700">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
             </p>
             <p class="flop text-active">
-              <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+              <a @click.prevent  :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
             </p>
         </li>
       </transition-group>
@@ -225,7 +235,7 @@ function handleScrollUp() {
   font-family: "Narziss";
   font-weight: 600;
   color: theme("colors.stone.700");
-  @apply flex justify-center gap-5 text-3xl md:text-9xl leading-[1.5rem] md:leading-[8rem] h-20 md:h-32 items-center;
+  @apply flex justify-center gap-5 h-20 md:h-32 items-center;
 
   @media (min-width: 768px) {
     transform: translateZ(4rem);
@@ -245,7 +255,7 @@ function handleScrollUp() {
   font-family: "Barlow";
   font-weight: 800;
   opacity: 0;
-  @apply flex justify-center gap-5 text-3xl md:text-9xl leading-[1.5rem] md:leading-[8rem] h-20 md:h-32 items-center;
+  @apply flex justify-center gap-5 h-20 md:h-32 items-center;
 
   @media (min-width: 768px) {
     transform: rotateX(-90deg) translateZ(-4rem);
@@ -256,7 +266,7 @@ function handleScrollUp() {
   transition: transform 0.5s;
   transform-style: preserve-3d;
   perspective: 5000px;
-  @apply text-3xl md:text-9xl leading-[1.875rem] md:leading-[8rem] h-20 md:h-32;
+  @apply h-20 md:h-32;
 
   &:hover {
   transform: rotateX(90deg);
