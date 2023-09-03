@@ -6,31 +6,37 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { gsap } from 'gsap';
 
 const filterList = reactive({
-  "Branding": 0,
-  "Logo": 0,
-  "Naming": 0,
-  "Identity": 0,
-  "Brand Guide": 0,
   "Strategy": 0,
+  "Naming": 0,
+  "Logo": 0,
+  "Identity": 0,
+  "Packaging": 0,
+  "Website": 0,
   "Digital": 0,
-  "Investor Deck": 0,
-  "Brand Film": 0,
-  "Packaging": 0
-} as { [key in type]: number })
+} as Partial<{ [key in type]: number }>)
 
 const filtered = ref({
   "Branding": false,
   "Logo": false,
   "Naming": false,
   "Identity": false,
-  "Brand Guide": false,
   "Strategy": false,
+  "Brand Guide": false,
   "Digital": false,
   "Investor Deck": false,
   "Brand Film": false,
-  "Packaging": false
+  "Packaging": false,
+  "Website": false,
 } as { [key in type]: boolean })
 
+
+// "Strategy": false,
+//   "Naming": false,
+//     "Logo": false,
+//       "Identity": false,
+//         "Packaging": false,
+//           "Website": false,
+//             "Digital": false,
 const response = ref({ list: [] as Featured[] | never[] })
 
 // const link: any = computed(() => {
@@ -45,7 +51,7 @@ async function load() {
   axios.get('https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects/64803dec2fb5fafdbb9670bc?read_key=Yz8ifYSRHxv4SzRygKNMbdGZnUaTUAUZBbseBGOILB3eWpiwh1&depth=1&props=metadata', { withCredentials: false })
     .then((res: AxiosResponse<List>) => {
       response.value.list = res.data.object.metadata.list
-      response.value.list.forEach(x => x.metadata.typejson.type.forEach((y) => filterList[y]++))
+      response.value.list.forEach(x => x.metadata.typejson.type.forEach((y) => filterList[y]!++))
       filteredFunc()
     }).catch((err) => {
       console.error(err)

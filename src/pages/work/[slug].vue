@@ -119,7 +119,7 @@
 </script>
 
 <template>
-  <main class="leading-relaxed min-h-screen py-32 bg-brown z-0 relative mx-10">
+  <main class="leading-relaxed min-h-screen py-32 bg-stone-300 z-0 relative mx-10">
     <transition-group tag="section" v-if="thisPage && Object.keys(thisPage.content).length" class="flex flex-col md:justify-start md:flex-row justify-center first">
         <div
           key="content"

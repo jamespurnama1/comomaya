@@ -194,7 +194,7 @@ onBeforeUnmount(() => {
           <picture>
             <source srcset="/assets/Sonali.jpg" type="image/jpeg">
             <source srcset="/assets/Sonali.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/Sonali.jpg" alt="Sonali Sani" />
+            <img class="w-full h-full object-contain max-w-[250px] py-16 m-auto" src="/assets/Sonali.jpg" alt="Sonali Sani" />
           </picture>
         </div>
       </section>
@@ -224,13 +224,13 @@ onBeforeUnmount(() => {
           <picture>
             <source srcset="/assets/Nishaa.jpg" type="image/jpeg">
             <source srcset="/assets/Nishaa.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/Nishaa.jpg" alt="Nishaa Bhojwani" />
+            <img class="w-full h-full object-contain max-w-[250px] py-16 m-auto" src="/assets/Nishaa.jpg" alt="Nishaa Bhojwani" />
           </picture>
         </div>
       </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex justify-center bg-brown flex-col">
+      <section class="flex justify-center bg-stone-300 flex-col">
         <h3 class="text-stone-800 pt-5 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
           THE COMOMAYA&nbsp;SQUAD
         </h3>
@@ -316,7 +316,7 @@ onBeforeUnmount(() => {
 
       <!--- RMC --->
 
-      <section class="bg-brown md:flex-row relative flex flex-col justify-center md:min-h-[40vh]">
+      <section class="bg-stone-300 md:flex-row relative flex flex-col justify-center md:min-h-[40vh]">
         <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-5 lg:px-16 lg:pl-52">
           <h3 class="text-active text-lg md:text-2xl font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES

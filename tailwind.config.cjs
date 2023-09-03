@@ -12,7 +12,6 @@ module.exports = {
       "black": "#000000",
       "beige": "#E8E6E5",
       "active": "#7BFF47",
-      "brown": "#A0AAC4",
       "stone": {
         100: "#F2F4F7",
         200: "#CDD2E0",

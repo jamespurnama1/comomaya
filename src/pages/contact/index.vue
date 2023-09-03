@@ -31,7 +31,7 @@ useHead({
 </script>
 
 <template>
-  <main class="bg-brown mx-auto flex flex-col justify-center pt-10 md:pt-20">
+  <main class="bg-stone-300 mx-auto flex flex-col justify-center pt-10 md:pt-20">
     <section class="flex flex-col mx-auto justify-center min-h-[50vh] md:min-h-[75vh]">
       <h2 class="text-active mx-7 md:mx-0 font-semibold tracking-widest mb-3">CONTACT US</h2>
       <h1 class="split mx-7 md:mx-0 max-w-4xl text-black text-5xl md:text-9xl font-semibold overflow-hidden">
@@ -58,19 +58,19 @@ useHead({
       <form action="https://formspree.io/f/xqkjgbng" method="POST" class="flex flex-wrap md:w-2/3 content-start">
         <span class="flex w-full">
           <input
-            class="bg-brown text-black placeholder-darkGray font-semibold border-black border-b mb-5 mr-5 w-1/2 focus:outline-none h-12"
+            class="bg-stone-300 text-black placeholder-stone-700 font-semibold border-stone-700 border-b mb-5 mr-5 w-1/2 focus:outline-none h-12"
             type="text" name="name" placeholder="Name">
           <input
-            class="bg-brown text-black placeholder-darkGray font-semibold border-black border-b mb-5 ml-5 w-1/2 focus:outline-none h-12"
+            class="bg-stone-300 text-black placeholder-stone-700 font-semibold border-stone-700 border-b mb-5 ml-5 w-1/2 focus:outline-none h-12"
             type="email" name="email" placeholder="E-mail">
         </span>
-        <input class="bg-brown text-black placeholder-darkGray font-semibold border-black border-b my-5 w-full focus:outline-none h-12"
+        <input class="bg-stone-300 text-black placeholder-stone-700 font-semibold border-stone-700 border-b my-5 w-full focus:outline-none h-12"
           type="text" name="company" placeholder="Company">
         <textarea
-          class="bg-brown text-white placeholder-darkGray border-white font-semibold border-b my-5 resize-none w-full h-36 focus:outline-none"
+          class="bg-stone-300 text-black placeholder-stone-700 border-stone-700 font-semibold border-b my-5 resize-none w-full h-36 focus:outline-none"
           placeholder="Your Message" name="message"></textarea>
         <button
-          class="z-0 relative bg-brown text-black ring-1 py-3 px-1 w-full my-5 font-semibold h-12 ring-active hover:bg-active hover:text-black hover:ring-active"
+          class="z-0 relative bg-stone-300 text-stone-700 ring-1 py-3 px-1 w-full my-5 font-semibold h-12 ring-active hover:bg-active hover:text-black hover:ring-active"
           type="submit">Submit Message</button>
       </form>
     </section>
