@@ -91,23 +91,21 @@ onBeforeUnmount(() => {
 <template>
   <main class="relative bg-stone-300 mx-auto flex flex-col justify-center pt-0 md:pt-20">
     <section class="relative z-0 overflow-hidden">
-      <div class="flex px-10 flex-col py-10 md:mx-32 mt-20 relative z-10">
-        <h2 class="text-stone-800 mx-5 md:mx-0 font-bold text-xl md:text-3xl">comomaya</h2>
-        <p class="italic text-stone-800 mx-5 md:mx-0 leading-tight text-base md:text-xl">
-          <span class="font-semibold">noun</span><br>
-          como: (Spanish) as, like maya: (Sanskrit) energy,&nbsp;magic
+      <div class="flex px-9 flex-col py-10 mt-20 relative z-10">
+        <h2 class="text-active font-bold text-xl md:text-3xl">comomaya</h2>
+        <p class="italic text-stone-700 leading-tight text-base md:text-xl">
+          <span class="font-semibold">noun</span>
+          <br>
+          como: (Spanish) as, like
+          <br v-if="width <= 768" />
+          <span v-else class="pl-7" />
+          maya: (Sanskrit) energy,&nbsp;magic
         </p>
         <h1
-          class="split my-5 mx-5 md:mx-0 text-800 text-4xl md:text-8xl leading-tight font-semibold overflow-hidden md:w-2/3">
-          <span>We</span><span>are</span><span>a</span><span>creative</span><span>boutique</span><span>agency</span><span>and</span><span>we</span><span>build</span><wbr><span>powerful</span>&nbsp;<span>brands</span>
+          class="split lowercase my-5 text-6xl md:text-9xl leading-none text-active font-extrabold md:w-2/3">
+          <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
         </h1>
-        <p class="text-800 text-xl mx-5 md:mx-0 md:w-2/3"><strong>COMOMAYA</strong> exists in order to make
-          international standards of branding &amp; design more accessible to new and upcoming
-          brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the
-          best
-          international talent there is, but without the exorbitant price tag that comes with hiring a top global agency.
-          We are here to empower new business owners &amp; entrepreneurs with great design and powerful brands that tell
-          a&nbsp;story…</p>
+        <p class="text-black text-xl"><strong>COMOMAYA</strong> exists in order to make international standards of branding &amp; design more accessible to new and upcoming brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the best international talent there is, but without the exhorbitant price tag that comes with hiring a top global agency. To empower business owners &amp; entrepreneurs with powerful brands that tell a story.<wbr> To express them through great design that makes heads turn.<wbr> To energise brands. And to add some&nbsp;magic.</p>
       </div>
       <!-- <div class="bg-beige absolute w-full h-1/2 bottom-0 -z-0" /> -->
     </section>
@@ -115,23 +113,23 @@ onBeforeUnmount(() => {
 
       <!--- RIDHI --->
 
-      <section id="ourPeople"
-        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] bg-stone-200 md:flex-row-reverse">
-        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
-          <span class="relative md:pt-16 md:mb-1 flex items-center">
-            <h3 class="text-stone-800 text-2xl font-semibold tracking-widest text-left">
-              RIDHI&nbsp;SAIN
-            </h3>
+      <section
+        class="relative flex px-9 gap-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige md:flex-row-reverse overflow-visible">
+        <div class="md:w-2/3 my-auto md:pt-16">
+          <h3 class="text-black text-2xl font-semibold tracking-widest text-left pl-1">
+              FOUNDER &amp; CREATIVE&nbsp;HEAD
+          </h3>
+          <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
+            <h2 class="drama mb-1 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-active">
+              <strong>ridhi&nbsp;sain</strong>
+            </h2>
             <picture>
               <source srcset="/assets/awards.webp" type="image/webp">
-              <source srcset="/assets/awards.jpg" type="image/jpeg">
-              <img class="md:ml-5 md:max-h-12 max-h-6 mx-5 mix-blend-multiply brightness-125" src="/assets/awards.jpg" alt="Awards">
+              <source srcset="/assets/awards.png" type="image/png">
+              <img class="md:pl-5 md:max-h-16 max-w-[100%] max-h-8 md:mt-3 md:mb-0 mb-5 mix-blend-multiply" src="/assets/awards.png" alt="Awards">
             </picture>
           </span>
-          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-active">
-            <strong>Founder</strong> &amp; Creative&nbsp;Head
-          </h2>
-          <p class="pb-10 text-lg text-left text-black">
+          <p class="pb-10 text-base md:text-lg text-left text-black lg:max-w-[520px]">
             Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of
             <strong>COMOMAYA</strong> which she launched in March
             2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK, Singapore
@@ -144,42 +142,35 @@ onBeforeUnmount(() => {
             smaller boutique
             clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense
             passion to help
-            them through their creative journey.<br class="mt-2 block" style="content: ''">You can check out some of her
+            them through their creative&nbsp;journey.<br class="mt-2 block" style="content: ''">You can check out some of her
             past work at
-            <a class='text-active hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer"
+            <a class='text-blue hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer"
               aria-label="Open Ridhi's Past Work" href='https://www.ridhisain.com'>
               www.ridhisain.com
             </a>
           </p>
         </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden ">
+        <div class="w-full min-h-[15rem] md:w-auto overflow-hidden ">
           <picture>
             <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
             <source srcset="/assets/Ridhi.webp" type="image/webp">
-            <img class="w-full h-full object-contain max-w-[250px] py-16 m-auto" src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
+            <img class="w-full h-full object-contain max-w-[300px] py-16 m-auto" src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
           </picture>
         </div>
       </section>
 
       <!--- SONALI --->
 
-      <section id="ourPeople"
-        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-300 md:flex-row">
-        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pl-12 lg:pl-52">
-          <!-- <span class="relative pt-16 md:mb-1 flex items-center"> -->
-          <h3 class="text-stone-800 text-2xl pt-16 font-semibold tracking-widest md:text-right">
-            SONALI&nbsp;SANI
+      <section
+        class="relative flex gap-16 px-9 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-300 md:flex-row">
+        <div class="md:w-2/3 my-auto">
+          <h3 class="text-black text-2xl font-semibold tracking-widest md:text-right">
+            CLIENT LEAD
           </h3>
-          <!-- <picture>
-                  <source srcset="/assets/awards.webp" type="image/webp">
-                  <source srcset="/assets/awards.jpg" type="image/jpeg">
-                  <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards">
-                </picture> -->
-          <!-- </span> -->
-          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden md:text-right text-active">
-            <strong>Client</strong>&nbsp;Lead
+          <h2 class="drama mb-1 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
+            <strong>sonali&nbsp;sani</strong>
           </h2>
-          <p class="pb-10 text-lg md:text-right text-black">
+          <p class="pb-10 text-base md:text-lg md:text-right text-black">
             Sonali Sani has had over a decade of experience in Client Services. She has worked with big international
             agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX, Pan
             Pacific Hotels &amp; Resorts, Intercontinental Hotels Group, Twinings Tea, McCormick, GSK, Reckitt Benckiser
@@ -190,27 +181,27 @@ onBeforeUnmount(() => {
             whilst ensuring this is done on time and on&nbsp;budget.
           </p>
         </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden">
+        <div class="w-full md:w-auto min-h-[15rem] overflow-hidden">
           <picture>
             <source srcset="/assets/Sonali.jpg" type="image/jpeg">
             <source srcset="/assets/Sonali.webp" type="image/webp">
-            <img class="w-full h-full object-contain max-w-[250px] py-16 m-auto" src="/assets/Sonali.jpg" alt="Sonali Sani" />
+            <img class="w-full h-full object-contain max-w-[300px] py-16 m-auto md:mr-0" src="/assets/Sonali.jpg" alt="Sonali Sani" />
           </picture>
         </div>
       </section>
 
       <!--- Nishaa Bhojwani --->
 
-      <section id="ourPeople"
-        class="relative flex flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-400 md:flex-row-reverse">
-        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
-          <h3 class="text-stone-800 text-2xl pt-16 font-semibold tracking-widest text-left">
-            NISHAA&nbsp;BHOJWANI
+      <section
+        class="relative flex gap-16 px-9 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige md:flex-row-reverse">
+        <div class="md:w-2/3 my-auto">
+          <h3 class="text-black text-2xl font-semibold tracking-widest text-left">
+            BUSINESS HEAD
           </h3>
-          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-active">
-            <strong>Business</strong>&nbsp;Head
+          <h2 class="drama mb-1 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-active">
+            <strong>nishaa bhojwani</strong>
           </h2>
-          <p class="pb-10 text-lg text-left text-black">
+          <p class="pb-10 text-base md:text-lg text-left text-black">
             Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media and
             technology. She has worked for companies such as Google and Mastercard and her past client list includes some
             of the biggest names in media and technology across North America and Asia Pacific. Through a consultative
@@ -224,22 +215,22 @@ onBeforeUnmount(() => {
           <picture>
             <source srcset="/assets/Nishaa.jpg" type="image/jpeg">
             <source srcset="/assets/Nishaa.webp" type="image/webp">
-            <img class="w-full h-full object-contain max-w-[250px] py-16 m-auto" src="/assets/Nishaa.jpg" alt="Nishaa Bhojwani" />
+            <img class="w-full h-full object-contain max-w-[300px] py-16 m-auto" src="/assets/Nishaa.jpg" alt="Nishaa Bhojwani" />
           </picture>
         </div>
       </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex justify-center bg-stone-300 flex-col">
-        <h3 class="text-stone-800 pt-5 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
-          THE COMOMAYA&nbsp;SQUAD
+      <section class="flex justify-center px-9 bg-stone-300 flex-col">
+        <h3 class="text-black pt-5 md:pt-16  text-lg md:text-2xl font-semibold tracking-widest text-right">
+          INDUSTRY&nbsp;TALENT
         </h3>
         <h2
-          class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-active font-medium">
-          <strong>Our</strong> people
+          class="drama md:-mt-3 text-5xl md:text-8xl overflow-hidden text-right text-active font-medium">
+          <strong>our people</strong>
         </h2>
         <h3 v-if="width > 768"
-          class="text-black font-medium text-right text-3xl pb-5 px-12 mx-16 leading-tight md:w-2/3 md:ml-auto">
+          class="text-black font-medium text-right md:text-3xl pb-5 leading-tight md:w-2/3 md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
           collaborating
           with some of the best talent in the industry and across the&nbsp;globe.
@@ -247,40 +238,40 @@ onBeforeUnmount(() => {
       </section>
 
       <section class="flex flex-col justify-center md:min-h-[40vh] md:flex-row">
-        <div class="md:w-2/3 p-0 m-0">
+        <div class="md:w-2/3 p-0 m-0 bg-blue">
           <picture>
-            <source srcset="/assets/globe.jpg" type="image/jpeg">
+            <source srcset="/assets/globe.png" type="image/png">
             <source srcset="/assets/globe.webp" type="image/webp">
-            <img class="object-cover min-w-full min-h-full h-auto" src="/assets/globe.jpg" alt="Globe" />
+            <img class="object-contain min-w-full min-h-full h-auto p-5" src="/assets/globe.png" alt="Globe" />
           </picture>
         </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center md:flex-row">
-          <h3 class="text-stone-800 text-2xl text-right font-medium py-5 mx-16 leading-tight md:w-2/3">
+        <section v-if="width <= 768" class="flex flex-col-reverse justify-center px-9">
+          <h3 class="text-black text-base text-right font-medium py-5 leading-tight">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
             collaborating
             with some of the best talent in the industry and across the&nbsp;globe.
           </h3>
         </section>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden">
+        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
           <picture>
-            <source srcset="/assets/theSquad.jpg" type="image/jpeg">
+            <source srcset="/assets/theSquad.png" type="image/png">
             <source srcset="/assets/theSquad.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/theSquad.jpg" alt="The Squad" />
+            <img class="w-full h-full object-contain p-3" src="/assets/theSquad.png" alt="The Squad" />
           </picture>
         </div>
       </section>
 
       <!--- WHAT WE OFFER --->
 
-      <section id="ourServices" class="flex justify-center flex-col">
-        <h3 class="text-stone-800 pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-left">
+      <section id="ourServices" class="flex px-9 justify-center flex-col">
+        <h3 class="text-black pt-10 md:pt-16 text-lg md:text-2xl font-semibold tracking-widest text-left">
           WHAT WE&nbsp;OFFER
         </h3>
         <h2
-          class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-left text-active font-medium">
-          <strong>Our</strong> services
+          class="drama md:ml-[-2px] md:-mt-3 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
+          <strong>our services</strong>
         </h2>
-        <h3 v-if="width > 768" class="text-black font-medium text-3xl pb-10 md:px-12 mx-16 md:w-2/3">
+        <h3 v-if="width > 768" class="text-black font-medium text-3xl pb-10 md:w-2/3">
           We have a vibrant portfolio of clients ranging from FMCG to
           B2B and from corporate to boutique &amp; luxury brands spread across various categories. We are
           multidisciplinary and
@@ -289,15 +280,15 @@ onBeforeUnmount(() => {
       </section>
 
       <section class="flex flex-col justify-center md:min-h-[40vh] md:flex-row">
-        <div class="md:w-2/3 p-0 m-0 bg-black">
+        <div class="md:w-2/3 p-0 m-0 bg-beige">
           <picture>
-            <source srcset="/assets/services.jpg" type="image/jpeg">
+            <source srcset="/assets/services.png" type="image/png">
             <source srcset="/assets/services.webp" type="image/webp">
-            <img class="object-contain min-w-full min-h-full h-auto" src="/assets/services.jpg" alt="list of services" />
+            <img class="object-contain min-w-full min-h-full h-auto" src="/assets/services.png" alt="list of services" />
           </picture>
         </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center md:flex-row">
-          <h3 class="text-black text-2xl font-medium py-5 mx-10">
+        <section v-if="width <= 768" class="flex flex-col-reverse justify-center px-9">
+          <h3 class="text-black text-base font-medium py-5">
             We have a vibrant portfolio of clients ranging from FMCG to B2B
             and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary
             and
@@ -317,19 +308,19 @@ onBeforeUnmount(() => {
       <!--- RMC --->
 
       <section class="bg-stone-300 md:flex-row relative flex flex-col justify-center md:min-h-[40vh]">
-        <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-5 lg:px-16 lg:pl-52">
-          <h3 class="text-active text-lg md:text-2xl font-semibold tracking-widest text-right">
+        <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-5 lg:px-9 lg:pl-52">
+          <h3 class="text-black text-lg md:text-2xl font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
-          <h2 class="drama mb-1 md:mb-3 text-5xl md:text-7xl overflow-hidden font-medium text-right text-black">
-            Grants<br><strong>for&nbsp;SMEs</strong>
+          <h2 class="drama mb-1 md:-mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-active">
+            <strong>grants<br>for&nbsp;SMEs</strong>
           </h2>
-          <p class="pb-10 text-lg text-right text-black">
+          <p class="pb-10 text-base md:text-lg text-right text-black">
             We are certified as a Registered Management Consultant (RMC)
             with IMC Singapore (Institute of Management Consultants).
             Under the EDG (Enterprise Development Grant) program, Singapore&#8209;based SMEs (Small &amp; Medium Enterprises) can apply for up
             to 80% of government funding towards their costs with us. If you qualify for this grant and are interested in this
-            opportunity you can find out more&nbsp;<a class='text-active hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application" href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
+            opportunity you can find out more&nbsp;<a class='text-blue hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application" href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
@@ -343,45 +334,48 @@ onBeforeUnmount(() => {
 
       <!--- TESTIMONIALS --->
 
-      <section id="testimonials" class="bg-stone-200 flex flex-col justify-center relative">
-        <h3 class="text-stone-800 tracking-[1em] pb-16 pt-32 text-lg md:text-2xl font-semibold text-center">
-          TESTIMONIALS
+      <section class="bg-beige px-9 flex flex-col justify-center relative">
+        <h3 class="text-active md:pb-16 pt-8 md:pt-32 text-5xl md:text-8xl font-semibold text-center">
+          <strong>testimonials</strong>
         </h3>
+        <button  class="absolute right-0">
+          <image class="block w-20 h-20 object-contain" src="/assets/arrow-right.svg" alt="button right" />
+        </button>
+        <swiper class="w-full" :autoplay="{
+          delay: 8000,
+          disableOnInteraction: false,
+        }" :loop="true" :autoHeight="true" :modules="modules">
+          <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle" v-for="(items, i) in testimonials">
+            <p class="md:leading-10 text-base md:text-3xl md:text-center text-black my-auto"
+              v-html="`${items[Object.keys(items)[0]]}`" />
+            <h2
+              class="text-black md:px-0 mt-7 font-medium text-base md:text-2xl tracking-wider text-left md:text-center"
+              v-html="`${Object.keys(items)[0]}`" />
+            <h2
+              class="text-black md:px-0 mt-2 font-medium text-sm md:text-xl tracking-wider text-left md:text-center">
+              {{ testimonialsDate[i] }}</h2>
+          </swiper-slide>
+        </swiper>
       </section>
-      <swiper class="min-h-[40vh] bg-stone-200" :autoplay="{
-        delay: 8000,
-        disableOnInteraction: false,
-      }" :loop="true" :navigation="true" :modules="modules">
-        <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle" v-for="(items, i) in testimonials">
-          <h3 class="md:leading-10 text-xl md:text-3xl md:text-center font-medium text-stone-800 px-16 md:px-20 my-auto"
-            v-html="`${items[Object.keys(items)[0]]}`" />
-          <h2
-            class="text-stone-800 md:px-0 px-16 mt-7 font-medium text-lg md:text-2xl tracking-wider text-left md:text-center"
-            v-html="`${Object.keys(items)[0]}`" />
-          <h2
-            class="text-stone-800 md:px-0 px-16 mt-2 font-medium text-base md:text-xl tracking-wider text-left md:text-center">
-            {{ testimonialsDate[i] }}</h2>
-        </swiper-slide>
-      </swiper>
     </div>
 
     <!--- END --->
 
-    <section class="flex flex-col items-center justify-center p-20 md:pt-64 md:p-72">
+    <section class="flex flex-col items-center justify-center p-20 md:pt-64 md:p-72 bg-stone-300">
       <video class="mb-10 recolor" playsinline loop autoplay="true" muted>
         <source src="/assets/aboutus.mp4" type="video/mp4" />
       </video>
-      <h3 class="text-stone-800 text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
-        INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3>
+      <!-- <h3 class="text-blue text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
+        INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3> -->
       <div class="flex gap-10">
         <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
           target="_blank" rel="noopener noreferrer">
           <!-- <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige" /> -->
-          <p class="text-active">(INSTAGRAM)</p>
+          <p class="text-beige hover:text-active">(INSTAGRAM)</p>
         </a>
       <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya"
         aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-        <p class="text-active">(LINKEDIN)</p>
+        <p class="text-beige hover:text-active">(LINKEDIN)</p>
         <!-- <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige" /> -->
       </a>
     </div>
@@ -397,8 +391,6 @@ onBeforeUnmount(() => {
   display: inline-block;
   transform: translateY(400%);
   line-height: 0.6;
-  font-family: "Narziss";
-  font-weight: 600;
 }
 
 .drama {
@@ -431,7 +423,6 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .recolor {
-  mix-blend-mode: darken;
-  filter: invert(88%) sepia(21%) saturate(1170%) hue-rotate(186deg) brightness(110%) contrast(67%);
+  filter: saturate(114%) brightness(91%) contrast(115.3%);
 }
 </style>
