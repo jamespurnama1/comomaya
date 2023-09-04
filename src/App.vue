@@ -31,21 +31,22 @@ const target = reactive({ x: 0, y: 0 })
 let hoverables: NodeListOf<HTMLAnchorElement> | null = null
 
 const cursor: Ref<HTMLDivElement | null> = ref(null);
-let raf: (number | null) = requestAnimationFrame(render);
-
-function render() {
-  if (!cursor.value) return;
-  if (linkSelected.value) {
-    cursor.value.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(1)`;
-  } else {
-    cursor.value.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(33%)`;
-  }
-
-  raf = requestAnimationFrame(render);
-}
 
 onMounted(() => {
   innerWidth.value = window.innerWidth
+
+  let raf: (number | null) = requestAnimationFrame(render);
+
+  function render() {
+    if (!cursor.value) return;
+    if (linkSelected.value) {
+      cursor.value.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(1)`;
+    } else {
+      cursor.value.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(33%)`;
+    }
+
+    raf = requestAnimationFrame(render);
+  }
 
   window.addEventListener('resize', () => {
     innerWidth.value = window.innerWidth
