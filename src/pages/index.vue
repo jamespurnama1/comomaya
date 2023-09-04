@@ -90,6 +90,7 @@ watch(() => store.isFetched, (x) => {
 })
 
 onBeforeUnmount(() => {
+	gsap.to('html', { backgroundColor: "#A0AAC4" })
 	if (imageFade) imageFade.kill()
 	window.removeEventListener('scroll', updateScroll)
 	if (!ScrollTrigger.getById("main")) return
@@ -114,8 +115,8 @@ function scrollDown() {
 			</li>
 		</ul>
 
-		<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']" size="2x"
-			class="text-beige fixed left-1/2 top-[90vh] cursor-pointer transition" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
+		<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']" size="sm"
+			class="text-active fixed left-1/2 top-[90vh] cursor-pointer transition" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
 
 		<img
 			v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()"

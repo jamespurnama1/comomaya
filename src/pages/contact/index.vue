@@ -31,49 +31,51 @@ useHead({
 </script>
 
 <template>
-  <main class="bg-stone-300 mx-auto flex flex-col justify-center pt-10 md:pt-20">
-    <section class="flex flex-col mx-auto justify-center min-h-[50vh] md:min-h-[75vh]">
-      <h2 class="text-active mx-7 md:mx-0 font-semibold tracking-widest mb-3">CONTACT US</h2>
-      <h1 class="split mx-7 md:mx-0 max-w-4xl text-black text-5xl md:text-9xl font-semibold overflow-hidden">
-        <span>Let's</span><span>start</span>
+  <main class="bg-stone-300 mx-auto px-9 flex flex-col justify-center pt-10 md:pt-20">
+    <!-- <section class=" mx-auto "> -->
+      <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
+      <h2 class="text-black text-lg md:text-2xl font-semibold tracking-widest mb-3">CONTACT US</h2>
+      <h1 class="split max-w-4xl text-active text-5xl md:text-9xl font-extrabold overflow-hidden">
+        <span>let's</span><span>start</span>
         <span>a</span><span>conversation...</span>
       </h1>
-    </section>
-    <section class="md:py-20 py-16 md:mx-52 flex md:flex-row mx-10 flex-col">
-      <span class="mr-5 md:w-1/3">
-          <p class="text-black font-semibold tracking-widest mb-3">GIVE US A CALL</p>
-          <a class="z-10" href="tel:+6594245994">
+      <div class="mt-5 text-2xl md:text-5xl flex flex-col">
+          <!-- <p class="text-black font-semibold tracking-widest mb-3">CALL</p> -->
+          <!-- <a class="z-10" href="tel:+6594245994">
             <p class="text-active font-semibold mb-5">+65 9424 5994</p>
-          </a>
-        <p class="text-black font-semibold tracking-widest mb-3">WHATSAPP US</p>
+          </a> -->
+        <!-- <p class="text-black font-semibold tracking-widest mb-3">WHATSAPP</p> -->
         <a class="z-10" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
-          <p class="text-active font-semibold mb-5">+65 9424 5994</p>
+          <p class="text-blue hover:text-active font-semibold mb-5">+65 9424 5994</p>
         </a>
-        <p class="text-black font-semibold tracking-widest mb-3">WRITE TO US</p>
+        <!-- <p class="text-black font-semibold tracking-widest mb-3">WRITE TO US</p> -->
         <a class="z-10" href="mailto:ridhisain@comomaya.com">
-          <p class="text-active font-semibold mb-5">ridhisain@comomaya.com</p>
+          <p class="text-blue hover:text-active font-semibold mb-5">ridhisain@comomaya.com</p>
         </a>
-      </span>
+      </div>
+      </div>
 
-      <form action="https://formspree.io/f/xqkjgbng" method="POST" class="flex flex-wrap md:w-2/3 content-start">
-        <span class="flex w-full">
+      <form action="https://formspree.io/f/xqkjgbng" method="POST" class="flex flex-col flex-wrap w-full md:w-2/3 content-start">
+
+        <label class="text-beige text-lg md:text-2xl font-semibold" for="name">NAME</label>
+        <input
+            class="bg-stone-300 w-full text-black placeholder-stone-700 border-active text-lg md:text-2xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
+            type="text" name="name">
+
+          <label class="text-beige text-lg md:text-2xl font-semibold" for="email">E-MAIL</label>
           <input
-            class="bg-stone-300 text-black placeholder-stone-700 font-semibold border-stone-700 border-b mb-5 mr-5 w-1/2 focus:outline-none h-12"
-            type="text" name="name" placeholder="Name">
-          <input
-            class="bg-stone-300 text-black placeholder-stone-700 font-semibold border-stone-700 border-b mb-5 ml-5 w-1/2 focus:outline-none h-12"
-            type="email" name="email" placeholder="E-mail">
-        </span>
-        <input class="bg-stone-300 text-black placeholder-stone-700 font-semibold border-stone-700 border-b my-5 w-full focus:outline-none h-12"
-          type="text" name="company" placeholder="Company">
-        <textarea
-          class="bg-stone-300 text-black placeholder-stone-700 border-stone-700 font-semibold border-b my-5 resize-none w-full h-36 focus:outline-none"
-          placeholder="Your Message" name="message"></textarea>
+            class="bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-2xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
+            type="email" name="email">
+
+        <label class="text-beige text-lg md:text-2xl font-semibold" for="message">MESSAGE</label>
+        <div contenteditable id="message"
+          class="bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-2xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[44px] focus:outline-none"
+           name="message"></div>
         <button
-          class="z-0 relative bg-stone-300 text-stone-700 ring-1 py-3 px-1 w-full my-5 font-semibold h-12 ring-active hover:bg-active hover:text-black hover:ring-active"
-          type="submit">Submit Message</button>
+          class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 h-12 flex items-center hover:text-active text-4xl md:text-8xl font-extrabold"
+          type="submit">submit</button>
       </form>
-    </section>
+    <!-- </section> -->
   </main>
 </template>
 

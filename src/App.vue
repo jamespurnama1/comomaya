@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { onUpdated, ref, reactive, onMounted } from 'vue'
+import { onUpdated, ref, reactive, onMounted, type Ref } from 'vue'
 import { useHead } from '@vueuse/head'
 import { useRouter } from 'vue-router';
+import { gsap } from 'gsap';
 
 const router = useRouter()
 
@@ -17,7 +18,7 @@ useHead({
 
 const innerWidth = ref(0);
 const scrollY = ref(0);
-const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full bg-beige transition ease transform duration-300`;
+const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease transform duration-300`;
 const linkSelected = ref(false);
 const links = [
   '',
@@ -28,6 +29,20 @@ const links = [
 ];
 const target = reactive({ x: 0, y: 0 })
 let hoverables: NodeListOf<HTMLAnchorElement> | null = null
+
+const cursor: Ref<HTMLDivElement | null> = ref(null);
+let raf: (number | null) = requestAnimationFrame(render);
+
+function render() {
+  if (!cursor.value) return;
+  if (linkSelected.value) {
+    cursor.value.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(1)`;
+  } else {
+    cursor.value.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(33%)`;
+  }
+
+  raf = requestAnimationFrame(render);
+}
 
 onMounted(() => {
   innerWidth.value = window.innerWidth
@@ -40,27 +55,13 @@ onMounted(() => {
     scrollY.value = window.scrollY
   })
 
-  const cursor: HTMLDivElement | null = document.querySelector('.cursor');
-
-  let raf: (number | null) = requestAnimationFrame(render);
-
   document.addEventListener('mousemove', function (e) {
     target.x = e.clientX,
       target.y = e.clientY,
-      cursor ? cursor.style.opacity = "1" : null;
+      cursor.value ? cursor.value.style.opacity = "1" : null;
     !raf ? raf = requestAnimationFrame(render) : null;
   });
-
-  function render() {
-    if (!cursor) return;
-    if (linkSelected.value) {
-      cursor.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(1)`;
-    } else {
-      cursor.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) scale(33%)`;
-    }
-
-    raf = requestAnimationFrame(render);
-  }
+  hoverLink()
 })
 
 function whatisLink(l: string) {
@@ -71,7 +72,7 @@ function whatisLink(l: string) {
 }
 
 function hoverLink() {
-  hoverables = document.querySelectorAll('a, button, input, label, .select');
+  hoverables = document.querySelectorAll('a, button, input, label, .select, .swiper-button-prev, .swiper-button-next');
   if (!hoverables || !hoverables.length) return
   hoverables.forEach(item => {
     if (item.getAttribute('listener') === 'true') return
@@ -94,6 +95,7 @@ function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
     router.push(whatisLink(href))
     handleNav()
   }
+  if (href !== 'grants for SMEs') handleScrollUp()
 }
 
 onUpdated(() => {
@@ -103,6 +105,11 @@ onUpdated(() => {
 const opened = ref(false)
 
 function handleNav() {
+  if(!opened.value) {
+    gsap.set('body', { overflow: 'hidden' })
+  } else {
+    gsap.set('body', { overflow: 'auto' })
+  }
   opened.value = !opened.value;
 }
 
@@ -114,22 +121,21 @@ function handleScrollUp() {
 <template>
   <!-- Cursor -->
 
-  <div
-    class="cursor origin-center transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full bg-active opacity-0 transition-transform ease-out"
-    :class="[innerWidth < 570 ? '!opacity-0' : '']" />
+  <div ref="cursor"
+    class="origin-center transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
+    :class="[innerWidth < 570 ? '!opacity-0' : '', opened || $route.path === '/work' || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active']" />
 
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-screen top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-stone-300 items-center z-30 transition-all origin-top-left"
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-beige items-center z-30 transition-all origin-top-left"
     :class="[((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? '!bg-opacity-100' : '!bg-opacity-0']">
 
     <a aria-label="Go to Landing Page" href="/">
-      <picture>
-        <source srcset="/COMOMAYA_Logo_800x90.webp" type="image/webp">
-        <source srcset="/COMOMAYA_Logo_800x90.png" type="image/png">
-        <img src="/COMOMAYA_Logo_800x90.png" alt="COMOMAYA"
-          class="logo transition-all duration-700 h-9 md:h-10 img-responsive origin-top-left w-[225.156px] md:w-[250.172px]" />
+      <picture
+        :class="[(opened) || ((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? 'brightness-0' : '']">
+        <img src="/logo.svg" alt="COMOMAYA"
+          class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left" />
       </picture>
     </a>
 
@@ -141,7 +147,7 @@ function handleScrollUp() {
         (i === 2 && opened ? 'opacity-0' : ''),
         (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black' : ''),
         genericHamburgerLine,
-        (((scrollY > 50) && $route.path !== '/') || ($route.path !== '/') ? 'bg-black' : '')
+        (($route.path !== '/') ? 'bg-black' : 'bg-black md:bg-active')
       ]" />
     </button>
   </nav>
@@ -150,30 +156,29 @@ function handleScrollUp() {
 
   <transition name="fly">
     <nav v-show="opened"
-      class="moreNav bg-stone-300 w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
+      class="moreNav bg-beige w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
-          class="cube my-3 md:my-0 lg:text-9xl md:text-7xl text-4xl leading-[2rem] md:leading-[5rem] lg:leading-[8rem]" @touchstart="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
-            <!-- <p class="flap">
-              <a @click="handleNav" :href="whatisLink(link)" :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-            </p> -->
-            <p class="flip">
-              <span class="text-stone-700">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-              <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-              <span class="text-stone-700">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-            </p>
-            <p class="flop text-active">
-              <a @click.prevent  :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-            </p>
+          class="cube my-3 md:my-0 lg:text-8xl xl:text-9xl md:text-7xl text-4xl leading-[2rem] md:leading-[5rem] xl:leading-[10rem]"
+          @touchstart="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
+          <p class="flip">
+            <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+            <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+            <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+          </p>
+          <p class="flop text-active">
+            <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+          </p>
         </li>
       </transition-group>
       <transition-group name="fade" tag="span" class="flex justify-center text-center gap-20 mb-10 text-xs md:text-base">
-        <a key="ig" @click="handleNav" class="text-stone-700 hover:text-active" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
-          target="_blank" rel="noopener noreferrer">
+        <a key="ig" @click="handleNav" class="text-black hover:text-active" href="https://instagram.com/comomaya"
+          aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
           <p>(INSTAGRAM)</p>
         </a>
-        <a key="linkedin" @click="handleNav" class="text-stone-700 hover:text-active" href="https://www.linkedin.com/company/comomaya"
-          aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
+        <a key="linkedin" @click="handleNav" class="text-black hover:text-active"
+          href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
+          rel="noopener noreferrer">
           (LINKEDIN)
         </a>
       </transition-group>
@@ -181,7 +186,7 @@ function handleScrollUp() {
   </transition>
 
   <transition name="fade">
-    <div v-show="opened" @click="handleNav" @keydown="handleNav"
+    <div v-show="opened" @click="handleNav"
       class="fixed w-screen h-screen bg-opacity-50 bg-black z-10" />
   </transition>
 
@@ -189,8 +194,8 @@ function handleScrollUp() {
 
   <transition name="fade">
     <button aria-label="Scroll Up" v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
-      class="flex justify-center items-center absolute bottom-10 right-10 bg-black hover:bg-active w-10 h-10 z-20">
-      <font-awesome-icon :icon="['fas', 'angle-up']" size="lg" class="mx-2 text-beige hover:text-black" />
+      class="flex justify-center items-center absolute bottom-5 right-10 bg-active w-10 h-10 z-20">
+      <font-awesome-icon :icon="['fas', 'angle-up']" size="lg" class="mx-2 text-blue" />
     </button>
   </transition>
 
@@ -214,14 +219,13 @@ function handleScrollUp() {
   <!-- Footer -->
 
   <footer class="my-5 ml-10">
-    <p class="text-xs text-black" :class="[$route.path === '/' ? 'mix-blend-difference text-white' : '']">
+    <p class="text-xs text-beige" :class="[$route.path === '/' ? 'mix-blend-difference text-white' : '']">
       © 2023 COMOMAYA. All rights reserved.
     </p>
   </footer>
 </template>
 
 <style lang="scss" scoped>
-
 .logoInv:hover {
   filter: invert(22%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
 }
@@ -229,13 +233,14 @@ function handleScrollUp() {
 .logoNorm:hover {
   filter: invert(22%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
 }
+
 .flip {
   transition: all 0.5s ease;
   transform: translateZ(0.9375rem);
   font-family: "Narziss";
   font-weight: 600;
-  color: theme("colors.stone.700");
-  @apply flex justify-center gap-5 h-20 md:h-32 items-center;
+  color: theme("colors.black");
+  @apply flex justify-center gap-5 h-20 md:h-32 xl:h-40 items-center;
 
   @media (min-width: 768px) {
     transform: translateZ(4rem);
@@ -251,11 +256,11 @@ function handleScrollUp() {
 
 .flop {
   transition: all 0.5s ease;
-	transform: rotateX(-90deg) translateZ(-0.9375rem);
+  transform: rotateX(-90deg) translateZ(-0.9375rem);
   font-family: "Barlow";
   font-weight: 800;
   opacity: 0;
-  @apply flex justify-center gap-5 h-20 md:h-32 items-center;
+  @apply flex justify-center gap-5 h-20 md:h-32 xl:h-40 items-center;
 
   @media (min-width: 768px) {
     transform: rotateX(-90deg) translateZ(-4rem);
@@ -266,14 +271,14 @@ function handleScrollUp() {
   transition: transform 0.5s;
   transform-style: preserve-3d;
   perspective: 5000px;
-  @apply h-20 md:h-32;
+  @apply h-20 md:h-32 xl:h-40;
 
   &:hover {
-  transform: rotateX(90deg);
+    transform: rotateX(90deg);
 
-    .flop, .flap {
+    .flop,
+    .flap {
       opacity: 1;
     }
   }
-}
-</style>
+}</style>
