@@ -10,7 +10,10 @@ module.exports = {
       "gray": "#eaeaea",
       "darkGray": "#606060",
       "black": "#000000",
-      "beige": "#E8E6E5",
+      "beige": {
+        "normal": "#E8E6E5",
+        "darker": '#D9D5D4',
+      },
       "active": "#7BFF47",
       "purple": "#982eff",
       "blue": "#808CAD",

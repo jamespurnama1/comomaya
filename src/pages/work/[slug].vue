@@ -102,7 +102,7 @@
   
   onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to('html', { backgroundColor: "#E8E6E5" })
+    gsap.to('html', { backgroundColor: "#D9D5D4" })
     resize()
     window.addEventListener('resize', resize)
 
@@ -119,7 +119,7 @@
 </script>
 
 <template>
-  <main class="leading-relaxed min-h-screen py-32 bg-beige z-0 relative mx-10">
+  <main class="leading-relaxed min-h-screen py-32 bg-beige-darker z-0 relative mx-10">
     <transition-group tag="section" v-if="thisPage && Object.keys(thisPage.content).length" class="flex flex-col md:justify-start md:flex-row justify-center first">
         <div
           key="content"

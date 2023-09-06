@@ -57,17 +57,17 @@ useHead({
 
       <form action="https://formspree.io/f/xqkjgbng" method="POST" class="flex flex-col flex-wrap w-full md:w-2/3 content-start">
 
-        <label class="text-beige text-lg md:text-2xl font-semibold" for="name">NAME</label>
+        <label class="text-beige-normal text-lg md:text-2xl font-semibold" for="name">NAME</label>
         <input
             class="bg-stone-300 w-full text-black placeholder-stone-700 border-active text-lg md:text-2xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
             type="text" name="name">
 
-          <label class="text-beige text-lg md:text-2xl font-semibold" for="email">E-MAIL</label>
+          <label class="text-beige-normal text-lg md:text-2xl font-semibold" for="email">E-MAIL</label>
           <input
             class="bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-2xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
             type="email" name="email">
 
-        <label class="text-beige text-lg md:text-2xl font-semibold" for="message">MESSAGE</label>
+        <label class="text-beige-normal text-lg md:text-2xl font-semibold" for="message">MESSAGE</label>
         <div contenteditable id="message"
           class="bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-2xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[44px] focus:outline-none"
            name="message"></div>

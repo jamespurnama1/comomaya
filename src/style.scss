@@ -5,6 +5,10 @@
 
 * {
   cursor: none !important;
+
+  &:focus, &:focus-visible {
+    outline: none;
+  }
 }
 
 html {
