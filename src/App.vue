@@ -123,13 +123,13 @@ function handleScrollUp() {
   <!-- Cursor -->
 
   <div ref="cursor"
-    class="origin-center transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
-    :class="[innerWidth < 570 ? '!opacity-0' : '', opened || $route.path === '/work' || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active']" />
+    class="origin-center cursor transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
+    :class="[innerWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-beige items-center z-30 transition-all origin-top-left"
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-beige-darker items-center z-30 transition-all origin-top-left"
     :class="[((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? '!bg-opacity-100' : '!bg-opacity-0']">
 
     <a aria-label="Go to Landing Page" href="/">
@@ -141,8 +141,7 @@ function handleScrollUp() {
     </a>
 
     <button aria-label="Navigation"
-      class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform" @click="handleNav"
-      @keydown="handleNav">
+      class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform" @click="handleNav">
       <div v-for="i in 3" :class="[
         (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black' : ''),
         (i === 2 && opened ? 'opacity-0' : ''),
@@ -157,10 +156,10 @@ function handleScrollUp() {
 
   <transition name="fly">
     <nav v-show="opened"
-      class="moreNav bg-beige w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
+      class="moreNav bg-beige-darker w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
-          class="cube my-3 md:my-0 lg:text-8xl xl:text-9xl md:text-7xl text-4xl leading-[2rem] md:leading-[5rem] xl:leading-[10rem]"
+          class="cube my-3 md:my-0 lg:text-8xl md:text-7xl text-4xl leading-[2rem] md:leading-[3rem]"
           @touchstart="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
           <p class="flip">
             <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
@@ -220,7 +219,7 @@ function handleScrollUp() {
   <!-- Footer -->
 
   <footer class="my-5 ml-10">
-    <p class="text-xs text-beige" :class="[$route.path === '/' ? 'mix-blend-difference text-white' : '']">
+    <p class="text-xs text-beige-normal" :class="[$route.path === '/' ? 'mix-blend-difference text-white' : '']">
       © 2023 COMOMAYA. All rights reserved.
     </p>
   </footer>
@@ -241,7 +240,7 @@ function handleScrollUp() {
   font-family: "Narziss";
   font-weight: 600;
   color: theme("colors.black");
-  @apply flex justify-center gap-5 h-20 md:h-32 xl:h-40 items-center;
+  @apply flex justify-center gap-5 h-20 md:h-32 items-center;
 
   @media (min-width: 768px) {
     transform: translateZ(4rem);
@@ -261,7 +260,7 @@ function handleScrollUp() {
   font-family: "Barlow";
   font-weight: 800;
   opacity: 0;
-  @apply flex justify-center gap-5 h-20 md:h-32 xl:h-40 items-center;
+  @apply flex justify-center gap-5 h-20 md:h-32 items-center;
 
   @media (min-width: 768px) {
     transform: rotateX(-90deg) translateZ(-4rem);
@@ -272,7 +271,7 @@ function handleScrollUp() {
   transition: transform 0.5s;
   transform-style: preserve-3d;
   perspective: 5000px;
-  @apply h-20 md:h-32 xl:h-40;
+  @apply h-20 md:h-32;
 
   &:hover {
     transform: rotateX(90deg);
@@ -282,4 +281,5 @@ function handleScrollUp() {
       opacity: 1;
     }
   }
-}</style>
+}
+</style>

@@ -35,7 +35,7 @@ async function load() {
     .then((res: AxiosResponse<List>) => {
       response.value.list = res.data.object.metadata.list
       response.value.list.forEach(x => x.metadata.typejson.type.forEach((y) => {
-        if (filterList[y]) filterList[y]++
+        if (typeof filterList[y] === 'number') filterList[y]++
       }))
       filteredFunc()
     }).catch((err) => {
@@ -70,7 +70,7 @@ onMounted(() => {
   load()
   window.addEventListener('resize', resize)
   resize()
-  gsap.to('html', { backgroundColor: "#E8E6E5" })
+  gsap.to('html', { backgroundColor: "#D9D5D4" })
 })
 
 useHead({
@@ -91,7 +91,7 @@ onBeforeUnmount(() => {
 
 <template>
   <main
-    class="min-h-screen flex flex-col justify-center py-16 md:py-32 bg-beige text-black z-0 relative mx-9 md:justify-start">
+    class="min-h-screen flex flex-col justify-center py-16 md:py-32 bg-beige-darker text-black z-0 relative mx-9 md:justify-start">
     <h1 class="text-7xl font-bold tracking-tight text-active">selected <strong>projects</strong></h1>
     <div class="h-[1px] w-full bg-stone-300 my-5" />
     <p class="text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2">
@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
             <img :src="`${portfolio.thumbnail}?auto=format`" :srcset="`${portfolio.thumbnail}?w=1024&auto=format 2048w,
                                   ${portfolio.thumbnail}?w=640&auto=format 1024w,
                                   ${portfolio.thumbnail}?w=480&auto=format 640w`" :alt="portfolio.title"
-              class="w-full h-full object-cover hover:scale-125 transition-all" />
+              class="w-full h-full object-cover transition-all" :class="[hov[i] ? 'scale-125' : '']" />
           </div>
           <!-- <div class="flex py-3 md:py-10 flex-wrap" @focus="(e) => handleHover(e, i)" @mouseenter="(e) => handleHover(e, i)" @onfocusout="handleOut" @mouseleave="() => handleOut()"> -->
           <div class="flex items-center mt-2 select">

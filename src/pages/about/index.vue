@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
           <span v-else class="pl-7" />
           maya: (Sanskrit) energy,&nbsp;magic
         </p>
-        <h1 class="split lowercase my-5 text-6xl md:text-9xl leading-none text-active font-extrabold md:w-2/3">
+        <h1 class="split lowercase my-5 text-6xl md:text-9xl leading-none text-active font-extrabold md:w-2/3 overflow-hidden relative">
           <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span
             class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
         </h1>
@@ -113,14 +113,13 @@ onBeforeUnmount(() => {
           with powerful brands that tell a story.<wbr> To express them through great design that makes heads turn.<wbr> To energise brands. And to add some&nbsp;magic.
         </p>
       </div>
-      <!-- <div class="bg-beige absolute w-full h-1/2 bottom-0 -z-0" /> -->
     </section>
     <div>
 
       <!--- RIDHI --->
 
       <section
-        class="relative flex px-9 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige md:flex-row-reverse overflow-visible">
+        class="relative flex px-9 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige-darker md:flex-row-reverse overflow-visible">
         <div class="md:w-2/3 my-auto md:pt-16">
           <h3 class="text-black text-2xl font-semibold tracking-widest text-left pl-1">
             FOUNDER &amp; CREATIVE&nbsp;HEAD
@@ -203,7 +202,7 @@ onBeforeUnmount(() => {
       <!--- Nishaa Bhojwani --->
 
       <section
-        class="relative flex gap-8 md:gap-16 px-9 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige md:flex-row-reverse">
+        class="relative flex gap-8 md:gap-16 px-9 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige-darker md:flex-row-reverse">
         <div class="md:w-2/3 my-auto">
           <h3 class="text-black text-2xl font-semibold tracking-widest text-left">
             BUSINESS HEAD
@@ -221,7 +220,7 @@ onBeforeUnmount(() => {
             large&nbsp;enterprises.
           </p>
         </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden">
+        <div class="w-full min-h-[15rem] md:w-auto overflow-hidden">
           <picture>
             <source srcset="/assets/Nishaa.jpg" type="image/jpeg">
             <source srcset="/assets/Nishaa.webp" type="image/webp">
@@ -348,7 +347,7 @@ onBeforeUnmount(() => {
 
       <!--- TESTIMONIALS --->
 
-      <section class="bg-beige px-12 md:px-20 flex flex-col justify-center relative">
+      <section class="bg-beige-darker px-12 md:px-20 flex flex-col justify-center relative">
         <h3 class="text-active md:pb-3 pt-8 md:pt-32 text-4xl md:text-8xl font-semibold text-center">
           <strong>testimonials</strong>
         </h3>
@@ -389,11 +388,11 @@ onBeforeUnmount(() => {
         <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
           target="_blank" rel="noopener noreferrer">
           <!-- <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige" /> -->
-          <p class="text-beige hover:text-active">(INSTAGRAM)</p>
+          <p class="text-beige-normal hover:text-active">(INSTAGRAM)</p>
         </a>
         <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya"
           aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-          <p class="text-beige hover:text-active">(LINKEDIN)</p>
+          <p class="text-beige-normal hover:text-active">(LINKEDIN)</p>
           <!-- <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige" /> -->
         </a>
       </div>
