@@ -129,7 +129,7 @@ function handleScrollUp() {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-beige-darker items-center z-30 transition-all origin-top-left"
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-beige-lighter items-center z-30 transition-all origin-top-left"
     :class="[((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? '!bg-opacity-100' : '!bg-opacity-0']">
 
     <a aria-label="Go to Landing Page" href="/">
@@ -156,7 +156,7 @@ function handleScrollUp() {
 
   <transition name="fly">
     <nav v-show="opened"
-      class="moreNav bg-beige-darker w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
+      class="moreNav bg-beige-lighter w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
           class="cube my-3 md:my-0 lg:text-8xl md:text-7xl text-4xl leading-[2rem] md:leading-[3rem]"
