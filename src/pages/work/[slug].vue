@@ -102,7 +102,7 @@
   
   onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to('html', { backgroundColor: "#D9D5D4" })
+    gsap.to('html', { backgroundColor: "#F2F2F1" })
     resize()
     window.addEventListener('resize', resize)
 
@@ -113,13 +113,14 @@
   })
 
   onBeforeUnmount(() => {
+    gsap.to('html', { backgroundColor: "#A0AAC4" })
     window.removeEventListener('resize', resize)
     if (ScrollTrigger.getById("pin")) ScrollTrigger.getById("pin")!.kill()
   })
 </script>
 
 <template>
-  <main class="leading-relaxed min-h-screen py-32 bg-beige-darker z-0 relative mx-10">
+  <main class="leading-relaxed min-h-screen py-32 bg-beige-lighter z-0 relative px-9 md:px-20 xl:px-36">
     <transition-group tag="section" v-if="thisPage && Object.keys(thisPage.content).length" class="flex flex-col md:justify-start md:flex-row justify-center first">
         <div
           key="content"

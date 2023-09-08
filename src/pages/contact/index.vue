@@ -31,7 +31,7 @@ useHead({
 </script>
 
 <template>
-  <main class="bg-stone-300 mx-auto px-9 flex flex-col justify-center pt-10 md:pt-20">
+  <main class="bg-stone-300 mx-auto px-9 md:px-20 xl:px-52 flex flex-col justify-center pt-10 md:pt-20">
     <!-- <section class=" mx-auto "> -->
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
       <h2 class="text-black text-lg md:text-2xl font-semibold tracking-widest mb-3">CONTACT US</h2>

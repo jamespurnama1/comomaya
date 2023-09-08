@@ -70,7 +70,7 @@ onMounted(() => {
   load()
   window.addEventListener('resize', resize)
   resize()
-  gsap.to('html', { backgroundColor: "#D9D5D4" })
+  gsap.to('html', { backgroundColor: "#F2F2F1" })
 })
 
 useHead({
@@ -91,7 +91,7 @@ onBeforeUnmount(() => {
 
 <template>
   <main
-    class="min-h-screen flex flex-col justify-center py-16 md:py-32 bg-beige-darker text-black z-0 relative mx-9 md:justify-start">
+    class="min-h-screen flex flex-col justify-center py-16 md:py-32 bg-beige-lighter text-black z-0 relative px-9 md:px-20 xl:px-36 md:justify-start">
     <h1 class="text-7xl font-bold tracking-tight text-active">selected <strong>projects</strong></h1>
     <div class="h-[1px] w-full bg-stone-300 my-5" />
     <p class="text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2">

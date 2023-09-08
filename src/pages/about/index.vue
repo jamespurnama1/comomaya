@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
 <template>
   <main class="relative bg-stone-300 mx-auto flex flex-col justify-center pt-10 md:pt-20">
     <section class="relative z-0 overflow-hidden">
-      <div class="flex px-9 flex-col py-16 relative z-10">
+      <div class="flex px-9 lg:px-20 xl:px-36 flex-col py-16 relative z-10">
         <h2 class="text-active font-bold text-xl md:text-3xl">comomaya</h2>
         <p class="italic text-stone-700 leading-tight text-base md:text-xl">
           <span class="font-semibold">noun</span>
@@ -119,7 +119,7 @@ onBeforeUnmount(() => {
       <!--- RIDHI --->
 
       <section
-        class="relative flex px-9 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige-darker md:flex-row-reverse overflow-visible">
+        class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige-lighter md:flex-row-reverse overflow-visible">
         <div class="md:w-2/3 my-auto md:pt-16">
           <h3 class="text-black text-2xl font-semibold tracking-widest text-left pl-1">
             FOUNDER &amp; CREATIVE&nbsp;HEAD
@@ -170,7 +170,7 @@ onBeforeUnmount(() => {
       <!--- SONALI --->
 
       <section
-        class="relative flex gap-8 md:gap-16 px-9 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-300 md:flex-row">
+        class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-300 md:flex-row">
         <div class="md:w-2/3 my-auto">
           <h3 class="text-black text-2xl font-semibold tracking-widest md:text-right">
             CLIENT LEAD
@@ -202,7 +202,7 @@ onBeforeUnmount(() => {
       <!--- Nishaa Bhojwani --->
 
       <section
-        class="relative flex gap-8 md:gap-16 px-9 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige-darker md:flex-row-reverse">
+        class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige-lighter md:flex-row-reverse">
         <div class="md:w-2/3 my-auto">
           <h3 class="text-black text-2xl font-semibold tracking-widest text-left">
             BUSINESS HEAD
@@ -231,7 +231,7 @@ onBeforeUnmount(() => {
       </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex justify-center px-9 bg-stone-300 flex-col">
+      <section class="flex justify-center px-9 lg:px-20 xl:px-36 bg-stone-300 flex-col">
         <h3 class="text-black pt-5 md:pt-16  text-lg md:text-2xl font-semibold tracking-widest text-right">
           INDUSTRY&nbsp;TALENT
         </h3>
@@ -239,7 +239,7 @@ onBeforeUnmount(() => {
           <strong>our people</strong>
         </h2>
         <h3 v-if="width > 768"
-          class="text-black font-medium text-right md:text-3xl pb-5 leading-tight md:w-2/3 md:ml-auto">
+          class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-lg md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
           collaborating
           with some of the best talent in the industry and across the&nbsp;globe.
@@ -254,8 +254,8 @@ onBeforeUnmount(() => {
             <img class="object-contain min-w-full min-h-full h-auto py-3 md:p-5" src="/assets/globe.png" alt="Globe" />
           </picture>
         </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center px-9">
-          <h3 class="text-black text-base text-right font-medium py-5 leading-tight">
+        <section v-if="width <= 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
+          <h3 class="text-black text-base text-right py-5 leading-tight">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
             collaborating
             with some of the best talent in the industry and across the&nbsp;globe.
@@ -265,14 +265,14 @@ onBeforeUnmount(() => {
           <picture>
             <source srcset="/assets/theSquad.png" type="image/png">
             <source srcset="/assets/theSquad.webp" type="image/webp">
-            <img class="w-full h-full object-contain p-3" src="/assets/theSquad.png" alt="The Squad" />
+            <img class="w-full h-full object-contain" src="/assets/theSquad.png" alt="The Squad" />
           </picture>
         </div>
       </section>
 
       <!--- WHAT WE OFFER --->
 
-      <section id="ourServices" class="flex px-9 justify-center flex-col">
+      <section id="ourServices" class="flex px-9 lg:px-20 xl:px-36 justify-center flex-col">
         <h3 class="text-black pt-10 md:pt-16 text-lg md:text-2xl font-semibold tracking-widest text-left">
           WHAT WE&nbsp;OFFER
         </h3>
@@ -280,7 +280,7 @@ onBeforeUnmount(() => {
           class="drama md:ml-[-2px] -mt-3 mb-5 md:mb-3 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
           <strong>our services</strong>
         </h2>
-        <h3 v-if="width > 768" class="text-black font-medium text-3xl pb-10 md:w-2/3">
+        <h3 v-if="width > 768" class="text-black md:text-lg pb-10 md:max-w-lg">
           We have a vibrant portfolio of clients ranging from FMCG to
           B2B and from corporate to boutique &amp; luxury brands spread across various categories. We are
           multidisciplinary and
@@ -296,7 +296,7 @@ onBeforeUnmount(() => {
             <img class="object-contain min-w-full min-h-full h-auto" src="/assets/services.png" alt="list of services" />
           </picture>
         </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center px-9">
+        <section v-if="width <= 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
           <h3 class="text-black text-base font-medium py-5">
             We have a vibrant portfolio of clients ranging from FMCG to B2B
             and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary
@@ -317,7 +317,7 @@ onBeforeUnmount(() => {
       <!--- RMC --->
 
       <section class="bg-stone-300 md:flex-row relative flex flex-col justify-center md:min-h-[40vh]">
-        <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-5 lg:px-9 lg:pl-52">
+        <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:px-20 xl:px-36 lg:pl-52">
           <h3 class="text-black text-lg md:text-2xl font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
@@ -347,7 +347,7 @@ onBeforeUnmount(() => {
 
       <!--- TESTIMONIALS --->
 
-      <section class="bg-beige-darker px-12 md:px-20 flex flex-col justify-center relative">
+      <section class="bg-beige-lighter px-12 md:px-20 xl:px-36 flex flex-col justify-center relative">
         <h3 class="text-active md:pb-3 pt-8 md:pt-32 text-4xl md:text-8xl font-semibold text-center">
           <strong>testimonials</strong>
         </h3>
