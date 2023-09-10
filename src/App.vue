@@ -172,11 +172,11 @@ function handleScrollUp() {
         </li>
       </transition-group>
       <transition-group name="fade" tag="span" class="flex justify-center text-center gap-20 mb-10 text-xs md:text-base">
-        <a key="ig" @click="handleNav" class="text-black hover:text-active" href="https://instagram.com/comomaya"
+        <a key="ig" @click="handleNav" class="text-black hover:text-active hover:font-bold" href="https://instagram.com/comomaya"
           aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
           <p>(INSTAGRAM)</p>
         </a>
-        <a key="linkedin" @click="handleNav" class="text-black hover:text-active"
+        <a key="linkedin" @click="handleNav" class="text-black hover:text-active hover:font-bold"
           href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
           rel="noopener noreferrer">
           (LINKEDIN)
@@ -219,7 +219,7 @@ function handleScrollUp() {
   <!-- Footer -->
 
   <footer class="my-5 ml-10">
-    <p class="text-xs text-beige-normal" :class="[$route.path === '/' ? 'mix-blend-difference text-white' : '']">
+    <p class="text-xs" :class="[$route.path === '/' ? 'mix-blend-difference text-white' : '']">
       © 2023 COMOMAYA. All rights reserved.
     </p>
   </footer>

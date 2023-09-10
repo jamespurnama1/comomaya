@@ -90,7 +90,7 @@ watch(() => store.isFetched, (x) => {
 })
 
 onBeforeUnmount(() => {
-	gsap.to('html', { backgroundColor: "#A0AAC4" })
+	// gsap.to('html', { backgroundColor: "#A0AAC4" })
 	if (imageFade) imageFade.kill()
 	window.removeEventListener('scroll', updateScroll)
 	if (!ScrollTrigger.getById("main")) return
