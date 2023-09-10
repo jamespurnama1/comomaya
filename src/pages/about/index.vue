@@ -287,7 +287,7 @@ onBeforeUnmount(() => {
         </h3>
       </section>
 
-      <section class="flex flex-col justify-center md:min-h-[40vh] lg:flex-row">
+      <section class="flex flex-col justify-center lg:flex-row">
         <div class="lg:w-2/3 p-0 m-0 bg-blue">
           <picture>
             <source srcset="/assets/globe.png" type="image/png">
