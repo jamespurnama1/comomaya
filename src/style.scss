@@ -11,14 +11,28 @@
   }
 }
 
+:root {
+  --bg: theme('colors.stone.300');
+  --text: theme('colors.beige.normal');
+}
+
+[data-theme="beige"] {
+  --bg: theme('colors.beige.lighter');
+  --text: #000;
+}
+
 html {
-  @apply bg-stone-300;
+  background-color: var(--bg);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-overflow-scrolling: touch;
 	-webkit-tap-highlight-color: transparent;
   font-family: Barlow, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+footer {
+  color: var(--text);
 }
 
 body {
@@ -28,7 +42,7 @@ body {
 
 a, button {
   position: relative;
-  z-index: 40;
+  z-index: 10;
 }
 
 .pin-spacer {

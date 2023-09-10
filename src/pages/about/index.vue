@@ -2,12 +2,12 @@
 import { useHead } from '@vueuse/head'
 import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, Navigation } from "swiper";
+import { Autoplay } from "swiper";
 import 'swiper/scss'
-import "swiper/css/navigation";
+// import "swiper/css/navigation";
 import { onMounted, onBeforeUnmount, ref, type Ref } from 'vue';
 
-const modules = [Autoplay, Navigation]
+const modules = [Autoplay]
 
 useHead({
   title: 'COMOMAYA - About',
@@ -18,6 +18,47 @@ useHead({
     },
   ],
 })
+
+const services = {
+  "strategy": [
+    "CONSUMER RESEARCH",
+    "COMPETITOR LANDSCAPE",
+    "BRAND PILLARS",
+    "BRAND POSITIONING",
+    "BRAND VISION",
+    "BRAND MISSION",
+    "BRAND VALUES",
+    "BRAND PERSONALITY",
+    "TONE OF VOICE",
+    "NAMING",
+    "TAGLINE CREATION",
+    "PORTFOLIO STRATEGY",
+    "STRATEGY CONSULTING",
+  ],
+  "creative": [
+    "LOGOS & BRANDMARKS",
+    "DESIGN IDENTITY",
+    "PACKAGING DESIGN 2D & 3D",
+    "ILLUSTRATION",
+    "STATIONERY",
+    "BRAND GUIDES & PLAY BOOKS",
+    "INVESTOR DECKS",
+    "COLLATERALS",
+    "MERCHANDISE",
+    "BROCHURES",
+    "DIGITAL LOGOS",
+    "BRAND FILMS",
+    "WEBSITE DESIGN",
+    "SOCIAL MEDIA TEMPLATES",
+    "DESIGN CONSULTING",
+  ],
+  "production": [
+    "PHOTOGRAPHY",
+    "ARTWORK FOR PRINT",
+    "WEB DEVELOPMENT",
+    "DATA ANALYTICS, SEM, SEO",
+  ]
+}
 
 const testimonials: { [key: string]: string }[] = [
   {
@@ -102,7 +143,7 @@ onBeforeUnmount(() => {
           <span v-else class="pl-7" />
           maya: (Sanskrit) energy,&nbsp;magic
         </p>
-        <h1 class="split lowercase my-5 text-6xl md:text-9xl leading-none text-active font-extrabold md:w-2/3 overflow-hidden relative">
+        <h1 class="split lowercase my-5 text-6xl md:text-9xl leading-none text-active font-extrabold lg:w-2/3 overflow-hidden relative">
           <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span
             class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
         </h1>
@@ -121,7 +162,7 @@ onBeforeUnmount(() => {
       <section
         class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige-lighter md:flex-row-reverse overflow-visible">
         <div class="md:w-2/3 my-auto md:pt-16">
-          <h3 class="text-black text-2xl font-semibold tracking-widest text-left pl-1">
+          <h3 class="text-black text-sm md:text-lg font-semibold tracking-widest text-left pl-1">
             FOUNDER &amp; CREATIVE&nbsp;HEAD
           </h3>
           <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
@@ -172,7 +213,7 @@ onBeforeUnmount(() => {
       <section
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-300 md:flex-row">
         <div class="md:w-2/3 my-auto">
-          <h3 class="text-black text-2xl font-semibold tracking-widest md:text-right">
+          <h3 class="text-black text-sm md:text-lg font-semibold tracking-widest md:text-right">
             CLIENT LEAD
           </h3>
           <h2 class="drama mb-1 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
@@ -204,7 +245,7 @@ onBeforeUnmount(() => {
       <section
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige-lighter md:flex-row-reverse">
         <div class="md:w-2/3 my-auto">
-          <h3 class="text-black text-2xl font-semibold tracking-widest text-left">
+          <h3 class="text-black text-sm md:text-lg font-semibold tracking-widest text-left">
             BUSINESS HEAD
           </h3>
           <h2 class="drama mb-1 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-active">
@@ -232,13 +273,13 @@ onBeforeUnmount(() => {
 
       <!--- OUR PEOPLE --->
       <section class="flex justify-center px-9 lg:px-20 xl:px-36 bg-stone-300 flex-col">
-        <h3 class="text-black pt-5 md:pt-16  text-lg md:text-2xl font-semibold tracking-widest text-right">
+        <h3 class="text-black pt-5 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
           INDUSTRY&nbsp;TALENT
         </h3>
-        <h2 class="drama -mt-3 text-5xl md:text-8xl mb-5 md:mb-3 overflow-hidden text-right text-active font-medium">
+        <h2 class="drama -mt-3 text-5xl pb-5 md:pb-0 md:text-8xl md:mb-3 overflow-hidden text-right text-active font-medium">
           <strong>our people</strong>
         </h2>
-        <h3 v-if="width > 768"
+        <h3 v-if="width >= 768"
           class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-lg md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
           collaborating
@@ -246,22 +287,22 @@ onBeforeUnmount(() => {
         </h3>
       </section>
 
-      <section class="flex flex-col justify-center md:min-h-[40vh] md:flex-row">
-        <div class="md:w-2/3 p-0 m-0 bg-blue">
+      <section class="flex flex-col justify-center md:min-h-[40vh] lg:flex-row">
+        <div class="lg:w-2/3 p-0 m-0 bg-blue">
           <picture>
             <source srcset="/assets/globe.png" type="image/png">
             <source srcset="/assets/globe.webp" type="image/webp">
             <img class="object-contain min-w-full min-h-full h-auto py-3 md:p-5" src="/assets/globe.png" alt="Globe" />
           </picture>
         </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
-          <h3 class="text-black text-base text-right py-5 leading-tight">
+        <section v-if="width < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
+          <h3 class="text-black text-base py-5 leading-tight">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
             collaborating
             with some of the best talent in the industry and across the&nbsp;globe.
           </h3>
         </section>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
+        <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-beige">
           <picture>
             <source srcset="/assets/theSquad.png" type="image/png">
             <source srcset="/assets/theSquad.webp" type="image/webp">
@@ -273,14 +314,14 @@ onBeforeUnmount(() => {
       <!--- WHAT WE OFFER --->
 
       <section id="ourServices" class="flex px-9 lg:px-20 xl:px-36 justify-center flex-col">
-        <h3 class="text-black pt-10 md:pt-16 text-lg md:text-2xl font-semibold tracking-widest text-left">
+        <h3 class="text-black pt-10 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-left">
           WHAT WE&nbsp;OFFER
         </h3>
         <h2
-          class="drama md:ml-[-2px] -mt-3 mb-5 md:mb-3 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
+          class="drama md:ml-[-2px] -mt-3 mb-3 md:mb-0 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
           <strong>our services</strong>
         </h2>
-        <h3 v-if="width > 768" class="text-black md:text-lg pb-10 md:max-w-lg">
+        <h3 v-if="width >= 768" class="text-black md:text-lg pb-10 md:max-w-lg">
           We have a vibrant portfolio of clients ranging from FMCG to
           B2B and from corporate to boutique &amp; luxury brands spread across various categories. We are
           multidisciplinary and
@@ -288,15 +329,19 @@ onBeforeUnmount(() => {
         </h3>
       </section>
 
-      <section class="flex flex-col justify-center md:min-h-[40vh] md:flex-row">
-        <div class="md:w-2/3 p-0 m-0 bg-beige">
-          <picture>
+      <section class="bg-blue flex flex-col justify-center md:min-h-[40vh] lg:flex-row gap-8">
+        <div class="lg:w-2/3 p-0 m-0 bg-beige mt-5 lg:my-auto flex justify-center lg:justify-start px-9 lg:pl-20 xl:pl-36 gap-3">
+          <div v-for="(value, key) in services">
+            <h4 class="font-bold md:text-3xl text-active mb-3">// {{ key }}</h4>
+            <ul v-for="items in value" class="mb-1 font-medium text-xs md:text-base">/ {{ items }}</ul>
+          </div>
+          <!-- <picture>
             <source srcset="/assets/services.png" type="image/png">
             <source srcset="/assets/services.webp" type="image/webp">
-            <img class="object-contain min-w-full min-h-full h-auto" src="/assets/services.png" alt="list of services" />
-          </picture>
+            <img class="object-contain min-h-full h-auto" src="/assets/services.png" alt="list of services" />
+          </picture> -->
         </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
+        <section v-if="width < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
           <h3 class="text-black text-base font-medium py-5">
             We have a vibrant portfolio of clients ranging from FMCG to B2B
             and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary
@@ -304,11 +349,11 @@ onBeforeUnmount(() => {
             provide holistic services for your brand woven together from day&nbsp;one.
           </h3>
         </section>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
+        <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-black">
           <picture>
             <source srcset="/assets/WhatWeOffer.jpg" type="image/jpeg">
             <source srcset="/assets/WhatWeOffer.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
+            <img class="w-full h-full object-cover" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
           </picture>
         </div>
       </section>
@@ -316,9 +361,9 @@ onBeforeUnmount(() => {
 
       <!--- RMC --->
 
-      <section class="bg-stone-300 md:flex-row relative flex flex-col justify-center md:min-h-[40vh]">
-        <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:px-20 xl:px-36 lg:pl-52">
-          <h3 class="text-black text-lg md:text-2xl font-semibold tracking-widest text-right">
+      <section class="bg-stone-300 lg:flex-row relative flex flex-col gap-8 justify-center md:min-h-[40vh]">
+        <div class="lg:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:pl-20 xl:pl-36">
+          <h3 class="text-black text-sm md:text-lg font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
           <h2 class="drama mb-1 -mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-active">
@@ -336,7 +381,7 @@ onBeforeUnmount(() => {
               href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
           </p>
         </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
+        <div class="w-full max-h-[30rem] lg:max-h-none min-h-[15rem] flex justify-center items-center lg:w-1/2 overflow-hidden bg-black">
           <picture>
             <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
             <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
@@ -345,10 +390,37 @@ onBeforeUnmount(() => {
         </div>
       </section>
 
+      <!--- BRANDS --->
+
+      <section class="bg-stone-300 px-12 md:px-24 xl:px-40 flex flex-col justify-center relative">
+        <h3 class="text-active md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl lg:text-8xl font-semibold text-center">
+          <strong>brands we have worked&nbsp;with</strong>
+          <br/>
+        </h3>
+        <a class="text-sm text-beige-normal text-center uppercase hover:text-active hover:font-bold" target="_blank" href="https://www.ridhisain.com">( www.ridhisain.com )</a>
+        <!-- <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
+          class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
+          <img class="block w-7 h-7 md:w-10 md:h-10 object-contain" src="/assets/arrow-right.svg" alt="button next" />
+        </button>
+        <button @click="swiperDOM ? swiperDOM.$el.swiper.slidePrev() : null"
+          class="absolute left-3 md:left-10 md:hover:scale-150 transition-transform">
+          <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg" alt="button previous" />
+        </button> -->
+        <swiper class="w-full" :autoplay="{
+          delay: 1000,
+          disableOnInteraction: false,
+        }" :loop="true" :simulateTouch="false" :modules="modules" slidesPerView="auto">
+          <swiper-slide class="py-10 px-12 flex !w-min flex-col justify-center align-middle select-none"
+            v-for="i in 15">
+            <img class="object-contain h-12 min-w-[5rem]"  src="/assets/brands/dove.png" alt="Dove" />
+          </swiper-slide>
+        </swiper>
+      </section>
+
       <!--- TESTIMONIALS --->
 
-      <section class="bg-beige-lighter px-12 md:px-20 xl:px-36 flex flex-col justify-center relative">
-        <h3 class="text-active md:pb-3 pt-8 md:pt-32 text-4xl md:text-8xl font-semibold text-center">
+      <section class="bg-beige-lighter px-12 md:px-24 xl:px-40 flex flex-col justify-center relative">
+        <h3 class="text-active md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl lg:text-8xl font-semibold text-center">
           <strong>testimonials</strong>
         </h3>
         <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext(): null"
@@ -365,11 +437,11 @@ onBeforeUnmount(() => {
         }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
           <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
             v-for="(items, i) in testimonials">
-            <p class="md:leading-10 text-base md:text-3xl md:text-center text-black my-auto"
+            <p class="md:leading-10 text-base md:text-2xl lg:text-center text-black my-auto"
               v-html="`${items[Object.keys(items)[0]]}`" />
-            <h2 class="text-black md:px-0 mt-7 font-medium text-base tracking-wider text-left md:text-center"
+            <h2 class="text-black md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
               v-html="`${Object.keys(items)[0]}`" />
-            <h2 class="text-black md:px-0 mt-2 font-medium text-base tracking-wider text-left md:text-center">
+            <h2 class="text-black md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
               {{ testimonialsDate[i] }}</h2>
           </swiper-slide>
         </swiper>
@@ -378,7 +450,7 @@ onBeforeUnmount(() => {
 
     <!--- END --->
 
-    <section class="flex flex-col items-center justify-center p-20 md:pt-64 md:p-72 bg-stone-300">
+    <section class="flex flex-col items-center justify-center p-20 md:p-32 lg:pt-64 lg:p-72 bg-stone-300">
       <video class="mb-10 recolor" playsinline loop autoplay="true" muted>
         <source src="/assets/aboutus.mp4" type="video/mp4" />
       </video>
@@ -388,11 +460,11 @@ onBeforeUnmount(() => {
         <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
           target="_blank" rel="noopener noreferrer">
           <!-- <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige" /> -->
-          <p class="text-beige-normal hover:text-active">(INSTAGRAM)</p>
+          <p class="text-beige-normal hover:text-active hover:font-bold">(INSTAGRAM)</p>
         </a>
         <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya"
           aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-          <p class="text-beige-normal hover:text-active">(LINKEDIN)</p>
+          <p class="text-beige-normal hover:text-active hover:font-bold">(LINKEDIN)</p>
           <!-- <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige" /> -->
         </a>
       </div>
@@ -429,13 +501,14 @@ onBeforeUnmount(() => {
   color: black;
 }
 
-.swiper-button-next {
-  transform: translateX(-1em) scale(0.6);
-}
+// .swiper-button-next {
+//   transform: translateX(-1em) scale(0.6);
+// }
 
-.swiper-button-prev {
-  transform: translateX(1em) scale(0.6);
-}</style>
+// .swiper-button-prev {
+//   transform: translateX(1em) scale(0.6);
+// }
+</style>
 
 <style lang="scss" scoped>.recolor {
   filter: saturate(114%) brightness(91%) contrast(115.3%);

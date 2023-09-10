@@ -102,7 +102,7 @@
   
   onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to('html', { backgroundColor: "#F2F2F1" })
+    document.documentElement.setAttribute('data-theme', 'beige');
     resize()
     window.addEventListener('resize', resize)
 
@@ -113,7 +113,7 @@
   })
 
   onBeforeUnmount(() => {
-    gsap.to('html', { backgroundColor: "#A0AAC4" })
+    document.documentElement.setAttribute('data-theme', 'lavender');
     window.removeEventListener('resize', resize)
     if (ScrollTrigger.getById("pin")) ScrollTrigger.getById("pin")!.kill()
   })
