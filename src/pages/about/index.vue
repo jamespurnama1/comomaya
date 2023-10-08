@@ -284,10 +284,9 @@ onBeforeUnmount(() => {
           our&nbsp;<strong>people</strong>
         </h2>
         <h3 v-if="width >= 768"
-          class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-lg md:ml-auto">
+          class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-3xl md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
-          collaborating
-          with some of the best talent in the industry and across the&nbsp;globe.
+          collaborating with some of the best talent in the industry and across the&nbsp;globe.
         </h3>
       </section>
 
@@ -302,8 +301,7 @@ onBeforeUnmount(() => {
         <section v-if="width < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
           <h3 class="text-black text-base py-5 leading-tight">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
-            collaborating
-            with some of the best talent in the industry and across the&nbsp;globe.
+            collaborating with some of the best talent in the industry and across the&nbsp;globe.
           </h3>
         </section>
         <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-beige">
@@ -325,7 +323,7 @@ onBeforeUnmount(() => {
           class="drama md:ml-[-2px] -mt-3 mb-3 md:mb-0 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
           our&nbsp;<strong>services</strong>
         </h2>
-        <h3 v-if="width >= 768" class="text-black md:text-lg pb-10 md:max-w-lg">
+        <h3 v-if="width >= 768" class="text-black md:text-lg pb-10 md:max-w-3xl">
           We have a vibrant portfolio of clients ranging from FMCG to
           B2B and from corporate to boutique &amp; luxury brands spread across various categories. We are
           multidisciplinary and
@@ -390,8 +388,8 @@ onBeforeUnmount(() => {
 
       <!--- BRANDS --->
 
-      <section class="bg-beige-lighter flex flex-col justify-center relative min-h-[70vh]">
-        <h3 class="text-black drama px-12 md:px-24 xl:px-40 md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
+      <section class="bg-beige-lighter flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
+        <h3 class="text-black drama md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
           <strong>brands</strong> we have<br>worked&nbsp;with
           <br/>
         </h3>
@@ -409,29 +407,36 @@ onBeforeUnmount(() => {
             delay: 1000,
             disableOnInteraction: false,
           }"
-          :centeredSlides="true"
           :loop="true"
           :simulateTouch="false"
           :modules="modules"
-          :slides-per-view="2"
-          :space-between="24"
+          :slides-per-view="3"
+          :space-between="12"
           :breakpoints="{
             768: {
+              slidesPerView: 3,
+              spaceBetween: 24
+            },
+            1024: {
               slidesPerView: 4,
               spaceBetween: 24
             },
+            1920: {
+              slidesPerView: 5,
+              spaceBetween: 24
+            }
           }"
         >
-          <swiper-slide class="py-10 flex flex-col justify-center items-center select-none"
+          <swiper-slide class="py-10 flex flex-col justify-center items-start select-none"
             v-for="brand in brands">
-            <img class="object-contain w-48 h-24 md:h-20 brightness-0" :src="brand" :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+            <img class="object-contain w-16 md:w-48 h-20 brightness-0" :src="brand" :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
           </swiper-slide>
         </swiper>
       </section>
 
       <!--- TESTIMONIALS --->
 
-      <section class="bg-blue px-12 md:px-24 xl:px-40 flex flex-col justify-center relative min-h-[70vh]">
+      <section class="bg-blue px-9 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
         <h3 class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold text-center">
           client&nbsp;<strong>testimonials</strong>
         </h3>
@@ -462,7 +467,7 @@ onBeforeUnmount(() => {
 
     <!--- END --->
 
-    <section class="flex flex-col items-center justify-center p-20 md:p-32 lg:pt-64 lg:p-72 bg-stone-300">
+    <section class="flex flex-col items-center justify-center mx-auto my-20 md:my-32 lg:pt-64 lg:p-72 max-w-7xl bg-stone-300">
       <video class="mb-10 recolor" playsinline loop autoplay="true" muted>
         <source src="/assets/aboutus.mp4" type="video/mp4" />
       </video>
