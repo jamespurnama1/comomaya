@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { onUpdated, ref, reactive, onMounted, type Ref } from 'vue'
+import { onUpdated, ref, reactive, onMounted, computed, type Ref } from 'vue'
 import { useHead } from '@vueuse/head'
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 
 const router = useRouter()
+const route = useRoute()
 
 useHead({
   title: 'COMOMAYA - Branding | Design | Digital | Social Media',
@@ -18,7 +19,7 @@ useHead({
 
 const innerWidth = ref(0);
 const scrollY = ref(0);
-const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease transform duration-300`;
+const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease transform duration-300 bg-active hover:bg-black`;
 const linkSelected = ref(false);
 const links = [
   '',
@@ -117,6 +118,16 @@ function handleNav() {
 function handleScrollUp() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+const isBlue = computed(() => {
+  const blue = ['about', 'work', 'contact']
+  if (opened.value) return false
+  return blue.some(item => item === route.name) ? true : false;
+})
+
+const isTransparent = computed(() => {
+  return scrollY.value < 50 && route.path === '/'
+})
 </script>
 
 <template>
@@ -129,25 +140,26 @@ function handleScrollUp() {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-beige-lighter items-center z-30 transition-all origin-top-left"
-    :class="[((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? '!bg-opacity-100' : '!bg-opacity-0']">
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-beige-lighter items-center z-40 transition-all origin-top-left"
+    :class="{'bg-opacity-0': isTransparent, 'bg-stone-300': isBlue }">
 
     <a aria-label="Go to Landing Page" href="/">
       <picture
-        :class="[(opened) || ((scrollY > 50) && $route.path !== '/' && innerWidth > 768) || ($route.path !== '/' || innerWidth < 768) ? 'brightness-0' : '']">
+      class="transition-all"
+        :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']">
         <img src="/logo.svg" alt="COMOMAYA"
           class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left" />
       </picture>
     </a>
 
     <button aria-label="Navigation"
-      class="flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform" @click="handleNav">
+      class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform" @click="handleNav">
       <div v-for="i in 3" :class="[
-        (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black' : ''),
+        (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
         (i === 2 && opened ? 'opacity-0' : ''),
-        (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black' : ''),
+        (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),
         genericHamburgerLine,
-        (($route.path !== '/') ? 'bg-black' : 'bg-black md:bg-active')
+        (!isTransparent || opened) && !isBlue  ? 'bg-black group-hover:bg-active' : ''
       ]" />
     </button>
   </nav>
@@ -156,10 +168,10 @@ function handleScrollUp() {
 
   <transition name="fly">
     <nav v-show="opened"
-      class="moreNav bg-beige-lighter w-screen fixed left-0 top-0 z-20 h-screen flex items-center md:justify-center flex-col">
+      class="moreNav bg-beige-lighter w-screen fixed left-0 top-0 z-30 h-screen flex items-center md:justify-center flex-col">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
-          class="cube my-3 md:my-0 lg:text-8xl md:text-7xl text-4xl leading-[2rem] md:leading-[3rem]"
+          class="px-5 cube my-3 md:my-0 xl:text-8xl lg:text-7xl md:text-7xl text-4xl leading-[2rem] md:leading-[3.5rem]"
           @touchstart="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
           <p class="flip">
             <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
@@ -171,15 +183,15 @@ function handleScrollUp() {
           </p>
         </li>
       </transition-group>
-      <transition-group name="fade" tag="span" class="flex justify-center text-center gap-20 mb-10 text-xs md:text-base">
-        <a key="ig" @click="handleNav" class="text-black hover:text-active hover:font-bold" href="https://instagram.com/comomaya"
+      <transition-group name="fade" tag="span" class="relative flex justify-center text-center mb-10 text-xs md:text-base w-full">
+        <a key="ig" @click="handleNav" class="absolute -translate-x-full text-blue hover:text-active hover:font-bold" href="https://instagram.com/comomaya"
           aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
           <p>(INSTAGRAM)</p>
         </a>
-        <a key="linkedin" @click="handleNav" class="text-black hover:text-active hover:font-bold"
+        <a key="linkedin" @click="handleNav" class="absolute translate-x-full text-blue hover:text-active hover:font-bold"
           href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
           rel="noopener noreferrer">
-          (LINKEDIN)
+          <p>(LINKEDIN)</p>
         </a>
       </transition-group>
     </nav>

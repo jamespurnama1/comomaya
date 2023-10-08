@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{html,js,vue,ts}"],
   theme: {
@@ -11,8 +12,8 @@ module.exports = {
       "darkGray": "#606060",
       "black": "#000000",
       "beige": {
-        "normal": "#E8E6E5",
-        "lighter": '#F2F2F1',
+        "normal": "#E3E1E1",
+        "lighter": '#E3E1E1',
       },
       "active": "#7BFF47",
       "purple": "#982eff",

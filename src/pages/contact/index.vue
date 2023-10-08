@@ -34,8 +34,8 @@ useHead({
   <main class="bg-stone-300 mx-auto px-9 md:px-20 xl:px-52 flex flex-col justify-center pt-10 md:pt-20">
     <!-- <section class=" mx-auto "> -->
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
-      <h2 class="text-black text-lg md:text-2xl font-semibold tracking-widest mb-3">CONTACT US</h2>
-      <h1 class="split max-w-4xl text-active text-5xl md:text-9xl font-extrabold overflow-hidden">
+      <h2 class="text-white text-lg md:text-2xl font-semibold tracking-widest mb-3">CONTACT US</h2>
+      <h1 class="split max-w-4xl text-active text-5xl md:text-7xl lg:text-9xl font-extrabold overflow-hidden">
         <span>let's</span><span>start</span>
         <span>a</span><span>conversation...</span>
       </h1>
@@ -48,9 +48,12 @@ useHead({
         <a class="z-10" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
           <p class="text-blue hover:text-active font-semibold mb-5">+65 9424 5994</p>
         </a>
+        <a class="z-10" target="_blank" rel="noopener noreferrer" href="tel:99108982151">
+            <p class="text-blue hover:text-active font-semibold mb-5">+91 91089 82151</p>
+        </a>
         <!-- <p class="text-black font-semibold tracking-widest mb-3">WRITE TO US</p> -->
-        <a class="z-10" href="mailto:ridhisain@comomaya.com">
-          <p class="text-blue hover:text-active font-semibold mb-5">ridhisain@comomaya.com</p>
+        <a class="z-10" href="mailto:design@comomaya.com">
+          <p class="text-blue hover:text-active font-semibold mb-5">design@comomaya.com</p>
         </a>
       </div>
       </div>

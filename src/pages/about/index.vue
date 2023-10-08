@@ -9,6 +9,10 @@ import { onMounted, onBeforeUnmount, ref, type Ref } from 'vue';
 
 const modules = [Autoplay]
 
+const brands = Object.values(import.meta.glob('@/assets/brands/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
+// const images = context.keys().map(context);
+// const iconPaths = Object.values(icons).map(module => module.default)
+
 useHead({
   title: 'COMOMAYA - About',
   meta: [
@@ -98,7 +102,7 @@ function resize() {
 }
 
 onMounted(() => {
-
+  console.log(brands)
   window.addEventListener('resize', resize)
 
   resize();
@@ -147,7 +151,7 @@ onBeforeUnmount(() => {
           <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span
             class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
         </h1>
-        <p class="text-black text-xl"><strong>COMOMAYA</strong> exists in order to make international standards of
+        <p class="text-beige-lighter text-xl"><strong>COMOMAYA</strong> exists in order to make international standards of
           branding &amp; design more accessible to new and upcoming brands, business owners and start-ups alike. To
           provide the highest quality of work, by engaging some of the best international talent there is, but without the
           exhorbitant price tag that comes with hiring a top global agency. To empower business owners &amp; entrepreneurs
@@ -162,12 +166,12 @@ onBeforeUnmount(() => {
       <section
         class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige-lighter md:flex-row-reverse overflow-visible">
         <div class="md:w-2/3 my-auto md:pt-16">
-          <h3 class="text-black text-sm md:text-lg font-semibold tracking-widest text-left pl-1">
+          <h3 class="text-stone-300 text-sm md:text-lg font-semibold tracking-widest text-left">
             FOUNDER &amp; CREATIVE&nbsp;HEAD
           </h3>
           <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
-            <h2 class="drama mb-1 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-active">
-              <strong>ridhi&nbsp;sain</strong>
+            <h2 class="drama mb-1 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-black">
+              <strong>ridhi</strong>&nbsp;sain
             </h2>
             <picture>
               <source srcset="/assets/awards.webp" type="image/webp">
@@ -213,11 +217,11 @@ onBeforeUnmount(() => {
       <section
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-300 md:flex-row">
         <div class="md:w-2/3 my-auto">
-          <h3 class="text-black text-sm md:text-lg font-semibold tracking-widest md:text-right">
-            CLIENT LEAD
+          <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest md:text-right">
+            CLIENT HEAD
           </h3>
           <h2 class="drama mb-1 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
-            <strong>sonali&nbsp;sani</strong>
+            <strong>sonali</strong>&nbsp;sani
           </h2>
           <p class="text-base md:text-lg md:text-right text-black">
             Sonali Sani has had over a decade of experience in Client Services. She has worked with big international
@@ -245,11 +249,11 @@ onBeforeUnmount(() => {
       <section
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige-lighter md:flex-row-reverse">
         <div class="md:w-2/3 my-auto">
-          <h3 class="text-black text-sm md:text-lg font-semibold tracking-widest text-left">
+          <h3 class="text-stone-300 text-sm md:text-lg font-semibold tracking-widest text-left">
             BUSINESS HEAD
           </h3>
-          <h2 class="drama mb-1 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-active">
-            <strong>nishaa bhojwani</strong>
+          <h2 class="drama mb-1 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-black">
+            <strong>nishaa</strong> bhojwani
           </h2>
           <p class="text-base md:text-lg text-left text-black">
             Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media and
@@ -273,11 +277,11 @@ onBeforeUnmount(() => {
 
       <!--- OUR PEOPLE --->
       <section class="flex justify-center px-9 lg:px-20 xl:px-36 bg-stone-300 flex-col">
-        <h3 class="text-black pt-5 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
+        <h3 class="text-beige-lighter pt-5 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
           INDUSTRY&nbsp;TALENT
         </h3>
         <h2 class="drama -mt-3 text-5xl pb-5 md:pb-0 md:text-8xl md:mb-3 overflow-hidden text-right text-active font-medium">
-          <strong>our people</strong>
+          our&nbsp;<strong>people</strong>
         </h2>
         <h3 v-if="width >= 768"
           class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-lg md:ml-auto">
@@ -314,12 +318,12 @@ onBeforeUnmount(() => {
       <!--- WHAT WE OFFER --->
 
       <section id="ourServices" class="flex px-9 lg:px-20 xl:px-36 justify-center flex-col">
-        <h3 class="text-black pt-10 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-left">
+        <h3 class="text-beige-lighter pt-10 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-left">
           WHAT WE&nbsp;OFFER
         </h3>
         <h2
           class="drama md:ml-[-2px] -mt-3 mb-3 md:mb-0 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
-          <strong>our services</strong>
+          our&nbsp;<strong>services</strong>
         </h2>
         <h3 v-if="width >= 768" class="text-black md:text-lg pb-10 md:max-w-lg">
           We have a vibrant portfolio of clients ranging from FMCG to
@@ -330,7 +334,7 @@ onBeforeUnmount(() => {
       </section>
 
       <section class="bg-blue flex flex-col justify-center md:min-h-[40vh] lg:flex-row gap-8">
-        <div class="lg:w-2/3 p-0 m-0 bg-beige mt-5 lg:my-auto flex justify-center lg:justify-start px-9 lg:pl-20 xl:pl-36 gap-3">
+        <div class="lg:w-2/3 p-0 m-0 bg-beige mt-5 lg:my-auto flex justify-center lg:justify-start px-9 lg:pl-20 xl:pl-36 gap-3 text-beige-lighter">
           <div v-for="(value, key) in services">
             <h4 class="font-bold md:text-3xl text-active mb-3">// {{ key }}</h4>
             <ul v-for="items in value" class="mb-1 font-medium text-xs md:text-base">/ {{ items }}</ul>
@@ -363,20 +367,14 @@ onBeforeUnmount(() => {
 
       <section class="bg-stone-300 lg:flex-row relative flex flex-col gap-8 justify-center md:min-h-[40vh]">
         <div class="lg:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:pl-20 xl:pl-36">
-          <h3 class="text-black text-sm md:text-lg font-semibold tracking-widest text-right">
+          <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
           <h2 class="drama mb-1 -mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-active">
-            <strong>grants<br>for&nbsp;SMEs</strong>
+            grants&nbsp;for&nbsp;<strong>SMEs</strong>
           </h2>
           <p class="pb-10 text-base md:text-lg text-right text-black">
-            We are certified as a Registered Management Consultant (RMC)
-            with IMC Singapore (Institute of Management Consultants).
-            Under the EDG (Enterprise Development Grant) program, Singapore&#8209;based SMEs (Small &amp; Medium
-            Enterprises) can apply for up
-            to 80% of government funding towards their costs with us. If you qualify for this grant and are interested in
-            this
-            opportunity you can find out more&nbsp;<a class='text-blue hover:underline cursor-pointer font-bold z-10'
+            We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp; Medium Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for sustainability-related projects). <wbr>If you qualify for this grant and are interested in this opportunity you can visit&nbsp;<a class='text-active hover:underline cursor-pointer font-extrabold z-10'
               target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application"
               href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
           </p>
@@ -392,12 +390,12 @@ onBeforeUnmount(() => {
 
       <!--- BRANDS --->
 
-      <section class="bg-stone-300 px-12 md:px-24 xl:px-40 flex flex-col justify-center relative">
-        <h3 class="text-active md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl lg:text-8xl font-semibold text-center">
-          <strong>brands we have worked&nbsp;with</strong>
+      <section class="bg-beige-lighter flex flex-col justify-center relative min-h-[70vh]">
+        <h3 class="text-black drama px-12 md:px-24 xl:px-40 md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
+          <strong>brands</strong> we have<br>worked&nbsp;with
           <br/>
         </h3>
-        <a class="text-sm text-beige-normal text-center uppercase hover:text-active hover:font-bold" target="_blank" href="https://www.ridhisain.com">( www.ridhisain.com )</a>
+        <!-- <a class="text-sm text-beige-normal text-center uppercase hover:text-active hover:font-bold" target="_blank" href="https://www.ridhisain.com">( www.ridhisain.com )</a> -->
         <!-- <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
           class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
           <img class="block w-7 h-7 md:w-10 md:h-10 object-contain" src="/assets/arrow-right.svg" alt="button next" />
@@ -406,22 +404,36 @@ onBeforeUnmount(() => {
           class="absolute left-3 md:left-10 md:hover:scale-150 transition-transform">
           <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg" alt="button previous" />
         </button> -->
-        <swiper class="w-full" :autoplay="{
-          delay: 1000,
-          disableOnInteraction: false,
-        }" :loop="true" :simulateTouch="false" :modules="modules" slidesPerView="auto">
-          <swiper-slide class="py-10 px-12 flex !w-min flex-col justify-center align-middle select-none"
-            v-for="i in 15">
-            <img class="object-contain h-12 min-w-[5rem]"  src="/assets/brands/dove.png" alt="Dove" />
+        <swiper class="w-full"
+          :autoplay="{
+            delay: 1000,
+            disableOnInteraction: false,
+          }"
+          :centeredSlides="true"
+          :loop="true"
+          :simulateTouch="false"
+          :modules="modules"
+          :slides-per-view="2"
+          :space-between="24"
+          :breakpoints="{
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 24
+            },
+          }"
+        >
+          <swiper-slide class="py-10 flex flex-col justify-center items-center select-none"
+            v-for="brand in brands">
+            <img class="object-contain w-48 h-24 md:h-20 brightness-0" :src="brand" :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
           </swiper-slide>
         </swiper>
       </section>
 
       <!--- TESTIMONIALS --->
 
-      <section class="bg-beige-lighter px-12 md:px-24 xl:px-40 flex flex-col justify-center relative">
-        <h3 class="text-active md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl lg:text-8xl font-semibold text-center">
-          <strong>testimonials</strong>
+      <section class="bg-blue px-12 md:px-24 xl:px-40 flex flex-col justify-center relative min-h-[70vh]">
+        <h3 class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold text-center">
+          client&nbsp;<strong>testimonials</strong>
         </h3>
         <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext(): null"
           class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
@@ -437,11 +449,11 @@ onBeforeUnmount(() => {
         }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
           <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
             v-for="(items, i) in testimonials">
-            <p class="md:leading-10 text-base md:text-2xl lg:text-center text-black my-auto"
+            <p class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
               v-html="`${items[Object.keys(items)[0]]}`" />
-            <h2 class="text-black md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
+            <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
               v-html="`${Object.keys(items)[0]}`" />
-            <h2 class="text-black md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
+            <h2 class="text-stone-300 md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
               {{ testimonialsDate[i] }}</h2>
           </swiper-slide>
         </swiper>
@@ -483,6 +495,7 @@ onBeforeUnmount(() => {
 }
 
 .drama {
+  font-weight: 600;
   font-family: "Narziss";
 }
 
