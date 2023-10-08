@@ -148,16 +148,16 @@
             <p class="w-28"><b class="font-medium">Share</b></p>
             <span class="ml-3 flex">
               <a :href="`https://www.linkedin.com/shareArticle?mini=true&url=https://www.comomaya.com${$route.fullPath}&title=Check%20out%20${thisPage.content.title}&summary=[description]&source=https://www.comomaya.com`" target="_blank" rel="noreferrer noopener" aria-label="Share on Linkedin">
-                <font-awesome-icon :icon="['fab', 'linkedin']" size="lg" class="text-stone-300 mr-5 hover:text-active" />
+                <font-awesome-icon :icon="['fab', 'linkedin']" size="lg" class="transition-all text-stone-300 mr-5 hover:text-active" />
               </a>
               <a :href="`https://twitter.com/share?text=Check%20out%20${thisPage.content.title}%20at%20&url=https://www.comomaya.com${$route.fullPath}`" target="_blank" rel="noreferrer noopener" aria-label="Share on Twitter">
-                <font-awesome-icon :icon="['fab', 'twitter']" size="lg" class="text-stone-300 mr-5 hover:text-active" />
+                <font-awesome-icon :icon="['fab', 'twitter']" size="lg" class="transition-all text-stone-300 mr-5 hover:text-active" />
               </a>
               <a :href="`https://pinterest.com/pin/create/button/?url=https://www.comomaya.com${$route.fullPath}&description=Check%20out%20${thisPage.content.title}`" target="_blank" rel="noreferrer noopener" aria-label="Share on Pinterest">
-                <font-awesome-icon :icon="['fab', 'pinterest']" size="lg" class="text-stone-300 mr-5 hover:text-active" />
+                <font-awesome-icon :icon="['fab', 'pinterest']" size="lg" class="transition-all text-stone-300 mr-5 hover:text-active" />
               </a>
               <a :href="`whatsapp://send?text=Check%20out%20${thisPage.content.title} on https://www.comomaya.com${$route.fullPath}`" target="_blank" rel="noreferrer noopener" aria-label="Share on WhatsApp">
-                <font-awesome-icon :icon="['fab', 'whatsapp']" size="lg" class="text-stone-300 mr-5 hover:text-active" />
+                <font-awesome-icon :icon="['fab', 'whatsapp']" size="lg" class="transition-all text-stone-300 mr-5 hover:text-active" />
               </a>
             </span>
           </span>

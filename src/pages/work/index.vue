@@ -3,7 +3,7 @@ import { useHead } from '@vueuse/head'
 import { onMounted, onBeforeUnmount, reactive, ref, type Ref } from 'vue';
 import axios, { AxiosResponse } from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { gsap } from 'gsap';
+// import { gsap } from 'gsap';
 
 const filterList = reactive({
   "Strategy": 0,
@@ -71,7 +71,7 @@ onMounted(() => {
   window.addEventListener('resize', resize)
   resize()
   // gsap.to('html', { backgroundColor: "#F2F2F1" })
-  document.documentElement.setAttribute('data-theme', 'beige');
+  // document.documentElement.setAttribute('data-theme', 'beige');
 })
 
 useHead({
@@ -85,28 +85,28 @@ useHead({
 })
 
 onBeforeUnmount(() => {
-  document.documentElement.setAttribute('data-theme', 'lavender');
+  // document.documentElement.setAttribute('data-theme', 'lavender');
   window.removeEventListener('resize', resize)
 })
 </script>
 
 <template>
   <main
-    class="min-h-screen flex flex-col justify-center py-16 md:py-32 bg-beige-lighter text-black z-0 relative px-9 md:px-20 xl:px-36 md:justify-start">
-    <div class="px-9 md:px-20 xl:px-36 pb-5 absolute w-full left-0 top-10 md:top-20 bg-stone-300 my-5">
-    <h1 class="text-7xl font-bold tracking-tight text-active">selected <strong>projects</strong></h1>
+    class="min-h-screen flex flex-col justify-center py-16 md:py-32 bg-stone-300 text-black z-0 relative px-9 md:px-20 xl:px-36 md:justify-start">
+    <div class="px-9 md:px-20 xl:px-36 absolute w-full left-0 top-10 md:top-20 my-5">
+    <h1 class="text-7xl font-extrabold tracking-tight text-active">selected projects</h1>
     </div>
-    <p class="text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2 pt-44 md:pt-20">
+    <p class="text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2 pt-44 md:pt-14">
       <span v-for="(value, key, i) in filterList" @click="filtered[key] = !filtered[key]">
         <input :name="key" v-model="filtered[key]" type="checkbox" class="hidden bg-transparent text-transparent" />
-        <label class="hover:underline whitespace-nowrap" :class="[filtered[key] ? 'font-bold text-active' : '']">{{ key }} <sup :class="[filtered[key] ? 'bg-active !text-black' : 'bg-black']"
+        <label class="hover:underline whitespace-nowrap" :class="[filtered[key] ? 'font-bold text-active' : 'text-beige-lighter']">{{ key }} <sup :class="[filtered[key] ? 'bg-active !text-blue' : 'bg-beige-lighter !text-blue']"
             v-if="typeof value === 'number'">{{ value }}</sup>{{ (i + 1 !== Object.keys(filterList).length) ||
               Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
         <wbr>
       </span>
       <a v-if="Object.values(filtered).some(v => v === true)" @click="clearFilter()"
-        class="hover:underline font-semibold whitespace-nowrap">
-        <font-awesome-icon :icon="['fas', 'square-xmark']" size="sm" class="text-black" /> Clear filters
+        class="hover:underline font-semibold whitespace-nowrap text-active">
+        <font-awesome-icon :icon="['fas', 'square-xmark']" size="sm" class="" /> Clear filters
       </a>
     </p>
     <ul v-if="filteredFunc().length" class="grid z-10 md:grid-cols-2 w-full max-w-7xl gap-5 mx-auto">
@@ -123,7 +123,7 @@ onBeforeUnmount(() => {
             <img v-if="hov[i]" src="/assets/plus_blue.svg" class="cursor-pointer h-6 w-6 md:h-12 md:w-12 mr-3" />
             <img v-else src="/assets/plus.svg" class="cursor-pointer h-6 w-6 md:h-12 md:w-12 mr-3" />
             <span>
-              <h2 class="whitespace-nowrap origin-left transition-all" :class="[hov[i] ? 'text-active font-extrabold text-5xl lowercase tracking-[-0.035em]' : 'text-black tracking-widest text-lg uppercase font-semibold']">{{ portfolio.title }}</h2>
+              <h2 class="whitespace-nowrap origin-left transition-all" :class="[hov[i] ? 'text-active font-extrabold text-5xl md:text-4xl lg:text-5xl lowercase tracking-[-0.035em]' : 'text-beige-lighter tracking-widest text-lg uppercase font-semibold']">{{ portfolio.title }}</h2>
             </span>
           </div>
         </a>
