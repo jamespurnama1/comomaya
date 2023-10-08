@@ -126,7 +126,7 @@ const isBlue = computed(() => {
 })
 
 const isTransparent = computed(() => {
-  return scrollY.value < 50 && route.path === '/'
+  return route.path === '/'
 })
 </script>
 
@@ -140,7 +140,7 @@ const isTransparent = computed(() => {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 justify-between bg-beige-lighter items-center z-40 transition-all origin-top-left"
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 md:px-20 xl:px-36 justify-between bg-beige-lighter items-center z-40 transition-all origin-top-left"
     :class="{'bg-opacity-0': isTransparent, 'bg-stone-300': isBlue }">
 
     <a aria-label="Go to Landing Page" href="/">
