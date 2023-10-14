@@ -46,10 +46,12 @@ async function loadContent() {
 	ScrollTrigger.create({
 		trigger: main.value,
 		start: "top top",
-		end: "bottom bottom",
+		end: "max",
 		id: "main",
 		animation: imageFade,
 		scrub: 0.3,
+		scroller: ".portfoliosList",
+		// markers: true,
 		onUpdate: self => {
 			let skew = clamp(self.getVelocity() / -300);
 			// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
@@ -103,9 +105,10 @@ function scrollDown() {
 </script>
 
 <template>
-	<main ref="main" v-if="store.getFeatured.length" class="relative min-h-screen flex justify-center py-20">
-		<ul class="portfoliosList flex flex-col justify-center md:mx-10 m-auto text-center group z-0">
-			<li v-for="(portfolio, i) in store.getFeatured" ref="projectList" class="projectList py-32 md:py-24 transition-all opacity-50 md:group-hover:opacity-20 md:hover:!opacity-100">
+	<!-- <div id="mask" class="w-screen h-screen fixed top-0 -z-10" /> -->
+	<main ref="main" v-if="store.getFeatured.length" class="relative flex justify-center">
+		<ul class="portfoliosList flex flex-col justify-center md:mx-10 m-auto text-center group z-0 mask h-[calc(100vh-56px)] overflow-y-scroll w-screen">
+			<li v-for="(portfolio, i) in store.getFeatured" ref="projectList" class="projectList py-32 md:py-48 transition-all opacity-50 md:group-hover:opacity-20 md:hover:!opacity-100">
 				<a :aria-label="`Go to ${portfolio.metadata.featured_as}`" :href="`/work/${portfolio.slug}`">
 					<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
 						{{ portfolio.metadata.featured_as }}
@@ -114,36 +117,54 @@ function scrollDown() {
 			</li>
 		</ul>
 
-		<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']" size="sm"
-			class="text-active fixed left-1/2 top-[90vh] cursor-pointer transition" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
-
+		
+		<!-- <font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']" size="sm"
+		class="text-active fixed left-1/2 top-[90vh] cursor-pointer transition" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" /> -->
 		<img
-			v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()"
-			:srcset="`
-				${image.toString()}?w=1920&auto=format 1920w,
-				${image.toString()}?w=1024&auto=format 1024w,
-				${image.toString()}?w=640&auto=format 640w,
-				${image.toString()}?w=480&auto=format 480w`"
-			:src="`${image.toString()}?auto=format`"
-			:alt="store.getFeatured.slice().reverse()[i].title"
-			class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0" :style="`z-index: ${-i - 5}`"
+		v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()"
+		:srcset="`
+		${image.toString()}?w=1920&auto=format 1920w,
+		${image.toString()}?w=1024&auto=format 1024w,
+		${image.toString()}?w=640&auto=format 640w,
+		${image.toString()}?w=480&auto=format 480w`"
+		:src="`${image.toString()}?auto=format`"
+		:alt="store.getFeatured.slice().reverse()[i].title"
+		class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0" :style="`z-index: ${-i - 5}`"
 		/>
 		<img class="h-screen fixed top-0 left-0 w-screen object-cover"
 			:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
-			:src="`${store.getFeatured.map(x => x.thumbnail)[0].toString()}?auto=format`"
+			:src="`${store.getFeatured.map(x => x.thumbnail)[0]}?auto=format`"
 			:srcset="`
-				${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w=1920&auto=format 1920w,
-				${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w=1024&auto=format 1024w,
-				${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w=640&auto=format 640w,
-				${store.getFeatured.map(x => x.thumbnail)[0].toString()}?w=480&auto=format 480w`"
+			${store.getFeatured[0].thumbnail.toString()}?w=1920&auto=format 1920w,
+			${store.getFeatured[0].thumbnail.toString()}?w=1024&auto=format 1024w,
+			${store.getFeatured[0].thumbnail.toString()}?w=640&auto=format 640w,
+			${store.getFeatured[0].thumbnail.toString()}?w=480&auto=format 480w`"
 			:alt="store.getFeatured[0].title" />
-		<span class="absolute left-0 ml-8 bottom-10 flex flex-col justify-center">
-			<a href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
-				<font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="text-beige-normal m-2 hover:text-active" />
-			</a>
-			<a href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-				<font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="text-beige-normal m-2 hover:text-active" />
-			</a>
-		</span>
-	</main>
+			<span class="absolute left-0 ml-8 bottom-10 flex flex-col justify-center">
+				<a href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
+					<font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="text-beige-normal m-2 hover:text-active" />
+				</a>
+				<a href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
+					<font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="text-beige-normal m-2 hover:text-active" />
+				</a>
+			</span>
+		</main>
 </template>
+
+<style>
+
+.mask {
+	mask-image: linear-gradient(transparent 8%, white 15%, white 95%, transparent 100%);
+	@media (min-width: 768px) {
+		mask-image: linear-gradient(transparent 0%, white 15%, white 90%, transparent 100%);
+	}
+}
+
+.portfoliosList {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.portfoliosList::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+</style>

@@ -19,7 +19,7 @@ useHead({
 
 const innerWidth = ref(0);
 const scrollY = ref(0);
-const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease transform duration-300 bg-active hover:bg-black`;
+const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease transform duration-300 bg-active group-hover:bg-black`;
 const linkSelected = ref(false);
 const links = [
   '',
@@ -126,7 +126,8 @@ const isBlue = computed(() => {
 })
 
 const isTransparent = computed(() => {
-  return route.path === '/'
+  return route.path === '/' 
+  //&& scrollY.value < 50
 })
 </script>
 
@@ -156,7 +157,7 @@ const isTransparent = computed(() => {
       class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform" @click="handleNav">
       <div v-for="i in 3" :class="[
         (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
-        (i === 2 && opened ? 'opacity-0' : ''),
+        (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
         (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),
         genericHamburgerLine,
         (!isTransparent || opened) && !isBlue  ? 'bg-black group-hover:bg-active' : ''
@@ -169,9 +170,9 @@ const isTransparent = computed(() => {
   <transition name="fly">
     <nav v-show="opened"
       class="moreNav bg-beige-lighter w-screen fixed left-0 top-0 z-30 h-screen flex items-center md:justify-center flex-col">
-      <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-24 mb-8">
+      <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-16 sm:mt-24">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
-          class="px-5 cube my-3 md:my-0 xl:text-8xl lg:text-7xl md:text-7xl text-4xl leading-[2rem] md:leading-[3.5rem]"
+          class="px-5 cube my-3 md:my-0 xl:text-8xl lg:text-7xl md:text-7xl text-5xl leading-[3rem] md:leading-[3.5rem]"
           @touchstart="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
           <p class="flip">
             <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
@@ -272,7 +273,7 @@ const isTransparent = computed(() => {
   font-family: "Barlow";
   font-weight: 800;
   opacity: 0;
-  @apply flex justify-center gap-5 h-20 md:h-32 items-center;
+  @apply flex justify-center gap-5 h-24 md:h-32 items-center;
 
   @media (min-width: 768px) {
     transform: rotateX(-90deg) translateZ(-4rem);
@@ -283,7 +284,7 @@ const isTransparent = computed(() => {
   transition: transform 0.5s;
   transform-style: preserve-3d;
   perspective: 5000px;
-  @apply h-20 md:h-32;
+  @apply h-24 md:h-32;
 
   &:hover {
     transform: rotateX(90deg);

@@ -31,5 +31,8 @@ module.exports = {
       }
     },
   },
-  plugins: []
+  plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };
