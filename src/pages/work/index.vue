@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
           </div>
           <!-- <div class="flex py-3 md:py-10 flex-wrap" @focus="(e) => handleHover(e, i)" @mouseenter="(e) => handleHover(e, i)" @onfocusout="handleOut" @mouseleave="() => handleOut()"> -->
           <div class="flex items-center mt-2 select">
-            <img v-if="hov[i]" src="/assets/plus_blue.svg" class="cursor-pointer h-6 w-6 md:h-12 md:w-12 mr-3" />
+            <img v-if="hov[i]" src="/assets/plus_blue.svg" class="cursor-pointer h-10 w-10 md:h-12 md:w-12 mr-3" />
             <img v-else src="/assets/plus.svg" class="cursor-pointer h-6 w-6 md:h-12 md:w-12 mr-3" />
             <span>
               <h2 class="whitespace-nowrap origin-left transition-all" :class="[hov[i] ? 'text-active font-extrabold text-5xl md:text-4xl lg:text-5xl lowercase tracking-[-0.035em]' : 'text-beige-lighter tracking-widest text-lg uppercase font-semibold']">{{ portfolio.title }}</h2>
