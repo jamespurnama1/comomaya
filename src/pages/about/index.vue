@@ -166,7 +166,7 @@ onBeforeUnmount(() => {
       <section
         class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige-lighter md:flex-row-reverse overflow-visible">
         <div class="md:w-2/3 my-auto md:pt-16">
-          <h3 class="text-stone-300 text-sm md:text-lg font-semibold tracking-widest text-left">
+          <h3 class="text-stone-700 text-sm md:text-lg font-semibold tracking-widest text-left">
             FOUNDER &amp; CREATIVE&nbsp;HEAD
           </h3>
           <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
@@ -249,7 +249,7 @@ onBeforeUnmount(() => {
       <section
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige-lighter md:flex-row-reverse">
         <div class="md:w-2/3 my-auto">
-          <h3 class="text-stone-300 text-sm md:text-lg font-semibold tracking-widest text-left">
+          <h3 class="text-stone-700 text-sm md:text-lg font-semibold tracking-widest text-left">
             BUSINESS HEAD
           </h3>
           <h2 class="drama mb-1 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-black">
@@ -436,7 +436,7 @@ onBeforeUnmount(() => {
 
       <!--- TESTIMONIALS --->
 
-      <section class="bg-blue px-9 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
+      <section class="bg-blue px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
         <h3 class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold text-center">
           client&nbsp;<strong>testimonials</strong>
         </h3>
@@ -458,7 +458,7 @@ onBeforeUnmount(() => {
               v-html="`${items[Object.keys(items)[0]]}`" />
             <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
               v-html="`${Object.keys(items)[0]}`" />
-            <h2 class="text-stone-300 md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
+            <h2 class="text-stone-700 md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
               {{ testimonialsDate[i] }}</h2>
           </swiper-slide>
         </swiper>
@@ -467,7 +467,7 @@ onBeforeUnmount(() => {
 
     <!--- END --->
 
-    <section class="flex flex-col items-center justify-center mx-auto my-20 md:my-32 lg:pt-64 lg:p-72 max-w-7xl bg-stone-300">
+    <section class="flex flex-col items-center justify-center mx-20 lg:mx-auto my-20 md:my-32 lg:pt-64 lg:p-72 max-w-7xl bg-stone-300">
       <video class="mb-10 recolor" playsinline loop autoplay="true" muted>
         <source src="/assets/aboutus.mp4" type="video/mp4" />
       </video>
