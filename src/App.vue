@@ -141,7 +141,7 @@ const isTransparent = computed(() => {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 md:px-20 xl:px-36 justify-between bg-beige-lighter items-center z-40 transition-all origin-top-left"
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between bg-beige-lighter items-center z-40 transition-all origin-top-left"
     :class="{'bg-opacity-0': isTransparent, 'bg-stone-300': isBlue }">
 
     <a aria-label="Go to Landing Page" href="/">
@@ -172,7 +172,7 @@ const isTransparent = computed(() => {
       class="moreNav bg-beige-lighter w-screen fixed left-0 top-0 z-30 h-screen flex items-center md:justify-center flex-col">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-16 sm:mt-24">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
-          class="px-5 cube my-3 md:my-0 xl:text-8xl lg:text-7xl md:text-7xl text-5xl leading-[3rem] md:leading-[3.5rem]"
+          class="px-5 cube my-3 md:my-0 xl:text-8xl md:text-7xl text-5xl leading-[3rem] md:leading-[3.5rem]"
           @touchstart="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
           <p class="flip">
             <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
