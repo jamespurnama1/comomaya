@@ -128,7 +128,7 @@
           class="content flex flex-col items-center -mt-10 md:mt-0 md:w-2/3 md:pr-20"
         />
         <div key="info" class="info md:w-1/3">
-          <h1 class="text-active text-6xl font-extrabold md:mt-0 mt-3 mb-5 lowercase">{{thisPage.content.title}}</h1>
+          <h1 class="text-black text-6xl font-extrabold md:mt-0 mt-3 mb-5 lowercase">{{thisPage.content.title}}</h1>
           <p v-html="thisPage.content.metadata.description" />
           <hr class="my-5 border-stone-300" />
           <div class="flex">
