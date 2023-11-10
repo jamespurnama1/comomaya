@@ -88,16 +88,18 @@ function hoverLink() {
 }
 
 function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
-  if (touch) {
+  if (touch && !touchmoved.value) {
     setTimeout(() => {
       router.push(whatisLink(href))
-      handleNav()
+      handleNav();
     }, 600);
-  } else if ((e as PointerEvent).pointerType !== 'touch') {
+  } else if ((e as PointerEvent).pointerType !== 'touch' && !touchmoved.value) {
+    console.log(touchmoved.value)
     router.push(whatisLink(href))
-    handleNav()
+    handleNav();
   }
-  if (href !== 'grants for SMEs') handleScrollUp()
+  if (href !== 'grants for SMEs' && !touchmoved.value) handleScrollUp()
+  touchmoved.value = false;
 }
 
 onUpdated(() => {
@@ -105,6 +107,7 @@ onUpdated(() => {
 })
 
 const opened = ref(false)
+const touchmoved = ref(false)
 
 function handleNav() {
   if(!opened.value) {
@@ -142,7 +145,7 @@ const isTransparent = computed(() => {
 
   <nav
     class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between bg-beige-lighter items-center z-40 transition-all origin-top-left"
-    :class="{'bg-opacity-0': isTransparent, 'bg-stone-300': isBlue }">
+    :class="{'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
 
     <a aria-label="Go to Landing Page" href="/">
       <picture
@@ -168,12 +171,12 @@ const isTransparent = computed(() => {
   <!-- Nav Menu -->
 
   <transition name="fly">
-    <nav v-show="opened"
-      class="moreNav bg-beige-lighter w-screen fixed left-0 top-0 z-30 h-screen flex items-center md:justify-center flex-col">
+    <nav v-show="opened" @touchmove="e => {touchmoved = true}"
+      class="moreNav bg-beige-lighter w-screen fixed left-0 top-0 z-30 flex items-center md:justify-center flex-col overflow-y-scroll">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-16 sm:mt-24">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
           class="px-5 cube my-3 md:my-0 xl:text-8xl md:text-7xl text-5xl leading-[3rem] md:leading-[3.5rem]"
-          @touchstart="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
+          @touchend="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
           <p class="flip">
             <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
             <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
@@ -184,7 +187,7 @@ const isTransparent = computed(() => {
           </p>
         </li>
       </transition-group>
-      <transition-group name="fade" tag="span" class="relative flex justify-center text-center mb-10 text-xs md:text-base w-full">
+      <transition-group name="fade" tag="span" class="relative flex justify-center text-center mb-10 text-sm md:text-base w-full">
         <a key="ig" @click="handleNav" class="absolute -translate-x-full text-blue hover:text-active hover:font-bold" href="https://instagram.com/comomaya"
           aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
           <p>(INSTAGRAM)</p>
@@ -239,6 +242,15 @@ const isTransparent = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+.moreNav {
+  height: -webkit-fill-available;
+  //height: 100vh;
+  //padding: safe-area-inset-top 0 safe-area-inset-bottom 0;
+}
+
+footer {
+  margin-bottom: calc(1.25rem + safe-area-inset-bottom);
+}
 .logoInv:hover {
   filter: invert(22%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
 }
@@ -260,7 +272,7 @@ const isTransparent = computed(() => {
   }
 
   span {
-    @apply text-xs md:text-base;
+    @apply text-sm md:text-base;
     font-family: barlow;
     font-weight: normal;
     margin: auto 0;
