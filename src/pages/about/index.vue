@@ -102,7 +102,6 @@ function resize() {
 }
 
 onMounted(() => {
-  console.log(brands)
   window.addEventListener('resize', resize)
 
   resize();
@@ -171,7 +170,7 @@ onBeforeUnmount(() => {
           </h3>
           <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
             <h2 class="drama mb-1 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-black">
-              <strong>ridhi</strong>&nbsp;sain
+              <strong>ridhi</strong> sain
             </h2>
             <picture>
               <source srcset="/assets/awards.webp" type="image/webp">
@@ -221,7 +220,7 @@ onBeforeUnmount(() => {
             CLIENT HEAD
           </h3>
           <h2 class="drama mb-1 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
-            <strong>sonali</strong>&nbsp;sani
+            <strong>sonali</strong> sani
           </h2>
           <p class="text-base md:text-lg md:text-right text-black">
             Sonali Sani has had over a decade of experience in Client Services. She has worked with big international
@@ -281,7 +280,7 @@ onBeforeUnmount(() => {
           INDUSTRY&nbsp;TALENT
         </h3>
         <h2 class="drama -mt-3 text-5xl pb-5 md:pb-0 md:text-8xl md:mb-3 overflow-hidden text-right text-active font-medium">
-          our&nbsp;<strong>people</strong>
+          our <strong>people</strong>
         </h2>
         <h3 v-if="width >= 768"
           class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-3xl md:ml-auto">
@@ -321,7 +320,7 @@ onBeforeUnmount(() => {
         </h3>
         <h2
           class="drama md:ml-[-2px] -mt-3 mb-3 md:mb-0 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
-          our&nbsp;<strong>services</strong>
+          our <strong>services</strong>
         </h2>
         <h3 v-if="width >= 768" class="text-black md:text-lg pb-10 md:max-w-3xl">
           We have a vibrant portfolio of clients ranging from FMCG to
@@ -369,7 +368,7 @@ onBeforeUnmount(() => {
             GRANTS &amp; SUBSIDIES
           </h3>
           <h2 class="drama mb-1 -mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-active">
-            grants&nbsp;for&nbsp;<strong>SMEs</strong>
+            grants for&nbsp;<strong>SMEs</strong>
           </h2>
           <p class="pb-10 text-base md:text-lg text-right text-black">
             We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp; Medium Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for sustainability-related projects). <wbr>If you qualify for this grant and are interested in this opportunity you can visit&nbsp;<a class='text-active hover:underline cursor-pointer font-extrabold z-10'
@@ -438,7 +437,7 @@ onBeforeUnmount(() => {
 
       <section class="bg-blue px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
         <h3 class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold text-center">
-          client&nbsp;<strong>testimonials</strong>
+          client <strong>testimonials</strong>
         </h3>
         <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext(): null"
           class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
