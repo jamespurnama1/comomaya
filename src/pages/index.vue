@@ -41,7 +41,7 @@ async function loadContent() {
 
 	imageFade = gsap.timeline({ defaults: { ease: 'none', stagger: -2 } })
 		.to(allBGs, { autoAlpha: 1, duration: 0.5 })
-		// .to({}, { duration: 1 }, 1)
+	// .to({}, { duration: 1 }, 1)
 
 	ScrollTrigger.create({
 		trigger: ".portfoliosList",
@@ -119,15 +119,15 @@ function scrollDown() {
 					</h2>
 				</a>
 			</li>
-					<span class="socials mr-auto ml-8 mb-16 flex flex-col justify-center">
+			<span class="socials mr-auto ml-8 mb-16 flex flex-col justify-center">
 				<a href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank"
 					rel="noopener noreferrer">
 					<font-awesome-icon :icon="['fab', 'square-instagram']" size="xl"
-						class="hover:text-beige-normal m-2 text-active" />
+						class="hover:text-beige-lighter m-2 text-active" />
 				</a>
 				<a href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
 					rel="noopener noreferrer">
-					<font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="hover:text-beige-normal m-2 text-active" />
+					<font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="hover:text-beige-lighter m-2 text-active" />
 				</a>
 			</span>
 		</ul>
@@ -137,18 +137,18 @@ function scrollDown() {
 		class="text-active fixed left-1/2 top-[90vh] cursor-pointer transition" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" /> -->
 		<img v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()" :srcset="`
 		${image.toString()}?w=1920&auto=format 1920w,
-						${image.toString()}?w=1024&auto=format 1024w,
-						${image.toString()}?w=640&auto=format 640w,
-						${image.toString()}?w=480&auto=format 480w`" :src="`${image.toString()}?auto=format`"
+								${image.toString()}?w=1024&auto=format 1024w,
+								${image.toString()}?w=640&auto=format 640w,
+								${image.toString()}?w=480&auto=format 480w`" :src="`${image.toString()}?auto=format`"
 			:alt="store.getFeatured.slice().reverse()[i].title"
 			class="bg h-screen fixed top-0 left-0 w-screen object-cover opacity-0" :style="`z-index: ${-i - 5}`" />
 		<img class="h-screen fixed top-0 left-0 w-screen object-cover"
 			:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
 			:src="`${store.getFeatured.map(x => x.thumbnail)[0]}?auto=format`" :srcset="`
 			${store.getFeatured[0].thumbnail.toString()}?w=1920&auto=format 1920w,
-									${store.getFeatured[0].thumbnail.toString()}?w=1024&auto=format 1024w,
-									${store.getFeatured[0].thumbnail.toString()}?w=640&auto=format 640w,
-									${store.getFeatured[0].thumbnail.toString()}?w=480&auto=format 480w`" :alt="store.getFeatured[0].title" />
+												${store.getFeatured[0].thumbnail.toString()}?w=1024&auto=format 1024w,
+												${store.getFeatured[0].thumbnail.toString()}?w=640&auto=format 640w,
+												${store.getFeatured[0].thumbnail.toString()}?w=480&auto=format 480w`" :alt="store.getFeatured[0].title" />
 
 	</main>
 </template>

@@ -110,7 +110,7 @@ const opened = ref(false)
 const touchmoved = ref(false)
 
 function handleNav() {
-  if(!opened.value) {
+  if (!opened.value) {
     gsap.set('body', { overflow: 'hidden' })
   } else {
     gsap.set('body', { overflow: 'auto' })
@@ -129,7 +129,7 @@ const isBlue = computed(() => {
 })
 
 const isTransparent = computed(() => {
-  return route.path === '/' 
+  return route.path === '/'
   //&& scrollY.value < 50
 })
 </script>
@@ -144,12 +144,11 @@ const isTransparent = computed(() => {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between bg-beige-lighter items-center z-40 transition-all origin-top-left"
-    :class="{'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between bg-beige-normal items-center z-40 transition-all origin-top-left"
+    :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
 
     <a aria-label="Go to Landing Page" href="/">
-      <picture
-      class="transition-all"
+      <picture class="transition-all"
         :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']">
         <img src="/logo.svg" alt="COMOMAYA"
           class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left" />
@@ -157,13 +156,14 @@ const isTransparent = computed(() => {
     </a>
 
     <button aria-label="Navigation"
-      class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform" @click="handleNav">
+      class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
+      @click="handleNav">
       <div v-for="i in 3" :class="[
         (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
         (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
         (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),
         genericHamburgerLine,
-        (!isTransparent || opened) && !isBlue  ? 'bg-black group-hover:bg-active' : ''
+        (!isTransparent || opened) && !isBlue ? 'bg-black group-hover:bg-active' : ''
       ]" />
     </button>
   </nav>
@@ -171,9 +171,10 @@ const isTransparent = computed(() => {
   <!-- Nav Menu -->
 
   <transition name="fly">
-    <nav v-show="opened" @touchmove="e => {touchmoved = true}"
-      class="moreNav bg-beige-lighter w-screen fixed left-0 top-0 z-30 flex items-center md:justify-center flex-col overflow-y-scroll">
-      <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }" class="text-center mt-16 sm:mt-24">
+    <nav v-show="opened" @touchmove="e => { touchmoved = true }"
+      class="moreNav bg-beige-normal w-screen fixed left-0 top-0 z-30 flex items-center md:justify-center flex-col overflow-y-scroll">
+      <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
+        class="text-center mt-16 sm:mt-24">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
           class="px-5 cube my-3 md:my-0 xl:text-8xl md:text-7xl text-5xl leading-[3rem] md:leading-[3.5rem]"
           @touchend="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
@@ -187,9 +188,11 @@ const isTransparent = computed(() => {
           </p>
         </li>
       </transition-group>
-      <transition-group name="fade" tag="span" class="relative flex justify-center text-center mb-10 text-sm md:text-base w-full">
-        <a key="ig" @click="handleNav" class="absolute -translate-x-full text-blue hover:text-active hover:font-bold" href="https://instagram.com/comomaya"
-          aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
+      <transition-group name="fade" tag="span"
+        class="relative flex justify-center text-center mb-10 text-sm md:text-base w-full">
+        <a key="ig" @click="handleNav" class="absolute -translate-x-full text-blue hover:text-active hover:font-bold"
+          href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank"
+          rel="noopener noreferrer">
           <p>(INSTAGRAM)</p>
         </a>
         <a key="linkedin" @click="handleNav" class="absolute translate-x-full text-blue hover:text-active hover:font-bold"
@@ -202,8 +205,7 @@ const isTransparent = computed(() => {
   </transition>
 
   <transition name="fade">
-    <div v-show="opened" @click="handleNav"
-      class="fixed w-screen h-screen bg-opacity-50 bg-black z-10" />
+    <div v-show="opened" @click="handleNav" class="fixed w-screen h-screen bg-opacity-50 bg-black z-10" />
   </transition>
 
   <!-- Scroll up -->
@@ -251,6 +253,7 @@ const isTransparent = computed(() => {
 footer {
   margin-bottom: calc(1.25rem + safe-area-inset-bottom);
 }
+
 .logoInv:hover {
   filter: invert(22%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
 }
@@ -301,8 +304,7 @@ footer {
   &:hover {
     transform: rotateX(90deg);
 
-    .flop,
-    .flap {
+    .flop {
       opacity: 1;
     }
   }
