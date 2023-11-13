@@ -146,7 +146,8 @@ onBeforeUnmount(() => {
           <span v-else class="pl-7" />
           maya: (Sanskrit) energy,&nbsp;magic
         </p>
-        <h1 class="split lowercase my-5 text-6xl md:text-9xl leading-none text-active font-extrabold lg:w-2/3 overflow-hidden relative">
+        <h1
+          class="split lowercase my-5 text-6xl md:text-9xl leading-none text-active font-extrabold lg:w-2/3 overflow-hidden relative">
           <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span
             class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
         </h1>
@@ -165,7 +166,7 @@ onBeforeUnmount(() => {
       <section
         class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige-lighter md:flex-row-reverse overflow-visible">
         <div class="md:w-2/3 my-auto md:pt-16">
-          <h3 class="text-stone-700 text-sm md:text-lg font-semibold tracking-widest text-left">
+          <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
             FOUNDER &amp; CREATIVE&nbsp;HEAD
           </h3>
           <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
@@ -248,7 +249,7 @@ onBeforeUnmount(() => {
       <section
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige-lighter md:flex-row-reverse">
         <div class="md:w-2/3 my-auto">
-          <h3 class="text-stone-700 text-sm md:text-lg font-semibold tracking-widest text-left">
+          <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
             BUSINESS HEAD
           </h3>
           <h2 class="drama mb-1 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-black">
@@ -279,11 +280,11 @@ onBeforeUnmount(() => {
         <h3 class="text-beige-lighter pt-5 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
           INDUSTRY&nbsp;TALENT
         </h3>
-        <h2 class="drama -mt-3 text-5xl pb-5 md:pb-0 md:text-8xl md:mb-3 overflow-hidden text-right text-active font-medium">
+        <h2
+          class="drama -mt-3 text-5xl pb-5 md:pb-0 md:text-8xl md:mb-3 overflow-hidden text-right text-active font-medium">
           our <strong>people</strong>
         </h2>
-        <h3 v-if="width >= 768"
-          class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-3xl md:ml-auto">
+        <h3 v-if="width >= 768" class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-3xl md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
           collaborating with some of the best talent in the industry and across the&nbsp;globe.
         </h3>
@@ -331,7 +332,8 @@ onBeforeUnmount(() => {
       </section>
 
       <section class="bg-blue flex flex-col justify-center md:min-h-[40vh] lg:flex-row gap-8">
-        <div class="lg:w-2/3 p-0 m-0 bg-beige mt-5 lg:my-auto flex justify-center lg:justify-start px-9 lg:pl-20 xl:pl-36 gap-3 text-beige-lighter">
+        <div
+          class="lg:w-2/3 p-0 m-0 bg-beige mt-5 lg:my-auto flex justify-center lg:justify-start px-9 lg:pl-20 xl:pl-36 gap-3 text-beige-lighter">
           <div v-for="(value, key) in services">
             <h4 class="font-bold md:text-3xl text-active mb-3">// {{ key }}</h4>
             <ul v-for="items in value" class="mb-1 font-medium text-xs md:text-base">/ {{ items }}</ul>
@@ -371,12 +373,18 @@ onBeforeUnmount(() => {
             grants for&nbsp;<strong>SMEs</strong>
           </h2>
           <p class="pb-10 text-base md:text-lg text-right text-black">
-            We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp; Medium Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for sustainability-related projects). <wbr>If you qualify for this grant and are interested in this opportunity you can visit&nbsp;<a class='text-active hover:underline cursor-pointer font-extrabold z-10'
-              target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application"
+            We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management
+            Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp; Medium
+            Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for
+            sustainability-related projects).
+            <wbr>If you qualify for this grant and are interested in this opportunity you can visit&nbsp;<a
+              class='text-active hover:underline cursor-pointer font-extrabold z-10' target="_blank"
+              rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application"
               href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
           </p>
         </div>
-        <div class="w-full max-h-[30rem] lg:max-h-none min-h-[15rem] flex justify-center items-center lg:w-1/2 overflow-hidden bg-black">
+        <div
+          class="w-full max-h-[30rem] lg:max-h-none min-h-[15rem] flex justify-center items-center lg:w-1/2 overflow-hidden bg-black">
           <picture>
             <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
             <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
@@ -387,30 +395,22 @@ onBeforeUnmount(() => {
 
       <!--- BRANDS --->
 
-      <section class="bg-beige-lighter flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
+      <section class="bg-beige-normal flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
         <h3 class="text-black drama md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
           <strong>brands</strong> we have<br>worked&nbsp;with
-          <br/>
+          <br />
         </h3>
-        <!-- <a class="text-sm text-beige-normal text-center uppercase hover:text-active hover:font-bold" target="_blank" href="https://www.ridhisain.com">( www.ridhisain.com )</a> -->
-        <!-- <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
-          class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
-          <img class="block w-7 h-7 md:w-10 md:h-10 object-contain" src="/assets/arrow-right.svg" alt="button next" />
-        </button>
-        <button @click="swiperDOM ? swiperDOM.$el.swiper.slidePrev() : null"
-          class="absolute left-3 md:left-10 md:hover:scale-150 transition-transform">
-          <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg" alt="button previous" />
-        </button> -->
-        <swiper class="w-full"
-          :autoplay="{
-            delay: 1000,
-            disableOnInteraction: false,
-          }"
-          :loop="true"
-          :simulateTouch="false"
-          :modules="modules"
-          :slides-per-view="3"
-          :space-between="12"
+        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-x-10 md:gap-y-16 py-10">
+          <div v-for="brand in brands" class="flex justify-center items-center w-full h-full cube">
+            <img class="flip object-contain w-16 md:w-36 h-32 md:py-8 md:px-5 p-1 brightness-0" :src="brand"
+              :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+              <p class="flop text-2xl md:text-5xl text-active text-center">{{ brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString() }}</p>
+          </div>
+        </div>
+        <!-- <swiper class="w-full" :autoplay="{
+          delay: 1000,
+          disableOnInteraction: false,
+        }" :loop="true" :simulateTouch="false" :modules="modules" :slides-per-view="3" :space-between="12"
           :breakpoints="{
             768: {
               slidesPerView: 3,
@@ -424,28 +424,29 @@ onBeforeUnmount(() => {
               slidesPerView: 5,
               spaceBetween: 24
             }
-          }"
-        >
-          <swiper-slide class="py-10 flex flex-col justify-center items-start select-none"
-            v-for="brand in brands">
-            <img class="object-contain w-16 md:w-48 h-20 brightness-0" :src="brand" :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+          }">
+          <swiper-slide class="py-10 flex flex-col justify-center items-start select-none" v-for="brand in brands">
+            <img class="object-contain w-16 md:w-48 h-20 brightness-0" :src="brand"
+              :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
           </swiper-slide>
-        </swiper>
+        </swiper> -->
       </section>
 
       <!--- TESTIMONIALS --->
 
       <section class="bg-blue px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
-        <h3 class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold text-center">
+        <h3
+          class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold text-center">
           client <strong>testimonials</strong>
         </h3>
-        <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext(): null"
+        <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
           class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
           <img class="block w-7 h-7 md:w-10 md:h-10 object-contain" src="/assets/arrow-right.svg" alt="button next" />
         </button>
         <button @click="swiperDOM ? swiperDOM.$el.swiper.slidePrev() : null"
           class="absolute left-3 md:left-10 md:hover:scale-150 transition-transform">
-          <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg" alt="button previous" />
+          <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg"
+            alt="button previous" />
         </button>
         <swiper class="w-full" :autoplay="{
           delay: 8000,
@@ -466,7 +467,8 @@ onBeforeUnmount(() => {
 
     <!--- END --->
 
-    <section class="flex flex-col items-center justify-center mx-20 lg:mx-auto my-20 md:my-32 lg:pt-64 lg:p-72 max-w-7xl bg-stone-300">
+    <section
+      class="flex flex-col items-center justify-center mx-20 lg:mx-auto my-20 md:my-32 lg:pt-64 lg:p-72 max-w-7xl bg-stone-300">
       <video class="mb-10 recolor" playsinline loop autoplay="true" muted>
         <source src="/assets/aboutus.mp4" type="video/mp4" />
       </video>
@@ -476,11 +478,11 @@ onBeforeUnmount(() => {
         <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
           target="_blank" rel="noopener noreferrer">
           <!-- <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige" /> -->
-          <p class="text-beige-normal hover:text-active hover:font-bold">(INSTAGRAM)</p>
+          <p class="text-beige-lighter hover:text-active hover:font-bold">(INSTAGRAM)</p>
         </a>
         <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya"
           aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-          <p class="text-beige-normal hover:text-active hover:font-bold">(LINKEDIN)</p>
+          <p class="text-beige-lighter hover:text-active hover:font-bold">(LINKEDIN)</p>
           <!-- <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige" /> -->
         </a>
       </div>
@@ -527,6 +529,36 @@ onBeforeUnmount(() => {
 // }
 </style>
 
-<style lang="scss" scoped>.recolor {
+<style lang="scss" scoped>
+.recolor {
   filter: saturate(114%) brightness(91%) contrast(115.3%);
-}</style>
+}
+
+.flop {
+  transition: all 0.5s ease;
+  transform: rotateX(-90deg) translateZ(-0.9375rem);
+  font-family: "Barlow";
+  font-weight: 800;
+  opacity: 0;
+  @apply absolute flex justify-center gap-5 h-24 md:h-32 items-center;
+
+  @media (min-width: 768px) {
+    transform: rotateX(-90deg) translateZ(-4rem);
+  }
+}
+
+.cube {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  perspective: 5000px;
+  @apply h-24 md:h-32;
+
+  &:hover {
+    transform: rotateX(90deg);
+
+    .flop {
+      opacity: 1;
+    }
+  }
+}
+</style>
