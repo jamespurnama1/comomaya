@@ -404,7 +404,8 @@ onBeforeUnmount(() => {
           <div v-for="brand in brands" class="flex justify-center items-center w-full h-full cube">
             <img class="flip object-contain w-16 md:w-36 h-32 md:py-8 md:px-5 p-1 brightness-0" :src="brand"
               :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
-              <p class="flop text-2xl md:text-5xl text-active text-center">{{ brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p>
+            <p class="flop text-2xl md:text-5xl text-active text-center">{{
+              brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p>
           </div>
         </div>
         <!-- <swiper class="w-full" :autoplay="{
@@ -553,11 +554,13 @@ onBeforeUnmount(() => {
   perspective: 5000px;
   @apply h-24 md:h-32;
 
-  &:hover {
-    transform: rotateX(90deg);
+  @media (min-width: 768px) {
+    &:hover {
+      transform: rotateX(90deg);
 
-    .flop {
-      opacity: 1;
+      .flop {
+        opacity: 1;
+      }
     }
   }
 }
