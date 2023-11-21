@@ -9,7 +9,7 @@ import { onMounted, onBeforeUnmount, ref, type Ref } from 'vue';
 
 const modules = [Autoplay]
 
-const brands = Object.values(import.meta.glob('@/assets/brands/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
+const brands = Object.values('/assets/brands/*.{jpg,png,jpeg,svg,webp}');
 // const images = context.keys().map(context);
 // const iconPaths = Object.values(icons).map(module => module.default)
 
