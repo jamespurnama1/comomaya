@@ -9,7 +9,7 @@ import { onMounted, onBeforeUnmount, ref, type Ref } from 'vue';
 
 const modules = [Autoplay]
 
-const brands = Object.values('/assets/brands/*.{jpg,png,jpeg,svg,webp}');
+const brands = Object.values(import.meta.glob('@/assets/brands/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
 // const images = context.keys().map(context);
 // const iconPaths = Object.values(icons).map(module => module.default)
 
@@ -404,7 +404,7 @@ onBeforeUnmount(() => {
           <div v-for="brand in brands" class="flex justify-center items-center w-full h-full cube">
             <img class="flip object-contain w-16 md:w-36 h-32 md:py-8 md:px-5 p-1 brightness-0" :src="brand"
               :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
-              <p class="flop text-2xl md:text-5xl text-active text-center">{{ brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString() }}</p>
+              <p class="flop text-2xl md:text-5xl text-active text-center">{{ brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p>
           </div>
         </div>
         <!-- <swiper class="w-full" :autoplay="{
