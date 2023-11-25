@@ -565,3 +565,12 @@ onBeforeUnmount(() => {
   }
 }
 </style>
+
+<style lang="scss">
+.device-ios,
+.device-android {
+  .recolor {
+    filter: saturate(89%) brightness(97%) contrast(115.3%);
+  }
+}
+</style>
