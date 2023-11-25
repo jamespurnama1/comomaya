@@ -35,6 +35,10 @@ const cursor: Ref<HTMLDivElement | null> = ref(null);
 
 onMounted(() => {
   innerWidth.value = window.innerWidth
+  const classNames = [];
+  if (navigator.userAgent.match(/(iPad|iPhone|iPod)/i)) classNames.push('device-ios');
+  if (navigator.userAgent.match(/android/i)) classNames.push('device-android');
+  if (document.querySelector("html")) document.querySelector("html")!.classList.add.apply(document.querySelector("html")!.classList, classNames);
 
   let raf: (number | null) = requestAnimationFrame(render);
 
