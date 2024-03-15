@@ -2,7 +2,7 @@
 import { onMounted, onBeforeUnmount, watch, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import { useHead } from '@vueuse/head'
+import { useHead } from '@unhead/vue'
 import { useStore } from '../stores'
 
 const store = useStore()

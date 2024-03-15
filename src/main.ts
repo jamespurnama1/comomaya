@@ -4,12 +4,15 @@ import './fonts.scss'
 import './transition.scss'
 import App from './App.vue'
 import routes from '~pages'
+import { createHead } from '@unhead/vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faSquareXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { createPinia } from 'pinia'
+
+const head = createHead()
 
 library.add(faAngleUp, faSquareXmark, faSquareInstagram, faAnglesDown, faLinkedin, faTwitter, faPinterest, faWhatsapp, faBook, faPencil, faLaptop, faTrophy)
 const store = createPinia()
@@ -27,5 +30,6 @@ export const createApp = ViteSSG(
     // install plugins etc.
     app.component('font-awesome-icon', FontAwesomeIcon)
     app.use(store)
+    app.use(head)
   },
 )
