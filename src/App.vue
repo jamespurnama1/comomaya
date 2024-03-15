@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onUpdated, ref, reactive, onMounted, computed, type Ref } from 'vue'
-import { useHead } from '@vueuse/head'
+import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 

@@ -4,7 +4,7 @@
   import { useRoute } from 'vue-router'
 	import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-  import { useHead } from '@vueuse/head'
+  import { useHead } from '@unhead/vue'
   import { useStore } from '../../stores'
   import { reactive, ref } from 'vue'
   import { Swiper, SwiperSlide } from 'swiper/vue'
