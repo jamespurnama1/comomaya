@@ -146,7 +146,7 @@ onBeforeUnmount(() => {
           maya: (Sanskrit) energy,&nbsp;magic
         </p>
         <h1
-          class="split lowercase my-5 text-6xl md:text-[7rem] leading-[6.5rem] text-active font-extrabold lg:w-2/3 overflow-hidden relative">
+          class="split lowercase my-5 text-6xl md:text-[7rem] md:leading-[6.5rem] text-active font-extrabold lg:w-2/3 overflow-hidden relative">
           <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span
             class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
         </h1>

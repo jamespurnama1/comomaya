@@ -37,8 +37,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <footer class="flex flex-col items-center justify-center mx-20 h-[50vh] lg:mx-auto w-screen bg-stone-300 gap-10">
-    <video class="recolor max-h-24" playsinline loop autoplay="true" muted>
+  <footer
+    class="flex flex-col items-center justify-center px-3 md:px-20 h-[50vh] lg:mx-auto w-screen bg-stone-300 gap-10">
+    <video class="recolor max-h-10 md:max-h-24" playsinline loop autoplay="true" muted>
       <source src="/assets/aboutus.mp4" type="video/mp4" />
     </video>
     <!-- <h3 class="text-blue text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
