@@ -4,6 +4,7 @@ import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 import CustomFooter from '@/components/CustomFooter.vue';
+import Splash from '@/components/Splash.vue';
 
 const router = useRouter()
 const route = useRoute()
@@ -112,6 +113,7 @@ onUpdated(() => {
 })
 
 const opened = ref(false)
+const splash = ref(true)
 const touchmoved = ref(false)
 
 function handleNav() {
@@ -146,19 +148,22 @@ const isTransparent = computed(() => {
     class="origin-center cursor transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
     :class="[innerWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
+  <!-- Splash Screen -->
+  <Splash v-if="splash" @close="() => splash = false" />
+
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between bg-beige-normal items-center z-40 transition-all origin-top-left"
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between bg-beige-normal items-center z-30 transition-all origin-top-left"
     :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
 
-    <a aria-label="Go to Landing Page" href="/">
+    <router-link aria-label="Go to Landing Page" to="/">
       <picture class="transition-all"
         :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']">
         <img src="/logo.svg" alt="COMOMAYA"
           class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left" />
       </picture>
-    </a>
+    </router-link>
 
     <button aria-label="Navigation"
       class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"

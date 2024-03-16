@@ -127,37 +127,37 @@ function scrollDown() {
 </script>
 
 <template>
-		<main ref="main" v-if="store.getFeatured.length" class="relative flex w-screen justify-center z-10">
-			<ul class="portfoliosList flex flex-col md:mx-10 m-auto top-0 text-center group w-full">
-				<li v-for="(portfolio, i) in store.getFeatured" ref="projectList"
-					class="projectList py-32 md:py-48 transition-all opacity-50 md:group-hover:opacity-20 md:hover:!opacity-100"
-					:class="[i === 0 ? 'mt-[20vh]' : '', i === store.getFeatured.length - 1 ? 'mb-[20vh]' : '']">
-					<a :aria-label="`Go to ${portfolio.metadata.featured_as}`" :href="`/work/${portfolio.slug}`">
-						<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
-							{{ portfolio.metadata.featured_as }}
-						</h2>
-					</a>
-				</li>
-			</ul>
-		</main>
+	<main ref="main" v-if="store.getFeatured.length" class="relative flex w-screen justify-center z-10">
+		<ul class="portfoliosList flex flex-col md:mx-10 m-auto top-0 text-center group w-full">
+			<li v-for="(portfolio, i) in store.getFeatured" ref="projectList"
+				class="projectList py-32 md:py-48 transition-all opacity-50 md:group-hover:opacity-20 md:hover:!opacity-100"
+				:class="[i === 0 ? 'mt-[20vh]' : '', i === store.getFeatured.length - 1 ? 'mb-[20vh]' : '']">
+				<router-link :aria-label="`Go to ${portfolio.metadata.featured_as}`" :to="`/work/${portfolio.slug}`">
+					<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
+						{{ portfolio.metadata.featured_as }}
+					</h2>
+				</router-link>
+			</li>
+		</ul>
+	</main>
 
-		<div v-if="store.getFeatured.length" class="allBG w-screen h-screen absolute top-0 left-0 z-0">
-			<img v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()" :srcset="`
+	<div v-if="store.getFeatured.length" class="allBG w-screen h-screen absolute top-0 left-0 z-0">
+		<img v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()" :srcset="`
 		${image.toString()}?w=1920&auto=format 1920w,
 								${image.toString()}?w=1024&auto=format 1024w,
 								${image.toString()}?w=640&auto=format 640w,
 								${image.toString()}?w=480&auto=format 480w`" :src="`${image.toString()}?auto=format`"
-				:alt="store.getFeatured.slice().reverse()[i].title"
-				class="bg h-full absolute top-0 left-0 w-full object-cover opacity-0" :style="`z-index: ${-i - 5}`" />
-			<img class="h-full absolute top-0 left-0 w-full object-cover"
-				:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
-				:src="`${store.getFeatured.map(x => x.thumbnail)[0]}?auto=format`" :srcset="`
+			:alt="store.getFeatured.slice().reverse()[i].title"
+			class="bg h-full absolute top-0 left-0 w-full object-cover opacity-0" :style="`z-index: ${-i - 5}`" />
+		<img class="h-full absolute top-0 left-0 w-full object-cover"
+			:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
+			:src="`${store.getFeatured.map(x => x.thumbnail)[0]}?auto=format`" :srcset="`
 			${store.getFeatured[0].thumbnail.toString()}?w=1920&auto=format 1920w,
 												${store.getFeatured[0].thumbnail.toString()}?w=1024&auto=format 1024w,
 												${store.getFeatured[0].thumbnail.toString()}?w=640&auto=format 640w,
 												${store.getFeatured[0].thumbnail.toString()}?w=480&auto=format 480w`" :alt="store.getFeatured[0].title" />
 
-		</div>
+	</div>
 </template>
 
 <style>
