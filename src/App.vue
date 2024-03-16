@@ -3,6 +3,7 @@ import { onUpdated, ref, reactive, onMounted, computed, type Ref } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router';
 import { gsap } from 'gsap';
+import CustomFooter from '@/components/CustomFooter.vue';
 
 const router = useRouter()
 const route = useRoute()
@@ -23,8 +24,8 @@ const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease tran
 const linkSelected = ref(false);
 const links = [
   '',
-  'clients & work',
-  'people & services',
+  'work',
+  'about',
   'grants for SMEs',
   'contact'
 ];
@@ -163,12 +164,12 @@ const isTransparent = computed(() => {
       class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
       @click="handleNav">
       <div v-for="i in 3" :class="[
-        (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
-        (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
-        (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),
-        genericHamburgerLine,
-        (!isTransparent || opened) && !isBlue ? 'bg-black group-hover:bg-active' : ''
-      ]" />
+      (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
+      (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
+      (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),
+      genericHamburgerLine,
+      (!isTransparent || opened) && !isBlue ? 'bg-black group-hover:bg-active' : ''
+    ]" />
     </button>
   </nav>
 
@@ -199,7 +200,8 @@ const isTransparent = computed(() => {
           rel="noopener noreferrer">
           <p>(INSTAGRAM)</p>
         </a>
-        <a key="linkedin" @click="handleNav" class="absolute translate-x-full text-blue hover:text-active hover:font-bold"
+        <a key="linkedin" @click="handleNav"
+          class="absolute translate-x-full text-blue hover:text-active hover:font-bold"
           href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
           rel="noopener noreferrer">
           <p>(LINKEDIN)</p>
@@ -237,14 +239,7 @@ const isTransparent = computed(() => {
       </transition>
     </template>
   </router-view>
-
-  <!-- Footer -->
-
-  <footer class="my-5 ml-10">
-    <p class="text-xs" :class="[$route.path === '/' ? 'mix-blend-difference text-white' : '']">
-      © 2023 COMOMAYA. All rights reserved.
-    </p>
-  </footer>
+  <CustomFooter />
 </template>
 
 <style lang="scss" scoped>
@@ -252,10 +247,6 @@ const isTransparent = computed(() => {
   height: -webkit-fill-available;
   //height: 100vh;
   //padding: safe-area-inset-top 0 safe-area-inset-bottom 0;
-}
-
-footer {
-  margin-bottom: calc(1.25rem + safe-area-inset-bottom);
 }
 
 .logoInv:hover {

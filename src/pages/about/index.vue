@@ -3,8 +3,7 @@ import { useHead } from '@unhead/vue'
 import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from "swiper";
-import 'swiper/scss'
-// import "swiper/css/navigation";
+import 'swiper/scss';
 import { onMounted, onBeforeUnmount, ref, type Ref } from 'vue';
 
 const modules = [Autoplay]
@@ -147,14 +146,17 @@ onBeforeUnmount(() => {
           maya: (Sanskrit) energy,&nbsp;magic
         </p>
         <h1
-          class="split lowercase my-5 text-6xl md:text-9xl leading-none text-active font-extrabold lg:w-2/3 overflow-hidden relative">
+          class="split lowercase my-5 text-6xl md:text-[7rem] leading-[6.5rem] text-active font-extrabold lg:w-2/3 overflow-hidden relative">
           <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span
             class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
         </h1>
-        <p class="text-beige-lighter text-xl"><strong>COMOMAYA</strong> exists in order to make international standards of
+        <p class="text-beige-lighter text-xl"><strong>COMOMAYA</strong> exists in order to make international standards
+          of
           branding &amp; design more accessible to new and upcoming brands, business owners and start-ups alike. To
-          provide the highest quality of work, by engaging some of the best international talent there is, but without the
-          exhorbitant price tag that comes with hiring a top global agency. To empower business owners &amp; entrepreneurs
+          provide the highest quality of work, by engaging some of the best international talent there is, but without
+          the
+          exhorbitant price tag that comes with hiring a top global agency. To empower business owners &amp;
+          entrepreneurs
           with powerful brands that tell a story.<wbr> To express them through great design that makes heads turn.<wbr> To energise brands. And to add some&nbsp;magic.
         </p>
       </div>
@@ -185,15 +187,19 @@ onBeforeUnmount(() => {
             <strong>COMOMAYA</strong> which she launched in March
             2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK, Singapore
             &amp; India, Ridhi has worked with international agencies
-            such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also ex-Assoc
-            Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led and
+            such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also
+            ex-Assoc
+            Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led
+            and
             helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's Dove,
             Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod
-            Ricard, Kellogg's and many more.<br class="mt-2 block" style="content: ''">More recently, she has worked with
+            Ricard, Kellogg's and many more.<br class="mt-2 block" style="content: ''">More recently, she has worked
+            with
             smaller boutique
             clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense
             passion to help
-            them through their creative&nbsp;journey.<br class="mt-2 block" style="content: ''">You can check out some of
+            them through their creative&nbsp;journey.<br class="mt-2 block" style="content: ''">You can check out some
+            of
             her
             past work at
             <a class='text-blue hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer"
@@ -225,7 +231,8 @@ onBeforeUnmount(() => {
           </h2>
           <p class="text-base md:text-lg md:text-right text-black">
             Sonali Sani has had over a decade of experience in Client Services. She has worked with big international
-            agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX, Pan
+            agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX,
+            Pan
             Pacific Hotels &amp; Resorts, Intercontinental Hotels Group, Twinings Tea, McCormick, GSK, Reckitt Benckiser
             and Moneycorp to name a&nbsp;few.
             <br class="mt-2 block" style="content: ''">
@@ -256,8 +263,10 @@ onBeforeUnmount(() => {
             <strong>nishaa</strong> bhojwani
           </h2>
           <p class="text-base md:text-lg text-left text-black">
-            Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media and
-            technology. She has worked for companies such as Google and Mastercard and her past client list includes some
+            Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media
+            and
+            technology. She has worked for companies such as Google and Mastercard and her past client list includes
+            some
             of the biggest names in media and technology across North America and Asia Pacific. Through a consultative
             sales approach, she is able to truly understand her clients needs and help deliver on hyper-targeted custom
             solutions. Nishaa has built a reputation of being results oriented and brings to Comomaya a proven track
@@ -347,7 +356,8 @@ onBeforeUnmount(() => {
         <section v-if="width < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
           <h3 class="text-black text-base font-medium py-5">
             We have a vibrant portfolio of clients ranging from FMCG to B2B
-            and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary
+            and from corporate to boutique &amp; luxury brands spread across various categories. We are
+            multidisciplinary
             and
             provide holistic services for your brand woven together from day&nbsp;one.
           </h3>
@@ -405,7 +415,7 @@ onBeforeUnmount(() => {
             <img class="flip object-contain w-16 md:w-36 h-32 md:py-8 md:px-5 p-1 brightness-0" :src="brand"
               :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
             <p class="flop text-2xl md:text-5xl text-active text-center">{{
-              brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p>
+            brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p>
           </div>
         </div>
         <!-- <swiper class="w-full" :autoplay="{
@@ -450,9 +460,9 @@ onBeforeUnmount(() => {
             alt="button previous" />
         </button>
         <swiper class="w-full" :autoplay="{
-          delay: 8000,
-          disableOnInteraction: false,
-        }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
+            delay: 8000,
+            disableOnInteraction: false,
+          }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
           <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
             v-for="(items, i) in testimonials">
             <p class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
@@ -467,27 +477,24 @@ onBeforeUnmount(() => {
     </div>
 
     <!--- END --->
+    <custom-footer />
 
-    <section
+    <!-- <section
       class="flex flex-col items-center justify-center mx-20 lg:mx-auto my-20 md:my-32 lg:pt-64 lg:p-72 max-w-7xl bg-stone-300">
       <video class="mb-10 recolor" playsinline loop autoplay="true" muted>
         <source src="/assets/aboutus.mp4" type="video/mp4" />
       </video>
-      <!-- <h3 class="text-blue text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
-        INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3> -->
       <div class="flex gap-10">
         <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
           target="_blank" rel="noopener noreferrer">
-          <!-- <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige" /> -->
           <p class="text-beige-lighter hover:text-active hover:font-bold">(INSTAGRAM)</p>
         </a>
         <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya"
           aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
           <p class="text-beige-lighter hover:text-active hover:font-bold">(LINKEDIN)</p>
-          <!-- <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige" /> -->
         </a>
       </div>
-    </section>
+    </section> -->
   </main>
 </template>
 
@@ -527,14 +534,9 @@ onBeforeUnmount(() => {
 
 // .swiper-button-prev {
 //   transform: translateX(1em) scale(0.6);
-// }
-</style>
+// }</style>
 
 <style lang="scss" scoped>
-.recolor {
-  filter: saturate(114%) brightness(91%) contrast(115.3%);
-}
-
 .flop {
   transition: all 0.5s ease;
   transform: rotateX(-90deg) translateZ(-0.9375rem);
@@ -562,15 +564,6 @@ onBeforeUnmount(() => {
         opacity: 1;
       }
     }
-  }
-}
-</style>
-
-<style lang="scss">
-.device-ios,
-.device-android {
-  .recolor {
-    filter: saturate(89%) brightness(97%) contrast(115.3%);
   }
 }
 </style>
