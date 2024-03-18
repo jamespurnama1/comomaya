@@ -4,7 +4,6 @@ import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 import CustomFooter from '@/components/CustomFooter.vue';
-import Splash from '@/components/Splash.vue';
 
 const router = useRouter()
 const route = useRoute()
@@ -149,7 +148,7 @@ const isTransparent = computed(() => {
     :class="[innerWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
   <!-- Splash Screen -->
-  <Splash v-if="splash" @close="() => splash = false" />
+  <!-- <Splash v-if="splash" @close="() => splash = false" /> -->
 
   <!-- Nav Button + Logo -->
 

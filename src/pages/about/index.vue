@@ -374,12 +374,12 @@ onBeforeUnmount(() => {
 
       <!--- RMC --->
 
-      <section class="bg-stone-300 lg:flex-row relative flex flex-col gap-8 justify-center md:min-h-[40vh]">
+      <section class="bg-beige-normal lg:flex-row relative flex flex-col gap-8 justify-center md:min-h-[40vh]">
         <div class="lg:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:pl-20 xl:pl-36">
-          <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest text-right">
+          <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
-          <h2 class="drama mb-1 -mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-active">
+          <h2 class="drama mb-1 -mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-black">
             grants for&nbsp;<strong>SMEs</strong>
           </h2>
           <p class="pb-10 text-base md:text-lg text-right text-black">
@@ -388,7 +388,7 @@ onBeforeUnmount(() => {
             Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for
             sustainability-related projects).
             <wbr>If you qualify for this grant and are interested in this opportunity you can visit&nbsp;<a
-              class='text-active hover:underline cursor-pointer font-extrabold z-10' target="_blank"
+              class='text-blue hover:underline cursor-pointer font-extrabold z-10' target="_blank"
               rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application"
               href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
           </p>
@@ -415,7 +415,7 @@ onBeforeUnmount(() => {
             <img class="flip object-contain w-16 md:w-36 h-32 md:py-8 md:px-5 p-1 brightness-0" :src="brand"
               :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
             <p class="flop text-2xl md:text-5xl text-active text-center">{{
-            brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p>
+              brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p>
           </div>
         </div>
         <!-- <swiper class="w-full" :autoplay="{
