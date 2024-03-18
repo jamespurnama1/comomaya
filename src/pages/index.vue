@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useHead } from '@unhead/vue';
 import { useStore } from '../stores';
+import Splash from '@/components/Splash.vue';
 
 const store = useStore()
 
@@ -57,6 +58,19 @@ async function loadContent() {
 	})
 
 	ScrollTrigger.create({
+		trigger: ".splash",
+		start: "top bottom",
+		end: "bottom top",
+		markers: true,
+		snap: {
+			snapTo: [0, 0.5, 1],
+			delay: 0.3,
+			duration: 1,
+			ease: "power1.inOut",
+		}
+	})
+
+	ScrollTrigger.create({
 		trigger: "main",
 		start: "top top",
 		end: "bottom bottom",
@@ -64,12 +78,12 @@ async function loadContent() {
 		animation: imageFade,
 		scrub: true,
 		pin: ".allBG",
-		snap: {
-			snapTo: [0, 0.24, 0.45, 0.67, 0.84, 1],
-			ease: "expo.out",
-			delay: 0.3,
-			duration: 0.5
-		},
+		// snap: {
+		// 	snapTo: [0, 0.24, 0.45, 0.67, 0.84, 1],
+		// 	ease: "expo.out",
+		// 	delay: 0.3,
+		// 	duration: 0.5
+		// },
 		onUpdate: self => {
 			let skew = clamp(self.getVelocity() / -300);
 			// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
@@ -85,13 +99,13 @@ async function loadContent() {
 	})
 }
 
-// const scroll = ref(0)
+const scroll = ref(0)
 
 const bounce = ref()
 
-// function updateScroll() {
-// 	scroll.value = main.value ? main.value.scrollTop : 0
-// }
+function updateScroll() {
+	scroll.value = window.scrollY;
+}
 
 
 onMounted(() => {
@@ -104,7 +118,7 @@ onMounted(() => {
 	setTimeout(() => {
 		loadContent()
 		// if (!main.value) return;
-		// main.value.addEventListener('scroll', updateScroll)
+		window.addEventListener('scroll', updateScroll)
 	}, 100);
 });
 
@@ -116,7 +130,7 @@ watch(() => store.isFetched, (x) => {
 onBeforeUnmount(() => {
 	// gsap.to('html', { backgroundColor: "#A0AAC4" })
 	if (imageFade) imageFade.kill()
-	// window.removeEventListener('scroll', updateScroll)
+	window.removeEventListener('scroll', updateScroll)
 	if (!ScrollTrigger.getById("main")) return
 	ScrollTrigger.getById("main")!.kill()
 })
@@ -127,6 +141,7 @@ function scrollDown() {
 </script>
 
 <template>
+	<Splash />
 	<main ref="main" v-if="store.getFeatured.length" class="relative flex w-screen justify-center z-10">
 		<ul class="portfoliosList flex flex-col md:mx-10 m-auto top-0 text-center group w-full">
 			<li v-for="(portfolio, i) in store.getFeatured" ref="projectList"
@@ -141,7 +156,11 @@ function scrollDown() {
 		</ul>
 	</main>
 
-	<div v-if="store.getFeatured.length" class="allBG w-screen h-screen absolute top-0 left-0 z-0">
+	<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']"
+		size="xl" class="text-active fixed left-1/2 top-[85vh] cursor-pointer transition z-10"
+		:class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
+
+	<div v-if="store.getFeatured.length" class="allBG w-screen h-screen absolute top-[100vh] left-0 z-0">
 		<img v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()" :srcset="`
 		${image.toString()}?w=1920&auto=format 1920w,
 								${image.toString()}?w=1024&auto=format 1024w,

@@ -45,19 +45,21 @@ onUnmounted(() => {
     <!-- <h3 class="text-blue text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
         INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3> -->
     <div class="flex gap-10">
-      <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
+      <a class="z-10 group relative" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
         target="_blank" rel="noopener noreferrer">
         <!-- <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-beige" /> -->
-        <p class="text-beige-lighter hover:text-active hover:font-bold">(INSTAGRAM)</p>
+        <p class="absolute group-hover:opacity-100 opacity-0 text-active font-bold">(INSTAGRAM)</p>
+        <p class="text-beige-lighter group-hover:opacity-0">(INSTAGRAM)</p>
       </a>
-      <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya"
+      <a class="z-10 group relative" key="linkedin" href="https://www.linkedin.com/company/comomaya"
         aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-        <p class="text-beige-lighter hover:text-active hover:font-bold">(LINKEDIN)</p>
+        <p class="absolute group-hover:opacity-100 opacity-0 text-active font-bold">(LINKEDIN)</p>
+        <p class="text-beige-lighter group-hover:opacity-0">(LINKEDIN)</p>
         <!-- <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-beige" /> -->
       </a>
     </div>
     <p class="text-xs text-beige-lighter">
-      © 2023 COMOMAYA. All rights reserved.
+      © 2024 COMOMAYA. All rights reserved.
     </p>
   </footer>
 </template>
