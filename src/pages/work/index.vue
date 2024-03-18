@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
     <div class="px-9 md:px-20 xl:px-36 absolute w-full left-0 top-10 md:top-20 my-5">
       <h1 class="text-7xl font-extrabold tracking-tight text-active">work</h1>
     </div>
-    <p class="text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2 pt-44 md:pt-14">
+    <p class="text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2 pt-20 md:pt-14">
       <span v-for="(value, key, i) in filterList" @click="filtered[key] = !filtered[key]">
         <input :name="key" v-model="filtered[key]" type="checkbox" class="hidden bg-transparent text-transparent" />
         <label class="hover:underline whitespace-nowrap"

@@ -133,10 +133,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <main class="relative bg-stone-300 mx-auto flex flex-col justify-center pt-10 md:pt-20">
+  <main class="relative bg-stone-300 mx-auto flex flex-col justify-center pt-10">
     <section class="relative z-0 overflow-hidden">
       <div class="flex px-9 lg:px-20 xl:px-36 flex-col py-16 relative z-10">
-        <h2 class="text-active font-bold text-xl md:text-3xl">comomaya</h2>
+        <h1 class="text-7xl font-extrabold tracking-tight text-active mb-5">about</h1>
+        <h2 class="text-beige-lighter font-bold text-xl md:text-3xl">comomaya</h2>
         <p class="italic text-stone-700 leading-tight text-base md:text-xl">
           <span class="font-semibold">noun</span>
           <br>
@@ -145,11 +146,11 @@ onBeforeUnmount(() => {
           <span v-else class="pl-7" />
           maya: (Sanskrit) energy,&nbsp;magic
         </p>
-        <h1
+        <h3
           class="split lowercase my-5 text-6xl md:text-[7rem] md:leading-[6.5rem] text-active font-extrabold lg:w-2/3 overflow-hidden relative">
           <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span
             class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
-        </h1>
+        </h3>
         <p class="text-beige-lighter text-xl"><strong>COMOMAYA</strong> exists in order to make international standards
           of
           branding &amp; design more accessible to new and upcoming brands, business owners and start-ups alike. To
@@ -380,7 +381,7 @@ onBeforeUnmount(() => {
             GRANTS &amp; SUBSIDIES
           </h3>
           <h2 class="drama mb-1 -mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-black">
-            grants for&nbsp;<strong>SMEs</strong>
+            singapore&nbsp;<strong>SMEs</strong>
           </h2>
           <p class="pb-10 text-base md:text-lg text-right text-black">
             We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management
@@ -405,17 +406,18 @@ onBeforeUnmount(() => {
 
       <!--- BRANDS --->
 
-      <section class="bg-beige-normal flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
-        <h3 class="text-black drama md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
+      <section class="bg-blue flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
+        <h3 class="text-active drama md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
           <strong>brands</strong> we have<br>worked&nbsp;with
           <br />
         </h3>
         <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-x-10 md:gap-y-16 py-10">
-          <div v-for="brand in brands" class="flex justify-center items-center w-full h-full cube">
-            <img class="flip object-contain w-16 md:w-36 h-32 md:py-8 md:px-5 p-1 brightness-0" :src="brand"
-              :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
-            <p class="flop text-2xl md:text-5xl text-active text-center">{{
-              brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p>
+          <div v-for="brand in brands" class="flex justify-center items-center w-full h-full">
+            <img
+              class="object-contain w-16 md:w-36 h-32 md:py-8 md:px-5 p-1 brightness-0 hover:brightness-100 transition-all duration-500"
+              :src="brand" :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+            <!-- <p class="flop text-2xl md:text-5xl text-active text-center">{{
+              brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p> -->
           </div>
         </div>
         <!-- <swiper class="w-full" :autoplay="{
