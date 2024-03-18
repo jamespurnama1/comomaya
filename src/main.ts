@@ -11,6 +11,7 @@ import { faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp } fro
 import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faSquareXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { createPinia } from 'pinia'
+import Vue3Lottie from 'vue3-lottie'
 
 const head = createHead()
 
@@ -30,6 +31,7 @@ export const createApp = ViteSSG(
     // install plugins etc.
     app.component('font-awesome-icon', FontAwesomeIcon)
     app.use(store)
+    app.use(Vue3Lottie)
     app.use(head)
   },
 )

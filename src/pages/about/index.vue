@@ -406,10 +406,10 @@ onBeforeUnmount(() => {
 
       <!--- BRANDS --->
 
-      <section class="bg-blue flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
+      <section class="bg-stone-500 flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
         <h3 class="text-active drama md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
-          <strong>brands</strong> we have<br>worked&nbsp;with
-          <br />
+          brands <strong>we have<br>worked&nbsp;with</strong>
+            <br />
         </h3>
         <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-x-10 md:gap-y-16 py-10">
           <div v-for="brand in brands" class="flex justify-center items-center w-full h-full">
@@ -501,6 +501,22 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss">
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: black;
+}
+
+// .swiper-button-next {
+//   transform: translateX(-1em) scale(0.6);
+// }
+
+// .swiper-button-prev {
+//   transform: translateX(1em) scale(0.6);
+// }</style>
+
+<style lang="scss" scoped>
 .split span {
   opacity: 0;
   visibility: hidden;
@@ -525,20 +541,6 @@ onBeforeUnmount(() => {
   letter-spacing: -0.15em;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: black;
-}
-
-// .swiper-button-next {
-//   transform: translateX(-1em) scale(0.6);
-// }
-
-// .swiper-button-prev {
-//   transform: translateX(1em) scale(0.6);
-// }</style>
-
-<style lang="scss" scoped>
 .flop {
   transition: all 0.5s ease;
   transform: rotateX(-90deg) translateZ(-0.9375rem);
