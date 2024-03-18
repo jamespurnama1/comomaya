@@ -26,7 +26,7 @@ const links = [
   '',
   'work',
   'about',
-  'singapore SMEs',
+  'grants',
   'contact'
 ];
 const target = reactive({ x: 0, y: 0 })
@@ -72,7 +72,7 @@ onMounted(() => {
 })
 
 function whatisLink(l: string) {
-  if (l === 'singapore SMEs') return '/about#grant'
+  if (l === 'grants') return '/about#grant'
   if (l === 'clients & work') return '/work'
   if (l === 'people & services') return '/about'
   return `/${l}`
@@ -157,11 +157,15 @@ const isTransparent = computed(() => {
     :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
 
     <router-link aria-label="Go to Landing Page" to="/">
-      <picture class="transition-all"
+      <!-- <picture class="transition-all"
         :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']">
         <img src="/logo.svg" alt="COMOMAYA"
           class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left" />
-      </picture>
+      </picture> -->
+      <Vue3Lottie
+        :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']"
+        class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left"
+        animationLink="./assets/logo.json" :height="innerWidth > 768 ? 50 : 38" :width="innerWidth > 768 ? 249 : 178" />
     </router-link>
 
     <button aria-label="Navigation"
@@ -222,8 +226,9 @@ const isTransparent = computed(() => {
 
   <transition name="fade">
     <button aria-label="Scroll Up" v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
-      class="flex justify-center items-center absolute bottom-5 right-10 bg-active w-10 h-10 z-20">
-      <font-awesome-icon :icon="['fas', 'angle-up']" size="lg" class="mx-2 text-blue" />
+      class="flex justify-center items-center absolute bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-10 h-10 z-20">
+      <font-awesome-icon :icon="['fas', 'angle-up']" size="lg"
+        class="mx-2 text-blue hover:text-active duration-200 transition-all" />
     </button>
   </transition>
 

@@ -4,8 +4,8 @@
       HELLO
     </h3>
     <div class="flex gap-5 md:gap-12 md:flex-row flex-col">
-      <h1 class="split text-2xl md:text-6xl text-active font-extrabold overflow-hidden relative md:w-1/2">
-        <span>We</span><span>are</span><span>a</span><br><span>boutique</span><span>creative</span><span>agency</span><br><span>&amp;</span><span>we</span><span>build</span><span>powerful&nbsp;brands</span>
+      <h1 class="split drama text-2xl md:text-6xl text-active font-extrabold overflow-hidden relative md:w-1/2">
+        <strong><span>We</span><span>are</span><span>a</span><span>boutique</span><br><span>creative</span><span>agency</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful&nbsp;brands</span></strong>
       </h1>
       <div class="flex flex-col md:w-1/2">
         <p class="ml-auto md:text-2xl text-lg !leading-normal">
@@ -63,6 +63,16 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+.drama {
+  font-weight: 600;
+  font-family: "Narziss";
+}
+
+.drama strong {
+  font-weight: 800;
+  font-family: "Barlow";
+}
+
 .split span {
   opacity: 0;
   visibility: hidden;

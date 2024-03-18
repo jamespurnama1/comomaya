@@ -18,7 +18,8 @@
     "gsap": "^3.11.3",
     "pinia": "^2.0.23",
     "swiper": "^8.4.4",
-    "vue": "^3.2.41"
+    "vue": "^3.2.41",
+    "vue3-lottie": "^3.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "^1.0.1",
