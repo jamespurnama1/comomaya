@@ -26,7 +26,7 @@ const links = [
   '',
   'work',
   'about',
-  'grants for SMEs',
+  'singapore SMEs',
   'contact'
 ];
 const target = reactive({ x: 0, y: 0 })
@@ -72,7 +72,7 @@ onMounted(() => {
 })
 
 function whatisLink(l: string) {
-  if (l === 'grants for SMEs') return '/about#grant'
+  if (l === 'singapore SMEs') return '/about#grant'
   if (l === 'clients & work') return '/work'
   if (l === 'people & services') return '/about'
   return `/${l}`
@@ -181,7 +181,7 @@ const isTransparent = computed(() => {
 
   <transition name="fly">
     <nav v-show="opened" @touchmove="e => { touchmoved = true }"
-      class="moreNav bg-beige-normal w-screen fixed left-0 top-0 z-30 flex items-center md:justify-center flex-col overflow-y-scroll">
+      class="moreNav bg-beige-normal w-screen fixed left-0 top-0 z-20 flex items-center md:justify-center flex-col overflow-y-scroll gap-5 md:gap-20">
       <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
         class="text-center mt-16 sm:mt-24">
         <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"

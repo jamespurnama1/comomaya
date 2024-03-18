@@ -4,19 +4,20 @@
       HELLO
     </h3>
     <div class="flex gap-5 md:gap-12 md:flex-row flex-col">
-      <h1 class="split text-2xl md:text-6xl text-active font-extrabold overflow-hidden relative">
-        <span>COMOMAYA's</span><span>mission</span><span>is</span><span>to</span><span>make</span><span>international</span><span>standards</span><span>of</span><span>branding</span><span>&amp;</span><span>design</span><span>more</span><span>accessible</span><span>to</span><span>startups</span><span>and&nbsp;SMEs.</span>
+      <h1 class="split text-2xl md:text-6xl text-active font-extrabold overflow-hidden relative md:w-1/2">
+        <span>We</span><span>are</span><span>a</span><br><span>boutique</span><span>creative</span><span>agency</span><br><span>&amp;</span><span>we</span><span>build</span><span>powerful&nbsp;brands</span>
       </h1>
-      <div class="flex flex-col gap-5">
+      <div class="flex flex-col md:w-1/2">
         <p class="ml-auto md:text-2xl text-lg !leading-normal">
-          We provide the highest quality of work, by engaging some of the best talent there is, but without the
-          exorbitant
-          price tag that comes with hiring a top global&nbsp;agency.
+          COMOMAYA&apos;s mission is to make international standards of branding &amp; design more accessible to
+          startups and&nbsp;SMEs.
           <br>
           <br>
           We aim to empower business owners with brands that tell a
           powerful story. To help them express their passion through great design. To energise brands with a strong
           purpose. And to make heads&nbsp;turn.
+          <br>
+          <br>
         </p>
         <router-link to="/about">
           <button
