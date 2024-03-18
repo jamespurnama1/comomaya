@@ -38,46 +38,49 @@ onUnmounted(() => {
 
 <template>
   <footer
-    class="flex flex-col items-start justify-start py-12 md:py-24 px-5 md:px-36 lg:mx-auto w-screen bg-beige-lighter gap-24">
+    class="flex flex-col items-start justify-start py-12 md:py-24 px-5 md:px-36 lg:mx-auto w-screen bg-beige-lighter gap-8 md:gap-24">
     <!-- <video class="recolor max-h-10 md:max-h-24 md:-ml-3" playsinline loop autoplay="true" muted>
       <source src="/assets/aboutus.mp4" type="video/mp4" />
     </video> -->
     <!-- <h3 class="text-blue text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
         INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3> -->
-    <ul class="flex gap-10">
+    <ul class="flex gap-10 md:flex-row flex-col">
       <!-- <li class="text-beige-lighter hover:text-active text-lg"><router-link to="/">Home</router-link></li> -->
-      <li class="group text-lg"><router-link to="/work">
+      <li class="group"><router-link to="/work">
           <div>
-            <p class="text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
+            <p
+              class=" mtext-lg text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
               WORK</p>
             <p
-              class="text-black font-extrabold text-4xl tracking-tight group-hover:text-active transition-all duration-500">
+              class="text-black font-extrabold text-2xl md:text-4xl tracking-tight group-hover:text-active transition-all duration-500">
               See it here.</p>
           </div>
         </router-link></li>
-      <li class="group text-lg"><router-link to="/about">
+      <li class="group"><router-link to="/about">
           <div>
-            <p class="text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
+            <p
+              class=" mtext-lg text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
               ABOUT</p>
             <p
-              class="text-black font-extrabold text-4xl tracking-tight group-hover:text-active transition-all duration-500">
+              class="text-black font-extrabold text-2xl md:text-4xl tracking-tight group-hover:text-active transition-all duration-500">
               What is
               COMOMAYA?</p>
           </div>
         </router-link></li>
       <!-- <li class="text-beige-lighter hover:text-active text-lg"><router-link to="/about#grant">Singapore
           SMEs</router-link></li> -->
-      <li class="group text-lg"><router-link to="/contact">
+      <li class="group"><router-link to="/contact">
           <div>
-            <p class="text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
+            <p
+              class=" mtext-lg text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
               CONTACT</p>
             <p
-              class="text-black font-extrabold text-4xl tracking-tight group-hover:text-active transition-all duration-500">
+              class="text-black font-extrabold text-2xl md:text-4xl tracking-tight group-hover:text-active transition-all duration-500">
               Let's chat.</p>
           </div>
         </router-link></li>
     </ul>
-    <ul class="flex gap-10 text-active font-extrabold tracking-tight text-4xl">
+    <ul class="flex gap-3 md:gap-10 text-active font-extrabold tracking-tight text-2xl md:text-4xl">
       <li>Singapore.</li>
       <li>India.</li>
     </ul>
@@ -85,7 +88,7 @@ onUnmounted(() => {
       <p class="text-stone-500 md:text-base text-sm">
         © 2024 COMOMAYA. All rights reserved.
       </p>
-      <div class="flex gap-5 md:text-base text-sm">
+      <div class="flex gap-1 md:gap-5 md:text-base text-sm">
         <a class="z-10 relative" key="ig" href="https://instagram.com/comomaya"
           aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
           <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl"
