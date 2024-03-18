@@ -61,7 +61,7 @@ async function loadContent() {
 		trigger: ".splash",
 		start: "top bottom",
 		end: "bottom top",
-		markers: true,
+		// markers: true,
 		snap: {
 			snapTo: [0, 0.5, 1],
 			delay: 0.3,
@@ -155,11 +155,11 @@ function scrollDown() {
 			</li>
 		</ul>
 	</main>
-
-	<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']"
-		size="xl" class="text-active fixed left-1/2 top-[85vh] cursor-pointer transition z-10"
-		:class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
-
+	<button>
+		<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']"
+			size="2xl" class="text-active fixed left-1/2 top-[85vh] cursor-pointer transition z-10"
+			:class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
+	</button>
 	<div v-if="store.getFeatured.length" class="allBG w-screen h-screen absolute top-[100vh] left-0 z-0">
 		<img v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()" :srcset="`
 		${image.toString()}?w=1920&auto=format 1920w,
