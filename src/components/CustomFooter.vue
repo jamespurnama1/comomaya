@@ -80,7 +80,7 @@ onUnmounted(() => {
           </div>
         </router-link></li>
     </ul>
-    <ul class="flex gap-3 md:gap-10 text-active font-extrabold tracking-tight text-2xl md:text-4xl">
+    <ul class="flex gap-3 md:gap-10 text-black font-extrabold tracking-tight text-2xl md:text-4xl">
       <li>Singapore.</li>
       <li>India.</li>
     </ul>
