@@ -28,7 +28,7 @@ export const useStore = defineStore('store', {
     async load() {
       if (this.featured.length) return
       axios
-      .get('https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects/64803dec2fb5fafdbb9670bb?read_key=Yz8ifYSRHxv4SzRygKNMbdGZnUaTUAUZBbseBGOILB3eWpiwh1&depth=1&props=metadata')
+      .get(`https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects/64803dec2fb5fafdbb9670bb?read_key=${import.meta.env.VITE_COSMIC_KEY}&depth=1&props=metadata`)
       .then((res) => {
         this.featured = res.data.object.metadata.featured
       }).catch((err) => {
