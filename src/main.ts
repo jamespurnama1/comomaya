@@ -5,6 +5,7 @@ import './transition.scss'
 import App from './App.vue'
 import routes from '~pages'
 import { createHead } from '@unhead/vue'
+import posthogPlugin from "./plugins/posthog";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -32,6 +33,7 @@ export const createApp = ViteSSG(
     app.component('font-awesome-icon', FontAwesomeIcon)
     app.use(store)
     app.use(Vue3Lottie)
+    app.use(posthogPlugin)
     app.use(head)
   },
 )

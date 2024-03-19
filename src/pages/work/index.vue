@@ -30,7 +30,7 @@ const response = ref({ list: [] as Featured[] | never[] })
 
 
 async function load() {
-  axios.get('https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects/64803dec2fb5fafdbb9670bc?read_key=Yz8ifYSRHxv4SzRygKNMbdGZnUaTUAUZBbseBGOILB3eWpiwh1&depth=1&props=metadata', { withCredentials: false })
+  axios.get(`https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects/64803dec2fb5fafdbb9670bc?read_key=${import.meta.env.VITE_COSMIC_KEY}&depth=1&props=metadata`, { withCredentials: false })
     .then((res: AxiosResponse<List>) => {
       response.value.list = res.data.object.metadata.list
       response.value.list.forEach(x => x.metadata.typejson.type.forEach((y) => {
