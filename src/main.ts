@@ -6,17 +6,18 @@ import App from './App.vue'
 import routes from '~pages'
 import { createHead } from '@unhead/vue'
 import posthogPlugin from "./plugins/posthog";
-
+import CustomFooter from '@/components/CustomFooter.vue';
+import Splash from '@/components/Splash.vue';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faSquareXmark } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp, faArrowDown, faBook, faPencil, faLaptop, faTrophy, faSquareXmark, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { createPinia } from 'pinia'
 import Vue3Lottie from 'vue3-lottie'
 
 const head = createHead()
 
-library.add(faAngleUp, faSquareXmark, faSquareInstagram, faAnglesDown, faLinkedin, faTwitter, faPinterest, faWhatsapp, faBook, faPencil, faLaptop, faTrophy)
+library.add(faAngleUp, faSquareXmark, faSquareInstagram, faArrowDown, faLinkedin, faTwitter, faPinterest, faWhatsapp, faBook, faPencil, faLaptop, faTrophy, faArrowRight)
 const store = createPinia()
 
 // `export const createApp` is required instead of the original `createApp(App).mount('#app')`
@@ -31,9 +32,13 @@ export const createApp = ViteSSG(
   ({ app, router, routes, isClient, initialState }) => {
     // install plugins etc.
     app.component('font-awesome-icon', FontAwesomeIcon)
+    app.component('CustomFooter', CustomFooter)
+    app.component('Splash', Splash)
     app.use(store)
     app.use(Vue3Lottie)
-    app.use(posthogPlugin)
+    if (isClient) {
+      app.use(posthogPlugin)
+    }
     app.use(head)
   },
 )

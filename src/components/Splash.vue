@@ -1,37 +1,78 @@
 <template>
-  <div class="bg-stone-300 z-40 w-full h-screen px-9 lg:px-20 xl:px-36 flex items-start justify-center splash flex-col">
-    <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
-      HELLO
-    </h3>
-    <div class="flex gap-5 md:gap-12 md:flex-row flex-col">
-      <h1 class="split drama text-4xl md:text-6xl text-active font-extrabold overflow-hidden relative md:w-1/2">
-        <strong><span>We</span><span>are</span><span>a</span><span>boutique</span><br><span>creative</span><span>agency</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful&nbsp;brands</span></strong>
-      </h1>
-      <div class="flex flex-col md:w-1/2">
-        <p class="ml-auto md:text-2xl text-lg !leading-normal">
-          COMOMAYA&apos;s mission is to make international standards of branding &amp; design more accessible to
-          startups and&nbsp;SMEs.
-          <br>
-          <br>
-          We aim to empower business owners with brands that tell a
-          powerful story. To help them express their passion through great design. To energise brands with a strong
-          purpose. And to make heads&nbsp;turn.
-          <br>
-          <br>
-        </p>
-        <router-link to="/about">
-          <button
-            class="outline-2 outline outline-white py-3 px-3 rounded-lg text-white hover:bg-white hover:text-stone-500 duration-500 transition-all mr-auto font-semibold tracking-widest">About
-            COMOMAYA</button></router-link>
+  <div
+    class="bg-stone-300 z-40 w-full py-9 px-9 lg:px-20 xl:px-36 flex items-start justify-center flex-col gap-5 md:gap-5">
+    <div class="w-full">
+      <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
+        HELLO
+      </h3>
+      <div class="flex gap-5 md:gap-5 md:flex-row flex-col w-full justify-between">
+        <div class="flex flex-col md:w-1/2">
+          <h1 class="split drama text-4xl md:text-6xl text-active font-extrabold overflow-hidden relative">
+            <strong><span>We</span><span>are</span><span>a</span><span>boutique</span><br><span>creative</span><span>agency</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful&nbsp;brands</span></strong>
+          </h1>
+          <router-link to="/about">
+            <button class="py-3 rounded-lg mr-auto group font-semibold flex items-center gap-2">
+              <p class="text-white group-hover:text-active duration-500 transition-all">About COMOMAYA</p>
+              <font-awesome-icon :icon="['fas', 'fa-arrow-right']"
+                class="text-white group-hover:text-active duration-500 transition-all group-hover:translate-x-2" />
+            </button></router-link>
+        </div>
+
+        <div class="md:w-1/2 relative overflow-hidden">
+          <picture class="">
+            <source srcset=" /assets/brewlander-1.webp" type="image/webp">
+            <source srcset="/assets/brewlander-1.jpg" type="image/jpeg">
+            <img class="parallax object-cover w-full h-[60vw] scale-[2] md:scale-[1.5] origin-bottom"
+              src="/assets/brewlander-1.jpg" alt="Brewlander">
+          </picture>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex md:flex-row flex-col-reverse gap-5 md:gap-5">
+      <div class="md:w-1/2 relative overflow-hidden">
+        <picture class="">
+          <source srcset=" /assets/carte-dor.webp" type="image/webp">
+          <source srcset="/assets/carte-dor.jpeg" type="image/jpeg">
+          <img class="parallax object-cover w-full h-full scale-[2] md:scale-[1.5] origin-bottom"
+            src="/assets/carte-dor.jpeg" alt="Carte D'Or">
+        </picture>
+      </div>
+
+      <div class="md:w-1/2 flex flex-col gap-5 md:gap-5">
+        <div class="relative overflow-hidden">
+          <picture class="">
+            <source srcset=" /assets/revolver.webp" type="image/webp">
+            <source srcset="/assets/revolver.jpeg" type="image/jpeg">
+            <img class="parallax object-cover w-full scale-[2.5] md:scale-[2] origin-bottom" src="/assets/revolver.jpeg"
+              alt="Revolver">
+          </picture>
+        </div>
+        <div>
+          <h3 class="split text-4xl md:text-6xl text-active font-extrabold overflow-hidden relative">
+            <span class="!leading-none">COMOMAYA's Mission</span>
+          </h3>
+          <p class="ml-auto md:text-lg text-base !leading-normal text-white">
+            COMOMAYA&apos;s mission is to make international standards of branding &amp; design more accessible to
+            startups and&nbsp;SMEs.
+            <br>
+            <br>
+            We aim to empower business owners with brands that tell a
+            powerful story. To help them express their passion through great design. To energise brands with a strong
+            purpose. And to make heads&nbsp;turn.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { Ref, nextTick, onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+const parallax = ref([]) as Ref<NodeListOf<HTMLDivElement>[]>
 // const emit = defineEmits(['close'])
 // const status = ref(true)
 
@@ -46,7 +87,8 @@ import { gsap } from 'gsap';
 //   })
 // }
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick()
   const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
   if (split) {
     gsap.to(split, {
@@ -59,6 +101,17 @@ onMounted(() => {
       stagger: 0.2,
     })
   }
+
+  const parallax = gsap.utils.toArray(".parallax")
+  // parallax.forEach(el => {
+  gsap.to(parallax, {
+    y: "+=300px",
+    scrollTrigger: {
+      // trigger: parallax.value,
+      scrub: true,
+    }
+  })
+  // })
 })
 </script>
 

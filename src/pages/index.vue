@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useHead } from '@unhead/vue';
 import { useStore } from '../stores';
-import Splash from '@/components/Splash.vue';
 
 const store = useStore()
 
@@ -32,18 +31,33 @@ async function loadContent() {
 	loaded = true;
 
 	await new Promise(resolve => setTimeout(resolve, 1000));
-	const skewSetter = gsap.quickSetter(projectList.value, "skewY", "deg");
+	// const skewSetter = gsap.quickSetter(projectList.value, "skewY", "deg");
 
 	let proxy = { skew: 0 };
 	const clamp = gsap.utils.clamp(-20, 20);
-	gsap.set(projectList.value, { transformOrigin: "right center", force3D: true });
+	// gsap.set(projectList.value, { transformOrigin: "right center", force3D: true });
+	gsap.to(".bounce", {
+		y: '+=10px',
+		duration: 1,
+		yoyo: true,
+		yoyoEase: "power2.in",
+		repeat: - 1
+	})
+	// const allBGs = gsap.utils.toArray(".bg")
 
-	const allBGs = gsap.utils.toArray(".bg")
-
-	imageFade = gsap.timeline({ defaults: { ease: 'none', stagger: -2 } })
-		// .to(allBGs, {duration: 0.3})
-		.to(allBGs, { autoAlpha: 1, duration: 0.5 })
+	// imageFade = gsap.timeline({ defaults: { ease: 'none', stagger: -2 } })
+	// 	// .to(allBGs, {duration: 0.3})
+	// 	.to(allBGs, { autoAlpha: 1, duration: 0.5 })
 	// .to({}, { duration: 1 }, 1)
+
+	gsap.to(".parallaxVideo", {
+		y: "300px",
+		scrollTrigger: {
+			// trigger: parallax.value,
+			scrub: true,
+			// markers: true
+		}
+	})
 
 	ScrollTrigger.create({
 		trigger: "footer",
@@ -57,51 +71,46 @@ async function loadContent() {
 		}
 	})
 
-	ScrollTrigger.create({
-		trigger: ".splash",
-		start: "top bottom",
-		end: "bottom top",
-		// markers: true,
-		snap: {
-			snapTo: [0, 0.5, 1],
-			delay: 0.3,
-			duration: 1,
-			ease: "power1.inOut",
-		}
-	})
+	// ScrollTrigger.create({
+	// 	trigger: ".splash",
+	// 	start: "top bottom",
+	// 	end: "bottom top",
+	// 	// markers: true,
+	// 	snap: {
+	// 		snapTo: [0, 0.5, 1],
+	// 		delay: 0.3,
+	// 		duration: 1,
+	// 		ease: "power1.inOut",
+	// 	}
+	// })
 
-	ScrollTrigger.create({
-		trigger: "main",
-		start: "top top",
-		end: "bottom bottom",
-		id: "main",
-		animation: imageFade,
-		scrub: true,
-		pin: ".allBG",
-		// snap: {
-		// 	snapTo: [0, 0.24, 0.45, 0.67, 0.84, 1],
-		// 	ease: "expo.out",
-		// 	delay: 0.3,
-		// 	duration: 0.5
-		// },
-		onUpdate: self => {
-			let skew = clamp(self.getVelocity() / -300);
-			// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
-			if (Math.abs(skew) > Math.abs(proxy.skew)) {
-				proxy.skew = skew;
-				gsap.to(proxy, { skew: 0, duration: 0.8, ease: "power3", overwrite: true, onUpdate: () => skewSetter(proxy.skew) });
-			}
+	// ScrollTrigger.create({
+	// 	trigger: "main",
+	// 	start: "top top",
+	// 	end: "bottom bottom",
+	// 	id: "main",
+	// 	animation: imageFade,
+	// 	scrub: true,
+	// 	pin: ".allBG",
+	// 	// snap: {
+	// 	// 	snapTo: [0, 0.24, 0.45, 0.67, 0.84, 1],
+	// 	// 	ease: "expo.out",
+	// 	// 	delay: 0.3,
+	// 	// 	duration: 0.5
+	// 	// },
+	// 	onUpdate: self => {
+	// 		let skew = clamp(self.getVelocity() / -300);
+	// 		// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+	// 		if (Math.abs(skew) > Math.abs(proxy.skew)) {
+	// 			proxy.skew = skew;
+	// 			gsap.to(proxy, { skew: 0, duration: 0.8, ease: "power3", overwrite: true, onUpdate: () => skewSetter(proxy.skew) });
+	// 		}
 
-		},
-		onLeave: () => {
-
-		}
-	})
+	// 	},
+	// })
 }
 
 const scroll = ref(0)
-
-const bounce = ref()
 
 function updateScroll() {
 	scroll.value = window.scrollY;
@@ -109,11 +118,6 @@ function updateScroll() {
 
 
 onMounted(() => {
-
-	// gsap.to(bounce, {
-	// 	y: '+3em',
-	// 	yoyo: true,
-	// })
 
 	setTimeout(() => {
 		loadContent()
@@ -136,15 +140,31 @@ onBeforeUnmount(() => {
 })
 
 function scrollDown() {
-	window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+	window.scrollTo({ top: window.innerHeight - (innerWidth > 768 ? 106 : 62), behavior: 'smooth' });
 }
 </script>
 
 <template>
 	<div>
+		<button @click="scrollDown"
+			class="flex flex-col items-center justify-center absolute top-[85vh] left-1/2 -translate-x-1/2">
+			<p class="text-beige-lighter font-semibold text-xl">Scroll</p>
+			<font-awesome-icon ref="bounce" v-if="$route.path === '/'" :icon="['fas', 'arrow-down']" size="lg"
+				class="text-beige-lighter cursor-pointer transition z-10 bounce"
+				:class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
+		</button>
+		<div class="overflow-hidden relative w-full h-screen">
+			<!-- <picture>
+				<source srcset=" /assets/brewlander-1.webp" type="image/webp">
+				<source srcset="/assets/brewlander-1.jpg" type="image/png">
+				<img class="object-cover w-full h-full relative brightness-75 scale-[1.25] parallaxVideo"
+					src="/assets/brewlander-1.jpg" alt="Brewlander">
+			</picture> -->
+			<video muted autoplay preload="true" controls="false" playsinline="true" loop src="/assets/hero.mp4"
+				class="object-cover w-full h-full relative brightness-75 scale-[1.25] parallaxVideo" />
+		</div>
 		<Splash />
-		<main ref="main" v-if="store.getFeatured.length"
-			class="relative flex w-screen justify-center z-10">
+		<!-- <main ref="main" v-if="store.getFeatured.length" class="relative flex w-screen justify-center z-10">
 			<ul class="portfoliosList flex flex-col md:mx-10 m-auto top-0 text-center group w-full">
 				<li v-for="(portfolio, i) in store.getFeatured" ref="projectList"
 					class="projectList py-32 md:py-48 transition-all opacity-50 md:group-hover:opacity-20 md:hover:!opacity-100"
@@ -156,13 +176,8 @@ function scrollDown() {
 					</router-link>
 				</li>
 			</ul>
-		</main>
-		<button>
-			<font-awesome-icon ref="bounce" v-if="$route.path === '/'" @click="scrollDown" :icon="['fas', 'angles-down']"
-				size="2xl" class="text-active fixed left-1/2 top-[85vh] cursor-pointer transition z-10"
-				:class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']" />
-		</button>
-		<div v-if="store.getFeatured.length" class="allBG w-screen h-screen absolute top-[100vh] left-0 z-0">
+		</main> -->
+		<!-- <div v-if="store.getFeatured.length" class="allBG w-screen h-screen absolute top-[100vh] left-0 z-0">
 			<img v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()" :srcset="`
 		${image.toString()}?w=1920&auto=format 1920w,
 								${image.toString()}?w=1024&auto=format 1024w,
@@ -178,7 +193,7 @@ function scrollDown() {
 												${store.getFeatured[0].thumbnail.toString()}?w=640&auto=format 640w,
 												${store.getFeatured[0].thumbnail.toString()}?w=480&auto=format 480w`" :alt="store.getFeatured[0].title" />
 
-		</div>
+		</div> -->
 	</div>
 </template>
 

@@ -113,7 +113,7 @@ onBeforeUnmount(() => {
     <ul v-if="filteredFunc().length" class="grid z-10 md:grid-cols-2 w-full max-w-7xl gap-5 mx-auto">
       <li v-for="(portfolio, i) in filteredFunc()" :key="response.list.toString()" @mouseover="hov[i] = true"
         @mouseleave="hov[i] = false">
-        <router-link to="`/work/${portfolio.slug}`" :aria-label="`Go to ${portfolio.title}`">
+        <router-link :to="`/work/${portfolio.slug}`" :aria-label="`Go to ${portfolio.title}`">
           <div class="relative w-full h-48 md:h-[24em] overflow-hidden">
             <img :src="`${portfolio.thumbnail}?auto=format`" :srcset="`${portfolio.thumbnail}?w=1024&auto=format 2048w,
                                   ${portfolio.thumbnail}?w=640&auto=format 1024w,
