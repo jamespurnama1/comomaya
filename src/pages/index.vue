@@ -147,10 +147,10 @@ function scrollDown() {
 <template>
 	<div>
 		<button @click="scrollDown" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']"
-			class="flex flex-col items-center justify-center absolute top-[85vh] left-1/2 -translate-x-1/2">
+			class="flex flex-col items-center justify-center absolute top-[85vh] left-1/2 -translate-x-1/2 transition-all duration-500">
 			<p class="text-beige-lighter font-semibold text-xl">Scroll</p>
 			<font-awesome-icon ref="bounce" v-if="$route.path === '/'" :icon="['fas', 'arrow-down']" size="lg"
-				class="text-beige-lighter cursor-pointer transition z-10 bounce" />
+				class="text-beige-lighter cursor-pointer z-10 bounce" />
 		</button>
 		<div class="overflow-hidden relative w-full h-screen">
 			<!-- <picture>
