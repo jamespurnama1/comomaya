@@ -3,7 +3,6 @@ import { onUpdated, ref, reactive, onMounted, computed, type Ref } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router';
 import { gsap } from 'gsap';
-import CustomFooter from '@/components/CustomFooter.vue';
 
 const router = useRouter()
 const route = useRoute()
@@ -136,7 +135,7 @@ const isBlue = computed(() => {
 
 const isTransparent = computed(() => {
   return route.path === '/'
-  //&& scrollY.value < 50
+  && scrollY.value < 50
 })
 </script>
 
