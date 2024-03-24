@@ -51,7 +51,7 @@ async function loadContent() {
 	// .to({}, { duration: 1 }, 1)
 
 	gsap.to(".parallaxVideo", {
-		y: "20vh",
+		y: "+=45%",
 		scrollTrigger: {
 			// trigger: parallax.value,
 			scrub: true,

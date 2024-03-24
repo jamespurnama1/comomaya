@@ -102,7 +102,7 @@ onMounted(async () => {
   const parallax = gsap.utils.toArray(".parallax")
   parallax.forEach(el => {
     gsap.to((el as HTMLDivElement).querySelector('img'), {
-      y: "-=20vh",
+      y: "-=50%",
       ease: "none",
       scrollTrigger: {
         trigger: el as HTMLDivElement,
