@@ -13,39 +13,36 @@
           <router-link to="/about">
             <button class="py-3 rounded-lg mr-auto group font-semibold flex items-center gap-2">
               <p class="text-white group-hover:text-active duration-500 transition-all">About COMOMAYA</p>
-              <font-awesome-icon :icon="['fas', 'fa-arrow-right']"
+              <font-awesome-icon :icon="['fas', 'fa-angles-right']"
                 class="text-white group-hover:text-active duration-500 transition-all group-hover:translate-x-2" />
             </button></router-link>
         </div>
 
-        <div class="md:w-1/2 relative overflow-hidden">
-          <picture class="">
-            <source srcset=" /assets/brewlander-1.webp" type="image/webp">
-            <source srcset="/assets/brewlander-1.jpg" type="image/jpeg">
-            <img class="parallax object-cover w-full h-[60vw] scale-[2] md:scale-[1.5] origin-bottom"
-              src="/assets/brewlander-1.jpg" alt="Brewlander">
+        <div class="md:w-1/2 relative overflow-hidden flex items-start parallax" style="aspect-ratio: 9/16;">
+          <picture class="w-full h-full">
+            <source srcset=" /assets/lovespun.webp" type="image/webp">
+            <source srcset="/assets/lovespun.jpg" type="image/jpeg">
+            <img class="object-cover w-full h-full scale-[1.5] origin-top" src="/assets/lovespun.jpg" alt="Revolver">
           </picture>
         </div>
       </div>
     </div>
 
     <div class="flex md:flex-row flex-col-reverse gap-5 md:gap-5">
-      <div class="md:w-1/2 relative overflow-hidden">
-        <picture class="">
-          <source srcset=" /assets/carte-dor.webp" type="image/webp">
-          <source srcset="/assets/carte-dor.jpeg" type="image/jpeg">
-          <img class="parallax object-cover w-full h-full scale-[2] md:scale-[1.5] origin-bottom"
-            src="/assets/carte-dor.jpeg" alt="Carte D'Or">
+      <div class="md:w-1/2 relative overflow-hidden flex parallax" style="aspect-ratio: 9/16;">
+        <picture class="w-full h-full">
+          <source srcset=" /assets/mm.webp" type="image/webp">
+          <source srcset="/assets/mm.jpeg" type="image/jpeg">
+          <img class="object-cover w-full h-full scale-[1.5] origin-top" src="/assets/mm.jpeg" alt="Carte D'Or">
         </picture>
       </div>
 
       <div class="md:w-1/2 flex flex-col gap-5 md:gap-5">
-        <div class="relative overflow-hidden">
-          <picture class="">
-            <source srcset=" /assets/revolver.webp" type="image/webp">
-            <source srcset="/assets/revolver.jpeg" type="image/jpeg">
-            <img class="parallax object-cover w-full scale-[2.5] md:scale-[2] origin-bottom" src="/assets/revolver.jpeg"
-              alt="Revolver">
+        <div class="relative overflow-hidden aspect-video flex parallax">
+          <picture class="w-full h-full">
+            <source srcset=" /assets/carte-dor.webp" type="image/webp">
+            <source srcset="/assets/carte-dor.jpeg" type="image/jpeg">
+            <img class="object-cover w-full origin-bottom scale-[1.25]" src="/assets/carte-dor.jpeg" alt="Carte D'Or">
           </picture>
         </div>
         <div>
@@ -103,15 +100,18 @@ onMounted(async () => {
   }
 
   const parallax = gsap.utils.toArray(".parallax")
-  // parallax.forEach(el => {
-  gsap.to(parallax, {
-    y: "+=300px",
-    scrollTrigger: {
-      // trigger: parallax.value,
-      scrub: true,
-    }
+  parallax.forEach(el => {
+    gsap.to((el as HTMLDivElement).querySelector('img'), {
+      y: "-=20vh",
+      ease: "none",
+      scrollTrigger: {
+        trigger: el as HTMLDivElement,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      }
+    })
   })
-  // })
 })
 </script>
 

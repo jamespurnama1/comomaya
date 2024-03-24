@@ -42,12 +42,6 @@ async function load() {
     })
 }
 
-const width = ref(0)
-
-function resize() {
-  width.value = window.innerWidth
-}
-
 function filteredFunc() {
   const entries = Object.entries(filtered.value) as unknown as [type, boolean][]
   entries.forEach(([key, value]) => value ? null : delete filtered.value[key])
@@ -67,8 +61,6 @@ function clearFilter() {
 
 onMounted(() => {
   load()
-  window.addEventListener('resize', resize)
-  resize()
   // gsap.to('html', { backgroundColor: "#F2F2F1" })
   // document.documentElement.setAttribute('data-theme', 'beige');
 })
@@ -81,11 +73,6 @@ useHead({
       content: 'Work',
     },
   ],
-})
-
-onBeforeUnmount(() => {
-  // document.documentElement.setAttribute('data-theme', 'lavender');
-  window.removeEventListener('resize', resize)
 })
 </script>
 
