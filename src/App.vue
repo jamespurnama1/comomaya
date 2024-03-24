@@ -3,9 +3,11 @@ import { onUpdated, ref, reactive, onMounted, computed, type Ref } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router';
 import { gsap } from 'gsap';
+import { useStore } from './stores';
 
 const router = useRouter()
 const route = useRoute()
+const store = useStore()
 
 useHead({
   title: 'COMOMAYA - Branding | Design | Digital | Social Media',
@@ -17,7 +19,6 @@ useHead({
   ],
 })
 
-const innerWidth = ref(0);
 const scrollY = ref(0);
 const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease transform duration-300 bg-active group-hover:bg-black`;
 const linkSelected = ref(false);
@@ -34,7 +35,7 @@ let hoverables: NodeListOf<HTMLAnchorElement> | null = null
 const cursor: Ref<HTMLDivElement | null> = ref(null);
 
 onMounted(() => {
-  innerWidth.value = window.innerWidth
+  store.width = window.innerWidth
   const classNames = [];
   if (navigator.userAgent.match(/(iPad|iPhone|iPod)/i)) classNames.push('device-ios');
   if (navigator.userAgent.match(/android/i)) classNames.push('device-android');
@@ -54,7 +55,7 @@ onMounted(() => {
   }
 
   window.addEventListener('resize', () => {
-    innerWidth.value = window.innerWidth
+    store.width = window.innerWidth
   })
 
   document.addEventListener('scroll', () => {
@@ -98,7 +99,6 @@ function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
       handleNav();
     }, 600);
   } else if ((e as PointerEvent).pointerType !== 'touch' && !touchmoved.value) {
-    console.log(touchmoved.value)
     router.push(whatisLink(href))
     handleNav();
   }
@@ -144,7 +144,7 @@ const isTransparent = computed(() => {
 
   <div ref="cursor"
     class="origin-center cursor transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
-    :class="[innerWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
+    :class="[store.getWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
   <!-- Splash Screen -->
   <!-- <Splash v-if="splash" @close="() => splash = false" /> -->
@@ -164,7 +164,8 @@ const isTransparent = computed(() => {
       <Vue3Lottie
         :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']"
         class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left"
-        animationLink="./assets/logo.json" :height="innerWidth > 768 ? 50 : 38" :width="innerWidth > 768 ? 249 : 178" />
+        animationLink="./assets/logo.json" :height="store.getWidth > 768 ? 50 : 38"
+        :width="store.getWidth > 768 ? 249 : 178" />
     </router-link>
 
     <button aria-label="Navigation"

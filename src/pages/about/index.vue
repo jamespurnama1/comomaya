@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from "swiper";
 import 'swiper/scss';
 import { onMounted, onBeforeUnmount, ref, type Ref } from 'vue';
+import { useStore } from '../../stores';
 
 const modules = [Autoplay]
-
+const store = useStore()
 const brands = Object.values(import.meta.glob('@/assets/brands/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
 // const images = context.keys().map(context);
 // const iconPaths = Object.values(icons).map(module => module.default)
@@ -93,18 +94,11 @@ const testimonialsDate = [
   ""
 ]
 
-const width = ref(0)
 const swiperDOM = ref(null) as Ref<null | typeof Swiper>
 
-function resize() {
-  width.value = window.innerWidth;
-}
+
 
 onMounted(() => {
-  window.addEventListener('resize', resize)
-
-  resize();
-
   const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
   if (split) {
     gsap.to(split, {
@@ -126,10 +120,6 @@ onMounted(() => {
     }
   }, 500);
 });
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', resize)
-})
 </script>
 
 <template>
@@ -142,7 +132,7 @@ onBeforeUnmount(() => {
           <span class="font-semibold">noun</span>
           <br>
           como: (Spanish) as, like
-          <br v-if="width <= 768" />
+          <br v-if="store.getWidth <= 768" />
           <span v-else class="pl-7" />
           maya: (Sanskrit) energy,&nbsp;magic
         </p>
@@ -294,7 +284,8 @@ onBeforeUnmount(() => {
           class="drama -mt-3 text-5xl pb-5 md:pb-0 md:text-8xl md:mb-3 overflow-hidden text-right text-active font-medium">
           our <strong>people</strong>
         </h2>
-        <h3 v-if="width >= 768" class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-3xl md:ml-auto">
+        <h3 v-if="store.getWidth >= 768"
+          class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-3xl md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
           collaborating with some of the best talent in the industry and across the&nbsp;globe.
         </h3>
@@ -308,7 +299,7 @@ onBeforeUnmount(() => {
             <img class="object-contain min-w-full min-h-full h-auto py-3 md:p-5" src="/assets/globe.png" alt="Globe" />
           </picture>
         </div>
-        <section v-if="width < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
+        <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
           <h3 class="text-black text-base py-5 leading-tight">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
             collaborating with some of the best talent in the industry and across the&nbsp;globe.
@@ -333,7 +324,7 @@ onBeforeUnmount(() => {
           class="drama md:ml-[-2px] -mt-3 mb-3 md:mb-0 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
           our <strong>services</strong>
         </h2>
-        <h3 v-if="width >= 768" class="text-black md:text-lg pb-10 md:max-w-3xl">
+        <h3 v-if="store.getWidth >= 768" class="text-black md:text-lg pb-10 md:max-w-3xl">
           We have a vibrant portfolio of clients ranging from FMCG to
           B2B and from corporate to boutique &amp; luxury brands spread across various categories. We are
           multidisciplinary and
@@ -354,7 +345,7 @@ onBeforeUnmount(() => {
             <img class="object-contain min-h-full h-auto" src="/assets/services.png" alt="list of services" />
           </picture> -->
         </div>
-        <section v-if="width < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
+        <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
           <h3 class="text-black text-base font-medium py-5">
             We have a vibrant portfolio of clients ranging from FMCG to B2B
             and from corporate to boutique &amp; luxury brands spread across various categories. We are
@@ -409,7 +400,7 @@ onBeforeUnmount(() => {
       <section class="bg-stone-500 flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
         <h3 class="text-active drama md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
           brands <strong>we have<br>worked&nbsp;with</strong>
-            <br />
+          <br />
         </h3>
         <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-x-10 md:gap-y-16 py-10">
           <div v-for="brand in brands" class="flex justify-center items-center w-full h-full">
