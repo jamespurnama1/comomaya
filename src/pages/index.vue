@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
 })
 
 function scrollDown() {
-	window.scrollTo({ top: window.innerHeight - (store.getWidth > 768 ? 106 : 62), behavior: 'smooth' });
+	window.scrollTo({ top: (window.innerHeight * 0.8) - (store.getWidth > 768 ? 106 : 62), behavior: 'smooth' });
 }
 </script>
 
