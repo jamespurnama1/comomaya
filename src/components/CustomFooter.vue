@@ -38,49 +38,46 @@ onUnmounted(() => {
 
 <template>
   <footer
-    class="flex flex-col items-start justify-start py-12 md:py-24 px-5 md:px-36 lg:mx-auto w-screen bg-beige-lighter gap-8 md:gap-24">
+    class="flex flex-col items-start justify-start py-12 md:py-24 px-5 md:px-36 lg:mx-auto w-screen gap-8 md:gap-24"
+    :class="[$route.name === 'work-slug' ? 'bg-stone-300 text-active' : 'bg-beige-lighter text-black']">
     <!-- <video class="recolor max-h-10 md:max-h-24 md:-ml-3" playsinline loop autoplay="true" muted>
       <source src="/assets/aboutus.mp4" type="video/mp4" />
     </video> -->
     <!-- <h3 class="text-blue text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
         INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3> -->
-    <ul class="flex gap-10 md:flex-row flex-col">
+    <ul class="flex gap-24 md:flex-row flex-col">
       <!-- <li class="text-beige-lighter hover:text-active text-lg"><router-link to="/">Home</router-link></li> -->
       <li class="group"><router-link to="/work">
           <div>
-            <p
-              class=" mtext-lg text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
+            <p class="text-lg text-stone-500 font-semibold tracking-widest">
               WORK</p>
-            <p
-              class="text-black font-extrabold text-2xl md:text-4xl tracking-tight group-hover:text-active transition-all duration-500">
+            <p class="font-extrabold text-3xl md:text-5xl tracking-tight"
+              :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               See it here.</p>
           </div>
         </router-link></li>
       <li class="group"><router-link to="/about">
           <div>
-            <p
-              class=" mtext-lg text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
+            <p class="text-lg text-stone-500 font-semibold tracking-widest">
               ABOUT</p>
-            <p
-              class="text-black font-extrabold text-2xl md:text-4xl tracking-tight group-hover:text-active transition-all duration-500">
-              What is
-              COMOMAYA?</p>
+            <p class="font-extrabold text-3xl md:text-5xl tracking-tight -ml-1"
+              :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
+              Our services.</p>
           </div>
         </router-link></li>
-      <!-- <li class="text-beige-lighter hover:text-active text-lg"><router-link to="/about#grant">Singapore
-          SMEs</router-link></li> -->
+      <!-- <li class=" text-beige-lighter hover:text-active text-lg"><router-link to="/about#grant">Singapore
+                SMEs</router-link></li> -->
       <li class="group"><router-link to="/contact">
           <div>
-            <p
-              class=" mtext-lg text-stone-500 font-semibold tracking-widest group-hover:text-active transition-all duration-500">
+            <p class="text-lg text-stone-500 font-semibold tracking-widest">
               CONTACT</p>
-            <p
-              class="text-black font-extrabold text-2xl md:text-4xl tracking-tight group-hover:text-active transition-all duration-500">
+            <p class="font-extrabold text-3xl md:text-5xl tracking-tight"
+              :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               Let's chat.</p>
           </div>
         </router-link></li>
     </ul>
-    <ul class="flex gap-3 md:gap-10 text-black font-extrabold tracking-tight text-2xl md:text-4xl">
+    <ul class="flex gap-3 md:gap-10 font-extrabold tracking-tight text-2xl md:text-3xl">
       <li>Singapore.</li>
       <li>India.</li>
     </ul>

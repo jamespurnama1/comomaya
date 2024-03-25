@@ -143,7 +143,7 @@
             </a>
             <a :href="`https://twitter.com/share?text=Check%20out%20${thisPage.content.title}%20at%20&url=https://www.comomaya.com${$route.fullPath}`"
               target="_blank" rel="noreferrer noopener" aria-label="Share on Twitter">
-              <font-awesome-icon :icon="['fab', 'twitter']" size="lg"
+              <font-awesome-icon :icon="['fab', 'x-twitter']" size="lg"
                 class="transition-all text-stone-300 mr-5 hover:text-active" />
             </a>
             <a :href="`https://pinterest.com/pin/create/button/?url=https://www.comomaya.com${$route.fullPath}&description=Check%20out%20${thisPage.content.title}`"
