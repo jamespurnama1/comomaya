@@ -43,8 +43,8 @@
       <div class="md:w-1/2 relative overflow-hidden flex items-end">
         <picture class="w-full">
           <source srcset=" /assets/lovespun.webp" type="image/webp">
-          <source srcset="/assets/lovespun.jpeg" type="image/jpeg">
-          <img class="object-cover w-full origin-top" src="/assets/lovespun.jpeg" alt="Lovespun">
+          <source srcset="/assets/lovespun.jpg" type="image/jpeg">
+          <img class="object-cover w-full origin-top" src="/assets/lovespun.jpg" alt="Lovespun">
         </picture>
       </div>
 
