@@ -26,6 +26,7 @@ const links = [
   '',
   'work',
   'about',
+  'services',
   'grants',
   'contact'
 ];
@@ -73,8 +74,9 @@ onMounted(() => {
 
 function whatisLink(l: string) {
   if (l === 'grants') return '/about#grant'
-  if (l === 'clients & work') return '/work'
-  if (l === 'people & services') return '/about'
+  if (l === 'services') return '/about#services'
+  if (l === 'work') return '/work'
+  if (l === 'about') return '/about'
   return `/${l}`
 }
 
@@ -102,7 +104,7 @@ function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
     router.push(whatisLink(href))
     handleNav();
   }
-  if (href !== 'grants for SMEs' && !touchmoved.value) handleScrollUp()
+  if (href !== 'grants' && href !== 'services' && !touchmoved.value) handleScrollUp()
   touchmoved.value = false;
 }
 
@@ -128,8 +130,9 @@ function handleScrollUp() {
 }
 
 const isBlue = computed(() => {
-  const blue = ['about', 'work', 'contact']
+  const blue = ['work-slug']
   if (opened.value) return false
+  // return true
   return blue.some(item => item === route.name) ? true : false;
 })
 
@@ -152,8 +155,7 @@ const isTransparent = computed(() => {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between bg-beige-normal items-center z-30 transition-all origin-top-left"
-    :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
+    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between items-center z-30 transition-all origin-top-left bg-beige-normal" :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
 
     <router-link aria-label="Go to Landing Page" to="/">
       <!-- <picture class="transition-all"

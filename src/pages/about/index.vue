@@ -23,46 +23,22 @@ useHead({
   ],
 })
 
-const services = {
-  "strategy": [
-    "CONSUMER RESEARCH",
-    "COMPETITOR LANDSCAPE",
-    "BRAND PILLARS",
-    "BRAND POSITIONING",
-    "BRAND VISION",
-    "BRAND MISSION",
-    "BRAND VALUES",
-    "BRAND PERSONALITY",
-    "TONE OF VOICE",
-    "NAMING",
-    "TAGLINE CREATION",
-    "PORTFOLIO STRATEGY",
-    "STRATEGY CONSULTING",
-  ],
-  "creative": [
-    "LOGOS & BRANDMARKS",
-    "DESIGN IDENTITY",
-    "PACKAGING DESIGN 2D & 3D",
-    "ILLUSTRATION",
-    "STATIONERY",
-    "BRAND GUIDES & PLAY BOOKS",
-    "INVESTOR DECKS",
-    "COLLATERALS",
-    "MERCHANDISE",
-    "BROCHURES",
-    "DIGITAL LOGOS",
-    "BRAND FILMS",
-    "WEBSITE DESIGN",
-    "SOCIAL MEDIA TEMPLATES",
-    "DESIGN CONSULTING",
-  ],
-  "production": [
-    "PHOTOGRAPHY",
-    "ARTWORK FOR PRINT",
-    "WEB DEVELOPMENT",
-    "DATA ANALYTICS, SEM, SEO",
-  ]
-}
+const services = [
+  "design",
+  "identity",
+  "packaging",
+  "logo",
+  "naming",
+  "brand strategy",
+  "brand positioning",
+  "tone of voice",
+  "copywriting",
+  "brandmark",
+  "brand guide",
+  "investor decks",
+  "websites",
+  "social media"
+]
 
 const testimonials: { [key: string]: string }[] = [
   {
@@ -95,10 +71,18 @@ const testimonialsDate = [
 ]
 
 const swiperDOM = ref(null) as Ref<null | typeof Swiper>
+const height = ref(0)
+const containerHeight = ref(0)
+let tl = null as null | GSAPTimeline;
 
-
+function checkHeight() {
+  height.value = window.innerHeight;
+  containerHeight.value = (document.querySelector('.services-container') as HTMLUListElement).offsetHeight;
+}
 
 onMounted(() => {
+  checkHeight()
+  document.addEventListener('resize', checkHeight)
   const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
   if (split) {
     gsap.to(split, {
@@ -111,6 +95,24 @@ onMounted(() => {
       stagger: 0.2,
     })
   }
+
+  tl = gsap.timeline({
+    repeat: -1,
+    repeatRefresh: true,
+  })
+    .to(".service", {
+      duration: 1,
+      ease: "power3.inOut",
+      y: `-=${containerHeight.value / services.length}px`,
+      modifiers: {
+        y: gsap.utils.unitize(x => {
+          return parseFloat(x as string) % containerHeight.value
+        }, 'px') //force y value to be between 0 and 100% using modulus
+      },
+    });
+
+  tl.play()
+
   setTimeout(() => {
     if (location.hash) {
       document.querySelector(location.hash) ? window.scrollTo({
@@ -120,14 +122,18 @@ onMounted(() => {
     }
   }, 500);
 });
+
+onBeforeUnmount(() => {
+  if (tl) tl.kill()
+})
 </script>
 
 <template>
   <main class="relative bg-stone-300 mx-auto flex flex-col justify-center pt-10">
     <section class="relative z-0 overflow-hidden">
-      <div class="flex px-9 lg:px-20 xl:px-36 flex-col py-16 relative z-10">
-        <h1 class="text-7xl font-extrabold tracking-tight text-active mb-5">about</h1>
-        <h2 class="text-beige-lighter font-bold text-xl md:text-3xl">comomaya</h2>
+      <div class="flex px-9 lg:px-20 xl:px-36 flex-col py-24 relative z-10">
+        <h1 class="md:text-7xl text-5xl font-extrabold tracking-tight text-active mb-5">about</h1>
+        <!-- <h2 class="text-beige-lighter font-bold text-xl md:text-3xl">comomaya</h2>
         <p class="italic text-stone-700 leading-tight text-base md:text-xl">
           <span class="font-semibold">noun</span>
           <br>
@@ -135,21 +141,19 @@ onMounted(() => {
           <br v-if="store.getWidth <= 768" />
           <span v-else class="pl-7" />
           maya: (Sanskrit) energy,&nbsp;magic
-        </p>
-        <h3
-          class="split lowercase my-5 text-6xl md:text-[7rem] md:leading-[6.5rem] text-active font-extrabold lg:w-2/3 overflow-hidden relative">
-          <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><span
-            class="drama text-blue font-semibold text-[3.5rem] md:text-[7.5rem]">design</span>
-        </h3>
-        <p class="text-beige-lighter text-xl"><strong>COMOMAYA</strong> exists in order to make international standards
-          of
-          branding &amp; design more accessible to new and upcoming brands, business owners and start-ups alike. To
-          provide the highest quality of work, by engaging some of the best international talent there is, but without
-          the
-          exhorbitant price tag that comes with hiring a top global agency. To empower business owners &amp;
-          entrepreneurs
-          with powerful brands that tell a story.<wbr> To express them through great design that makes heads turn.<wbr> To energise brands. And to add some&nbsp;magic.
-        </p>
+        </p> -->
+        <div class="flex flex-col-reverse md:flex-row-reverse items-start gap-5">
+          <h3
+            class="split -mt-5 lowercase text-6xl md:text-[7rem] md:leading-[6.5rem] text-active font-extrabold overflow-hidden relative ml-auto">
+            <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><br><span
+              class="drama text-blue font-semibold  md:text-[6.5rem] md:leading-[6rem]">design<span
+                class="-ml-1 text-5xl align-super">™️</span></span>
+          </h3>
+          <p class="text-beige-lighter md:text-4xl text-2xl flex-1">
+            We believe that great design is one that strikes the right balance — it simplifies the complex, embodies
+            visual appeal &amp; beauty, and carries meaning &amp; purpose behind its&nbsp;existence.
+          </p>
+        </div>
       </div>
     </section>
     <div>
@@ -157,7 +161,7 @@ onMounted(() => {
       <!--- RIDHI --->
 
       <section
-        class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center md:min-h-[40vh] bg-beige-lighter md:flex-row-reverse overflow-visible">
+        class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center bg-beige-lighter md:flex-row-reverse overflow-visible">
         <div class="md:w-2/3 my-auto md:pt-16">
           <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
             FOUNDER &amp; CREATIVE&nbsp;HEAD
@@ -173,7 +177,7 @@ onMounted(() => {
                 src="/assets/awards.png" alt="Awards">
             </picture>
           </span>
-          <p class="text-base md:text-lg text-left text-black lg:max-w-[520px]">
+          <p class="text-base md:text-lg text-left text-black lg:max-w-[550px]">
             Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of
             <strong>COMOMAYA</strong> which she launched in March
             2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK, Singapore
@@ -199,7 +203,7 @@ onMounted(() => {
             </a>
           </p>
         </div>
-        <div class="w-full min-h-[15rem] md:w-auto overflow-hidden ">
+        <div class="w-full min-h-[15rem] md:w-auto overflow-hidden">
           <picture>
             <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
             <source srcset="/assets/Ridhi.webp" type="image/webp">
@@ -212,15 +216,15 @@ onMounted(() => {
       <!--- SONALI --->
 
       <section
-        class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-stone-300 md:flex-row">
-        <div class="md:w-2/3 my-auto">
+        class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center py-16 bg-stone-300 md:flex-row">
+        <div class="md:w-2/3 my-auto flex flex-col items-end">
           <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest md:text-right">
             CLIENT HEAD
           </h3>
           <h2 class="drama mb-1 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
             <strong>sonali</strong> sani
           </h2>
-          <p class="text-base md:text-lg md:text-right text-black">
+          <p class="text-base md:text-lg md:text-right text-black lg:max-w-[550px]">
             Sonali Sani has had over a decade of experience in Client Services. She has worked with big international
             agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX,
             Pan
@@ -245,15 +249,15 @@ onMounted(() => {
       <!--- Nishaa Bhojwani --->
 
       <section
-        class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center md:min-h-[40vh] py-16 bg-beige-lighter md:flex-row-reverse">
-        <div class="md:w-2/3 my-auto">
+        class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center py-16 bg-beige-lighter md:flex-row-reverse">
+        <div class="md:w-2/3 my-auto flex flex-col">
           <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
             BUSINESS HEAD
           </h3>
           <h2 class="drama mb-1 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-black">
             <strong>nishaa</strong> bhojwani
           </h2>
-          <p class="text-base md:text-lg text-left text-black">
+          <p class="text-base md:text-lg text-left text-black lg:max-w-[550px]">
             Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media
             and
             technology. She has worked for companies such as Google and Mastercard and her past client list includes
@@ -276,7 +280,7 @@ onMounted(() => {
       </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex justify-center px-9 lg:px-20 xl:px-36 bg-stone-300 flex-col">
+      <section class="flex justify-center px-9 lg:px-20 xl:px-36 bg-stone-300 flex-col py-16">
         <h3 class="text-beige-lighter pt-5 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
           INDUSTRY&nbsp;TALENT
         </h3>
@@ -285,7 +289,7 @@ onMounted(() => {
           our <strong>people</strong>
         </h2>
         <h3 v-if="store.getWidth >= 768"
-          class="text-black md:text-lg text-right pb-5 leading-tight md:max-w-3xl md:ml-auto">
+          class="text-black md:text-2xl text-right pb-5 !leading-snug lg:max-w-[550px] md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
           collaborating with some of the best talent in the industry and across the&nbsp;globe.
         </h3>
@@ -300,7 +304,7 @@ onMounted(() => {
           </picture>
         </div>
         <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
-          <h3 class="text-black text-base py-5 leading-tight">
+          <h3 class="text-black text-xl py-5 !leading-snug">
             Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
             collaborating with some of the best talent in the industry and across the&nbsp;globe.
           </h3>
@@ -313,40 +317,47 @@ onMounted(() => {
           </picture>
         </div>
       </section>
-
+      <span id="services" />
       <!--- WHAT WE OFFER --->
 
-      <section id="ourServices" class="flex px-9 lg:px-20 xl:px-36 justify-center flex-col">
-        <h3 class="text-beige-lighter pt-10 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-left">
-          WHAT WE&nbsp;OFFER
-        </h3>
-        <h2
-          class="drama md:ml-[-2px] -mt-3 mb-3 md:mb-0 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
-          our <strong>services</strong>
-        </h2>
-        <h3 v-if="store.getWidth >= 768" class="text-black md:text-lg pb-10 md:max-w-3xl">
-          We have a vibrant portfolio of clients ranging from FMCG to
-          B2B and from corporate to boutique &amp; luxury brands spread across various categories. We are
-          multidisciplinary and
-          provide holistic services for your brand woven together from day&nbsp;one.
-        </h3>
-      </section>
+      <section class="flex px-9 lg:px-20 xl:px-36 justify-center flex-col md:flex-row md:h-[75vh]">
+        <div class="md:w-2/3 pt-10 md:py-32">
+          <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest text-left">
+            WHAT WE&nbsp;OFFER
+          </h3>
+          <h2 class="drama md:ml-[-10px] -mt-3 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
+            our <strong>services</strong>
+          </h2>
+          <h3 v-if="store.getWidth >= 768" class="text-black !leading-snug md:text-2xl pb-10 lg:max-w-[570px]">
+            We have a vibrant portfolio of clients ranging from FMCG to
+            B2B and from corporate to boutique &amp; luxury brands spread across various categories including food,
+            beverage, beauty, health &amp; wellness and hospitality. We are
+            multidisciplinary and
+            provide holistic services for your brand woven together from day&nbsp;one.
+          </h3>
+        </div>
 
-      <section class="bg-blue flex flex-col justify-center md:min-h-[40vh] lg:flex-row gap-8">
+        <!-- <section class="bg-stone-300 flex flex-col justify-center md:h-[50vw] lg:flex-row-reverse gap-8 w-full items-end"> -->
         <div
-          class="lg:w-2/3 p-0 m-0 bg-beige mt-5 lg:my-auto flex justify-center lg:justify-start px-9 lg:pl-20 xl:pl-36 gap-3 text-beige-lighter">
-          <div v-for="(value, key) in services">
-            <h4 class="font-bold md:text-3xl text-active mb-3">// {{ key }}</h4>
-            <ul v-for="items in value" class="mb-1 font-medium text-xs md:text-base">/ {{ items }}</ul>
-          </div>
+          class="relative w-full md:w-1/2 p-0 m-0 bg-beige lg:my-auto flex justify-center lg:justify-end lg:pl-20 xl:pl-36 gap-3 text-beige-lighter h-full">
+          <!-- <div class="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-stone-300 via-transparent to-stone-300 z-10" /> -->
+          <ul class="services-container overflow-hidden relative pb-10 h-[50vh] md:h-[75vh]">
+            <!-- <h4 class="font-bold md:text-5xl text-white mb-3">{{value }}</h4> -->
+            <li v-for="value in services" class="service mb-1 font-extrabold text-blue text-5xl md:text-7xl text-right">
+              {{
+          value }}</li>
+            <li v-for="value in services" class="service mb-1 font-extrabold text-blue text-5xl md:text-7xl text-right">
+              {{
+          value }}</li>
+          </ul>
           <!-- <picture>
             <source srcset="/assets/services.png" type="image/png">
             <source srcset="/assets/services.webp" type="image/webp">
             <img class="object-contain min-h-full h-auto" src="/assets/services.png" alt="list of services" />
           </picture> -->
         </div>
-        <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
-          <h3 class="text-black text-base font-medium py-5">
+        <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center lg:px-20 xl:px-36">
+          <h3 class="text-black font-semibold py-5 text-xl">
             We have a vibrant portfolio of clients ranging from FMCG to B2B
             and from corporate to boutique &amp; luxury brands spread across various categories. We are
             multidisciplinary
@@ -354,27 +365,28 @@ onMounted(() => {
             provide holistic services for your brand woven together from day&nbsp;one.
           </h3>
         </section>
-        <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-black">
+      </section>
+      <!-- <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-black">
           <picture>
             <source srcset="/assets/WhatWeOffer.jpg" type="image/jpeg">
             <source srcset="/assets/WhatWeOffer.webp" type="image/webp">
             <img class="w-full h-full object-cover" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
           </picture>
-        </div>
-      </section>
+        </div> -->
+      <!-- </section> -->
       <span id="grant" />
 
       <!--- RMC --->
 
-      <section class="bg-beige-normal lg:flex-row relative flex flex-col gap-8 justify-center md:min-h-[40vh]">
-        <div class="lg:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:pl-20 xl:pl-36">
+      <section class="bg-beige-lighter lg:flex-row relative flex flex-col gap-8 justify-center">
+        <div class="lg:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:pl-20 xl:pl-36 flex flex-col items-end">
           <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
           <h2 class="drama mb-1 -mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-black">
             singapore&nbsp;<strong>SMEs</strong>
           </h2>
-          <p class="pb-10 text-base md:text-lg text-right text-black">
+          <p class="pb-10 text-right text-black lg:max-w-[590px] text-xl md:text-2xl !leading-snug">
             We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management
             Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp; Medium
             Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for
@@ -386,7 +398,7 @@ onMounted(() => {
           </p>
         </div>
         <div
-          class="w-full max-h-[30rem] lg:max-h-none min-h-[15rem] flex justify-center items-center lg:w-1/2 overflow-hidden bg-black">
+          class="w-full md:h-[500px] lg:max-h-none flex justify-center items-center lg:w-1/2 overflow-hidden bg-black">
           <picture>
             <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
             <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
@@ -397,16 +409,16 @@ onMounted(() => {
 
       <!--- BRANDS --->
 
-      <section class="bg-stone-500 flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36">
-        <h3 class="text-active drama md:pb-8 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold">
+      <section
+        class="bg-stone-300 flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36 md:py-20 lg:pt-16">
+        <h3 class="text-blue drama text-4xl md:text-6xl lg:text-8xl font-semibold">
           brands <strong>we have<br>worked&nbsp;with</strong>
           <br />
         </h3>
         <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-x-10 md:gap-y-16 py-10">
           <div v-for="brand in brands" class="flex justify-center items-center w-full h-full">
-            <img
-              class="object-contain w-16 md:w-36 h-32 md:py-8 md:px-5 p-1 brightness-0 hover:brightness-100 transition-all duration-500"
-              :src="brand" :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+            <img class="object-contain w-16 md:w-40 h-32 md:py-8 md:px-5 p-1" :src="brand"
+              :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
             <!-- <p class="flop text-2xl md:text-5xl text-active text-center">{{
               brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString().split('.')[0] }}</p> -->
           </div>
@@ -453,9 +465,9 @@ onMounted(() => {
             alt="button previous" />
         </button>
         <swiper class="w-full" :autoplay="{
-            delay: 8000,
-            disableOnInteraction: false,
-          }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
+          delay: 8000,
+          disableOnInteraction: false,
+        }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
           <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
             v-for="(items, i) in testimonials">
             <p class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
@@ -470,7 +482,6 @@ onMounted(() => {
     </div>
 
     <!--- END --->
-    <custom-footer />
 
     <!-- <section
       class="flex flex-col items-center justify-center mx-20 lg:mx-auto my-20 md:my-32 lg:pt-64 lg:p-72 max-w-7xl bg-stone-300">
@@ -492,8 +503,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-
-
 .swiper-button-next,
 .swiper-button-prev {
   color: black;

@@ -2,61 +2,72 @@
   <div
     class="bg-stone-300 z-40 w-full py-9 px-9 lg:px-20 xl:px-36 flex items-start justify-center flex-col gap-5 md:gap-5">
     <div class="w-full">
-      <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
+      <h3 class="text-stone-500 mb-3 text-sm md:text-lg font-semibold tracking-widest text-left">
         HELLO
       </h3>
       <div class="flex gap-5 md:gap-5 md:flex-row flex-col w-full justify-between">
         <div class="flex flex-col md:w-1/2">
-          <h1 class="split drama text-4xl md:text-6xl text-active font-extrabold overflow-hidden relative">
-            <strong><span>We</span><span>are</span><span>a</span><span>boutique</span><br><span>creative</span><span>agency</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful&nbsp;brands</span></strong>
+          <h1
+            class="split drama text-4xl md:text-8xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
+            <strong><span>We</span><span>are</span><span>a</span><span>creative</span><span>boutique</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful</span><br><span>brands</span></strong>
           </h1>
-          <router-link to="/about">
+          <h2 class="text-beige-lighter font-bold text-xl md:text-3xl mt-3">comomaya</h2>
+          <p class="italic text-stone-700 leading-tight text-base md:text-xl">
+            <span class="font-semibold">noun</span>
+            <br>
+            como: (Spanish) as, like
+            <br v-if="store.getWidth <= 768" />
+            <span v-else class="pl-7" />
+            maya: (Sanskrit) power, energy,&nbsp;magic
+          </p>
+          <!-- <p class="text-white group-hover:text-active duration-500 transition-all">Info</p> -->
+          <!-- <router-link to="/about">
             <button class="py-3 rounded-lg mr-auto group font-semibold flex items-center gap-2">
               <p class="text-white group-hover:text-active duration-500 transition-all">About COMOMAYA</p>
               <font-awesome-icon :icon="['fas', 'fa-angles-right']"
                 class="text-white group-hover:text-active duration-500 transition-all group-hover:translate-x-2" />
-            </button></router-link>
+            </button></router-link> -->
         </div>
 
-        <div class="md:w-1/2 relative overflow-hidden flex items-start parallax" style="aspect-ratio: 9/16;">
+        <div class="md:w-1/2 relative overflow-hidden flex items-start aspect-square">
           <picture class="w-full h-full">
-            <source srcset=" /assets/lovespun.webp" type="image/webp">
-            <source srcset="/assets/lovespun.jpg" type="image/jpeg">
-            <img class="object-cover w-full h-full scale-[1.5] origin-top" src="/assets/lovespun.jpg" alt="Revolver">
+            <source srcset=" /assets/gabongo.webp" type="image/webp">
+            <source srcset="/assets/gabongo.jpg" type="image/jpeg">
+            <img class="object-cover w-full h-full origin-top" src="/assets/gabongo.jpg" alt="Gabongo">
           </picture>
         </div>
       </div>
     </div>
 
     <div class="flex md:flex-row flex-col-reverse gap-5 md:gap-5">
-      <div class="md:w-1/2 relative overflow-hidden flex parallax" style="aspect-ratio: 9/16;">
-        <picture class="w-full h-full">
-          <source srcset=" /assets/mm.webp" type="image/webp">
-          <source srcset="/assets/mm.jpeg" type="image/jpeg">
-          <img class="object-cover w-full h-full scale-[1.5] origin-top" src="/assets/mm.jpeg" alt="Carte D'Or">
+      <div class="md:w-1/2 relative overflow-hidden flex items-end">
+        <picture class="w-full">
+          <source srcset=" /assets/lovespun.webp" type="image/webp">
+          <source srcset="/assets/lovespun.jpeg" type="image/jpeg">
+          <img class="object-cover w-full origin-top" src="/assets/lovespun.jpeg" alt="Lovespun">
         </picture>
       </div>
 
       <div class="md:w-1/2 flex flex-col gap-5 md:gap-5">
-        <div class="relative overflow-hidden aspect-video flex parallax">
+        <div class="w-full relative overflow-hidden flex h-[30vw]">
           <picture class="w-full h-full">
-            <source srcset=" /assets/carte-dor.webp" type="image/webp">
-            <source srcset="/assets/carte-dor.jpeg" type="image/jpeg">
-            <img class="object-cover w-full origin-bottom scale-[1.25]" src="/assets/carte-dor.jpeg" alt="Carte D'Or">
+            <source srcset=" /assets/fairtrade.webp" type="image/webp">
+            <source srcset="/assets/fairtrade.jpeg" type="image/jpeg">
+            <img class="object-cover w-full h-full origin-bottom" src="/assets/fairtrade.jpeg" alt="Fairtrade">
           </picture>
         </div>
-        <div>
-          <h3 class="split text-4xl md:text-6xl text-active font-extrabold overflow-hidden relative">
-            <span class="!leading-none">COMOMAYA's Mission</span>
+        <div class="bg-beige-lighter p-12 pt-24 flex flex-col gap-12 h-[80%]">
+          <h3 class="split text-4xl md:text-6xl text-black font-extrabold overflow-hidden relative drama">
+            <span class="!leading-[0.9]"><strong>COMOMAYA's</strong>&nbsp;mission</span>
           </h3>
-          <p class="ml-auto md:text-lg text-base !leading-normal text-white">
-            COMOMAYA&apos;s mission is to make international standards of branding &amp; design more accessible to
-            startups and&nbsp;SMEs.
+          <p class="ml-auto md:text-3xl text-xl font-semibold !leading-normal text-black">
+            COMOMAYA exists for one simple reason — to make great design more accessible to start-ups and new
+            businesses — small, medium and large alike. To empower new business owners &amp; entrepreneurs with powerful
+            brands that tell a story. And to add some&nbsp;magic.
             <br>
             <br>
-            We aim to empower business owners with brands that tell a
-            powerful story. To help them express their passion through great design. To energise brands with a strong
-            purpose. And to make heads&nbsp;turn.
+            From market research to naming, from brand strategy to creating print &amp; digital identities, from
+            packaging to website and social media — we have it all covered. So come on in and take a&nbsp;look!
           </p>
         </div>
       </div>
@@ -67,8 +78,11 @@
 <script setup lang="ts">
 import { Ref, nextTick, onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useStore } from '../stores';
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+const store = useStore()
 const parallax = ref([]) as Ref<NodeListOf<HTMLDivElement>[]>
 // const emit = defineEmits(['close'])
 // const status = ref(true)
@@ -92,6 +106,9 @@ onMounted(async () => {
       y: "-0.1em",
       duration: 0.5,
       stagger: 0.2,
+      // ScrollTrigger {
+      //   trigger: split
+      // }
     })
     gsap.to(split, {
       autoAlpha: 1,
@@ -99,19 +116,19 @@ onMounted(async () => {
     })
   }
 
-  const parallax = gsap.utils.toArray(".parallax")
-  parallax.forEach(el => {
-    gsap.to((el as HTMLDivElement).querySelector('img'), {
-      y: "-=50%",
-      ease: "none",
-      scrollTrigger: {
-        trigger: el as HTMLDivElement,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      }
-    })
-  })
+//   const parallax = gsap.utils.toArray(".parallax")
+//   parallax.forEach(el => {
+//     gsap.to((el as HTMLDivElement).querySelector('img'), {
+//       y: "-=50%",
+//       ease: "none",
+//       scrollTrigger: {
+//         trigger: el as HTMLDivElement,
+//         start: "top bottom",
+//         end: "bottom top",
+//         scrub: true,
+//       }
+//     })
+//   })
 })
 </script>
 

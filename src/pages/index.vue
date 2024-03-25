@@ -50,14 +50,14 @@ async function loadContent() {
 	// 	.to(allBGs, { autoAlpha: 1, duration: 0.5 })
 	// .to({}, { duration: 1 }, 1)
 
-	gsap.to(".parallaxVideo", {
-		y: "+=45%",
-		scrollTrigger: {
-			// trigger: parallax.value,
-			scrub: true,
-			// markers: true
-		}
-	})
+	// gsap.to(".parallaxVideo", {
+	// 	y: "+=45%",
+	// 	scrollTrigger: {
+	// 		// trigger: parallax.value,
+	// 		scrub: true,
+	// 		// markers: true
+	// 	}
+	// })
 
 	ScrollTrigger.create({
 		trigger: "footer",
@@ -147,23 +147,23 @@ function scrollDown() {
 <template>
 	<div>
 		<button @click="scrollDown" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']"
-			class="flex flex-col items-center justify-center absolute top-[65vh] left-1/2 -translate-x-1/2 transition-all duration-500">
+			class="flex flex-col items-center justify-center absolute top-[75vh] left-1/2 -translate-x-1/2 transition-all duration-500">
 			<!-- <p class="text-beige-lighter font-semibold text-xl">Scroll</p> -->
-			<font-awesome-icon ref="bounce" v-if="$route.path === '/'" :icon="['fas', 'angles-down']" size="lg"
+			<font-awesome-icon ref="bounce" v-if="$route.path === '/'" :icon="['fas', 'angles-down']" size="2xl"
 				class="text-active cursor-pointer z-10 bounce" />
 		</button>
-		<div class="overflow-hidden relative w-full h-[80vh]">
+		<div class="overflow-hidden relative w-full h-[85vh]">
 			<!-- <picture>
 				<source srcset=" /assets/brewlander-1.webp" type="image/webp">
 				<source srcset="/assets/brewlander-1.jpg" type="image/png">
 				<img class="object-cover w-full h-full relative brightness-75 scale-[1.25] parallaxVideo"
 					src="/assets/brewlander-1.jpg" alt="Brewlander">
 			</picture> -->
-			<video v-if="store.getWidth > 768" muted autoplay preload="true" controls="false" playsinline="true" loop
-				src="/assets/hero.mp4" class="object-cover w-full h-full relative brightness-75 scale-[1.25] parallaxVideo" />
-			<video v-else muted autoplay preload="true" controls="false" playsinline="true" loop
+			<video v-if="store.getWidth > 768" muted autoplay preload="true" playsinline="true" loop
+				src="/assets/hero.mp4" class="object-cover w-full h-full relative brightness-75" />
+			<video v-else muted autoplay preload="true" playsinline="true" loop
 				src="/assets/hero_vertical.mp4"
-				class="object-cover w-full h-full relative brightness-75 scale-[1.25] parallaxVideo" />
+				class="object-cover w-full h-full relative brightness-75" />
 		</div>
 		<Splash />
 		<!-- <main ref="main" v-if="store.getFeatured.length" class="relative flex w-screen justify-center z-10">
