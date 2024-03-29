@@ -116,11 +116,11 @@ onMounted(() => {
   tl.play()
 });
 
-watch(route, () => {
+watch(route, (to) => {
   setTimeout(() => {
-    if (location && location.hash) {
-      document.querySelector(location.hash) ? window.scrollTo({
-        top: document.querySelector(location.hash)!.getBoundingClientRect().top + window.scrollY - 50,
+    if (to.hash) {
+      document.querySelector(to.hash) ? window.scrollTo({
+        top: document.querySelector(to.hash)!.getBoundingClientRect().top + window.scrollY - 50,
         behavior: "smooth"
       }) : null
     }
