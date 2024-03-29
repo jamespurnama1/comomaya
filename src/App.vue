@@ -98,11 +98,11 @@ function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
   if (touch && !touchmoved.value) {
     setTimeout(() => {
       router.push(whatisLink(href))
-      handleNav();
+      handleNav(true);
     }, 600);
   } else if ((e as PointerEvent).pointerType !== 'touch' && !touchmoved.value) {
     router.push(whatisLink(href))
-    handleNav();
+    handleNav(true);
   }
   if (href !== 'grants' && href !== 'services' && !touchmoved.value) handleScrollUp()
   touchmoved.value = false;
@@ -116,16 +116,21 @@ const opened = ref(false)
 const splash = ref(true)
 const touchmoved = ref(false)
 
-function handleNav() {
-  if (!opened.value) {
+function handleNav(close: boolean | undefined) {
+  if (close) {
+    opened.value = false
+  } else {
+    opened.value = !opened.value;
+  }
+  if (opened.value) {
     gsap.set('body', { overflow: 'hidden' })
   } else {
     gsap.set('body', { overflow: 'auto' })
   }
-  opened.value = !opened.value;
 }
 
 function handleScrollUp() {
+  console.log('scrolling up')
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -138,7 +143,7 @@ const isBlue = computed(() => {
 
 const isTransparent = computed(() => {
   return route.path === '/'
-  && scrollY.value < 50
+    && scrollY.value < 50
 })
 </script>
 
@@ -155,9 +160,10 @@ const isTransparent = computed(() => {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 md:py-7 px-9 lg:px-20 xl:px-36 justify-between items-center z-30 transition-all origin-top-left bg-beige-normal" :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
+    class="fixed w-full top-0 left-0 flex py-3 2xl:py-7 px-9 lg:px-20 2xl:px-36 justify-between items-center z-30 transition-all origin-top-left bg-beige-normal"
+    :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-stone-300': isBlue }">
 
-    <router-link aria-label="Go to Landing Page" to="/">
+    <router-link aria-label="Go to Landing Page" to="/" @click="handleNav(true)">
       <!-- <picture class="transition-all"
         :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']">
         <img src="/logo.svg" alt="COMOMAYA"
@@ -166,13 +172,13 @@ const isTransparent = computed(() => {
       <Vue3Lottie
         :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']"
         class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left"
-        animationLink="./assets/logo.json" :height="store.getWidth > 768 ? 50 : 38"
-        :width="store.getWidth > 768 ? 249 : 178" />
+        animationLink="./assets/logo.json" :height="store.getWidth > 1024 ? 50 : 38"
+        :width="store.getWidth > 1024 ? 249 : 178" />
     </router-link>
 
     <button aria-label="Navigation"
       class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
-      @click="handleNav">
+      @click="handleNav(false)">
       <div v-for="i in 3" :class="[
       (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
       (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
@@ -187,41 +193,45 @@ const isTransparent = computed(() => {
 
   <transition name="fly">
     <nav v-show="opened" @touchmove="e => { touchmoved = true }"
-      class="moreNav bg-beige-normal w-screen fixed left-0 top-0 z-20 flex items-center md:justify-center flex-col overflow-y-scroll gap-5 md:gap-20">
-      <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
-        class="text-center mt-16 sm:mt-24">
-        <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
-          class="px-5 cube my-3 md:my-0 xl:text-8xl md:text-7xl text-5xl leading-[3rem] md:leading-[3.5rem]"
-          @touchend="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
-          <p class="flip">
-            <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-            <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-            <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-          </p>
-          <p class="flop text-active">
-            <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-          </p>
-        </li>
-      </transition-group>
-      <transition-group name="fade" tag="span"
-        class="relative flex justify-center text-center mb-10 text-sm md:text-base w-full">
-        <a key="ig" @click="handleNav" class="absolute -translate-x-full text-blue hover:text-active hover:font-bold"
-          href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank"
-          rel="noopener noreferrer">
-          <p>(INSTAGRAM)</p>
-        </a>
-        <a key="linkedin" @click="handleNav"
-          class="absolute translate-x-full text-blue hover:text-active hover:font-bold"
-          href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
-          rel="noopener noreferrer">
-          <p>(LINKEDIN)</p>
-        </a>
-      </transition-group>
+      class="moreNav bg-beige-normal w-screen h-screen fixed left-0 top-0 z-20">
+      <div
+        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-start absolute flex-col overflow-y-scroll gap-5 md:gap-20">
+        <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
+          class="text-center relative h-min">
+          <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
+            class="px-5 cube my-3 md:my-0 2xl:text-8xl md:text-7xl sm:text-6xl text-5xl leading-[3rem] md:leading-[3.5rem]"
+            @touchend="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
+            <p class="flip">
+              <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+              <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+              <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+            </p>
+            <p class="flop text-active">
+              <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+            </p>
+          </li>
+        </transition-group>
+        <transition-group name="fade" tag="span"
+          class="relative flex justify-center text-center mb-10 md:mb-24 h-min text-sm md:text-base w-full">
+          <a key="ig" @click="handleNav(false)"
+            class="absolute -translate-x-full text-blue hover:text-active hover:font-bold"
+            href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank"
+            rel="noopener noreferrer">
+            <p>(INSTAGRAM)</p>
+          </a>
+          <a key="linkedin" @click="handleNav(false)"
+            class="absolute translate-x-full text-blue hover:text-active hover:font-bold"
+            href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
+            rel="noopener noreferrer">
+            <p>(LINKEDIN)</p>
+          </a>
+        </transition-group>
+      </div>
     </nav>
   </transition>
 
   <transition name="fade">
-    <div v-show="opened" @click="handleNav" class="fixed w-screen h-screen bg-opacity-50 bg-black z-10" />
+    <div v-show="opened" @click="handleNav(false)" class="fixed w-screen h-screen bg-opacity-50 bg-black z-10" />
   </transition>
 
   <!-- Scroll up -->
@@ -258,14 +268,6 @@ const isTransparent = computed(() => {
   height: -webkit-fill-available;
   //height: 100vh;
   //padding: safe-area-inset-top 0 safe-area-inset-bottom 0;
-}
-
-.logoInv:hover {
-  filter: invert(22%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
-}
-
-.logoNorm:hover {
-  filter: invert(22%) sepia(44%) saturate(611%) hue-rotate(50deg) brightness(95%) contrast(124%);
 }
 
 .flip {

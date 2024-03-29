@@ -4,9 +4,11 @@ import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from "swiper";
 import 'swiper/scss';
-import { onMounted, onBeforeUnmount, ref, type Ref } from 'vue';
+import { onMounted, onBeforeUnmount, ref, type Ref, watch } from 'vue';
 import { useStore } from '../../stores';
+import { useRoute } from "vue-router"
 
+const route = useRoute()
 const modules = [Autoplay]
 const store = useStore()
 const brands = Object.values(import.meta.glob('@/assets/brands/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
@@ -112,16 +114,19 @@ onMounted(() => {
     });
 
   tl.play()
+});
 
+watch(route, () => {
   setTimeout(() => {
     if (location.hash) {
+      console.log(location.hash, document.querySelector(location.hash)!.getBoundingClientRect().top + window.scrollY)
       document.querySelector(location.hash) ? window.scrollTo({
-        top: document.querySelector(location.hash)!.getBoundingClientRect().top - 50,
+        top: document.querySelector(location.hash)!.getBoundingClientRect().top + window.scrollY - 50,
         behavior: "smooth"
       }) : null
     }
-  }, 500);
-});
+  }, 1000);
+}, { flush: 'pre', immediate: true, deep: true })
 
 onBeforeUnmount(() => {
   if (tl) tl.kill()
@@ -144,12 +149,12 @@ onBeforeUnmount(() => {
         </p> -->
         <div class="flex flex-col-reverse md:flex-row-reverse items-start gap-5">
           <h3
-            class="split -mt-5 lowercase text-6xl md:text-[7rem] md:leading-[6.5rem] text-active font-extrabold overflow-hidden relative ml-auto">
+            class="split md:-mt-5 lowercase text-6xl md:text-7xl xl:text-8xl 2xl:text-[7rem] leading-[3.25rem] md:leading-[4rem] xl:leading-[5.25rem] text-active font-extrabold overflow-hidden relative ml-auto">
             <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><br><span
-              class="drama text-blue font-semibold  md:text-[6.5rem] md:leading-[6rem]">design<span
-                class="-ml-1 text-5xl align-super">™️</span></span>
+              class="drama text-blue font-semibold text-[3rem] md:text-[4rem] xl:text-[5.5rem] 2xl:text-[6.5rem] md:leading-[4rem] 2xl:leading-[6rem]">design<span
+                class="-ml-1 text-3xl xl:text-5xl align-super">&#x2122;</span></span>
           </h3>
-          <p class="text-beige-lighter md:text-4xl text-2xl flex-1">
+          <p class="text-beige-lighter 2xl:text-4xl text-2xl flex-1">
             We believe that great design is one that strikes the right balance — it simplifies the complex, embodies
             visual appeal &amp; beauty, and carries meaning &amp; purpose behind its&nbsp;existence.
           </p>
@@ -167,7 +172,7 @@ onBeforeUnmount(() => {
             FOUNDER &amp; CREATIVE&nbsp;HEAD
           </h3>
           <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
-            <h2 class="drama mb-1 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-black">
+            <h2 class="drama mb-2 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-black">
               <strong>ridhi</strong> sain
             </h2>
             <picture>
@@ -188,7 +193,8 @@ onBeforeUnmount(() => {
             and
             helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's Dove,
             Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod
-            Ricard, Kellogg's and many more.<br class="mt-2 block" style="content: ''">More recently, she has worked
+            Ricard, Kellogg's and many&nbsp;more.<br class="mt-2 block" style="content: ''">More recently, she has
+            worked
             with
             smaller boutique
             clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense
@@ -221,7 +227,7 @@ onBeforeUnmount(() => {
           <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest md:text-right">
             CLIENT HEAD
           </h3>
-          <h2 class="drama mb-1 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
+          <h2 class="drama mb-2 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
             <strong>sonali</strong> sani
           </h2>
           <p class="text-base md:text-lg md:text-right text-black lg:max-w-[550px]">
@@ -254,7 +260,7 @@ onBeforeUnmount(() => {
           <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
             BUSINESS HEAD
           </h3>
-          <h2 class="drama mb-1 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-black">
+          <h2 class="drama mb-2 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-black">
             <strong>nishaa</strong> bhojwani
           </h2>
           <p class="text-base md:text-lg text-left text-black lg:max-w-[550px]">
@@ -289,7 +295,7 @@ onBeforeUnmount(() => {
           our <strong>people</strong>
         </h2>
         <h3 v-if="store.getWidth >= 768"
-          class="text-black md:text-2xl text-right pb-5 !leading-snug lg:max-w-[550px] md:ml-auto">
+          class="text-black md:text-xl 2xl:text-2xl text-right pb-5 !leading-snug lg:max-w-[550px] md:ml-auto">
           Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
           collaborating with some of the best talent in the industry and across the&nbsp;globe.
         </h3>
@@ -320,15 +326,15 @@ onBeforeUnmount(() => {
       <span id="services" />
       <!--- WHAT WE OFFER --->
 
-      <section class="flex px-9 lg:px-20 xl:px-36 justify-center flex-col md:flex-row md:h-[75vh]">
-        <div class="md:w-2/3 pt-10 md:py-32">
+      <section class="flex px-9 lg:px-20 xl:px-36 justify-center flex-col xl:flex-row xl:h-[75vh] 2xl:gap-16">
+        <div class="xl:w-2/3 pt-10 xl:py-32">
           <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest text-left">
             WHAT WE&nbsp;OFFER
           </h3>
-          <h2 class="drama md:ml-[-10px] -mt-3 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
+          <h2 class="drama xl:ml-[-10px] -mt-3 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium">
             our <strong>services</strong>
           </h2>
-          <h3 v-if="store.getWidth >= 768" class="text-black !leading-snug md:text-2xl pb-10 lg:max-w-[570px]">
+          <h3 class="text-black !leading-snug md:text-xl 2xl:text-2xl xl:pb-10 lg:max-w-[570px]">
             We have a vibrant portfolio of clients ranging from FMCG to
             B2B and from corporate to boutique &amp; luxury brands spread across various categories including food,
             beverage, beauty, health &amp; wellness and hospitality. We are
@@ -339,16 +345,18 @@ onBeforeUnmount(() => {
 
         <!-- <section class="bg-stone-300 flex flex-col justify-center md:h-[50vw] lg:flex-row-reverse gap-8 w-full items-end"> -->
         <div
-          class="relative w-full md:w-1/2 p-0 m-0 bg-beige lg:my-auto flex justify-center lg:justify-end lg:pl-20 xl:pl-36 gap-3 text-beige-lighter h-full">
+          class="relative w-full xl:w-1/2 p-0 m-0 bg-beige lg:my-auto flex justify-center lg:justify-end gap-3 text-beige-lighter h-[50vh] xl:h-full">
           <!-- <div class="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-stone-300 via-transparent to-stone-300 z-10" /> -->
-          <ul class="services-container overflow-hidden relative pb-10 h-[50vh] md:h-[75vh]">
+          <ul class="services-container overflow-hidden relative pb-10 h-[50vh] md:h-[75vh] w-full">
             <!-- <h4 class="font-bold md:text-5xl text-white mb-3">{{value }}</h4> -->
-            <li v-for="value in services" class="service mb-1 font-extrabold text-blue text-5xl md:text-7xl text-right">
+            <li v-for="value in services"
+              class="service mb-1 font-extrabold text-blue text-3xl md:text-5xl 2xl:text-7xl text-right whitespace-nowrap">
               {{
-          value }}</li>
-            <li v-for="value in services" class="service mb-1 font-extrabold text-blue text-5xl md:text-7xl text-right">
+          value }}<span class="text-active">.</span></li>
+            <li v-for="value in services"
+              class="service mb-1 font-extrabold text-blue text-3xl md:text-5xl 2xl:text-7xl text-right whitespace-nowrap">
               {{
-          value }}</li>
+          value }}<span class="text-active">.</span></li>
           </ul>
           <!-- <picture>
             <source srcset="/assets/services.png" type="image/png">
@@ -356,15 +364,15 @@ onBeforeUnmount(() => {
             <img class="object-contain min-h-full h-auto" src="/assets/services.png" alt="list of services" />
           </picture> -->
         </div>
-        <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center lg:px-20 xl:px-36">
+        <!-- <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center lg:px-20 xl:px-36">
           <h3 class="text-black font-semibold py-5 text-xl">
             We have a vibrant portfolio of clients ranging from FMCG to B2B
             and from corporate to boutique &amp; luxury brands spread across various categories. We are
             multidisciplinary
             and
             provide holistic services for your brand woven together from day&nbsp;one.
-          </h3>
-        </section>
+          </h3> -->
+        <!-- </section> -->
       </section>
       <!-- <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-black">
           <picture>
@@ -383,10 +391,11 @@ onBeforeUnmount(() => {
           <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-right">
             GRANTS &amp; SUBSIDIES
           </h3>
-          <h2 class="drama mb-1 -mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-black">
+          <h2
+            class="drama mb-1 md:-mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-black">
             singapore&nbsp;<strong>SMEs</strong>
           </h2>
-          <p class="pb-10 text-right text-black lg:max-w-[590px] text-xl md:text-2xl !leading-snug">
+          <p class="pb-10 text-right text-black lg:max-w-[590px] md:text-xl 2xl:text-2xl !leading-snug">
             We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management
             Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp; Medium
             Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for
@@ -410,12 +419,12 @@ onBeforeUnmount(() => {
       <!--- BRANDS --->
 
       <section
-        class="bg-stone-300 flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36 md:py-20 lg:pt-16">
+        class="bg-stone-300 flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36 py-10 md:py-20 lg:pt-16 gap-4 md:gap-10">
         <h3 class="text-blue drama text-4xl md:text-6xl lg:text-8xl font-semibold">
           brands <strong>we have<br>worked&nbsp;with</strong>
           <br />
         </h3>
-        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-x-10 md:gap-y-16 py-10">
+        <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-x-10 md:gap-y-16">
           <div v-for="brand in brands" class="flex justify-center items-center w-full h-full">
             <img class="object-contain w-16 md:w-40 h-32 md:py-8 md:px-5 p-1" :src="brand"
               :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
