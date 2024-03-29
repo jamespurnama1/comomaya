@@ -118,8 +118,7 @@ onMounted(() => {
 
 watch(route, () => {
   setTimeout(() => {
-    if (location.hash) {
-      console.log(location.hash, document.querySelector(location.hash)!.getBoundingClientRect().top + window.scrollY)
+    if (location && location.hash) {
       document.querySelector(location.hash) ? window.scrollTo({
         top: document.querySelector(location.hash)!.getBoundingClientRect().top + window.scrollY - 50,
         behavior: "smooth"

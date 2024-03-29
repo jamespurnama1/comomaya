@@ -130,7 +130,6 @@ function handleNav(close: boolean | undefined) {
 }
 
 function handleScrollUp() {
-  console.log('scrolling up')
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
