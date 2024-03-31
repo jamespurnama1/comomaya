@@ -6,7 +6,7 @@
       HELLO
     </h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-[max-content_1fr_minmax(0,max-content)] gap-5 w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-[min-content_max(25vw,10vh)_1fr] gap-5 w-full">
 
       <!-- 1A -->
       <div class="row-span-1">
@@ -37,8 +37,8 @@
       </div>
 
       <!-- 2A -->
-      <div class="md:col-start-2 md:row-start-2">
-        <picture class="h-min-0 w-min-0">
+      <div class="md:col-start-2 md:row-start-2 row-span-1">
+        <picture class="">
           <source srcset=" /assets/fairtrade.webp" type="image/webp">
           <source srcset="/assets/fairtrade.jpeg" type="image/jpeg">
           <img class="object-cover w-full h-full origin-bottom" src="/assets/fairtrade.jpeg" alt="Fairtrade">
@@ -46,21 +46,22 @@
       </div>
 
       <!-- 2B -->
-      <div class="row-span-2 col-start-1 md:row-start-2">
+      <div class="md:row-end-4 col-start-1 md:row-start-2 h-min-0 w-min-0">
         <picture class="">
           <source srcset=" /assets/lovespun.webp" type="image/webp">
           <source srcset="/assets/lovespun.jpg" type="image/jpeg">
-          <img class="object-cover origin-top h-full" src="/assets/lovespun.jpg" alt="Lovespun">
+          <img class="object-cover origin-top w-full h-full" src="/assets/lovespun.jpg" alt="Lovespun">
         </picture>
       </div>
 
       <!-- 3 -->
-      <div class="md:col-start-2 md:row-start-3">
-        <div class="bg-beige-lighter p-12 pt-12 md:pt-24 flex flex-col gap-4 md:gap-12">
+      <div class="md:col-start-2 md:row-start-3 md:row-end-4 h-min-0 w-min-0">
+        <div class="bg-beige-lighter h-full w-full p-12 pt-12 md:pt-24 flex flex-col gap-4 md:gap-12">
           <h3 class="split text-2xl md:text-5xl 2xl:text-6xl text-black font-extrabold overflow-hidden relative drama">
             <span class="!leading-[0.9]"><strong>COMOMAYA's</strong> mission</span>
           </h3>
-          <p class="ml-auto text-base 2xl:text-2xl lg:text-xl md:text-lg font-semibold !leading-normal text-black">
+          <p
+            class="ml-auto text-base 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg font-semibold !leading-normal text-black">
             COMOMAYA exists for one simple reason — to make great design more accessible to start-ups and new
             businesses — small, medium and large alike. To empower new business owners &amp; entrepreneurs with powerful
             brands that tell a story. And to add some&nbsp;magic.
