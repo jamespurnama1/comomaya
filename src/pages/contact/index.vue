@@ -31,10 +31,10 @@ useHead({
 </script>
 
 <template>
-  <main class="bg-stone-300 mx-auto px-9 lg:px-20 xl:px-36 flex flex-col justify-center pt-10 md:pt-20">
+  <main class="bg-stone-300 mx-auto px-9 lg:px-20 xl:px-36 flex flex-col justify-center pt-24 md:pt-20">
     <!-- <section class=" mx-auto "> -->
     <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
-      <h2 class="text-white text-lg md:text-xl font-semibold tracking-widest mb-3">CONTACT US</h2>
+      <h2 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3">CONTACT US</h2>
       <h1
         class="split max-w-4xl text-active text-5xl md:!leading-[7rem] md:text-6xl lg:text-9xl font-extrabold overflow-hidden">
         <span>let's</span><span>start</span>
@@ -64,17 +64,17 @@ useHead({
 
       <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="name">NAME</label>
       <input
-        class="bg-stone-300 w-full text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
+        class="bg-stone-300 autofill:bg-stone-300 w-full text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
         type="text" name="name">
 
       <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="email">E-MAIL</label>
       <input
-        class="bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
+        class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
         type="email" name="email">
 
       <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="message">MESSAGE</label>
       <div contenteditable id="message"
-        class="bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[44px] focus:outline-none"
+        class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[44px] focus:outline-none"
         name="message"></div>
       <button
         class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold"

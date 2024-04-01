@@ -2,14 +2,20 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { onMounted, onUnmounted } from 'vue';
+import routes from '~pages';
+import { useRoute } from 'vue-router';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const route = useRoute()
 
 function resize() {
   ScrollTrigger.refresh();
 }
 
 onMounted(() => {
+  window.addEventListener('resize', resize);
+  if (route.path === '/contact') return
   window.setTimeout(() => {
     ScrollTrigger.create({
       trigger: "footer",
@@ -25,8 +31,6 @@ onMounted(() => {
       }
     })
   }, 1000)
-
-  window.addEventListener('resize', resize);
 })
 
 onUnmounted(() => {

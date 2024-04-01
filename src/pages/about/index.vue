@@ -148,14 +148,15 @@ onBeforeUnmount(() => {
         </p> -->
         <div class="flex flex-col-reverse md:flex-row-reverse items-start gap-5">
           <h3
-            class="split md:-mt-5 lowercase text-6xl md:text-7xl xl:text-8xl 2xl:text-[7rem] leading-[3.25rem] md:leading-[4rem] xl:leading-[5.25rem] text-active font-extrabold overflow-hidden relative ml-auto">
+            class="split md:-mt-5 lowercase text-6xl md:text-7xl xl:text-8xl 2xl:text-[7rem] leading-[3.25rem] md:leading-[4rem] xl:leading-[5.25rem] text-active font-extrabold overflow-hidden relative md:ml-auto">
             <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><br><span
               class="drama text-blue font-semibold text-[3rem] md:text-[4rem] xl:text-[5.5rem] 2xl:text-[6.5rem] md:leading-[4rem] 2xl:leading-[6rem]">design<span
                 class="-ml-1 text-3xl xl:text-5xl align-super">&#x2122;</span></span>
           </h3>
           <p class="text-beige-lighter 2xl:text-4xl text-2xl flex-1">
-            We believe that great design is one that strikes the right balance — it simplifies the complex, embodies
-            visual appeal &amp; beauty, and carries meaning &amp; purpose behind its&nbsp;existence.
+            We believe that great design is one that strikes the right balance between simplicity, beauty and purpose —
+            it simplifies the complex, embodies visual appeal &amp; beauty, and carries meaning &amp; purpose behind
+            its&nbsp;existence.
           </p>
         </div>
       </div>
@@ -198,14 +199,7 @@ onBeforeUnmount(() => {
             smaller boutique
             clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense
             passion to help
-            them through their creative&nbsp;journey.<br class="mt-2 block" style="content: ''">You can check out some
-            of
-            her
-            past work at
-            <a class='text-blue hover:underline cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer"
-              aria-label="Open Ridhi's Past Work" href='https://www.ridhisain.com'>
-              www.ridhisain.com
-            </a>
+            them through their creative&nbsp;journey.
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-auto overflow-hidden">
@@ -222,7 +216,7 @@ onBeforeUnmount(() => {
 
       <section
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center py-16 bg-stone-300 md:flex-row">
-        <div class="md:w-2/3 my-auto flex flex-col items-end">
+        <div class="md:w-2/3 my-auto flex flex-col md:items-end">
           <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest md:text-right">
             CLIENT HEAD
           </h3>
@@ -285,12 +279,12 @@ onBeforeUnmount(() => {
       </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex justify-center px-9 lg:px-20 xl:px-36 bg-stone-300 flex-col py-16">
-        <h3 class="text-beige-lighter pt-5 md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
+      <section class="flex justify-center px-9 lg:px-20 xl:px-36 bg-stone-300 flex-col pt-8 pb-4 md:py-16">
+        <h3 class="text-beige-lighter md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
           INDUSTRY&nbsp;TALENT
         </h3>
         <h2
-          class="drama -mt-3 text-5xl pb-5 md:pb-0 md:text-8xl md:mb-3 overflow-hidden text-right text-active font-medium">
+          class="drama md:-mt-3 text-6xl md:text-8xl !leading-[0.75em] md:mb-3 overflow-hidden text-right text-active font-medium">
           our <strong>people</strong>
         </h2>
         <h3 v-if="store.getWidth >= 768"
@@ -419,7 +413,7 @@ onBeforeUnmount(() => {
 
       <section
         class="bg-stone-300 flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36 py-10 md:py-20 lg:pt-16 gap-4 md:gap-10">
-        <h3 class="text-blue drama text-4xl md:text-6xl lg:text-8xl font-semibold">
+        <h3 class="text-blue drama text-5xl md:text-6xl lg:text-8xl font-semibold">
           brands <strong>we have<br>worked&nbsp;with</strong>
           <br />
         </h3>
@@ -460,7 +454,7 @@ onBeforeUnmount(() => {
 
       <section class="bg-blue px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
         <h3
-          class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-4xl md:text-6xl lg:text-8xl font-semibold text-center">
+          class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-5xl md:text-6xl lg:text-8xl font-semibold text-center">
           client <strong>testimonials</strong>
         </h3>
         <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
