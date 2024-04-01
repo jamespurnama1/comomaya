@@ -192,9 +192,9 @@ const isTransparent = computed(() => {
 
   <transition name="fly">
     <nav v-show="opened" @touchmove="e => { touchmoved = true }"
-      class="moreNav bg-beige-normal w-screen h-screen fixed left-0 top-0 z-20">
+      class="moreNav bg-beige-normal w-screen h-screen fixed left-0 bottom-0 z-20">
       <div
-        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-start absolute flex-col overflow-y-scroll gap-5 md:gap-20">
+        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-start absolute flex-col overflow-y-scroll gap-5 md:gap-20 pt-[62px] sm:pt-0">
         <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
           class="text-center relative h-min">
           <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
@@ -264,7 +264,7 @@ const isTransparent = computed(() => {
 
 <style lang="scss" scoped>
 .moreNav {
-  height: -webkit-fill-available;
+  // height: -webkit-fill-available;
   //height: 100vh;
   //padding: safe-area-inset-top 0 safe-area-inset-bottom 0;
 }
