@@ -74,7 +74,7 @@ onMounted(() => {
 
 function whatisLink(l: string) {
   if (l === 'grants') return '/about#grant'
-  if (l === 'services') return '/about#services'
+  if (l === 'services') return '/services'
   if (l === 'work') return '/work'
   if (l === 'about') return '/about'
   return `/${l}`
@@ -104,7 +104,7 @@ function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
     router.push(whatisLink(href))
     handleNav(true);
   }
-  if (href !== 'grants' && href !== 'services' && !touchmoved.value) handleScrollUp()
+  if (href !== 'grants' && !touchmoved.value) handleScrollUp()
   touchmoved.value = false;
 }
 
@@ -263,12 +263,6 @@ const isTransparent = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.moreNav {
-  // height: -webkit-fill-available;
-  //height: 100vh;
-  //padding: safe-area-inset-top 0 safe-area-inset-bottom 0;
-}
-
 .flip {
   transition: all 0.5s ease;
   transform: translateZ(0.9375rem);
