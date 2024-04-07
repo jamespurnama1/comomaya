@@ -155,8 +155,8 @@ onBeforeUnmount(() => {
           </h3>
           <p class="text-beige-lighter 2xl:text-4xl text-2xl flex-1">
             We believe that great design is one that strikes the right balance between simplicity, beauty and purpose —
-            it simplifies the complex, embodies visual appeal &amp; beauty, and carries meaning &amp; purpose behind
-            its&nbsp;existence.
+            it simplifies the complex, grabs attention through its visual appeal, and carries meaning &amp; has a story
+            behind its&nbsp;existence.
           </p>
         </div>
       </div>
@@ -251,7 +251,7 @@ onBeforeUnmount(() => {
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center py-16 bg-beige-lighter md:flex-row-reverse">
         <div class="md:w-2/3 my-auto flex flex-col">
           <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
-            BUSINESS HEAD
+            GROWTH
           </h3>
           <h2 class="drama mb-2 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-black">
             <strong>nishaa</strong> bhojwani
@@ -345,11 +345,11 @@ onBeforeUnmount(() => {
             <li v-for="value in services"
               class="service mb-1 font-extrabold text-blue text-3xl md:text-5xl 2xl:text-7xl text-right whitespace-nowrap">
               {{
-          value }}<span class="text-active">.</span></li>
+              value }}<span class="text-active">.</span></li>
             <li v-for="value in services"
               class="service mb-1 font-extrabold text-blue text-3xl md:text-5xl 2xl:text-7xl text-right whitespace-nowrap">
               {{
-          value }}<span class="text-active">.</span></li>
+              value }}<span class="text-active">.</span></li>
           </ul>
           <!-- <picture>
             <source srcset="/assets/services.png" type="image/png">

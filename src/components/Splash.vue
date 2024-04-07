@@ -12,9 +12,8 @@
       <div class="row-span-1">
         <div class="h-min-0 w-min-0">
           <h1
-            class="split drama text-3xl md:text-4xl lg:text-5xl 2xl:text-8xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
-            <strong><span>We</span><span>are</span><span>a</span><span>creative</span><span>boutique</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful</span><br
-                v-if="store.width > 768"><span>brands</span></strong>
+            class="split drama text-4xl md:text-5xl 2xl:text-8xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
+            <strong><span>We</span><span>are</span><span>a</span><span>creative</span><span>boutique</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful</span><span>brands</span></strong>
           </h1>
           <h2 class="text-beige-lighter font-bold text-xl md:text-3xl mt-3">comomaya</h2>
           <p class="italic text-stone-700 leading-tight text-base md:text-xl">
