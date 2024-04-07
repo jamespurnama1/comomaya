@@ -15,7 +15,7 @@ function resize() {
 
 onMounted(() => {
   window.addEventListener('resize', resize);
-  if (route.path === '/contact') return
+  if (route.path === '/contact' || route.path === '/services') return
   window.setTimeout(() => {
     ScrollTrigger.create({
       trigger: "footer",
@@ -66,7 +66,7 @@ onUnmounted(() => {
               ABOUT</p>
             <p class="font-extrabold text-3xl 2xl:text-5xl tracking-tight -ml-1"
               :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
-              Our services.</p>
+              Who we are.</p>
           </div>
         </router-link></li>
       <!-- <li class=" text-beige-lighter hover:text-active text-lg"><router-link to="/about#grant">Singapore
