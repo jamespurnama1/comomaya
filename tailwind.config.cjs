@@ -4,16 +4,23 @@ module.exports = {
   content: ["./src/**/*.{html,js,vue,ts}"],
   theme: {
     extend: {},
+    fontFamily: {
+      "futura": 'Futura, sans-serif'
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",
       "white": "#ffffff",
       "gray": "#eaeaea",
-      "darkGray": "#606060",
+      "darkGray": "#282828",
       "black": "#000000",
       "beige": {
         "normal": "#BDBCBB",
         "lighter": '#E3E1E1',
+      },
+      "brown": {
+        100: "#E5DFD1",
+        500: "#C7BBA2",
       },
       "active": "#7BFF47",
       "purple": "#982eff",

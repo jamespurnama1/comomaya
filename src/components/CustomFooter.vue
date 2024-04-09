@@ -69,6 +69,15 @@ onUnmounted(() => {
               Who we are.</p>
           </div>
         </router-link></li>
+      <li class="group"><router-link to="/about">
+          <div>
+            <p class="text-lg text-stone-500 font-semibold tracking-widest">
+              SERVICES</p>
+            <p class="font-extrabold text-3xl 2xl:text-5xl tracking-tight -ml-1"
+              :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
+              What we do.</p>
+          </div>
+        </router-link></li>
       <!-- <li class=" text-beige-lighter hover:text-active text-lg"><router-link to="/about#grant">Singapore
                 SMEs</router-link></li> -->
       <li class="group"><router-link to="/contact">
