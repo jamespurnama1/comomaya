@@ -13,7 +13,7 @@
         <div class="h-min-0 w-min-0">
           <h1
             class="split drama text-4xl md:text-5xl 2xl:text-8xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
-            <strong><span>We</span><span>are</span><span>a</span><span>creative</span><span>boutique</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful</span><span>brands</span></strong>
+            <strong><span>We</span><span>are</span><span>a</span><br><span>creative</span><span>boutique</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful</span><span>brands</span></strong>
           </h1>
           <h2 class="text-beige-lighter font-bold text-xl md:text-3xl mt-3">comomaya</h2>
           <p class="italic text-stone-700 leading-tight text-base md:text-xl">
@@ -24,6 +24,16 @@
             <span v-else class="pl-7" />
             maya: (Sanskrit) power, energy,&nbsp;magic
           </p>
+          <div class="flex flex-col  text-active !font-extrabold text-xl md:text-3xl drama my-3 md:my-5">
+            <button class="flex items-center my-1 group"><strong
+                class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter">for our corporate
+                clients</strong><font-awesome-icon v-if="$route.path === '/'" :icon="['fas', 'angles-right']" size="xl"
+                class="group-hover:translate-x-5 transition-transform duration-300 mx-2" /></button>
+            <button class="flex items-center my-1 group"><strong
+                class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter">for our startup
+                clients</strong><font-awesome-icon v-if="$route.path === '/'" :icon="['fas', 'angles-right']" size="xl"
+                class="group-hover:translate-x-5 transition-transform duration-300 mx-2" /></button>
+          </div>
         </div>
       </div>
 
@@ -62,13 +72,14 @@
           </h3>
           <p
             class="ml-auto text-base 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg font-semibold !leading-normal text-black">
-            COMOMAYA exists for one simple reason — to make great design more accessible to start-ups and new
-            businesses — small, medium and large alike. To empower new business owners &amp; entrepreneurs with powerful
-            brands that tell a story. And to add some&nbsp;magic.
+            COMOMAYA exists for one simple reason —<br>to make great design more accessible.
+            From start-ups and new businesses to corporate enterprises — small, medium and large alike. To empower
+            business owners &amp; entrepreneurs with powerful brands that tell a story. To make heads turn. And to add
+            some&nbsp;magic.
             <br>
             <br>
-            From market research to naming, from brand strategy to creating print &amp; digital identities, from
-            packaging to website and social media — we have it all covered. So come on in and take a&nbsp;look!
+            From naming to brandmarks, from brand strategy to creating print &amp; digital identities, from packaging to
+            website and social media — we have it all covered. So come on in and take a&nbsp;look!
           </p>
         </div>
       </div>
@@ -80,7 +91,6 @@
 <script setup lang="ts">
 import { Ref, nextTick, onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useStore } from '../stores';
 // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 

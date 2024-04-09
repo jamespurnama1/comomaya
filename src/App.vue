@@ -27,7 +27,6 @@ const links = [
   'work',
   'about',
   'services',
-  'grants',
   'contact'
 ];
 const target = reactive({ x: 0, y: 0 })

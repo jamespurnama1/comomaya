@@ -12,6 +12,7 @@ const route = useRoute()
 const modules = [Autoplay]
 const store = useStore()
 const brands = Object.values(import.meta.glob('@/assets/brands/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
+const people = Object.values(import.meta.glob('@/assets/people/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
 
 useHead({
   title: 'COMOMAYA - About',
@@ -98,9 +99,9 @@ watch(route, (to) => {
         </p> -->
         <div class="flex flex-col-reverse md:flex-row-reverse items-start gap-5">
           <h3
-            class="split md:-mt-5 lowercase text-6xl md:text-7xl xl:text-8xl 2xl:text-[7rem] leading-[3.25rem] md:leading-[4rem] xl:leading-[5.25rem] text-active font-extrabold overflow-hidden relative md:ml-auto">
+            class="split md:-mt-9 lowercase text-6xl md:text-7xl xl:text-8xl 2xl:text-[7rem] leading-[3.25rem] md:leading-[4rem] xl:leading-[5.25rem] text-active font-extrabold overflow-hidden relative md:ml-auto md:py-4">
             <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><br><span
-              class="drama text-blue font-semibold text-[3rem] md:text-[4rem] xl:text-[5.5rem] 2xl:text-[6.5rem] md:leading-[4rem] 2xl:leading-[6rem]">design<span
+              class="drama text-blue font-semibold text-[3rem] md:text-[4rem] xl:text-[5.5rem] 2xl:text-[6.5rem] md:leading-[4rem] 2xl:leading-[9rem]">design<span
                 class="-ml-1 text-3xl xl:text-5xl align-super">&#x2122;</span></span>
           </h3>
           <p class="text-beige-lighter 2xl:text-4xl text-2xl flex-1">
@@ -119,7 +120,7 @@ watch(route, (to) => {
         class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center bg-beige-lighter md:flex-row-reverse overflow-visible">
         <div class="md:w-2/3 my-auto md:pt-16">
           <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
-            FOUNDER &amp; CREATIVE&nbsp;HEAD
+            FOUNDER &amp;&nbsp;CREATIVE
           </h3>
           <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
             <h2 class="drama mb-2 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-black">
@@ -143,7 +144,7 @@ watch(route, (to) => {
             and
             helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's Dove,
             Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod
-            Ricard, Kellogg's and many&nbsp;more.<br class="mt-2 block" style="content: ''">More recently, she has
+            Ricard, Kellogg's and many&nbsp;more.<br class="mt-2 block" style="content: ''"><br>More recently, she has
             worked
             with
             smaller boutique
@@ -168,7 +169,7 @@ watch(route, (to) => {
         class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center py-16 bg-stone-300 md:flex-row">
         <div class="md:w-2/3 my-auto flex flex-col md:items-end">
           <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest md:text-right">
-            CLIENT HEAD
+            CLIENT &amp;&nbsp;OPS
           </h3>
           <h2 class="drama mb-2 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
             <strong>sonali</strong> sani
@@ -234,13 +235,14 @@ watch(route, (to) => {
           INDUSTRY&nbsp;TALENT
         </h3>
         <h2
-          class="drama md:-mt-3 text-6xl md:text-8xl !leading-[0.75em] md:mb-3 overflow-hidden text-right text-active font-medium">
+          class="drama text-6xl md:text-8xl !leading-[0.75em] md:mb-3 overflow-hidden text-right text-active font-medium">
           our <strong>people</strong>
         </h2>
         <h3 v-if="store.getWidth >= 768"
           class="text-black md:text-xl 2xl:text-2xl text-right pb-5 !leading-snug lg:max-w-[550px] md:ml-auto">
-          Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
-          collaborating with some of the best talent in the industry and across the&nbsp;globe.
+          Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
+          clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with some
+          of the best talent in the industry and across the&nbsp;globe.
         </h3>
       </section>
 
@@ -254,17 +256,20 @@ watch(route, (to) => {
         </div>
         <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
           <h3 class="text-black text-xl py-5 !leading-snug">
-            Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way,
-            collaborating with some of the best talent in the industry and across the&nbsp;globe.
+            Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
+            clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with
+            some of the best talent in the industry and across the&nbsp;globe.
           </h3>
         </section>
-        <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-beige">
-          <picture>
+        <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-beige grid grid-cols-3 grid-row-3 gap-1 md:gap-3">
+          <!-- <picture>
             <source srcset="/assets/theSquad.png" type="image/png">
             <source srcset="/assets/theSquad.webp" type="image/webp">
             <img class="w-full h-full object-contain" src="/assets/theSquad.png" alt="The Squad" />
-          </picture>
-        </div>
+          </picture> -->
+          <img class="aspect-square object-cover" v-for="person in people" :src="person"
+            :alt="person.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+          </div>
       </section>
 
       <!-- <span id="services" /> -->
@@ -418,7 +423,11 @@ watch(route, (to) => {
   margin-right: 0.2em;
   display: inline-block;
   transform: translateY(400%);
-  line-height: 0.6;
+  //line-height: 0.6;
+
+  @media (min-width: 1024) {
+   // line-height: 0.7;
+  }
 }
 
 .drama {
