@@ -83,17 +83,22 @@ useHead({
       <h1 class="text-7xl font-extrabold tracking-tight text-active">work</h1>
     </div>
     <p class="text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2 pt-20 md:pt-14">
-      <span v-for="(value, key, i) in filterList" @click="filtered[key] = !filtered[key]">
+      <span v-for="(value, key, i) in filterList" @click="filtered[key] = !filtered[key]" class="group">
         <input :name="key" v-model="filtered[key]" type="checkbox" class="hidden bg-transparent text-transparent" />
-        <label class="hover:underline whitespace-nowrap"
+        <label class="group-hover:font-semibold group-hover:text-active whitespace-nowrap absolute"
           :class="[filtered[key] ? 'font-bold text-active' : 'text-beige-lighter']">{{ key }} <sup
-            :class="[filtered[key] ? 'bg-active !text-blue' : 'bg-beige-lighter !text-blue']"
+            :class="[filtered[key] ? 'bg-active !text-blue' : 'bg-beige-lighter group-hover:bg-active !text-blue']"
             v-if="typeof value === 'number'">{{ value }}</sup>{{ (i + 1 !== Object.keys(filterList).length) ||
-        Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
+          Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
+        <label class="font-semibold whitespace-nowrap opacity-0"
+          :class="[filtered[key] ? 'font-bold text-active' : 'text-beige-lighter']">{{ key }} <sup
+            :class="[filtered[key] ? 'bg-active !text-blue' : 'bg-beige-lighter group-hover:bg-active !text-blue']"
+            v-if="typeof value === 'number'">{{ value }}</sup>{{ (i + 1 !== Object.keys(filterList).length) ||
+          Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
         <wbr>
       </span>
       <button v-if="Object.values(filtered).some(v => v === true)" @click="clearFilter()"
-        class="hover:underline font-semibold whitespace-nowrap text-active">
+        class="hover:text-white font-semibold whitespace-nowrap text-active">
         <font-awesome-icon :icon="['fas', 'square-xmark']" size="sm" class="" /> Clear filters
       </button>
     </p>

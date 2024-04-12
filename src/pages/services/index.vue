@@ -7,7 +7,7 @@
           WHAT WE&nbsp;OFFER
         </h3>
         <h2
-          class="drama xl:ml-[-10px] py-3 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium !leading-[0.75] md:!leading-[0.5]">
+          class="drama xl:ml-[-10px] py-5 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium !leading-[0.75] md:!leading-[0.5]">
           our <strong>services</strong>
         </h2>
         <h3 class="text-black !leading-snug md:text-xl 2xl:text-2xl xl:pb-10 lg:max-w-[570px]">
@@ -46,14 +46,21 @@
           </h3> -->
       <!-- </section> -->
     </section>
+    <span id="corporate" />
     <section
-      class="flex px-9 lg:px-20 2xl:px-36 justify-center flex-col xl:flex-row min-h-[50vh] xl:min-h-[75vh] 2xl:gap-16  bg-beige-lighter relative">
+      class="flex flex-col px-9 lg:px-20 2xl:px-36 py-10 justify-center xl:flex-col min-h-[50vh] xl:min-h-[75vh] gap-5 2xl:gap-16 bg-beige-lighter relative">
       <div class="flex flex-col gap-5">
-        <h2 class="text-5xl md:text-6xl text-stone-300 font-extrabold mr-auto">for our corporate clients</h2>
-        <p></p>
+        <h2 class="text-5xl md:text-6xl text-black font-extrabold mr-auto">for our corporate clients</h2>
+        <p>For our Singaporean SME clients, we're proud to be registered with the Enterprise Development Grant (EDG). We
+          highly encourage you to leverage this incredible opportunity, which offers a substantial 50-70% discount on
+          our services. It's a chance to propel your brand forward without breaking the bank.
+
+          For those who can't access this service, we understand that time and money are key and with this in mind, our
+          packages are an efficient and affordable way to elevate your brand and website. Click on the packages below to
+          get more info on them.</p>
       </div>
     </section>
-
+    <span id="startup" />
     <section
       class="flex flex-col px-9 lg:px-20 2xl:px-36 py-10 justify-center xl:flex-col min-h-[50vh] xl:min-h-[75vh] gap-5 2xl:gap-16 bg-stone-300 relative">
       <div class="flex flex-col gap-5">
@@ -76,43 +83,41 @@
       </div>
       <div class="flex gap-4 flex-col md:flex-row">
         <button class="md:w-1/3 w-full min-h-0 bg-brown-100 aspect-[4/3]">
-          <a class="z-10" target="_blank" rel="noopener noreferrer"
+          <a class="z-10 px-14 py-10 w-full h-full block" target=" _blank" rel="noopener noreferrer"
             href="https://wa.me/6594245994?text=I%27m%20interested%20in%20LOGO%20IN%20A%20DAY%21">
             <div
-              class="outline-black outline-1 outline text-center flex flex-col items-center justify-center mx-16 my-10 p-1">
+              class="outline-black outline-1 outline text-center flex flex-col items-center justify-center p-1 w-full h-full">
               <h3 class="uppercase text-xl md:text-base font-bold font-futura">
-                logo in a&nbsp;day
+                branding in a&nbsp;day
               </h3>
               <p class="text-xs">In an everchanging world, we create desire across the complete brand experience to
-                build timeless brand
-                value.</p>
+                build timeless brand&nbsp;value.</p>
             </div>
           </a>
         </button>
         <button class="md:w-1/3 w-full min-h-0 bg-brown-500 aspect-[4/3]">
-          <a class="z-10" target="_blank" rel="noopener noreferrer"
+          <a class="z-10 px-14 py-10 w-full h-full block" target=" _blank" rel="noopener noreferrer"
             href="https://wa.me/6594245994?text=I%27m%20interested%20in%20DESIGN%20IN%20A%20DAY%21">
             <div
-              class="outline-black outline-1 outline text-center flex flex-col items-center justify-center mx-16 my-10 p-1">
+              class="outline-black outline-1 outline text-center flex flex-col items-center justify-center p-1 w-full h-full">
               <h3 class="uppercase text-xl md:text-base font-bold font-futura">
                 redesign in a&nbsp;day
               </h3>
               <p class="text-xs">In an everchanging world, we create desire across the complete brand experience to
-                build timeless brand
-                value.</p>
+                build timeless brand&nbsp;value.</p>
             </div>
           </a>
         </button>
         <button class="md:w-1/3 w-full min-h-0 bg-darkGray text-white aspect-[4/3]">
-          <a class="z-10" target="_blank" rel="noopener noreferrer"
+          <a class="z-10 px-14 py-10 w-full h-full block" target="_blank" rel="noopener noreferrer"
             href="https://wa.me/6594245994?text=I%27m%20interested%20in%20WEBSITE%20IN%20A%20WEEK%21">
-            <div class="outline-white outline-1 outline text-center flex flex-col items-center justify-center mx-16 my-10 p-1">
+            <div
+              class="outline-white outline-1 outline text-center flex flex-col items-center justify-center p-1 w-full h-full">
               <h3 class="uppercase text-xl md:text-base font-bold font-futura">
                 website in a&nbsp;week
               </h3>
               <p class="text-xs">In an everchanging world, we create desire across the complete brand experience to
-                build timeless brand
-                value.</p>
+                build timeless brand&nbsp;value.</p>
             </div>
           </a>
         </button>
@@ -122,7 +127,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from 'vue';
+import { onMounted, onBeforeUnmount, ref, watch } from 'vue';
 import { gsap } from 'gsap';
 
 const services = [

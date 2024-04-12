@@ -59,18 +59,6 @@ async function loadContent() {
 	// 	}
 	// })
 
-	ScrollTrigger.create({
-		trigger: "footer",
-		start: "top bottom",
-		end: "bottom bottom",
-		snap: {
-			snapTo: [0, 1],
-			delay: 0.3,
-			duration: 1,
-			ease: "power1.inOut",
-		}
-	})
-
 	// ScrollTrigger.create({
 	// 	trigger: ".splash",
 	// 	start: "top bottom",
@@ -149,8 +137,11 @@ function scrollDown() {
 		<button @click="scrollDown" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']"
 			class="flex flex-col items-center justify-center absolute top-[75vh] left-1/2 -translate-x-1/2 transition-all duration-500">
 			<!-- <p class="text-beige-lighter font-semibold text-xl">Scroll</p> -->
-			<font-awesome-icon ref="bounce" v-if="$route.path === '/'" :icon="['fas', 'angles-down']" size="2xl"
-				class="text-active cursor-pointer z-10 bounce" />
+			<!-- <font-awesome-icon ref="bounce" v-if="$route.path === '/'" :icon="['fas', 'angles-down']" size="2xl"
+				class="text-active cursor-pointer z-10 bounce" /> -->
+			<img
+				class="block w-8 h-8 md:w-12 md:h-12 object-contain group-hover:translate-x-5 transition-transform duration-300 rotate-90 bounce"
+				src="/assets/arrow-right-darker.svg" alt="button next" />
 		</button>
 		<div class="overflow-hidden relative w-full h-[85vh]">
 			<!-- <picture>
@@ -159,10 +150,9 @@ function scrollDown() {
 				<img class="object-cover w-full h-full relative brightness-75 scale-[1.25] parallaxVideo"
 					src="/assets/brewlander-1.jpg" alt="Brewlander">
 			</picture> -->
-			<video v-if="store.getWidth > 768" muted autoplay preload="true" playsinline="true" loop
-				src="/assets/hero.mp4" class="object-cover w-full h-full relative brightness-75" />
-			<video v-else muted autoplay preload="true" playsinline="true" loop
-				src="/assets/hero_vertical.mp4"
+			<video v-if="store.getWidth > 768" muted autoplay preload="true" playsinline="true" loop src="/assets/hero.mp4"
+				class="object-cover w-full h-full relative brightness-75" />
+			<video v-else muted autoplay preload="true" playsinline="true" loop src="/assets/hero_vertical.mp4"
 				class="object-cover w-full h-full relative brightness-75" />
 		</div>
 		<Splash />

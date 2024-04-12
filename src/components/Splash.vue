@@ -25,14 +25,27 @@
             maya: (Sanskrit) power, energy,&nbsp;magic
           </p>
           <div class="flex flex-col  text-active !font-extrabold text-xl md:text-3xl drama my-3 md:my-5">
-            <button class="flex items-center my-1 group"><strong
-                class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter">for our corporate
-                clients</strong><font-awesome-icon v-if="$route.path === '/'" :icon="['fas', 'angles-right']" size="xl"
-                class="group-hover:translate-x-5 transition-transform duration-300 mx-2" /></button>
-            <button class="flex items-center my-1 group"><strong
-                class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter">for our startup
-                clients</strong><font-awesome-icon v-if="$route.path === '/'" :icon="['fas', 'angles-right']" size="xl"
-                class="group-hover:translate-x-5 transition-transform duration-300 mx-2" /></button>
+            <button class="my-1 group">
+              <router-link to="/services#corporate" class="flex items-center">
+                <strong class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter">for
+                  our corporate
+                  clients</strong>
+                <img
+                  class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
+                  src="/assets/arrow-right-darker.svg" alt="button next" />
+                <!-- <font-awesome-icon v-if="$route.path === '/'" :icon="['fas', 'angles-right']" size="xl"
+                class="group-hover:translate-x-5 transition-transform duration-300 mx-2" /> -->
+              </router-link>
+            </button>
+            <button class="my-1 group">
+              <router-link to="/services#startup" class="flex items-center">
+                <strong class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter">for our startup
+                  clients</strong>
+                <img
+                  class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
+                  src="/assets/arrow-right-darker.svg" alt="button next" />
+              </router-link>
+            </button>
           </div>
         </div>
       </div>

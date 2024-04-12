@@ -74,10 +74,10 @@ useHead({
 
       <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="message">MESSAGE</label>
       <div contenteditable id="message"
-        class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[44px] focus:outline-none"
+        class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none py-2"
         name="message"></div>
       <button
-        class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold"
+        class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 -ml-2 h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold"
         type="submit">submit</button>
     </form>
     <!-- </section> -->
