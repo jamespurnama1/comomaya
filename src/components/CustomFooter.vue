@@ -67,7 +67,7 @@ onUnmounted(() => {
               Who we are.</p>
           </div>
         </router-link></li>
-      <li class="group"><router-link to="/about">
+      <li class="group"><router-link to="/services">
           <div>
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               SERVICES</p>
