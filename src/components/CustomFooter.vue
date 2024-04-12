@@ -7,43 +7,41 @@ import { useRoute } from 'vue-router';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const route = useRoute()
-
 function resize() {
-  ScrollTrigger.refresh();
+  // ScrollTrigger.refresh();
 }
 
 onMounted(() => {
-  window.addEventListener('resize', resize);
-  if (route.path === '/contact' || route.path === '/services') return
-  window.setTimeout(() => {
-    ScrollTrigger.create({
-      trigger: "footer",
-      start: "top bottom",
-      end: "bottom bottom",
-      id: "footer",
-      // markers: true,
-      snap: {
-        snapTo: [0, 1],
-        delay: 0.3,
-        duration: 1,
-        ease: "power1.inOut",
-      }
-    })
-  }, 1000)
+  // window.addEventListener('resize', resize);
+  // if (route.path === '/contact' || route.path === '/services') return
+  // window.setTimeout(() => {
+  //   ScrollTrigger.create({
+  //     trigger: "footer",
+  //     start: "top bottom",
+  //     end: "bottom bottom",
+  //     id: "footer",
+  //     // markers: true,
+  //     snap: {
+  //       snapTo: [0, 1],
+  //       delay: 0.3,
+  //       duration: 1,
+  //       ease: "power1.inOut",
+  //     }
+  //   })
+  // }, 1000)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('resize', resize);
-  if (!ScrollTrigger.getById("footer")) return
-  ScrollTrigger.getById("footer")!.kill()
+  // window.removeEventListener('resize', resize);
+  // if (!ScrollTrigger.getById("footer")) return
+  // ScrollTrigger.getById("footer")!.kill()
 })
 </script>
 
 <template>
   <footer
     class="flex flex-col items-start justify-start py-12 md:py-24 px-9 lg:px-20 2xl:px-36 lg:mx-auto w-screen gap-12 md:gap-24"
-    :class="[$route.name === 'work-slug' ? 'bg-stone-300 text-active' : 'bg-beige-lighter text-black']">
+    :class="[$route.name === 'work-slug' ? 'bg-stone-300 text-active' : 'bg-beige-normal text-black']">
     <!-- <video class="recolor max-h-10 md:max-h-24 md:-ml-3" playsinline loop autoplay="true" muted>
       <source src="/assets/aboutus.mp4" type="video/mp4" />
     </video> -->

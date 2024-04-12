@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from "swiper";
 import 'swiper/scss';
-import { onMounted, ref, type Ref, watch } from 'vue';
+import { onMounted, ref, type Ref } from 'vue';
 import { useStore } from '../../stores';
 import { useRoute } from "vue-router"
 
@@ -70,17 +70,6 @@ onMounted(() => {
     })
   }
 });
-
-watch(route, (to) => {
-  setTimeout(() => {
-    if (to.hash) {
-      document.querySelector(to.hash) ? window.scrollTo({
-        top: document.querySelector(to.hash)!.getBoundingClientRect().top + window.scrollY - 50,
-        behavior: "smooth"
-      }) : null
-    }
-  }, 1000);
-}, { flush: 'pre', immediate: true, deep: true })
 </script>
 
 <template>
@@ -97,14 +86,14 @@ watch(route, (to) => {
           <span v-else class="pl-7" />
           maya: (Sanskrit) energy,&nbsp;magic
         </p> -->
-        <div class="flex flex-col-reverse md:flex-row-reverse items-start gap-5">
+        <div class="flex flex-col-reverse md:flex-row-reverse items-start gap-5 md:gap-12 w-full">
           <h3
-            class="split md:-mt-9 lowercase text-6xl md:text-7xl xl:text-8xl 2xl:text-[7rem] leading-[3.25rem] md:leading-[4rem] xl:leading-[5.25rem] text-active font-extrabold overflow-hidden relative md:ml-auto md:py-4">
+            class="split md:-mt-9 lowercase text-6xl md:text-7xl xl:text-8xl 2xl:text-[7rem] leading-[3.25rem] md:leading-[4rem] xl:leading-[5.25rem] text-active font-extrabold overflow-hidden relative md:ml-auto md:py-4 md:w-1/2">
             <span>simple</span><br><span>beautiful</span><br><span>purposeful</span><br><span
               class="drama text-blue font-semibold text-[3rem] md:text-[4rem] xl:text-[5.5rem] 2xl:text-[6.5rem] md:leading-[4rem] 2xl:leading-[9rem]">design<span
                 class="-ml-1 text-3xl xl:text-5xl align-super">&#x2122;</span></span>
           </h3>
-          <p class="text-beige-lighter 2xl:text-4xl text-2xl flex-1">
+          <p class="text-beige-lighter 2xl:text-4xl text-2xl flex-1 font-medium md:w-1/3">
             We believe that great design is one that strikes the right balance between simplicity, beauty and purpose —
             it simplifies the complex, grabs attention through its visual appeal, and carries meaning &amp; has a story
             behind its&nbsp;existence.
