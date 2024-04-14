@@ -62,7 +62,7 @@
     </section>
     <span id="startup" />
     <section
-      class="flex flex-col px-9 lg:px-20 2xl:px-36 py-10 justify-center xl:flex-col min-h-[50vh] xl:min-h-[75vh] gap-5 2xl:gap-16 bg-stone-300 relative">
+      class="flex flex-col px-9 lg:px-20 2xl:px-36 py-10 justify-center min-h-[50vh] xl:min-h-[75vh] gap-5 2xl:gap-16 bg-stone-300 relative">
       <div class="flex flex-col gap-5">
         <h2 class="text-5xl md:text-6xl text-active font-extrabold mr-auto">for our startup clients</h2>
         <p class="text-beige-lighter 2xl:text-2xl text-xl">At our core, we believe exceptional design and branding
@@ -81,42 +81,51 @@
           get more info on&nbsp;them.
         </p>
       </div>
-      <div class="flex gap-4 flex-col md:flex-row">
-        <button class="md:w-1/3 w-full min-h-0 bg-brown-100 aspect-[4/3]">
-          <a class="z-10 px-14 py-10 w-full h-full block" target=" _blank" rel="noopener noreferrer"
+      <div class="flex gap-4 flex-col md:flex-row md:aspect-[12/3] min-h-0 w-full justify-center">
+        <button class="md:w-auto w-full h-full bg-brown-100 aspect-[4/3]">
+          <a class="z-10 px-14 py-10 sm:px-28 sm:py-24 md:px-8 md:py-6 lg:px-14 lg:py-10 w-full h-full block"
+            target=" _blank" rel="noopener noreferrer"
             href="https://wa.me/6594245994?text=I%27m%20interested%20in%20LOGO%20IN%20A%20DAY%21">
             <div
               class="outline-black outline-1 outline text-center flex flex-col items-center justify-center p-1 w-full h-full">
               <h3 class="uppercase text-xl md:text-base font-bold font-futura">
                 branding in a&nbsp;day
               </h3>
-              <p class="text-xs">In an everchanging world, we create desire across the complete brand experience to
+              <p class="text-xs sm:text-base md:text-xs lg:text-base">In an everchanging world, we create desire across
+                the complete brand
+                experience to
                 build timeless brand&nbsp;value.</p>
             </div>
           </a>
         </button>
-        <button class="md:w-1/3 w-full min-h-0 bg-brown-500 aspect-[4/3]">
-          <a class="z-10 px-14 py-10 w-full h-full block" target=" _blank" rel="noopener noreferrer"
+        <button class="w-full md:w-auto h-full bg-brown-500 aspect-[4/3]">
+          <a class="z-10 px-14 py-10 sm:px-28 sm:py-24 md:px-8 md:py-6 lg:px-14 lg:py-10 w-full h-full block"
+            target=" _blank" rel="noopener noreferrer"
             href="https://wa.me/6594245994?text=I%27m%20interested%20in%20DESIGN%20IN%20A%20DAY%21">
             <div
               class="outline-black outline-1 outline text-center flex flex-col items-center justify-center p-1 w-full h-full">
               <h3 class="uppercase text-xl md:text-base font-bold font-futura">
                 redesign in a&nbsp;day
               </h3>
-              <p class="text-xs">In an everchanging world, we create desire across the complete brand experience to
+              <p class="text-xs sm:text-base md:text-xs lg:text-base">In an everchanging world, we create desire across
+                the complete brand
+                experience to
                 build timeless brand&nbsp;value.</p>
             </div>
           </a>
         </button>
-        <button class="md:w-1/3 w-full min-h-0 bg-darkGray text-white aspect-[4/3]">
-          <a class="z-10 px-14 py-10 w-full h-full block" target="_blank" rel="noopener noreferrer"
+        <button class="md:w-auto w-full h-full bg-darkGray text-white aspect-[4/3]">
+          <a class="z-10 px-14 py-10 sm:px-28 sm:py-24 md:px-8 md:py-6 lg:px-14 lg:py-10 w-full h-full block"
+            target="_blank" rel="noopener noreferrer"
             href="https://wa.me/6594245994?text=I%27m%20interested%20in%20WEBSITE%20IN%20A%20WEEK%21">
             <div
               class="outline-white outline-1 outline text-center flex flex-col items-center justify-center p-1 w-full h-full">
               <h3 class="uppercase text-xl md:text-base font-bold font-futura">
                 website in a&nbsp;week
               </h3>
-              <p class="text-xs">In an everchanging world, we create desire across the complete brand experience to
+              <p class="text-xs sm:text-base md:text-xs lg:text-base">In an everchanging world, we create desire across
+                the complete brand
+                experience to
                 build timeless brand&nbsp;value.</p>
             </div>
           </a>
@@ -192,10 +201,8 @@ onBeforeUnmount(() => {
 .drama strong {
   font-weight: 800;
   font-family: "Barlow";
-  letter-spacing: -0.015em;
 }
 
 .drama span {
-  letter-spacing: -0.15em;
 }
 </style>

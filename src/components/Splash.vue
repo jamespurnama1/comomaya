@@ -6,7 +6,7 @@
       HELLO
     </h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-[min-content_max(25vw,10vh)_1fr] gap-5 w-full">
+    <div class="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-[min-content_max(25vw,10vh)_1fr] gap-5 w-full">
 
       <!-- 1A -->
       <div class="row-span-1">
@@ -24,12 +24,11 @@
             <span v-else class="pl-7" />
             maya: (Sanskrit) power, energy,&nbsp;magic
           </p>
-          <div class="flex flex-col  text-active !font-extrabold text-xl md:text-3xl drama my-3 md:my-5">
+          <div class="flex flex-col text-active !font-extrabold text-xl md:text-3xl drama my-3 md:my-5">
             <button class="my-1 group">
               <router-link to="/services#corporate" class="flex items-center">
-                <strong class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter">for
-                  our corporate
-                  clients</strong>
+                <strong class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter whitespace-nowrap">for
+                  our corporate clients</strong>
                 <img
                   class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
                   src="/assets/arrow-right-darker.svg" alt="button next" />
@@ -39,7 +38,8 @@
             </button>
             <button class="my-1 group">
               <router-link to="/services#startup" class="flex items-center">
-                <strong class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter">for our startup
+                <strong class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter whitespace-nowrap">for
+                  our startup
                   clients</strong>
                 <img
                   class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
@@ -51,16 +51,29 @@
       </div>
 
       <!-- 1B -->
-      <div class="row-start-1 row-span-1 col-start-1 md:col-start-2 aspect-square">
-        <picture class="h-min-0 w-min-0">
-          <source srcset=" /assets/gabongo.webp" type="image/webp">
-          <source srcset="/assets/gabongo.jpg" type="image/jpeg">
-          <img class="object-cover w-full h-full origin-top" src="/assets/gabongo.jpg" alt="Gabongo">
-        </picture>
+      <div class="flex row-start-1 row-span-1 col-start-1 sm:col-start-2 bg-beige-lighter h-full">
+        <h3 class="vertical text-[10rem] md:text-[14rem] 2xl:text-[24rem] !leading-[0.65] text-center py-2">
+          SMLXL</h3>
+        <div class="py-10 px-5">
+          <h3
+            class="split drama text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.9]">
+            <strong><span class="text-black">Are</span><span
+                class="text-black">you</span><span>small</span><span>medium</span><br><span
+                class="text-black">or</span><span>large</span></strong><span>&amp;</span><strong><span>extra</span></strong><span><strong>large</strong>?</span>
+          </h3>
+          <button class="my-1 group">
+            <router-link to="/services#startup" class="flex items-center">
+              <p class="text-left w-1/2">No matter what the size of your business, we are here to&nbsp;help</p>
+              <img
+                class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
+                src="/assets/arrow-right-darker.svg" alt="button next" />
+            </router-link>
+          </button>
+        </div>
       </div>
 
       <!-- 2A -->
-      <div class="md:col-start-2 md:row-start-2 row-span-1">
+      <div class="sm:col-start-2 sm:row-start-2 row-span-1">
         <picture class="">
           <source srcset=" /assets/fairtrade.webp" type="image/webp">
           <source srcset="/assets/fairtrade.jpeg" type="image/jpeg">
@@ -69,7 +82,7 @@
       </div>
 
       <!-- 2B -->
-      <div class="md:row-end-4 col-start-1 md:row-start-2 h-min-0 w-min-0">
+      <div class="sm:row-end-4 col-start-1 sm:row-start-2 h-min-0 w-min-0">
         <picture class="">
           <source srcset=" /assets/lovespun.webp" type="image/webp">
           <source srcset="/assets/lovespun.jpg" type="image/jpeg">
@@ -78,9 +91,10 @@
       </div>
 
       <!-- 3 -->
-      <div class="md:col-start-2 md:row-start-3 md:row-end-4 h-min-0 w-min-0">
+      <div class="sm:col-start-2 sm:row-start-3 sm:row-end-4 h-min-0 w-min-0">
         <div class="bg-beige-lighter h-full w-full p-12 pt-12 md:pt-24 flex flex-col gap-4 md:gap-12">
-          <h3 class="split text-2xl md:text-5xl 2xl:text-6xl text-black font-extrabold overflow-hidden relative drama">
+          <h3
+            class="split text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl text-black font-extrabold overflow-hidden relative drama">
             <span class="!leading-[0.9]"><strong>COMOMAYA's</strong> mission</span>
           </h3>
           <p
@@ -158,6 +172,13 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
+.vertical {
+  font-family: Heaters;
+  transform: rotate(180deg);
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
+
 .drama {
   font-weight: 600;
   font-family: "Narziss";

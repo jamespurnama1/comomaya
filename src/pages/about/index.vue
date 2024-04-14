@@ -431,7 +431,6 @@ onMounted(() => {
 }
 
 .drama span {
-  letter-spacing: -0.15em;
 }
 
 .flop {
