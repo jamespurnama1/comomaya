@@ -10,12 +10,9 @@
           class="drama xl:ml-[-10px] py-5 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium !leading-[0.75] md:!leading-[0.5]">
           our <strong>services</strong>
         </h2>
-        <h3 class="text-black !leading-snug md:text-xl 2xl:text-2xl xl:pb-10 lg:max-w-[570px]">
-          We have a vibrant portfolio of clients ranging from FMCG to
-          B2B and from corporate to boutique &amp; luxury brands spread across various categories including food,
-          beverage, beauty, health &amp; wellness and hospitality. We are
-          multidisciplinary and
-          provide holistic services for your brand woven together from day&nbsp;one.
+        <h3 class="text-black md:text-3xl 2xl:text-5xl xl:pb-10 lg:max-w-[570px] font-bold">
+          At our core, we believe exceptional branding & design should be accessible to all — whether you're a budding
+          startup or a thriving&nbsp;corporation.
         </h3>
       </div>
 
@@ -46,7 +43,7 @@
           </h3> -->
       <!-- </section> -->
     </section>
-    <span id="corporate" />
+    <!-- <span id="corporate" />
     <section
       class="flex flex-col px-9 lg:px-20 2xl:px-36 py-10 justify-center xl:flex-col min-h-[50vh] xl:min-h-[75vh] gap-5 2xl:gap-16 bg-beige-lighter relative">
       <div class="flex flex-col gap-5">
@@ -59,12 +56,12 @@
           packages are an efficient and affordable way to elevate your brand and website. Click on the packages below to
           get more info on them.</p>
       </div>
-    </section>
+    </section> -->
     <span id="startup" />
     <section
       class="flex flex-col px-9 lg:px-20 2xl:px-36 py-10 justify-center min-h-[50vh] xl:min-h-[75vh] gap-5 2xl:gap-16 bg-stone-300 relative">
       <div class="flex flex-col gap-5">
-        <h2 class="text-5xl md:text-6xl text-active font-extrabold mr-auto">for our startup clients</h2>
+        <h2 class="text-6xl md:text-8xl text-active font-extrabold mr-auto">smlxl</h2>
         <p class="text-beige-lighter 2xl:text-2xl text-xl">At our core, we believe exceptional design and branding
           should be accessible to all — whether you're a
           budding startup with a great product or service or a thriving corporation. We're committed to supporting small
