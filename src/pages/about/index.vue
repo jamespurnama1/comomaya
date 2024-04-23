@@ -122,10 +122,7 @@ onMounted(() => {
             2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK, Singapore &amp; India, Ridhi has worked with international agencies
             such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also ex-Assoc Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led and helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's Dove, Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod Ricard, Kellogg's and many more.<br class="mt-2 block" style="content: ''">More recently, she has worked with smaller boutique
             clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense passion to help
-            them through their creative journey.<br class="mt-2 block" style="content: ''">You can check out some of her past work at 
-            <a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Ridhi's Past Work" href='https://www.ridhisain.com'>
-              www.ridhisain.com
-            </a>
+            them through their creative journey.
           </p>
         </div>
         <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
