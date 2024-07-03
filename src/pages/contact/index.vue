@@ -53,8 +53,8 @@ useHead({
           <p class="text-blue hover:text-active font-semibold mb-5">+91 91089 82151</p>
         </a>
         <!-- <p class="text-black font-semibold tracking-widest mb-3">WRITE TO US</p> -->
-        <a class="z-10" href="mailto:design@comomaya.com">
-          <p class="text-blue hover:text-active font-semibold mb-5">design@comomaya.com</p>
+        <a class="z-10" href="mailto:ridhisain@comomaya.com">
+          <p class="text-blue hover:text-active font-semibold mb-5">ridhisain@comomaya.com</p>
         </a>
       </div>
     </div>
