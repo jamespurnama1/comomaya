@@ -97,14 +97,15 @@ onUnmounted(() => {
         © 2024 COMOMAYA. All rights reserved.
       </p>
       <div class="flex gap-1 md:gap-5 md:text-base text-sm">
-        <a class="z-10 relative text-stone-500 hover:text-active" key="ig" href="https://instagram.com/comomaya"
-          aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
+        <a class="z-10 relative text-stone-500 hover:text-active hover:scale-150 transition-all" key="ig"
+          href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank"
+          rel="noopener noreferrer">
           <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl"
             class="mx-2 my-3 transition-all duration-200" />
           <!-- <p class="absolute group-hover:opacity-100 opacity-0 text-active font-bold">(INSTAGRAM)</p>
           <p class="text-beige-lighter group-hover:opacity-0">(INSTAGRAM)</p> -->
         </a>
-        <a class="z-10 relative text-stone-500 hover:text-active" key="linkedin"
+        <a class="z-10 relative text-stone-500 hover:text-active hover:scale-150 transition-all" key="linkedin"
           href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
           rel="noopener noreferrer">
           <!-- <p class="absolute group-hover:opacity-100 opacity-0 text-active font-bold">(LINKEDIN)</p>
