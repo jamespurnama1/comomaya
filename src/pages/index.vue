@@ -24,18 +24,11 @@ let loaded = false;
 
 let imageFade: GSAPTimeline;
 
-const projectList = ref()
-const main = ref(null as HTMLElement | null)
-
 async function loadContent() {
 	loaded = true;
 
 	await new Promise(resolve => setTimeout(resolve, 1000));
-	// const skewSetter = gsap.quickSetter(projectList.value, "skewY", "deg");
 
-	let proxy = { skew: 0 };
-	const clamp = gsap.utils.clamp(-20, 20);
-	// gsap.set(projectList.value, { transformOrigin: "right center", force3D: true });
 	gsap.to(".bounce", {
 		y: '+=10px',
 		duration: 1,
@@ -43,59 +36,6 @@ async function loadContent() {
 		yoyoEase: "power2.in",
 		repeat: - 1
 	})
-	// const allBGs = gsap.utils.toArray(".bg")
-
-	// imageFade = gsap.timeline({ defaults: { ease: 'none', stagger: -2 } })
-	// 	// .to(allBGs, {duration: 0.3})
-	// 	.to(allBGs, { autoAlpha: 1, duration: 0.5 })
-	// .to({}, { duration: 1 }, 1)
-
-	// gsap.to(".parallaxVideo", {
-	// 	y: "+=45%",
-	// 	scrollTrigger: {
-	// 		// trigger: parallax.value,
-	// 		scrub: true,
-	// 		// markers: true
-	// 	}
-	// })
-
-	// ScrollTrigger.create({
-	// 	trigger: ".splash",
-	// 	start: "top bottom",
-	// 	end: "bottom top",
-	// 	// markers: true,
-	// 	snap: {
-	// 		snapTo: [0, 0.5, 1],
-	// 		delay: 0.3,
-	// 		duration: 1,
-	// 		ease: "power1.inOut",
-	// 	}
-	// })
-
-	// ScrollTrigger.create({
-	// 	trigger: "main",
-	// 	start: "top top",
-	// 	end: "bottom bottom",
-	// 	id: "main",
-	// 	animation: imageFade,
-	// 	scrub: true,
-	// 	pin: ".allBG",
-	// 	// snap: {
-	// 	// 	snapTo: [0, 0.24, 0.45, 0.67, 0.84, 1],
-	// 	// 	ease: "expo.out",
-	// 	// 	delay: 0.3,
-	// 	// 	duration: 0.5
-	// 	// },
-	// 	onUpdate: self => {
-	// 		let skew = clamp(self.getVelocity() / -300);
-	// 		// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
-	// 		if (Math.abs(skew) > Math.abs(proxy.skew)) {
-	// 			proxy.skew = skew;
-	// 			gsap.to(proxy, { skew: 0, duration: 0.8, ease: "power3", overwrite: true, onUpdate: () => skewSetter(proxy.skew) });
-	// 		}
-
-	// 	},
-	// })
 }
 
 const scroll = ref(0)
@@ -136,56 +76,19 @@ function scrollDown() {
 	<div>
 		<button @click="scrollDown" :class="[scroll > 300 ? 'opacity-0 pointer-events-none' : 'opacity-100']"
 			class="flex flex-col items-center justify-center absolute top-[75vh] left-1/2 -translate-x-1/2 transition-all duration-500">
-			<!-- <p class="text-beige-lighter font-semibold text-xl">Scroll</p> -->
-			<!-- <font-awesome-icon ref="bounce" v-if="$route.path === '/'" :icon="['fas', 'angles-down']" size="2xl"
-				class="text-active cursor-pointer z-10 bounce" /> -->
 			<img
 				class="block w-8 h-8 md:w-12 md:h-12 object-contain group-hover:translate-x-5 transition-transform duration-300 rotate-90 bounce"
 				src="/assets/arrow-right-darker.svg" alt="button next" />
 		</button>
 		<div class="overflow-hidden relative w-full h-[85vh]">
-			<!-- <picture>
-				<source srcset=" /assets/brewlander-1.webp" type="image/webp">
-				<source srcset="/assets/brewlander-1.jpg" type="image/png">
-				<img class="object-cover w-full h-full relative brightness-75 scale-[1.25] parallaxVideo"
-					src="/assets/brewlander-1.jpg" alt="Brewlander">
-			</picture> -->
 			<video v-if="store.getWidth > 768" muted autoplay preload="true" playsinline="true" loop src="/assets/hero.mp4"
 				class="object-cover w-full h-full relative brightness-75" />
 			<video v-else muted autoplay preload="true" playsinline="true" loop src="/assets/hero_vertical.mp4"
 				class="object-cover w-full h-full relative brightness-75" />
 		</div>
 		<Splash />
-		<!-- <main ref="main" v-if="store.getFeatured.length" class="relative flex w-screen justify-center z-10">
-			<ul class="portfoliosList flex flex-col md:mx-10 m-auto top-0 text-center group w-full">
-				<li v-for="(portfolio, i) in store.getFeatured" ref="projectList"
-					class="projectList py-32 md:py-48 transition-all opacity-50 md:group-hover:opacity-20 md:hover:!opacity-100"
-					:class="[i === 0 ? 'mt-[20vh]' : '', i === store.getFeatured.length - 1 ? 'mb-[20vh]' : '']">
-					<router-link :aria-label="`Go to ${portfolio.metadata.featured_as}`" :to="`/work/${portfolio.slug}`">
-						<h2 class="listChildren text-7xl font-bold text-white md:text-9xl">
-							{{ portfolio.metadata.featured_as }}
-						</h2>
-					</router-link>
-				</li>
-			</ul>
-		</main> -->
-		<!-- <div v-if="store.getFeatured.length" class="allBG w-screen h-screen absolute top-[100vh] left-0 z-0">
-			<img v-for="(image, i) in store.getFeatured.map(x => x.thumbnail).slice().reverse()" :srcset="`
-		${image.toString()}?w=1920&auto=format 1920w,
-								${image.toString()}?w=1024&auto=format 1024w,
-								${image.toString()}?w=640&auto=format 640w,
-								${image.toString()}?w=480&auto=format 480w`" :src="`${image.toString()}?auto=format`"
-				:alt="store.getFeatured.slice().reverse()[i].title"
-				class="bg h-full absolute top-0 left-0 w-full object-cover opacity-0" :style="`z-index: ${-i - 5}`" />
-			<img class="h-full absolute top-0 left-0 w-full object-cover"
-				:style="`z-index: ${-store.getFeatured.map(x => x.thumbnail).length - 6}`"
-				:src="`${store.getFeatured.map(x => x.thumbnail)[0]}?auto=format`" :srcset="`
-			${store.getFeatured[0].thumbnail.toString()}?w=1920&auto=format 1920w,
-												${store.getFeatured[0].thumbnail.toString()}?w=1024&auto=format 1024w,
-												${store.getFeatured[0].thumbnail.toString()}?w=640&auto=format 640w,
-												${store.getFeatured[0].thumbnail.toString()}?w=480&auto=format 480w`" :alt="store.getFeatured[0].title" />
-
-		</div> -->
+		<Service />
+		<Brands />
 	</div>
 </template>
 
