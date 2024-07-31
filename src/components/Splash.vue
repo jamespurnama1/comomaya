@@ -1,7 +1,6 @@
 <template>
   <div
     class="bg-stone-300 z-40 w-full py-9 px-9 lg:px-20 xl:px-36 flex items-start justify-center flex-col gap-5 md:gap-5">
-    <!-- <div class="w-full"> -->
     <h3 class="text-stone-500 mb-3 text-sm md:text-lg font-semibold tracking-widest text-left">
       HELLO
     </h3>
@@ -32,8 +31,6 @@
                 <img
                   class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
                   src="/assets/arrow-right-darker.svg" alt="button next" />
-                <!-- <font-awesome-icon v-if="$route.path === '/'" :icon="['fas', 'angles-right']" size="xl"
-                class="group-hover:translate-x-5 transition-transform duration-300 mx-2" /> -->
               </router-link>
             </button>
             <button class="my-1 group">
@@ -119,23 +116,9 @@
 import { Ref, nextTick, onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
 import { useStore } from '../stores';
-// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 const store = useStore()
 const parallax = ref([]) as Ref<NodeListOf<HTMLDivElement>[]>
-// const emit = defineEmits(['close'])
-// const status = ref(true)
-
-// function close() {
-//   gsap.to('dialog', {
-//     y: "-=100%",
-//     ease: "power1.inOut",
-//     onComplete: () => {
-//       status.value = false;
-//       emit('close')
-//     }
-//   })
-// }
 
 onMounted(async () => {
   await nextTick()
@@ -145,29 +128,12 @@ onMounted(async () => {
       y: "-0.1em",
       duration: 0.5,
       stagger: 0.2,
-      // ScrollTrigger {
-      //   trigger: split
-      // }
     })
     gsap.to(split, {
       autoAlpha: 1,
       stagger: 0.2,
     })
   }
-
-  //   const parallax = gsap.utils.toArray(".parallax")
-  //   parallax.forEach(el => {
-  //     gsap.to((el as HTMLDivElement).querySelector('img'), {
-  //       y: "-=50%",
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         trigger: el as HTMLDivElement,
-  //         start: "top bottom",
-  //         end: "bottom top",
-  //         scrub: true,
-  //       }
-  //     })
-  //   })
 })
 </script>
 
@@ -177,16 +143,6 @@ onMounted(async () => {
   transform: rotate(180deg);
   writing-mode: vertical-lr;
   text-orientation: mixed;
-}
-
-.drama {
-  font-weight: 600;
-  font-family: "Narziss";
-}
-
-.drama strong {
-  font-weight: 800;
-  font-family: "Barlow";
 }
 
 .split span {

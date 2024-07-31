@@ -8,6 +8,8 @@ import { createHead } from '@unhead/vue'
 import posthogPlugin from "./plugins/posthog";
 import CustomFooter from '@/components/CustomFooter.vue';
 import Splash from '@/components/Splash.vue';
+import Service from '@/components/Service.vue';
+import Brands from '@/components/Brands.vue';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSquareInstagram, faLinkedin, faXTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faSquareXmark, faAnglesRight } from '@fortawesome/free-solid-svg-icons'
@@ -34,6 +36,8 @@ export const createApp = ViteSSG(
     app.component('font-awesome-icon', FontAwesomeIcon)
     app.component('CustomFooter', CustomFooter)
     app.component('Splash', Splash)
+    app.component('Brands', Brands)
+    app.component('Service', Service)
     app.use(store)
     app.use(Vue3Lottie)
     if (isClient) {
