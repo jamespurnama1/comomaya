@@ -121,7 +121,6 @@ function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
     router.push(whatisLink(href))
     handleNav(true);
   }
-  // if (href !== 'grants' && !touchmoved.value) handleScrollUp()
   touchmoved.value = false;
 }
 
@@ -130,7 +129,6 @@ onUpdated(() => {
 })
 
 const opened = ref(false)
-const splash = ref(true)
 const touchmoved = ref(false)
 
 function handleNav(close: boolean | undefined) {
@@ -153,7 +151,6 @@ function handleScrollUp() {
 const isBlue = computed(() => {
   const blue = ['work-slug']
   if (opened.value) return false
-  // return true
   return blue.some(item => item === route.name) ? true : false;
 })
 
@@ -170,9 +167,6 @@ const isTransparent = computed(() => {
     class="origin-center cursor transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
     :class="[store.getWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
-  <!-- Splash Screen -->
-  <!-- <Splash v-if="splash" @close="() => splash = false" /> -->
-
   <!-- Nav Button + Logo -->
 
   <nav
@@ -180,11 +174,6 @@ const isTransparent = computed(() => {
     :class="{ 'bg-opacity-0': isTransparent && !opened, '!bg-beige-normal': opened }">
 
     <router-link aria-label="Go to Landing Page" to="/" @click="handleNav(true)">
-      <!-- <picture class="transition-all"
-        :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']">
-        <img src="/logo.svg" alt="COMOMAYA"
-          class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left" />
-      </picture> -->
       <Vue3Lottie
         :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']"
         class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left"
@@ -192,17 +181,25 @@ const isTransparent = computed(() => {
         :width="store.getWidth > 1024 ? 249 : 178" />
     </router-link>
 
-    <button aria-label="Navigation"
-      class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
-      @click="handleNav(false)">
-      <div v-for="i in 3" :class="[
+    <div class="flex items-center gap-3 md:gap-5 h-full">
+      <a class="font-bold uppercase flex items-center gap-1 md:gap-3 hover:text-active  transition-all group md:text-base text-xs" href="/contact">
+        <font-awesome-icon :icon="['fas', 'phone']" size="xl"
+          class="mx-2 my-3 transition-all duration-200 group-hover:scale-150" />
+        Let's chat
+      </a>
+      <span class="h-6 w-[2px] bg-black" />
+      <button aria-label="Navigation"
+        class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
+        @click="handleNav(false)">
+        <div v-for="i in 3" :class="[
       (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
       (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
       (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),
       genericHamburgerLine,
       (!isTransparent || opened) && !isBlue ? 'bg-black group-hover:bg-active' : ''
     ]" />
-    </button>
+      </button>
+    </div>
   </nav>
 
   <!-- Nav Menu -->

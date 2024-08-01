@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, watch } from 'vue';
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 import { gsap } from 'gsap';
 
 const services = [
@@ -90,16 +90,5 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss">
-.drama {
-  font-weight: 600;
-  font-family: "Narziss";
-}
 
-.drama strong {
-  font-weight: 800;
-  font-family: "Barlow";
-}
-
-.drama span {
-}
 </style>
