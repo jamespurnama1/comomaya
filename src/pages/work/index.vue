@@ -26,7 +26,7 @@ const filtered = ref({
   "Digital": false,
 } as { [key in type]: boolean })
 
-const response = ref({ list: [] as Featured[] | never[] })
+const response = ref({ list: [] as featured[] | never[] })
 
 
 async function load() {
