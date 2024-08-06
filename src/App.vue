@@ -192,9 +192,9 @@ const isTransparent = computed(() => {
         :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
       <a class="font-bold uppercase flex items-center gap-2 hover:text-active  transition-all group md:text-base text-xs"
         :class="[(!isTransparent || opened) && !isBlue ? 'text-black' : 'text-active']" href="https://wa.me/6594245994">
-        <font-awesome-icon :icon="['fas', 'phone']" size="xl"
+        <font-awesome-icon :icon="['fas', 'phone']" size="lg"
           class="my-3 transition-all duration-200 group-hover:scale-150" />
-        <p class="text-wrap w-min">Let's chat</p>
+        <p class="text-wrap leading-none">Let's chat</p>
       </a>
       <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
       <button aria-label="Navigation"
