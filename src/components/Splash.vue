@@ -12,13 +12,13 @@
         <div class="h-min-0 w-min-0">
           <h1
             class="split drama text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
-            <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>boutique</span><span>creative</span><span>agency</span><span>just</span><br><span>like</span><span>any</span><span>other.</span><span
+            <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>boutique</span><span>creative</span><span>agency</span><span>just</span><br><span>like</span><span>any</span><span>other.</span><br><span
                 class="text-beige-normal">...not quite.</span></strong>
           </h1>
           <p class="text-lg md:text-xl lg:text-2xl pt-8 leading-relaxed">
-            Yes we do <strong class="font-extrabold">work</strong> that is fabulous.
-            Yes we offer a wide range of <strong class="font-extrabold">services</strong>.
-            Yes our team and <strong class="font-extrabold">people</strong> are stellar.
+            Yes we do <strong class="font-extrabold">work</strong> that is fabulous.<br>
+            Yes we offer a wide range of <strong class="font-extrabold">services</strong>.<br>
+            Yes our team and <strong class="font-extrabold">people</strong> are stellar.<br>
             <strong class="font-extrabold">But we also work in a way that is personal, flexible,
               agile, collaborative and we will try our best to not be beaten on pricing and affordability. Anything else
               on your wishlist?</strong>
