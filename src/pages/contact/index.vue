@@ -49,9 +49,6 @@ useHead({
         <a class="z-10" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
           <p class="text-blue hover:text-active font-semibold mb-5">+65 9424 5994</p>
         </a>
-        <a class="z-10" target="_blank" rel="noopener noreferrer" href="tel:99108982151">
-          <p class="text-blue hover:text-active font-semibold mb-5">+91 91089 82151</p>
-        </a>
         <!-- <p class="text-black font-semibold tracking-widest mb-3">WRITE TO US</p> -->
         <a class="z-10" href="mailto:ridhisain@comomaya.com">
           <p class="text-blue hover:text-active font-semibold mb-5">ridhisain@comomaya.com</p>
