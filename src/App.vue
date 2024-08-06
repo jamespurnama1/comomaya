@@ -185,7 +185,8 @@ const isTransparent = computed(() => {
         <picture>
           <source srcset="/assets/enterprise-singapore.avif">
           <source srcset="/assets/enterprise-singapore.webp">
-          <img src="/assets/enterprise-singapore.png" alt="Tzo Packaging Design" class="object-fit h-10 w-auto" />
+          <img src="/assets/enterprise-singapore.png" alt="Tzo Packaging Design"
+            class="object-fit h-10 w-auto hover:scale-125 transition-transform" />
         </picture>
       </router-link>
       <span v-if="store.getWidth > 570" class="h-6 w-[2px]"
@@ -193,7 +194,7 @@ const isTransparent = computed(() => {
       <a class="font-bold uppercase flex items-center gap-2 hover:text-active  transition-all group md:text-base text-xs"
         :class="[(!isTransparent || opened) && !isBlue ? 'text-black' : 'text-active']" href="https://wa.me/6594245994">
         <font-awesome-icon :icon="['fas', 'phone']" size="lg"
-          class="my-3 transition-all duration-200 group-hover:scale-150" />
+          class="my-3 transition-all duration-200 group-hover:scale-125" />
         <p class="text-wrap leading-none">Let's chat</p>
       </a>
       <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
