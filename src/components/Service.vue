@@ -1,13 +1,16 @@
 <template>
-  <section class="py-9 px-9 flex flex-col gap-5 items-start justify-center bg-beige-lighter">
-    <h3
-      class="split drama text-4xl md:text-5xl 2xl:text-8xl text-black font-extrabold overflow-hidden relative py-5">
-      <strong>At Comomaya, we&apos;ve got you covered from brand strategy </strong>&amp; <strong>design to performance marketing, providing a full range of services to make your brand&nbsp;shine.</strong>
-    </h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5" v-if="store.isFetched">
-      <div class="relative" v-for="(service, index) in store.getServices">
+  <section class="py-9 px-9 lg:px-20 xl:px-36 flex flex-col gap-5 items-start justify-center bg-beige-lighter">
+    <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left pt-5">OUR SERVICES</h3>
+    <h4
+      class="split drama text-2xl md:text-3xl 2xl:text-6xl text-black font-extrabold overflow-hidden relative pb-5 max-w-6xl">
+      <strong>At Comomaya, we&apos;ve got you covered from brand strategy </strong>&amp; <strong>design to performance
+        marketing, providing a full range of services to make your brand&nbsp;shine.</strong>
+    </h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 w-full" v-if="store.isFetched">
+      <div class="relative w-full bg-white" v-for="(service, index) in store.getServices">
         <div
-          class="absolute bg-beige-lighter bg-opacity-80 min-h-[50%] w-[85%] flex items-center justify-between text-center flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5 h-auto">
+          class="bg-opacity-80 w-[85%] flex items-center justify-between text-center flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5"
+          :class="[$route.path === '/services' ? 'absolute bg-beige-lighter h-56' : 'relative h-72' ]">
           <span>
             <p class="font-medium text-sm md:text-xl">0{{ index+1 }}</p>
             <h4 class="font-extrabold lowercase text-2xl xl:text-4xl"
@@ -17,10 +20,12 @@
           <p class="font-bold text-xs xl:text-sm uppercase tracking-[0.2em] max-w-[90%] pt-1">{{
             service.metadata.tags.replace(/\s\b(?=\S+$)/, '&nbsp;')
             }}</p>
+          <img v-if="$route.path === '/'" class="object-fit h-12 w-auto"
+            :src="`/assets/icons/${service.title.replace(/\s/g, '-').toLowerCase()}.svg`" </div>
+          <img v-if="$route.path === '/services'" class="aspect-square object-cover"
+            :src="`${service.thumbnail}?auto=format`" :alt="service.title" />
         </div>
-        <img class="aspect-square object-cover" :src="`${service.thumbnail}?auto=format`" :alt="service.title" />
       </div>
-    </div>
   </section>
 </template>
 

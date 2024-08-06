@@ -71,8 +71,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="relative bg-stone-300 mx-auto flex flex-col justify-center pt-10">
+  <main class="relative bg-stone-300 mx-auto flex flex-col justify-center overflow-hidden">
+    <div
+      class="absolute z-10 pointer-events-none bg-gradient-to-b from-black to-transparent h-36 md:h-48 w-full top-0 left-0 opacity-50" />
+    <picture>
+      <source srcset="/assets/tzo.avif">
+      <source srcset="/assets/tzo.webp">
       <img src="/assets/tzo.jpg" alt="Tzo Packaging Design" class="w-full h-72 md:h-[36rem] object-cover" />
+    </picture>
     <div>
 
       <!--- RIDHI --->
@@ -230,7 +236,7 @@ onMounted(() => {
           </picture> -->
           <img class="aspect-square object-cover" v-for="person in people" :src="person"
             :alt="person.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
-          </div>
+        </div>
       </section>
 
       <!-- <span id="services" /> -->

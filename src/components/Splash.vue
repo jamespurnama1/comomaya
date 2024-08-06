@@ -12,61 +12,50 @@
         <div class="h-min-0 w-min-0">
           <h1
             class="split drama text-4xl md:text-5xl 2xl:text-8xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
-            <strong><span>We</span><span>are</span><span>a</span><br><span>creative</span><span>boutique</span></strong><br><span>&amp;</span><strong><span>we</span><span>build</span><br><span>powerful</span><span>brands</span></strong>
+            <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>boutique</span><span>creative</span><span>agency</span><span>just</span><br><span>like</span><span>any</span><span>other.</span><span
+                class="text-beige-normal">...not quite.</span></strong>
           </h1>
-          <h2 class="text-beige-lighter font-bold text-xl md:text-3xl mt-3">comomaya</h2>
-          <p class="italic text-stone-700 leading-tight text-base md:text-xl">
-            <span class="font-semibold">noun</span>
-            <br>
-            como: (Spanish) as, like
-            <br v-if="store.getWidth <= 768" />
-            <span v-else class="pl-7" />
-            maya: (Sanskrit) power, energy,&nbsp;magic
+          <p class="text-lg pt-8 leading-relaxed">
+            Yes we do <strong class="font-extrabold">work</strong> that is fabulous.
+            Yes we offer a wide range of <strong class="font-extrabold">services</strong>.
+            Yes our team and <strong class="font-extrabold">people</strong> are stellar.
+            <strong class="font-extrabold">But we also work in a way that is personal, flexible,
+              agile, collaborative and we will try our best to not be beaten on pricing and affordability. Anything else
+              on your wishlist?</strong>
           </p>
-          <div class="flex flex-col text-active !font-extrabold text-xl md:text-3xl drama my-3 md:my-5">
-            <button class="my-1 group">
-              <router-link to="/services#corporate" class="flex items-center">
-                <strong class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter whitespace-nowrap">for
-                  our corporate clients</strong>
-                <img
-                  class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
-                  src="/assets/arrow-right-darker.svg" alt="button next" />
-              </router-link>
-            </button>
-            <button class="my-1 group">
-              <router-link to="/services#startup" class="flex items-center">
-                <strong class="flex items-center my-auto bg-blue p-1 group-hover:bg-beige-lighter whitespace-nowrap">for
-                  our startup
-                  clients</strong>
-                <img
-                  class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
-                  src="/assets/arrow-right-darker.svg" alt="button next" />
-              </router-link>
-            </button>
-          </div>
+          <a class="text-active font-extrabold" href="https://wa.me/6594245994">Call us.</a>
+          <!-- <div class="flex flex-col text-active !font-extrabold text-xl md:text-3xl drama my-3 md:my-5">
+
+          </div> -->
         </div>
       </div>
 
       <!-- 1B -->
-      <div class="flex row-start-1 row-span-1 col-start-1 sm:col-start-2 bg-beige-lighter h-full">
-        <h3 class="vertical text-[10rem] md:text-[14rem] 2xl:text-[24rem] !leading-[0.65] text-center py-2">
-          SMLXL</h3>
-        <div class="py-10 px-5">
-          <h3
-            class="split drama text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.9]">
-            <strong><span class="text-black">Are</span><span
-                class="text-black">you</span><span>small</span><span>medium</span><br><span
-                class="text-black">or</span><span>large</span></strong><span>&amp;</span><strong><span>extra</span></strong><span><strong>large</strong>?</span>
-          </h3>
-          <button class="my-1 group">
-            <router-link to="/services#startup" class="flex items-center">
-              <p class="text-left w-1/2">No matter what the size of your business, we are here to&nbsp;help</p>
-              <img
-                class="block mx-2 w-6 h-6 md:w-8 md:h-8 object-contain group-hover:translate-x-5 transition-transform duration-300"
-                src="/assets/arrow-right-darker.svg" alt="button next" />
-            </router-link>
-          </button>
-        </div>
+      <div class="flex flex-col row-start-1 row-span-1 col-start-1 sm:col-start-2 bg-beige-lighter h-full p-8 md:pt-12">
+        <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
+          INDUSTRIES WE CATER&nbsp;TO
+        </h3>
+        <ul class="text-3xl md:text-4xl 2xl:text-6xl font-extrabold grid grid-cols-2">
+          <li>banking</li>
+          <li>beauty</li>
+          <li>boutique</li>
+          <li>corporate</li>
+          <li>drink</li>
+          <li>finance</li>
+          <li>fintech</li>
+          <li>fitness</li>
+          <li>food</li>
+          <li>health</li>
+          <li>home</li>
+          <li>hospitality</li>
+          <li>household</li>
+          <li>lifestyle</li>
+          <li>logistics</li>
+          <li>luxury</li>
+          <li>warehousing</li>
+          <li>wellness</li>
+          <li class="text-blue">and more...</li>
+        </ul>
       </div>
 
       <!-- 2A -->
@@ -89,11 +78,18 @@
 
       <!-- 3 -->
       <div class="sm:col-start-2 sm:row-start-3 sm:row-end-4 h-min-0 w-min-0">
-        <div class="bg-beige-lighter h-full w-full p-12 pt-12 md:pt-24 flex flex-col gap-4 md:gap-12">
-          <h3
-            class="split text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl text-black font-extrabold overflow-hidden relative drama">
-            <span class="!leading-[0.9]"><strong>COMOMAYA's</strong> mission</span>
-          </h3>
+        <div class="bg-beige-lighter h-full w-full p-8 md:pt-12 flex flex-col gap-4 md:gap-12">
+          <div>
+            <h2 class="text-black font-bold text-3xl md:text-4xl">comomaya</h2>
+            <p class="italic text-stone-700 leading-tight text-base md:text-xl">
+              <span class="font-semibold">noun</span>
+              <br>
+              como: (Spanish) as, like
+              <br v-if="store.getWidth <= 768" />
+              <span v-else class="pl-7" />
+              maya: (Sanskrit) power, energy,&nbsp;magic
+            </p>
+          </div>
           <p
             class="ml-auto text-base 2xl:text-3xl xl:text-2xl lg:text-xl md:text-lg font-semibold !leading-normal text-black">
             COMOMAYA exists for one simple reason —<br>to make great design more accessible.

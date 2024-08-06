@@ -71,8 +71,6 @@ onMounted(() => {
   hoverLink()
 
   watch(route, (to) => {
-    console.log(route)
-    console.log(Boolean(to.hash))
     if (to.hash) {
         setTimeout(() => {
         document.querySelector(to.hash) ? window.scrollTo({
@@ -155,7 +153,7 @@ const isBlue = computed(() => {
 })
 
 const isTransparent = computed(() => {
-  return route.path === '/'
+  return (route.path === '/' || route.path === '/about')
     && scrollY.value < 50
 })
 </script>
@@ -182,12 +180,21 @@ const isTransparent = computed(() => {
     </router-link>
 
     <div class="flex items-center gap-3 md:gap-5 h-full">
-      <a class="font-bold uppercase flex items-center gap-1 md:gap-3 hover:text-active  transition-all group md:text-base text-xs" href="/contact">
+      <router-link aria-label="Go to Enterprise Singapore Grants & Subsidies" to="/about#grant" @click="handleNav(true)">
+        <picture>
+          <source srcset="/assets/enterprise-singapore.avif">
+          <source srcset="/assets/enterprise-singapore.webp">
+          <img src="/assets/enterprise-singapore.jpg" alt="Tzo Packaging Design" class="object-fit h-10 w-auto" />
+        </picture>
+      </router-link>
+      <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
+      <a class="font-bold uppercase flex items-center gap-1 md:gap-2 hover:text-active  transition-all group md:text-base text-xs"
+        :class="[(!isTransparent || opened) && !isBlue ? 'text-black' : 'text-active']" href="https://wa.me/6594245994">
         <font-awesome-icon :icon="['fas', 'phone']" size="xl"
-          class="mx-2 my-3 transition-all duration-200 group-hover:scale-150" />
+          class="my-3 transition-all duration-200 group-hover:scale-150" />
         Let's chat
       </a>
-      <span class="h-6 w-[2px] bg-black" />
+      <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
       <button aria-label="Navigation"
         class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
         @click="handleNav(false)">
