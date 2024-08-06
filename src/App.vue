@@ -185,7 +185,7 @@ const isTransparent = computed(() => {
         <picture>
           <source srcset="/assets/enterprise-singapore.avif">
           <source srcset="/assets/enterprise-singapore.webp">
-          <img src="/assets/enterprise-singapore.jpg" alt="Tzo Packaging Design" class="object-fit h-10 w-auto" />
+          <img src="/assets/enterprise-singapore.png" alt="Tzo Packaging Design" class="object-fit h-10 w-auto" />
         </picture>
       </router-link>
       <span v-if="store.getWidth > 570" class="h-6 w-[2px]"
