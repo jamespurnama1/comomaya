@@ -11,11 +11,11 @@
       <div class="row-span-1">
         <div class="h-min-0 w-min-0">
           <h1
-            class="split drama text-4xl md:text-5xl 2xl:text-8xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
+            class="split drama text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
             <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>boutique</span><span>creative</span><span>agency</span><span>just</span><br><span>like</span><span>any</span><span>other.</span><span
                 class="text-beige-normal">...not quite.</span></strong>
           </h1>
-          <p class="text-lg pt-8 leading-relaxed">
+          <p class="text-lg md:text-xl lg:text-2xl pt-8 leading-relaxed">
             Yes we do <strong class="font-extrabold">work</strong> that is fabulous.
             Yes we offer a wide range of <strong class="font-extrabold">services</strong>.
             Yes our team and <strong class="font-extrabold">people</strong> are stellar.
@@ -23,7 +23,7 @@
               agile, collaborative and we will try our best to not be beaten on pricing and affordability. Anything else
               on your wishlist?</strong>
           </p>
-          <a class="text-active font-extrabold" href="https://wa.me/6594245994">Call us.</a>
+          <a class="text-active font-extrabold lg:text-2xl" href="https://wa.me/6594245994">Call us.</a>
           <!-- <div class="flex flex-col text-active !font-extrabold text-xl md:text-3xl drama my-3 md:my-5">
 
           </div> -->
@@ -35,7 +35,7 @@
         <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
           INDUSTRIES WE CATER&nbsp;TO
         </h3>
-        <ul class="text-3xl md:text-4xl 2xl:text-6xl font-extrabold grid grid-cols-2">
+        <ul class="text-xl md:text-2xl 2xl:text-5xl h-full font-extrabold grid grid-cols-2 pt-5">
           <li>banking</li>
           <li>beauty</li>
           <li>boutique</li>

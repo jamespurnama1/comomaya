@@ -21,8 +21,7 @@
         <ul class="services-container overflow-hidden relative pb-10 h-full w-full">
           <li v-for="value in [].concat(...Array(3).fill(services))"
             class="service mb-1 font-extrabold text-blue text-xl md:text-5xl 2xl:text-7xl text-right whitespace-nowrap">
-            {{
-            value }}<span class="text-active">.</span></li>
+            {{ value }}<span class="text-active">.</span></li>
         </ul>
       </div>
 

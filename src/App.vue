@@ -180,19 +180,21 @@ const isTransparent = computed(() => {
     </router-link>
 
     <div class="flex items-center gap-3 md:gap-5 h-full">
-      <router-link aria-label="Go to Enterprise Singapore Grants & Subsidies" to="/about#grant" @click="handleNav(true)">
+      <router-link v-if="store.getWidth > 570" aria-label="Go to Enterprise Singapore Grants & Subsidies"
+        to="/about#grant" @click="handleNav(true)">
         <picture>
           <source srcset="/assets/enterprise-singapore.avif">
           <source srcset="/assets/enterprise-singapore.webp">
           <img src="/assets/enterprise-singapore.jpg" alt="Tzo Packaging Design" class="object-fit h-10 w-auto" />
         </picture>
       </router-link>
-      <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
-      <a class="font-bold uppercase flex items-center gap-1 md:gap-2 hover:text-active  transition-all group md:text-base text-xs"
+      <span v-if="store.getWidth > 570" class="h-6 w-[2px]"
+        :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
+      <a class="font-bold uppercase flex items-center gap-2 hover:text-active  transition-all group md:text-base text-xs"
         :class="[(!isTransparent || opened) && !isBlue ? 'text-black' : 'text-active']" href="https://wa.me/6594245994">
         <font-awesome-icon :icon="['fas', 'phone']" size="xl"
           class="my-3 transition-all duration-200 group-hover:scale-150" />
-        Let's chat
+        <p class="text-wrap w-min">Let's chat</p>
       </a>
       <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
       <button aria-label="Navigation"
