@@ -15,7 +15,7 @@
             <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>boutique</span><span>creative</span><span>agency</span><span>just</span><br><span>like</span><span>any</span><span>other.</span><br><span
                 class="text-beige-normal">...not quite.</span></strong>
           </h1>
-          <p class="text-lg md:text-xl lg:text-2xl pt-8 leading-relaxed">
+          <p class="text-lg lg:text-xl pt-8 leading-relaxed">
             Yes we do <strong class="font-extrabold">work</strong> that is fabulous.<br>
             Yes we offer a wide range of <strong class="font-extrabold">services</strong>.<br>
             Yes our team and <strong class="font-extrabold">people</strong> are stellar.<br>

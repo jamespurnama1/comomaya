@@ -22,7 +22,7 @@
             }}</p>
           <img v-if="$route.path === '/'" class="object-fit p-2 h-8 md:h-12 w-auto"
             :src="`/assets/icons/${service.title.replace(/\s/g, '-').toLowerCase()}.svg`" </div>
-          <img v-if="$route.path === '/services'" class="aspect-square object-cover"
+          <img v-if="$route.path === '/services'" class="aspect-[4/3] object-cover"
             :src="`${service.thumbnail}?auto=format`" :alt="service.title" />
         </div>
       </div>
