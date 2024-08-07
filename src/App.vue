@@ -168,13 +168,13 @@ const isTransparent = computed(() => {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 2xl:py-7 px-9 lg:px-20 2xl:px-36 justify-between items-center z-30 transition-all origin-top-left bg-beige-normal"
+    class="fixed w-full top-0 left-0 flex py-3 2xl:py-4 px-9 lg:px-20 2xl:px-36 justify-between items-center z-30 transition-all origin-top-left bg-beige-normal"
     :class="{ 'bg-opacity-0': isTransparent && !opened, '!bg-beige-normal': opened }">
 
     <router-link aria-label="Go to Landing Page" to="/" @click="handleNav(true)">
       <Vue3Lottie
         :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']"
-        class="logo transition-all duration-700 h-5 object-contain md:h-7 img-responsive origin-top-left"
+        class="logo transition-all duration-700 h-5 object-contain md:h-6 img-responsive origin-top-left"
         animationLink="./assets/logo.json" :height="store.getWidth > 1024 ? 50 : 38"
         :width="store.getWidth > 1024 ? 249 : 178" />
     </router-link>
@@ -191,15 +191,9 @@ const isTransparent = computed(() => {
       </router-link>
       <span v-if="store.getWidth > 570" class="h-6 w-[2px]"
         :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
-      <a class="font-bold uppercase flex items-center gap-2 hover:text-active  transition-all group md:text-base text-xs"
-        :class="[(!isTransparent || opened) && !isBlue ? 'text-black' : 'text-active']" href="https://wa.me/6594245994">
-        <font-awesome-icon :icon="['fas', 'phone']" size="lg"
-          class="my-3 transition-all duration-200 group-hover:scale-125" />
-        <p class="text-wrap leading-none">Let's chat</p>
-      </a>
-      <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
+      <!-- <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" /> -->
       <button aria-label="Navigation"
-        class="group flex flex-col h-12 w-12 justify-center items-center group p-2 -m-2 transition-transform"
+        class="group flex flex-col h-8 w-8 justify-center items-center group p-2 -m-2 transition-transform"
         @click="handleNav(false)">
         <div v-for="i in 3" :class="[
       (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
@@ -261,9 +255,23 @@ const isTransparent = computed(() => {
 
   <transition name="fade">
     <button aria-label="Scroll Up" v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
-      class="flex justify-center items-center absolute bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-10 h-10 z-20">
+      class="flex justify-center items-center fixed bottom-5 left-10 bg-active hover:bg-blue duration-200 transition-all w-10 h-10 z-20">
       <font-awesome-icon :icon="['fas', 'angle-up']" size="lg"
         class="mx-2 text-blue hover:text-active duration-200 transition-all" />
+    </button>
+  </transition>
+
+  <!-- Scroll up -->
+
+  <transition name="fade">
+    <button aria-label="Scroll Up"
+      class="flex justify-center items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-20 p-3">
+      <a class="font-bold uppercase flex items-center gap-2 hover:text-active  transition-all group md:text-base text-xs"
+       href="https://wa.me/6594245994">
+        <font-awesome-icon :icon="['fas', 'phone']" size="lg"
+          class="my-3 transition-all duration-200 group-hover:scale-125" />
+        <p class="text-wrap leading-none">Contact us</p>
+      </a>
     </button>
   </transition>
 

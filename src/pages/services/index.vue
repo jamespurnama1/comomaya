@@ -1,19 +1,19 @@
 <template>
   <main class="relative bg-stone-300 mx-auto flex flex-col pt-10">
     <section
-      class="flex px-9 lg:px-20 xl:px-36 py-10 flex-col xl:flex-row min-h-[50vh] xl:min-h-[75vh] 2xl:gap-16 overflow-hidden relative w-full">
+      class="flex px-9 lg:px-20 xl:px-36 py-10 flex-col xl:flex-row min-h-[50vh] xl:min-h-[75vh] 2xl:gap-16 overflow-hidden relative w-full max-w-[1920px] mx-auto">
       <div class="w-1/2 pt-10 xl:py-32 h-full justify-center flex flex-col">
-        <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest text-left">
+        <h2 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest text-left">
           WHAT WE&nbsp;OFFER
-        </h3>
-        <h2
+        </h2>
+        <h1
           class="drama xl:ml-[-10px] py-5 text-5xl md:text-8xl overflow-hidden text-left text-active font-medium !leading-[0.75] md:!leading-[0.5]">
           our <strong>services</strong>
-        </h2>
-        <h3 class="text-black md:text-3xl 2xl:text-5xl xl:pb-10 lg:max-w-[570px] font-bold">
+        </h1>
+        <p class="text-black md:text-3xl 2xl:text-5xl xl:pb-10 lg:max-w-[570px] font-bold">
           At our core, we believe exceptional branding &amp; design should be accessible to all — whether you're a budding
           startup or a thriving&nbsp;corporation.
-        </h3>
+        </p>
       </div>
 
       <div

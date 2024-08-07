@@ -72,14 +72,13 @@ onMounted(() => {
 
 <template>
   <main class="relative bg-stone-300 mx-auto flex flex-col justify-center overflow-hidden">
-    <div
-      class="absolute z-10 pointer-events-none bg-gradient-to-b from-black to-transparent h-36 md:h-48 w-full top-0 left-0 opacity-50" />
     <picture>
       <source srcset="/assets/tzo.avif">
       <source srcset="/assets/tzo.webp">
       <img src="/assets/tzo.jpg" alt="Tzo Packaging Design" class="w-full h-72 md:h-[36rem] object-cover" />
     </picture>
     <div>
+      <h1 class="hidden">About</h1>
 
       <!--- RIDHI --->
 
@@ -126,72 +125,6 @@ onMounted(() => {
             <source srcset="/assets/Ridhi.webp" type="image/webp">
             <img class="w-full h-full object-contain max-w-[300px] md:py-16 m-auto" src="/assets/Ridhi.jpg"
               alt="Ridhi Sain" />
-          </picture>
-        </div>
-      </section>
-
-      <!--- SONALI --->
-
-      <section
-        class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center py-16 bg-stone-300 md:flex-row">
-        <div class="md:w-2/3 my-auto flex flex-col md:items-end">
-          <h3 class="text-beige-lighter text-sm md:text-lg font-semibold tracking-widest md:text-right">
-            CLIENT &amp;&nbsp;OPS
-          </h3>
-          <h2 class="drama mb-2 text-6xl md:text-8xl md:text-right !leading-[0.75em] text-active">
-            <strong>sonali</strong> sani
-          </h2>
-          <p class="text-base md:text-lg md:text-right text-black lg:max-w-[550px]">
-            Sonali Sani has had over a decade of experience in Client Services. She has worked with big international
-            agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX,
-            Pan
-            Pacific Hotels &amp; Resorts, Intercontinental Hotels Group, Twinings Tea, McCormick, GSK, Reckitt Benckiser
-            and Moneycorp to name a&nbsp;few.
-            <br class="mt-2 block" style="content: ''">
-            Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining
-            strong relationships with all of our clients, helping them meet their business needs and growth potential,
-            whilst ensuring this is done on time and on&nbsp;budget.
-          </p>
-        </div>
-        <div class="w-full md:w-auto min-h-[15rem] overflow-hidden">
-          <picture>
-            <source srcset="/assets/Sonali.jpg" type="image/jpeg">
-            <source srcset="/assets/Sonali.webp" type="image/webp">
-            <img class="w-full h-full object-contain max-w-[300px] md:py-16 m-auto md:mr-0" src="/assets/Sonali.jpg"
-              alt="Sonali Sani" />
-          </picture>
-        </div>
-      </section>
-
-      <!--- Nishaa Bhojwani --->
-
-      <section
-        class="relative flex gap-8 md:gap-16 px-9 lg:px-20 xl:px-36 flex-col-reverse justify-center py-16 bg-beige-lighter md:flex-row-reverse">
-        <div class="md:w-2/3 my-auto flex flex-col">
-          <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
-            GROWTH
-          </h3>
-          <h2 class="drama mb-2 md:-ml-1 text-6xl md:text-8xl text-left !leading-[0.75em] text-black">
-            <strong>nishaa</strong> bhojwani
-          </h2>
-          <p class="text-base md:text-lg text-left text-black lg:max-w-[550px]">
-            Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media
-            and
-            technology. She has worked for companies such as Google and Mastercard and her past client list includes
-            some
-            of the biggest names in media and technology across North America and Asia Pacific. Through a consultative
-            sales approach, she is able to truly understand her clients needs and help deliver on hyper-targeted custom
-            solutions. Nishaa has built a reputation of being results oriented and brings to Comomaya a proven track
-            record of successfully cultivating and growing strategic relationships with SMEs as well as
-            large&nbsp;enterprises.
-          </p>
-        </div>
-        <div class="w-full min-h-[15rem] md:w-auto overflow-hidden">
-          <picture>
-            <source srcset="/assets/Nishaa.jpg" type="image/jpeg">
-            <source srcset="/assets/Nishaa.webp" type="image/webp">
-            <img class="w-full h-full object-contain max-w-[300px] md:py-16 m-auto" src="/assets/Nishaa.jpg"
-              alt="Nishaa Bhojwani" />
           </picture>
         </div>
       </section>
@@ -280,34 +213,36 @@ onMounted(() => {
 
       <!--- TESTIMONIALS --->
 
-      <section class="bg-blue px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
-        <h3
-          class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-5xl md:text-6xl lg:text-8xl font-semibold text-center">
-          client <strong>testimonials</strong>
-        </h3>
-        <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
-          class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
-          <img class="block w-7 h-7 md:w-10 md:h-10 object-contain" src="/assets/arrow-right.svg" alt="button next" />
-        </button>
-        <button @click="swiperDOM ? swiperDOM.$el.swiper.slidePrev() : null"
-          class="absolute left-3 md:left-10 md:hover:scale-150 transition-transform">
-          <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg"
-            alt="button previous" />
-        </button>
-        <swiper class="w-full" :autoplay="{
+      <section class="bg-blue">
+        <div class="max-w-[1920px] mx-auto px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
+          <h3
+            class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-5xl md:text-6xl lg:text-8xl font-semibold text-center">
+            client <strong>testimonials</strong>
+          </h3>
+          <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
+            class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
+            <img class="block w-7 h-7 md:w-10 md:h-10 object-contain" src="/assets/arrow-right.svg" alt="button next" />
+          </button>
+          <button @click="swiperDOM ? swiperDOM.$el.swiper.slidePrev() : null"
+            class="absolute left-3 md:left-10 md:hover:scale-150 transition-transform">
+            <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg"
+              alt="button previous" />
+          </button>
+          <swiper class="w-full" :autoplay="{
           delay: 8000,
           disableOnInteraction: false,
         }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
-          <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
-            v-for="(items, i) in testimonials">
-            <p class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
-              v-html="`${items[Object.keys(items)[0]]}`" />
-            <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
-              v-html="`${Object.keys(items)[0]}`" />
-            <h2 class="text-stone-700 md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
-              {{ testimonialsDate[i] }}</h2>
-          </swiper-slide>
-        </swiper>
+            <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
+              v-for="(items, i) in testimonials">
+              <p class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
+                v-html="`${items[Object.keys(items)[0]]}`" />
+              <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
+                v-html="`${Object.keys(items)[0]}`" />
+              <h2 class="text-stone-700 md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
+                {{ testimonialsDate[i] }}</h2>
+            </swiper-slide>
+          </swiper>
+        </div>
       </section>
     </div>
 
