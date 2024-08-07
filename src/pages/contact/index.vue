@@ -31,15 +31,15 @@ useHead({
 </script>
 
 <template>
-  <main class="bg-stone-300 mx-auto px-9 lg:px-20 xl:px-36 flex flex-col justify-center pt-24 md:pt-20">
-    <!-- <section class=" mx-auto "> -->
+  <main class="bg-stone-300">
+    <div class="max-w-[1920px] mx-auto px-9 lg:px-20 xl:px-36 flex flex-col justify-center pt-24 md:pt-20">
     <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
-      <h2 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3">CONTACT US</h2>
-      <h1
+      <h1 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3">CONTACT US</h1>
+      <h2
         class="split max-w-4xl text-active text-5xl md:!leading-[7rem] md:text-6xl lg:text-9xl font-extrabold overflow-hidden">
         <span>let's</span><span>start</span>
         <span>a</span><span>conversation...</span>
-      </h1>
+      </h2>
       <div class="mt-5 text-2xl md:text-4xl flex flex-col">
         <!-- <p class="text-black font-semibold tracking-widest mb-3">CALL</p> -->
         <!-- <a class="z-10" href="tel:+6594245994">
@@ -77,7 +77,7 @@ useHead({
         class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 -ml-2 h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold"
         type="submit">submit</button>
     </form>
-    <!-- </section> -->
+    </div>
   </main>
 </template>
 

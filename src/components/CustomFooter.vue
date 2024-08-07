@@ -53,7 +53,7 @@ onUnmounted(() => {
           <div>
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               WORK</p>
-            <p class="font-extrabold text-3xl 2xl:text-5xl tracking-tight"
+            <p class="font-extrabold text-3xl tracking-tight"
               :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               See it here.</p>
           </div>
@@ -62,7 +62,7 @@ onUnmounted(() => {
           <div>
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               ABOUT</p>
-            <p class="font-extrabold text-3xl 2xl:text-5xl tracking-tight -ml-1"
+            <p class="font-extrabold text-3xl tracking-tight -ml-1"
               :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               Who we are.</p>
           </div>
@@ -71,7 +71,7 @@ onUnmounted(() => {
           <div>
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               SERVICES</p>
-            <p class="font-extrabold text-3xl 2xl:text-5xl tracking-tight -ml-1"
+            <p class="font-extrabold text-3xl tracking-tight -ml-1"
               :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               What we do.</p>
           </div>
@@ -82,13 +82,13 @@ onUnmounted(() => {
           <div>
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               CONTACT</p>
-            <p class="font-extrabold text-3xl 2xl:text-5xl tracking-tight"
+            <p class="font-extrabold text-3xl tracking-tight"
               :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               Let's chat.</p>
           </div>
         </router-link></li>
     </ul>
-    <ul class="flex gap-3 md:gap-10 font-extrabold tracking-tight text-2xl 2xl:text-3xl">
+    <ul class="flex gap-3 md:gap-10 font-extrabold tracking-tight text-xl 2xl:text-2xl">
       <li>Singapore.</li>
       <li>India.</li>
     </ul>
