@@ -36,7 +36,7 @@ useHead({
     <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
       <h1 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3">CONTACT US</h1>
       <h2
-        class="split max-w-4xl text-active text-5xl md:!leading-[7rem] md:text-6xl lg:text-9xl font-extrabold overflow-hidden">
+        class="split max-w-4xl text-active text-5xl md:!leading-[7rem] md:text-4xl lg:text-7xl font-extrabold overflow-hidden">
         <span>let's</span><span>start</span>
         <span>a</span><span>conversation...</span>
       </h2>

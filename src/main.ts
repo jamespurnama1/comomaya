@@ -11,7 +11,7 @@ import Splash from '@/components/Splash.vue';
 import Service from '@/components/Service.vue';
 import Brands from '@/components/Brands.vue';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSquareInstagram, faLinkedin, faXTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faSquareInstagram, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faPhone, faSquareXmark, faAnglesRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { createPinia } from 'pinia'
@@ -19,7 +19,7 @@ import Vue3Lottie from 'vue3-lottie'
 
 const head = createHead()
 
-library.add(faAngleUp, faSquareXmark, faSquareInstagram, faAnglesDown, faLinkedin, faXTwitter, faPinterest, faWhatsapp, faPhone, faBook, faPencil, faLaptop, faTrophy, faAnglesRight)
+library.add(faAngleUp, faSquareXmark, faSquareInstagram, faAnglesDown, faLinkedin, faWhatsapp, faPhone, faBook, faPencil, faLaptop, faTrophy, faAnglesRight)
 const store = createPinia()
 
 // `export const createApp` is required instead of the original `createApp(App).mount('#app')`
