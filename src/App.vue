@@ -270,7 +270,7 @@ const isTransparent = computed(() => {
        href="https://wa.me/6594245994">
         <font-awesome-icon :icon="['fas', 'phone']" size="lg"
           class="my-3 transition-all duration-200 group-hover:scale-125" />
-        <p class="text-wrap leading-none">Contact us</p>
+        <p class="text-wrap leading-none">Let's chat</p>
       </a>
     </button>
   </transition>
