@@ -71,104 +71,120 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="relative bg-stone-300 mx-auto flex flex-col justify-center overflow-hidden">
-    <picture>
+  <main class="relative bg-stone-300 mx-auto flex flex-col justify-center overflow-hidden items-center">
+    <picture class="w-full">
       <source srcset="/assets/tzo.avif">
       <source srcset="/assets/tzo.webp">
       <img src="/assets/tzo.jpg" alt="Tzo Packaging Design" class="w-full h-72 md:h-[36rem] object-cover" />
     </picture>
-    <div>
+    <div class="w-full">
       <h1 class="hidden">About</h1>
 
       <!--- RIDHI --->
 
-      <section
-        class="relative flex px-9 lg:px-20 xl:px-36 gap-8 md:gap-16 py-16 flex-col-reverse justify-center bg-beige-lighter md:flex-row-reverse overflow-visible">
-        <div class="md:w-2/3 my-auto md:pt-16">
-          <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
-            FOUNDER &amp;&nbsp;CREATIVE
-          </h3>
-          <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
-            <h2 class="drama mb-2 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-black">
-              <strong>ridhi</strong> sain
-            </h2>
+      <section class="bg-beige-lighter overflow-visible w-full">
+        <div
+          class="max-w-[1920px] flex gap-8 md:gap-32 py-16 flex-col-reverse items-start justify-end md:flex-row-reverse mx-auto px-9 lg:px-20 xl:px-36">
+          <div class="md:w-2/3 my-auto md:pt-16">
+            <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
+              FOUNDER &amp;&nbsp;CREATIVE
+            </h3>
+            <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
+              <h2 class="drama mb-2 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-black">
+                <strong>ridhi</strong> sain
+              </h2>
+              <picture>
+                <source srcset="/assets/awards.webp" type="image/webp">
+                <source srcset="/assets/awards.png" type="image/png">
+                <img class="md:pl-5 md:max-h-16 max-w-[100%] max-h-8 md:mt-3 md:mb-0 mb-5 mix-blend-multiply"
+                  src="/assets/awards.png" alt="Awards">
+              </picture>
+            </span>
+            <p class="text-base md:text-lg text-left text-black lg:max-w-[720px]">
+              Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of
+              <strong>COMOMAYA</strong> which she launched in March
+              2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK,
+              Singapore
+              &amp; India, Ridhi has worked with international agencies
+              such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also
+              ex-Assoc
+              Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led
+              and
+              helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's
+              Dove,
+              Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod
+              Ricard, Kellogg's and many&nbsp;more.<br class="mt-2 block" style="content: ''"><br>More recently, she has
+              worked
+              with
+              smaller boutique
+              clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense
+              passion to help
+              them through their creative&nbsp;journey.
+            </p>
+          </div>
+          <div class="w-full min-h-[15rem] md:w-auto overflow-hidden">
             <picture>
-              <source srcset="/assets/awards.webp" type="image/webp">
-              <source srcset="/assets/awards.png" type="image/png">
-              <img class="md:pl-5 md:max-h-16 max-w-[100%] max-h-8 md:mt-3 md:mb-0 mb-5 mix-blend-multiply"
-                src="/assets/awards.png" alt="Awards">
+              <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
+              <source srcset="/assets/Ridhi.webp" type="image/webp">
+              <img class="w-full h-full object-contain max-w-[300px] md:py-16 m-auto" src="/assets/Ridhi.jpg"
+                alt="Ridhi Sain" />
             </picture>
-          </span>
-          <p class="text-base md:text-lg text-left text-black lg:max-w-[550px]">
-            Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of
-            <strong>COMOMAYA</strong> which she launched in March
-            2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK, Singapore
-            &amp; India, Ridhi has worked with international agencies
-            such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also
-            ex-Assoc
-            Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led
-            and
-            helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's Dove,
-            Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod
-            Ricard, Kellogg's and many&nbsp;more.<br class="mt-2 block" style="content: ''"><br>More recently, she has
-            worked
-            with
-            smaller boutique
-            clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense
-            passion to help
-            them through their creative&nbsp;journey.
-          </p>
-        </div>
-        <div class="w-full min-h-[15rem] md:w-auto overflow-hidden">
-          <picture>
-            <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
-            <source srcset="/assets/Ridhi.webp" type="image/webp">
-            <img class="w-full h-full object-contain max-w-[300px] md:py-16 m-auto" src="/assets/Ridhi.jpg"
-              alt="Ridhi Sain" />
-          </picture>
+          </div>
         </div>
       </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex justify-center px-9 lg:px-20 xl:px-36 bg-stone-300 flex-col pt-8 pb-4 md:py-16">
-        <h3 class="text-beige-lighter md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
-          INDUSTRY&nbsp;TALENT
-        </h3>
-        <h2
-          class="drama text-6xl md:text-8xl !leading-[0.75em] md:mb-3 overflow-hidden text-right text-active font-medium">
-          our <strong>people</strong>
-        </h2>
-        <h3 v-if="store.getWidth >= 768"
-          class="text-black md:text-xl 2xl:text-2xl text-right pb-5 !leading-snug lg:max-w-[550px] md:ml-auto">
-          Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
-          clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with some
-          of the best talent in the industry and across the&nbsp;globe.
-        </h3>
-      </section>
-
-      <section class="flex flex-col justify-center lg:flex-row">
-        <div class="lg:w-2/3 p-0 m-0 bg-blue">
-          <picture>
-            <source srcset="/assets/globe.png" type="image/png">
-            <source srcset="/assets/globe.webp" type="image/webp">
-            <img class="object-contain min-w-full min-h-full h-auto py-3 md:p-5" src="/assets/globe.png" alt="Globe" />
-          </picture>
-        </div>
-        <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
-          <h3 class="text-black text-xl py-5 !leading-snug">
+      <section class="bg-stone-300 px-9 lg:px-20 xl:px-36">
+        <div class="max-w-[1920px] px-9 lg:px-20 xl:px-36 flex justify-center flex-col pt-8 pb-4 md:py-1 mx-auto">
+          <h3 class="text-beige-lighter md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
+            INDUSTRY&nbsp;TALENT
+          </h3>
+          <h2
+            class="drama text-6xl md:text-8xl !leading-[0.75em] md:mb-3 overflow-hidden text-right text-active font-medium">
+            our <strong>people</strong>
+          </h2>
+          <h3 v-if="store.getWidth >= 768"
+            class="text-black text-base md:text-lg text-right pb-5 !leading-snug lg:max-w-[720px] md:ml-auto">
             Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
             clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with
-            some of the best talent in the industry and across the&nbsp;globe.
+            some
+            of the best talent in the industry and across the&nbsp;globe.
           </h3>
-        </section>
-        <div class="w-full min-h-[15rem] lg:w-1/2 overflow-hidden bg-beige grid grid-cols-3 grid-row-3 gap-1 md:gap-3">
-          <!-- <picture>
+        </div>
+      </section>
+
+      <section class="relative">
+        <div class="bg-blue left-0 w-1/2 absolute h-full z-0" />
+        <div
+          class="max-w-[1920px] px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center lg:flex-row relative mx-auto">
+          <div class="p-0 m-0 bg-blue flex-0 relative z-10 w-1/2">
+            <picture class="w-full min-h-0">
+              <source srcset="/assets/globe.png" type="image/png">
+              <source srcset="/assets/globe.webp" type="image/webp">
+              <img class="object-contain py-3 md:p-5 w-full min-h-0" src="/assets/globe.png" alt="Globe" />
+            </picture>
+          </div>
+
+
+          <!-- Mobile Only -->
+          <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
+            <h3 class="text-black text-xl py-5 !leading-snug">
+              Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
+              clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with
+              some of the best talent in the industry and across the&nbsp;globe.
+            </h3>
+          </section>
+
+
+          <div class="overflow-hidden grid grid-cols-4 gap-1 md:gap-3 flex-shrink h-full w-1/2">
+            <!-- <picture>
             <source srcset="/assets/theSquad.png" type="image/png">
             <source srcset="/assets/theSquad.webp" type="image/webp">
             <img class="w-full h-full object-contain" src="/assets/theSquad.png" alt="The Squad" />
           </picture> -->
-          <img class="aspect-square object-cover" v-for="person in people" :src="person"
-            :alt="person.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+            <img class="aspect-square object-cover" v-for="person in people" :src="person"
+              :alt="person.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+          </div>
         </div>
       </section>
 
@@ -177,33 +193,36 @@ onMounted(() => {
 
       <!--- RMC --->
 
-      <section class="bg-beige-lighter lg:flex-row relative flex flex-col gap-8 justify-center">
-        <div class="lg:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:pl-20 xl:pl-36 flex flex-col items-end">
-          <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-right">
-            GRANTS &amp; SUBSIDIES
-          </h3>
-          <h2
-            class="drama mb-1 md:-mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-black">
-            singapore&nbsp;<strong>SMEs</strong>
-          </h2>
-          <p class="pb-10 text-right text-black lg:max-w-[590px] md:text-xl 2xl:text-2xl !leading-snug">
-            We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management
-            Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp; Medium
-            Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for
-            sustainability-related projects).
-            <wbr>If you qualify for this grant and are interested in this opportunity you can visit&nbsp;<a
-              class='text-blue hover:underline cursor-pointer font-extrabold z-10' target="_blank"
-              rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application"
-              href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
-          </p>
-        </div>
-        <div
-          class="w-full md:h-[500px] lg:max-h-none flex justify-center items-center lg:w-1/2 overflow-hidden bg-black">
-          <picture>
-            <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
-            <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
-            <img class="w-full h-full object-cover" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
-          </picture>
+      <section class="bg-beige-lighter">
+        <div class="max-w-[1920px] px-9 lg:px-20 xl:px-36 lg:flex-row relative flex flex-col gap-8 justify-end mx-auto">
+          <div class="lg:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:pl-20 xl:pl-36 flex flex-col items-end">
+            <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-right">
+              GRANTS &amp; SUBSIDIES
+            </h3>
+            <h2
+              class="drama mb-1 md:-mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-black">
+              singapore&nbsp;<strong>SMEs</strong>
+            </h2>
+            <p class="pb-10 text-right text-black lg:max-w-[720px] text-base md:text-lg !leading-snug">
+              We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management
+              Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp;
+              Medium
+              Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for
+              sustainability-related projects).
+              <wbr>If you qualify for this grant and are interested in this opportunity you can visit&nbsp;<a
+                class='text-blue hover:underline cursor-pointer font-extrabold z-10' target="_blank"
+                rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application"
+                href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
+            </p>
+          </div>
+          <div
+            class="w-full md:h-[500px] lg:max-h-none flex justify-center items-center lg:w-1/2 overflow-hidden bg-black">
+            <picture class="w-full h-full object-cover">
+              <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
+              <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
+              <img class="w-full h-full object-cover" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
+            </picture>
+          </div>
         </div>
       </section>
 
