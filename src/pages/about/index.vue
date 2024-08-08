@@ -134,7 +134,7 @@ onMounted(() => {
       </section>
 
       <!--- OUR PEOPLE --->
-      <section class="bg-stone-300 px-9 lg:px-20 xl:px-36">
+      <section class="bg-stone-300">
         <div class="max-w-[1920px] px-9 lg:px-20 xl:px-36 flex justify-center flex-col pt-8 pb-4 md:py-1 mx-auto">
           <h3 class="text-beige-lighter md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
             INDUSTRY&nbsp;TALENT
