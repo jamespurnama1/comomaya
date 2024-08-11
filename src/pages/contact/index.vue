@@ -59,7 +59,7 @@ const incomplete = ref(null as null | string);
 // const success = ref(false);
 const loading = ref(false);
 
-function editMessage(e: InputEvent) {
+function editMessage(e: InputEvent | Event) {
   if (!e.target) return
   message.value = (e.target as HTMLDivElement).innerText;
 }
