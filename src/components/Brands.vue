@@ -23,7 +23,7 @@
       <p class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left pt-5">BOUTIQUE &amp; CORPORATE BRANDS</p>
       <div class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-x-10 md:gap-y-16">
         <div v-for="brand in boutiqueBrands" class="flex justify-center items-center w-full h-min">
-          <img class="object-contain w-16 md:w-40 h-32 md:py-8 md:px-5 p-1" :src="brand"
+          <img class="object-contain w-16 md:w-40 h-32 md:py-5 md:px-3 p-1" :src="brand"
             :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
         </div>
       </div>
