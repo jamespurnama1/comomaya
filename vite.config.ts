@@ -19,5 +19,9 @@ export default defineConfig({
       preload: "media",
       // Other options: https://github.com/GoogleChromeLabs/critters#usage
     },
+    includedRoutes(paths, routes) {
+      // exclude all the route paths that contains 'api'
+      return paths.filter(i => !i.includes('/api/'))
+    },
   },
 })
