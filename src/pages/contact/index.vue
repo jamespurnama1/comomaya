@@ -10,6 +10,9 @@ const posthog = instance?.appContext.config.globalProperties.$posthog;
 function handleSubmit() {
   if (emailRegex.test(email.value)) {
     //email ok
+    loading.value = true
+    error.value = null
+    email.value = ''
     if (posthog) {
       posthog.identify(email.value, {
         name: name.value
@@ -21,16 +24,36 @@ function handleSubmit() {
       body: JSON.stringify({ name: name.value, email: email.value, message: message.value })
     };
     fetch('/api/contact', requestOptions)
-      .then(response => console.log(response.json()))
+      .then(response => {
+        if (response.ok) {
+        // dialog.value ? dialog.value.show() : null;
+        success.value = true;
+        } else {
+          throw new Error(`${response.status.toString()} error`);
+        }
+      })
+      .catch(response => error.value = response.message)
+      .finally(() => loading.value = false)
   } else {
-    error.value = true
+    error.value = 'email'
   }
 }
 
-const name = ref('')
-const email = ref('')
-const message = ref('')
-const error = ref(false)
+function closeModal() {
+  success.value = false
+  // dialog.value ? dialog.value.close() : null;
+  name.value = ''
+  message.value = ''
+  email.value = ''
+}
+
+// const dialog = ref();
+const name = ref('');
+const email = ref('');
+const message = ref('');
+const error = ref(null as null | string);
+const success = ref(false);
+const loading = ref(false);
 
 onMounted(() => {
   const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
@@ -60,6 +83,21 @@ useHead({
 </script>
 
 <template>
+  <transition name="fade">
+    <div @click="closeModal()" @keydown.esc="closeModal()" @keydown.enter="closeModal()" v-if="success"
+      class="fixed z-30 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+      <div class="p-12 bg-beige-normal">
+        <div class="flex w-full h-full flex-col gap-12 items-center justify-center ">
+          <p class="text-active text-4xl md:text-3xl lg:text-6xl font-extrabold text-center">Thank you {{ name
+            }}!<br>We'll
+            reply you soon!
+          </p>
+          <button @click="closeModal()"
+            class="bg-active hover:bg-blue duration-200 transition-all p-3 font-bold uppercase hover:text-active">OKAY</button>
+        </div>
+      </div>
+    </div>
+  </transition>
   <main class="bg-stone-300">
     <div class="max-w-[1920px] mx-auto px-9 lg:px-20 xl:px-36 flex flex-col justify-center pt-24 md:pt-20">
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
@@ -102,15 +140,34 @@ useHead({
         <textarea contenteditable id="message" v-model="message"
           class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none py-2"
           name="message"></textarea>
-        <button
+        <label v-if="error !== 'email'" class="text-red text-sm md:text-base">{{ error }}</label>
+        <button v-if="!loading"
           class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 -ml-2 h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold"
           type="submit" @click.prevent="handleSubmit()">submit</button>
+        <img v-else class="h-12 w-12 my-12 object-contain spin" src="@/assets/loader.svg" alt="loading" />
       </form>
     </div>
   </main>
 </template>
 
 <style lang="scss" scoped>
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 .split span {
   opacity: 0;
   visibility: hidden;

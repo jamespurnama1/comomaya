@@ -265,11 +265,11 @@ const isTransparent = computed(() => {
 
   <transition name="fade">
     <button aria-label="Scroll Up"
-      class="flex justify-center items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-20 p-3">
-      <a class="font-bold uppercase flex items-center gap-2 hover:text-active  transition-all group md:text-base text-xs"
-       href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
+      class="flex justify-center items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-20 p-3 hover:text-active group">
+      <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs"
+        href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
         <font-awesome-icon :icon="['fas', 'phone']" size="lg"
-          class="my-3 transition-all duration-200 group-hover:scale-125" />
+          class="my-3 group-hover:scale-125" />
         <p class="text-wrap leading-none">Let's chat</p>
       </a>
     </button>
