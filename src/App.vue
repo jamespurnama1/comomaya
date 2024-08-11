@@ -212,11 +212,11 @@ const isTransparent = computed(() => {
     <nav v-show="opened" @touchmove="e => { touchmoved = true }"
       class="moreNav bg-beige-normal w-screen h-screen fixed left-0 bottom-0 z-20">
       <div
-        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-start absolute flex-col overflow-y-scroll gap-5 md:gap-20 pt-[62px] sm:pt-0">
+        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-center md:justify-start absolute flex-col overflow-y-scroll gap-5 md:gap-20 pt-[62px] sm:pt-0">
         <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
           class="text-center relative h-min">
           <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
-            class="px-5 cube my-3 md:my-0 2xl:text-8xl md:text-7xl sm:text-6xl text-5xl leading-[3rem] md:leading-[3.5rem]"
+            class="px-5 cube md:my-0 2xl:text-8xl md:text-7xl sm:text-6xl text-5xl leading-[3rem] md:leading-[3.5rem]"
             @touchend="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
             <p class="flip">
               <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
@@ -255,7 +255,7 @@ const isTransparent = computed(() => {
 
   <transition name="fade">
     <button aria-label="Scroll Up" v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
-      class="flex justify-center items-center fixed bottom-5 left-10 bg-active hover:bg-blue duration-200 transition-all w-10 h-10 z-20">
+      class="flex justify-center items-center fixed bottom-5 left-10 bg-active hover:bg-blue duration-200 transition-all w-10 h-10 z-10">
       <font-awesome-icon :icon="['fas', 'angle-up']" size="lg"
         class="mx-2 text-blue hover:text-active duration-200 transition-all" />
     </button>
@@ -265,7 +265,7 @@ const isTransparent = computed(() => {
 
   <transition name="fade">
     <button aria-label="Scroll Up"
-      class="flex justify-center items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-20 p-3 hover:text-active group">
+      class="flex justify-center items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group">
       <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs"
         href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
         <font-awesome-icon :icon="['fas', 'phone']" size="lg"
@@ -332,7 +332,7 @@ const isTransparent = computed(() => {
   transition: transform 0.5s;
   transform-style: preserve-3d;
   perspective: 5000px;
-  @apply h-24 md:h-32;
+  @apply h-20 md:h-32;
 
   &:hover {
     transform: rotateX(90deg);

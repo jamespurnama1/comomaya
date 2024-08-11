@@ -59,6 +59,11 @@ const incomplete = ref(null as null | string);
 // const success = ref(false);
 const loading = ref(false);
 
+function editMessage(e: InputEvent) {
+  if (!e.target) return
+  message.value = (e.target as HTMLDivElement).innerText;
+}
+
 onMounted(() => {
   const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
   if (split) {
@@ -140,9 +145,9 @@ useHead({
 
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="message">MESSAGE</label>
         <label v-if="incomplete === 'message'" class="text-red text-sm md:text-base" for="message">Please type in your message.</label>
-        <textarea contenteditable id="message" v-model="message"
-          class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none py-2"
-          name="message"></textarea>
+        <div contenteditable id="message" @input="editMessage"
+          class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none md:py-2"
+          name="message"></div>
         <label v-if="error" class="text-red text-sm md:text-base">{{ error }}</label>
         <button v-if="!loading"
           class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 -ml-2 h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold"

@@ -156,7 +156,7 @@ onMounted(() => {
       <section class="relative">
         <div class="bg-blue left-0 md:block hidden md:w-1/2 absolute h-full z-0" />
         <div
-          class="max-w-[1920px] px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center lg:flex-row relative mx-auto">
+          class="max-w-[1920px] md:px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center lg:flex-row relative mx-auto">
           <div class="p-0 m-0 md:bg-blue flex-0 relative z-10 md:w-1/2">
             <picture class="w-full min-h-0">
               <source srcset="/assets/globe.png" type="image/png">
@@ -176,7 +176,7 @@ onMounted(() => {
           </section>
 
 
-          <div class="overflow-hidden grid grid-cols-4 gap-1 md:gap-3 flex-shrink h-full md:w-1/2 py-5 md:py-0">
+          <div class="overflow-hidden grid grid-cols-4 gap-1 md:gap-3 flex-shrink md:h-full md:w-1/2 py-5 md:py-0">
             <!-- <picture>
             <source srcset="/assets/theSquad.png" type="image/png">
             <source srcset="/assets/theSquad.webp" type="image/webp">
@@ -193,7 +193,7 @@ onMounted(() => {
 
       <!--- RMC --->
 
-<RMC />
+      <RMC />
 
       <!--- BRANDS --->
 
@@ -204,7 +204,7 @@ onMounted(() => {
       <section class="bg-blue">
         <div class="max-w-[1920px] mx-auto px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
           <h3
-            class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-5xl md:text-6xl lg:text-8xl font-semibold text-center">
+            class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-5xl md:text-6xl lg:text-8xl font-semibold md:text-center">
             client <strong>testimonials</strong>
           </h3>
           <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
@@ -217,12 +217,12 @@ onMounted(() => {
               alt="button previous" />
           </button>
           <swiper class="w-full" :autoplay="{
-          delay: 8000,
-          disableOnInteraction: false,
-        }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
+            delay: 8000,
+            disableOnInteraction: false,
+          }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
             <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
               v-for="(items, i) in testimonials">
-              <p class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
+              <blockquote class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
                 v-html="`${items[Object.keys(items)[0]]}`" />
               <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
                 v-html="`${Object.keys(items)[0]}`" />
@@ -279,7 +279,7 @@ onMounted(() => {
   //line-height: 0.6;
 
   @media (min-width: 1024) {
-   // line-height: 0.7;
+    // line-height: 0.7;
   }
 }
 
