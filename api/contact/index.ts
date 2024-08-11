@@ -11,8 +11,8 @@ const transporter = nodemailer.createTransport({
       port: 465,
       host: "smtp.gmail.com",
       auth: {
-          user: import.meta.env.GMAIL_SEND,
-          pass: import.meta.env.GMAIL_PASSWORD,
+          user: process.env.GMAIL_SEND,
+          pass: process.env.GMAIL_PASSWORD,
       },
       secure: true,
   });
@@ -35,10 +35,10 @@ const transporter = nodemailer.createTransport({
   const mailData = {
       from: {
         name,
-        address: import.meta.env.GMAIL_SEND,
+        address: process.env.GMAIL_SEND!,
       },
       replyTo: email,
-      to: import.meta.env.GMAIL_RECEIVE,
+      to: process.env.GMAIL_RECEIVE,
       subject: `New Message on COMOMAYA.com - ${name}`,
       text: message,
       html: message,

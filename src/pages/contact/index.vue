@@ -18,7 +18,7 @@ function handleSubmit() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message })
+      body: JSON.stringify({ name: name.value, email: email.value, message: message.value })
     };
     fetch('/api/contact', requestOptions)
       .then(response => console.log(response.json()))
