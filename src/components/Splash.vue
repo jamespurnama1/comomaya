@@ -13,7 +13,7 @@
           <div class="h-min-0 w-min-0">
             <h1
               class="split drama text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
-              <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>Singapore-based</span><br><span>boutique</span><span>creative</span><span>agency</span><span>just</span><span>like</span><span>any</span><span>other.</span><br><span
+              <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>Singapore-based</span><br><span>boutique</span><span>creative</span><br><span>agency</span><span>just</span><span>like</span><br><span>any</span><span>other.</span><span
                   class="text-beige-normal">...not quite.</span></strong>
             </h1>
             <p class="lg:text-lg pt-8 leading-relaxed">
