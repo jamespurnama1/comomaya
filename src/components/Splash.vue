@@ -12,11 +12,11 @@
         <div class="row-span-1 col-start-1 col-span-2 sm:col-span-1">
           <div class="h-min-0 w-min-0">
             <h1
-              class="split drama text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
+              class="split drama text-3xl sm:text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
               <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>Singapore-based</span><br><span>boutique</span><span>creative</span><br><span>agency</span><span>just</span><span>like</span><br><span>any</span><span>other.</span><span
                   class="text-beige-normal">...not quite.</span></strong>
             </h1>
-            <p class="lg:text-lg pt-8 leading-relaxed">
+            <p class="lg:text-lg pt-8 leading-relaxed text-pretty">
               Yes we do <strong class="font-extrabold">work</strong> that is fabulous.<br>Yes we offer a wide range of
               <strong class="font-extrabold">services</strong>.<br>Yes our team and <strong
                 class="font-extrabold">people</strong> are stellar.<br><strong class="font-extrabold">But we also work
@@ -96,7 +96,7 @@
               </p>
             </div>
             <p
-              class="ml-auto text-base 2xl:text-2xl xl:text-xl lg:text-lg md:text-base font-semibold !leading-normal text-black">
+              class="ml-auto text-base 2xl:text-2xl xl:text-xl lg:text-lg md:text-base font-semibold !leading-normal text-black text-pretty">
               COMOMAYA exists for one simple reason —<br>to make great design more accessible.
               From start-ups and new businesses to corporate enterprises — small, medium and large alike. To empower
               business owners &amp; entrepreneurs with powerful brands that tell a story. To make heads turn. And to add
