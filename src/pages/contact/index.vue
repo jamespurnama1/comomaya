@@ -2,13 +2,16 @@
 import { useHead } from '@unhead/vue'
 import { onMounted, ref, getCurrentInstance } from 'vue'
 import { gsap } from 'gsap'
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
 const instance = getCurrentInstance();
 const posthog = instance?.appContext.config.globalProperties.$posthog;
 
 function handleSubmit() {
-  if (emailRegex.test(email.value)) {
+  incomplete.value = null
+  if (emailRegex.test(email.value) && name.value !== '' && message.value !== '') {
     //email ok
     loading.value = true
     error.value = null
@@ -26,8 +29,7 @@ function handleSubmit() {
     fetch('/api/contact', requestOptions)
       .then(response => {
         if (response.ok) {
-        // dialog.value ? dialog.value.show() : null;
-        success.value = true;
+        router.push('/thank-you')
         } else {
           throw new Error(`${response.status.toString()} error`);
         }
@@ -35,24 +37,26 @@ function handleSubmit() {
       .catch(response => error.value = response.message)
       .finally(() => loading.value = false)
   } else {
-    error.value = 'email'
+    //email not ok
+    if (name.value === '') incomplete.value = 'name'
+    if (!emailRegex.test(email.value)) incomplete.value = 'email'
+    if (message.value === '') incomplete.value = 'message'
   }
 }
 
-function closeModal() {
-  success.value = false
-  // dialog.value ? dialog.value.close() : null;
-  name.value = ''
-  message.value = ''
-  email.value = ''
-}
+// function closeModal() {
+//   success.value = false
+//   name.value = ''
+//   message.value = ''
+//   email.value = ''
+// }
 
-// const dialog = ref();
 const name = ref('');
 const email = ref('');
 const message = ref('');
 const error = ref(null as null | string);
-const success = ref(false);
+const incomplete = ref(null as null | string);
+// const success = ref(false);
 const loading = ref(false);
 
 onMounted(() => {
@@ -83,7 +87,7 @@ useHead({
 </script>
 
 <template>
-  <transition name="fade">
+  <!-- <transition name="fade">
     <div @click="closeModal()" @keydown.esc="closeModal()" @keydown.enter="closeModal()" v-if="success"
       class="fixed z-30 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
       <div class="p-12 bg-beige-normal">
@@ -97,7 +101,7 @@ useHead({
         </div>
       </div>
     </div>
-  </transition>
+  </transition> -->
   <main class="bg-stone-300">
     <div class="max-w-[1920px] mx-auto px-9 lg:px-20 xl:px-36 flex flex-col justify-center pt-24 md:pt-20">
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
@@ -108,15 +112,9 @@ useHead({
           <span>a</span><span>conversation...</span>
         </h2>
         <div class="mt-5 text-2xl md:text-4xl flex flex-col">
-          <!-- <p class="text-black font-semibold tracking-widest mb-3">CALL</p> -->
-          <!-- <a class="z-10" href="tel:+6594245994">
-            <p class="text-active font-semibold mb-5">+65 9424 5994</p>
-          </a> -->
-          <!-- <p class="text-black font-semibold tracking-widest mb-3">WHATSAPP</p> -->
           <a class="z-10" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
             <p class="text-blue hover:text-active font-semibold mb-5">+65 9424 5994</p>
           </a>
-          <!-- <p class="text-black font-semibold tracking-widest mb-3">WRITE TO US</p> -->
           <a class="z-10" href="mailto:ridhisain@comomaya.com">
             <p class="text-blue hover:text-active font-semibold mb-5">ridhisain@comomaya.com</p>
           </a>
@@ -126,21 +124,26 @@ useHead({
       <form class="flex flex-col flex-wrap w-full md:w-2/3 content-start">
 
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="name">NAME</label>
+        <label v-if="incomplete === 'name'" class="text-red text-sm md:text-base" for="name">Please enter your
+          name.</label>
         <input v-model="name"
           class="bg-stone-300 autofill:bg-stone-300 w-full text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
           type="text" name="name">
 
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="email">E-MAIL</label>
-        <label v-if="error" class="text-red text-sm md:text-base" for="email">Please double check you e-mail
+        <label v-if="incomplete === 'email'" class="text-red text-sm md:text-base" for="email">Please double check you
+          e-mail
           address.</label>
         <input v-model="email"
           class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
           type="email" name="email">
+
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="message">MESSAGE</label>
+        <label v-if="incomplete === 'message'" class="text-red text-sm md:text-base" for="message">Please type in your message.</label>
         <textarea contenteditable id="message" v-model="message"
           class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none py-2"
           name="message"></textarea>
-        <label v-if="error !== 'email'" class="text-red text-sm md:text-base">{{ error }}</label>
+        <label v-if="error" class="text-red text-sm md:text-base">{{ error }}</label>
         <button v-if="!loading"
           class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 -ml-2 h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold"
           type="submit" @click.prevent="handleSubmit()">submit</button>
