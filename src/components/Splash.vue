@@ -13,14 +13,19 @@
           <div class="h-min-0 w-min-0">
             <h1
               class="split drama text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
-              <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>Singapore-based</span><span>boutique</span><span>creative</span><span>agency</span><span>just</span><br><span>like</span><span>any</span><span>other.</span><br><span
+              <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>Singapore-based</span><br><span>boutique</span><span>creative</span><span>agency</span><span>just</span><span>like</span><span>any</span><span>other.</span><br><span
                   class="text-beige-normal">...not quite.</span></strong>
             </h1>
             <p class="lg:text-lg pt-8 leading-relaxed">
-              Yes we do <strong class="font-extrabold">work</strong> that is fabulous.<br>Yes we offer a wide range of <strong class="font-extrabold">services</strong>.<br>Yes our team and <strong class="font-extrabold">people</strong> are stellar.<br><strong class="font-extrabold">But we also work in a way that is personal, flexible, agile, collaborative and we will try our best to not be beaten on pricing and value for money.<br>Anything else on your wishlist?</strong>
+              Yes we do <strong class="font-extrabold">work</strong> that is fabulous.<br>Yes we offer a wide range of
+              <strong class="font-extrabold">services</strong>.<br>Yes our team and <strong
+                class="font-extrabold">people</strong> are stellar.<br><strong class="font-extrabold">But we also work
+                in a way that is personal, flexible, agile, collaborative and we will try our best to not be beaten on
+                pricing and value for money.<br>Anything else on your wishlist?</strong>
             </p>
-            <a class="transition-transform hover:scale-150 block origin-center text-center mr-auto w-fit" href="https://wa.me/6594245994">
-              <p class="text-active font-extrabold lg:text-l w-fit">Call us.</p>
+            <a class="transition-transform hover:scale-150 block origin-center text-center mr-auto w-fit"
+              href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
+              <p class="text-active font-extrabold lg:text-lg w-fit">Call us.</p>
             </a>
           </div>
         </div>
@@ -30,7 +35,7 @@
           <picture class="">
             <source srcset=" /assets/fairtrade.webp" type="image/webp">
             <source srcset="/assets/fairtrade.jpeg" type="image/jpeg">
-            <img class="object-cover w-full h-full origin-bottom" src="/assets/fairtrade.jpeg" alt="Fairtrade">
+            <img class="object-cover w-full h-full object-left" src="/assets/fairtrade.jpeg" alt="Fairtrade">
           </picture>
         </div>
 

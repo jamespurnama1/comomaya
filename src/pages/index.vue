@@ -88,6 +88,7 @@ function scrollDown() {
 		</div>
 		<Splash />
 		<Service />
+		<RMC />
 		<Brands />
 	</div>
 </template>

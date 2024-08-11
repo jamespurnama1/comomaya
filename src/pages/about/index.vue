@@ -154,10 +154,10 @@ onMounted(() => {
       </section>
 
       <section class="relative">
-        <div class="bg-blue left-0 w-1/2 absolute h-full z-0" />
+        <div class="bg-blue left-0 md:block hidden md:w-1/2 absolute h-full z-0" />
         <div
           class="max-w-[1920px] px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center lg:flex-row relative mx-auto">
-          <div class="p-0 m-0 bg-blue flex-0 relative z-10 w-1/2">
+          <div class="p-0 m-0 md:bg-blue flex-0 relative z-10 md:w-1/2">
             <picture class="w-full min-h-0">
               <source srcset="/assets/globe.png" type="image/png">
               <source srcset="/assets/globe.webp" type="image/webp">
@@ -176,7 +176,7 @@ onMounted(() => {
           </section>
 
 
-          <div class="overflow-hidden grid grid-cols-4 gap-1 md:gap-3 flex-shrink h-full w-1/2">
+          <div class="overflow-hidden grid grid-cols-4 gap-1 md:gap-3 flex-shrink h-full md:w-1/2 py-5 md:py-0">
             <!-- <picture>
             <source srcset="/assets/theSquad.png" type="image/png">
             <source srcset="/assets/theSquad.webp" type="image/webp">
@@ -193,38 +193,7 @@ onMounted(() => {
 
       <!--- RMC --->
 
-      <section class="bg-beige-lighter">
-        <div class="max-w-[1920px] px-9 lg:px-20 xl:px-36 lg:flex-row relative flex flex-col gap-8 justify-end mx-auto">
-          <div class="lg:w-2/3 my-auto pt-10 md:pt-16 px-9 lg:pl-20 xl:pl-36 flex flex-col items-end">
-            <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-right">
-              GRANTS &amp; SUBSIDIES
-            </h3>
-            <h2
-              class="drama mb-1 md:-mt-3 md:mb-3 text-5xl md:text-8xl overflow-hidden font-medium text-right text-black">
-              singapore&nbsp;<strong>SMEs</strong>
-            </h2>
-            <p class="pb-10 text-right text-black lg:max-w-[720px] text-base md:text-lg !leading-snug">
-              We are certified as a Registered Management Consultant (RMC) with IMC Singapore (Institute of Management
-              Consultants). Under the EDG (Enterprise Development Grant) program, Singapore-based SMEs (Small &amp;
-              Medium
-              Enterprises) can apply for up to 50% of government funding towards their costs with us (or 70% for
-              sustainability-related projects).
-              <wbr>If you qualify for this grant and are interested in this opportunity you can visit&nbsp;<a
-                class='text-blue hover:underline cursor-pointer font-extrabold z-10' target="_blank"
-                rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application"
-                href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
-            </p>
-          </div>
-          <div
-            class="w-full md:h-[500px] lg:max-h-none flex justify-center items-center lg:w-1/2 overflow-hidden bg-black">
-            <picture class="w-full h-full object-cover">
-              <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
-              <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
-              <img class="w-full h-full object-cover" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
-            </picture>
-          </div>
-        </div>
-      </section>
+<RMC />
 
       <!--- BRANDS --->
 
@@ -257,8 +226,8 @@ onMounted(() => {
                 v-html="`${items[Object.keys(items)[0]]}`" />
               <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
                 v-html="`${Object.keys(items)[0]}`" />
-              <h2 class="text-stone-700 md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
-                {{ testimonialsDate[i] }}</h2>
+              <!-- <h2 class="text-stone-700 md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
+                {{ testimonialsDate[i] }}</h2> -->
             </swiper-slide>
           </swiper>
         </div>
