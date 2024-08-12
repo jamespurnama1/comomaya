@@ -31,7 +31,7 @@ function handleSubmit() {
         if (response.ok) {
         router.push('/thank-you')
         } else {
-          throw new Error(`${response.status.toString()} error`);
+          throw new Error(`${response.status.toString()} error. Please try again later.`);
         }
       })
       .catch(response => error.value = response.message)
@@ -44,19 +44,11 @@ function handleSubmit() {
   }
 }
 
-// function closeModal() {
-//   success.value = false
-//   name.value = ''
-//   message.value = ''
-//   email.value = ''
-// }
-
 const name = ref('');
 const email = ref('');
 const message = ref('');
 const error = ref(null as null | string);
 const incomplete = ref(null as null | string);
-// const success = ref(false);
 const loading = ref(false);
 
 function editMessage(e: InputEvent | Event) {
@@ -92,21 +84,6 @@ useHead({
 </script>
 
 <template>
-  <!-- <transition name="fade">
-    <div @click="closeModal()" @keydown.esc="closeModal()" @keydown.enter="closeModal()" v-if="success"
-      class="fixed z-30 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-      <div class="p-12 bg-beige-normal">
-        <div class="flex w-full h-full flex-col gap-12 items-center justify-center ">
-          <p class="text-active text-4xl md:text-3xl lg:text-6xl font-extrabold text-center">Thank you {{ name
-            }}!<br>We'll
-            reply you soon!
-          </p>
-          <button @click="closeModal()"
-            class="bg-active hover:bg-blue duration-200 transition-all p-3 font-bold uppercase hover:text-active">OKAY</button>
-        </div>
-      </div>
-    </div>
-  </transition> -->
   <main class="bg-stone-300">
     <div class="max-w-[1920px] mx-auto px-9 lg:px-20 xl:px-36 flex flex-col justify-center pt-24 md:pt-20">
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">

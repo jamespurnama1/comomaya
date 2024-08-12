@@ -19,6 +19,7 @@ useHead({
   ],
 })
 
+const pop = ref(false)
 const scrollY = ref(0);
 const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease transform duration-300 bg-active group-hover:bg-black`;
 const linkSelected = ref(false);
@@ -72,18 +73,18 @@ onMounted(() => {
 
   watch(route, (to) => {
     if (to.hash) {
-        setTimeout(() => {
+      setTimeout(() => {
         document.querySelector(to.hash) ? window.scrollTo({
           top: document.querySelector(to.hash)!.getBoundingClientRect().top + window.scrollY - 50,
           behavior: "smooth"
         }) : null
       }, 1000);
-      } else {
+    } else {
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       })
-      }
+    }
   }, { flush: 'pre', immediate: true, deep: true })
 })
 
@@ -165,6 +166,12 @@ const isTransparent = computed(() => {
     class="origin-center cursor transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
     :class="[store.getWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
+  <!-- Pop -->
+
+  <transition name="fade">
+    <Pop v-if="pop" @close="pop = false" @mount="hoverLink()" />
+  </transition>
+
   <!-- Nav Button + Logo -->
 
   <nav
@@ -196,12 +203,12 @@ const isTransparent = computed(() => {
         class="group flex flex-col h-8 w-8 justify-center items-center group p-2 -m-2 transition-transform"
         @click="handleNav(false)">
         <div v-for="i in 3" :class="[
-      (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
-      (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
-      (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),
-      genericHamburgerLine,
-      (!isTransparent || opened) && !isBlue ? 'bg-black group-hover:bg-active' : ''
-    ]" />
+          (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
+          (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
+          (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),
+          genericHamburgerLine,
+          (!isTransparent || opened) && !isBlue ? 'bg-black group-hover:bg-active' : ''
+        ]" />
       </button>
     </div>
   </nav>
@@ -261,19 +268,16 @@ const isTransparent = computed(() => {
     </button>
   </transition>
 
-  <!-- Scroll up -->
+  <!-- Let's Chat -->
 
-  <transition name="fade">
-    <button aria-label="Scroll Up"
-      class="flex justify-center items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group">
-      <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs"
-        href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
-        <font-awesome-icon :icon="['fas', 'phone']" size="lg"
-          class="my-3 group-hover:scale-125" />
-        <p class="text-wrap leading-none">Let's chat</p>
-      </a>
-    </button>
-  </transition>
+  <button @click="pop = true" aria-label="Scroll Up"
+    class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group">
+    <!-- <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
+      href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer"> -->
+    <font-awesome-icon :icon="['fas', 'phone']" size="lg" class="my-3 group-hover:scale-125" />
+    <p>Let's&nbsp;chat</p>
+    <!-- </a> -->
+  </button>
 
   <!-- Main component -->
 
