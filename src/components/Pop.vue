@@ -9,12 +9,12 @@
           over&nbsp;coffee...
         </p>
       </div>
-      <div class="flex w-full h-full flex-col gap-12 items-center justify-center ">
+      <div class="flex w-full h-full flex-col gap-12 items-center justify-center md:w-2/3 md:px-20">
         <p v-if="store.getWidth > 768"
-          class="text-black text-2xl md:text-3xl lg:text-6xl font-extrabold md:text-center text-balance">Let's connect
+          class="text-black text-2xl md:text-3xl lg:text-6xl font-extrabold  text-balance">Let's connect
           over&nbsp;coffee...
         </p>
-        <form class="flex flex-col flex-wrap w-full md:w-2/3 content-start items-center justify-center">
+        <form class="flex flex-col flex-wrap w-full content-start items-center justify-center">
           <input v-model="name"
             class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 text-lg md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-stone-300 placeholder:font-semibold px-2 py-4"
             :class="[incomplete === 'name' ? 'mb-1' : 'md:mb-7 mb-4']" type="text" name="name" placeholder="Name">
