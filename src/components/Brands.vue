@@ -3,8 +3,10 @@ import { useStore } from '../stores';
 
 const store = useStore()
 
-const globalBrands = Object.values(import.meta.glob('@/assets/brands/global/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
-const boutiqueBrands = Object.values(import.meta.glob('@/assets/brands/boutique/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
+const globalBrands = Object.values(import.meta.glob('@/assets/brands_desktop/global/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
+const boutiqueBrands = Object.values(import.meta.glob('@/assets/brands_desktop/boutique/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
+const globalBrandsMobile = Object.values(import.meta.glob('@/assets/brands_mobile/global/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
+const boutiqueBrandsMobile = Object.values(import.meta.glob('@/assets/brands_mobile/boutique/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
 </script>
 
 <template>
@@ -18,7 +20,12 @@ const boutiqueBrands = Object.values(import.meta.glob('@/assets/brands/boutique/
 
       <p class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left pt-5">GLOBAL BRANDS</p>
       <div class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-x-10 md:gap-y-16">
-        <div v-for="brand in globalBrands" class="flex justify-center items-center w-full h-full">
+        <div v-if="store.getWidth <= 768" v-for="brand in globalBrandsMobile"
+          class="flex justify-center items-center w-full h-full">
+          <img class="object-contain w-16 md:w-40 h-32 md:py-8 md:px-5 p-1" :src="brand"
+            :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+        </div>
+        <div v-else v-for="brand in globalBrands" class="flex justify-center items-center w-full h-full">
           <img class="object-contain w-16 md:w-40 h-32 md:py-8 md:px-5 p-1" :src="brand"
             :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
         </div>
@@ -27,7 +34,13 @@ const boutiqueBrands = Object.values(import.meta.glob('@/assets/brands/boutique/
       <p class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left pt-5">BOUTIQUE &amp; CORPORATE
         BRANDS</p>
       <div class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-x-10 md:gap-y-16">
-        <div v-for="brand in boutiqueBrands" class="flex justify-center items-center w-full h-min">
+        <div v-if="store.getWidth <= 768" v-for="brand in boutiqueBrandsMobile"
+          class="flex justify-center items-center w-full h-min">
+          <img class="object-contain w-16 md:w-40 h-32 md:py-5 md:px-3 p-1" :src="brand"
+            :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+        </div>
+        <div v-else v-for="brand in boutiqueBrands"
+          class="flex justify-center items-center w-full h-min">
           <img class="object-contain w-16 md:w-40 h-32 md:py-5 md:px-3 p-1" :src="brand"
             :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
         </div>
