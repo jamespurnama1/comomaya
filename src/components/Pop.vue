@@ -1,29 +1,29 @@
 <template>
   <div @click.self="closeModal()" @keydown.esc="closeModal()" @keydown.enter="closeModal()"
     class="fixed z-40 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-    <div class="p-12 bg-beige-lighter flex items-center justify-center gap-10 md:gap-0 flex-col md:flex-row w-4/5">
+    <div class="p-12 bg-beige-lighter flex items-center justify-center gap-10 flex-col md:flex-row w-4/5 max-w-6xl">
       <div class="flex items-center justify-center gap-5">
         <img class="h-24 md:h-[30vh] w-auto" src="@/assets/coffee.svg" alt="Coffee" />
         <p v-if="store.getWidth <= 768"
-          class="text-black text-2xl md:text-3xl lg:text-6xl font-extrabold md:text-center text-balance">Let's connect
+          class="text-black text-xl md:text-xl font-extrabold md:text-center text-balance">Let's connect
           over&nbsp;coffee...
         </p>
       </div>
-      <div class="flex w-full h-full flex-col gap-12 items-center justify-center md:w-2/3 md:px-20">
-        <p v-if="store.getWidth > 768"
-          class="text-black text-2xl md:text-3xl lg:text-6xl font-extrabold  text-balance">Let's connect
+      <div class="flex w-full h-full flex-col gap-8 items-center justify-center md:w-2/3 md:px-20 md:pt-12">
+        <p v-if="store.getWidth > 768" class="text-black text-2xl md:text-3xl font-extrabold text-balance mr-auto">Let's
+          connect
           over&nbsp;coffee...
         </p>
         <form class="flex flex-col flex-wrap w-full content-start items-center justify-center">
           <input v-model="name"
-            class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 text-lg md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-stone-300 placeholder:font-semibold px-2 py-4"
+            class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-blue placeholder:font-semibold px-2 py-4"
             :class="[incomplete === 'name' ? 'mb-1' : 'md:mb-7 mb-4']" type="text" name="name" placeholder="Name">
           <label v-if="incomplete === 'name'" class="text-red mb-4 md:mb-7 text-sm md:text-base" for="name">Please enter
             your
             name.</label>
 
           <input v-model="email"
-            class="bg-white autofill:bg-white w-full text-black placeholder-stone-700  text-lg md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-stone-300 placeholder:font-semibold px-2 py-4"
+            class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-blue placeholder:font-semibold px-2 py-4"
             :class="[incomplete === 'email' ? 'mb-1' : 'md:mb-7 mb-4']" placeholder="Email" type="email" name="email">
           <label v-if="incomplete === 'email'" class="text-red mb-4 md:mb-7 text-sm md:text-base" for="email">Please
             double check
@@ -33,15 +33,15 @@
 
           <div contenteditable role="textbox" spellcheck="true" id="message" @input="editMessage"
             @focus="(e) => {if (message === 'Message') (e.target as HTMLDivElement).textContent = ''; message = ''}"
-            class="bg-white autofill:bg-white placeholder-stone-700 text-lg md:text-xl resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none px-2 py-1 md:py-3"
-            :class="[message === 'Message' ? 'text-stone-300 font-semibold' : 'text-black', incomplete === 'message' ? 'mb-1' : 'md:mb-7 mb-4']" />
+            class="bg-white autofill:bg-white placeholder-stone-700 md:text-xl resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none px-2 py-1 md:py-3"
+            :class="[message === 'Message' ? 'text-blue font-semibold' : 'text-black', incomplete === 'message' ? 'mb-1' : 'md:mb-7 mb-4']" />
           <label v-if="incomplete === 'message'" class="text-red mb-1 text-sm md:text-base" for="message">Please
             type in
             your message.</label>
           <label v-if="error" class="text-red mb-1 text-sm md:text-base">{{ error }}</label>
 
           <button v-if="!loading"
-            class="hover:bg-active duration-200 transition-all z-0 relative bg-stone-300 outline-4 py-2 md:py-4 px-1 my-8 mb-0 md:mb-8 flex items-center text-active hover:text-stone-300 text-2xl font-extrabold text-center w-3/4 justify-center"
+            class="hover:bg-active duration-200 transition-all z-0 relative bg-blue outline-4 py-2 md:py-4 px-1 my-8 mb-0 md:mb-8 flex items-center text-active hover:text-blue text-2xl md:text-4xl font-extrabold text-center w-3/4 justify-center"
             type="submit" @click.prevent="handleSubmit()">submit</button>
           <img v-else class="h-12 w-12 my-12 object-contain spin" src="@/assets/loader.svg" alt="loading" />
         </form>
