@@ -25,7 +25,7 @@
             </p>
             <a class="transition-transform hover:scale-150 block origin-center text-center mr-auto w-fit"
               href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
-              <p class="text-active font-extrabold lg:text-lg w-fit">Call us.</p>
+              <p class="text-active font-extrabold text-lg lg:text-xl w-fit">Call us.</p>
             </a>
           </div>
         </div>
