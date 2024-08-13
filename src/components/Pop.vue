@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-1/2 -translate-y-1/2 right-0 z-40 p-5 md:p-12 bg-beige-lighter flex items-center justify-center gap-3 md:gap-10 flex-col max-w-[80%] md:max-w-full drop-shadow-2xl bg-opacity-85">
+    class="fixed top-1/2 -translate-y-1/2 right-0 z-40 p-5 md:p-12 bg-beige-lighter flex items-center justify-center gap-3 md:gap-10 flex-col max-w-[80%] md:max-w-full drop-shadow-2xl bg-opacity-85 scale-75 origin-right">
     <!-- <div class="flex items-center justify-center gap-1 md:gap-5 flex-col max-w-full"> -->
       <!-- <img class="h-24 md:h-48 w-auto" src="@/assets/coffee.svg" alt="Coffee" /> -->
       <p class="text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3">
