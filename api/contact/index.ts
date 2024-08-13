@@ -39,8 +39,8 @@ const transporter = nodemailer.createTransport({
       replyTo: email,
       to: process.env.GMAIL_RECEIVE,
       subject: `New Message on COMOMAYA.com - ${name}`,
-      text: `message\nPlease reach at: ${phone} or ${email}`,
-      html: `message<br>Please reach at: ${phone} or ${email}`,
+      text: `${message}\nPlease reach at: ${phone} or ${email}`,
+      html: `${message}<br>Please reach at: ${phone} or ${email}`,
   };
 
   await new Promise((resolve, reject) => {
