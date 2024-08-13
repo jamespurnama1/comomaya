@@ -13,7 +13,7 @@
         class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-blue placeholder:font-semibold px-2 py-4"
         :class="[incomplete === 'name' ? 'mb-1' : 'md:mb-7 mb-4']" type="text" name="name" placeholder="Name">
       <label v-if="incomplete === 'name'" class="text-red mb-4 md:mb-7 text-sm md:text-base" for="name">Please enter
-        your&nbps;name.</label>
+        your&nbsp;name.</label>
 
       <input v-model="email"
         class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-blue placeholder:font-semibold px-2 py-4"
@@ -21,7 +21,7 @@
       <label v-if="incomplete === 'email'" class="text-red mb-4 md:mb-7 text-sm md:text-base" for="email">Please
         double check
         you
-        e-mail&nbps;address.</label>
+        e-mail&nbsp;address.</label>
 
       <input v-model="phone"
         class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-blue placeholder:font-semibold px-2 py-4"
@@ -29,7 +29,7 @@
       <label v-if="incomplete === 'phone'" class="text-red mb-4 md:mb-7 text-sm md:text-base" for="phone">Please
         double check
         you
-        phone&nbps;number.</label>
+        phone&nbsp;number.</label>
 
       <div contenteditable role="textbox" spellcheck="true" id="message" @input="editMessage"
         @focus="(e) => { if (message === 'Message') (e.target as HTMLDivElement).textContent = ''; message = '' }"
@@ -37,7 +37,7 @@
         :class="[message === 'Message' ? 'text-blue font-semibold' : 'text-black', incomplete === 'message' ? 'mb-1' : 'md:mb-7 mb-4']" />
       <label v-if="incomplete === 'message'" class="text-red mb-1 text-sm md:text-base" for="message">Please
         type in
-        your&nbps;message.</label>
+        your&nbsp;message.</label>
       <label v-if="error" class="text-red mb-1 text-sm md:text-base">{{ error }}</label>
 
       <button v-if="!loading"
