@@ -2,7 +2,7 @@
   <section class="bg-stone-300 z-40 w-full">
     <div
       class="py-9 px-9 lg:px-20 xl:px-36 flex items-start justify-center flex-col gap-5 md:gap-5 max-w-[1920px] mx-auto">
-      <p class="text-stone-500 mb-3 text-sm md:text-lg font-semibold tracking-widest text-left">
+      <p class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
         HELLO
       </p>
 
@@ -14,7 +14,7 @@
             <h1
               class="split drama text-3xl sm:text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
               <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>Singapore-based</span><br><span>boutique</span><span>creative</span><br><span>agency</span><span>just</span><span>like</span><br><span>any</span><span>other.</span><span
-                  class="text-beige-normal">...not quite.</span></strong>
+                  class="text-beige-normal"><br>...not quite.</span></strong>
             </h1>
             <p class="lg:text-lg pt-8 leading-relaxed text-pretty">
               Yes we do <strong class="font-extrabold">work</strong> that is fabulous.<br>Yes we offer a wide range of
