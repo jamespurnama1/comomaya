@@ -184,7 +184,7 @@ const isTransparent = computed(() => {
   <!-- Nav Button + Logo -->
 
   <nav
-    class="fixed w-full top-0 left-0 flex py-3 2xl:py-4 px-9 lg:px-20 2xl:px-36 justify-between items-center z-30 transition-all origin-top-left bg-beige-normal"
+    class="fixed w-full top-0 left-0 flex py-3 2xl:py-4 px-9 lg:px-20 2xl:px-36 justify-between items-center z-40 transition-all origin-top-left bg-beige-normal"
     :class="{ 'bg-opacity-0': isTransparent && !opened, '!bg-beige-normal': opened }">
 
     <router-link aria-label="Go to Landing Page" to="/" @click="handleNav(true)">
@@ -207,7 +207,6 @@ const isTransparent = computed(() => {
       </router-link>
       <span v-if="store.getWidth > 570" class="h-6 w-[2px]"
         :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" />
-      <!-- <span class="h-6 w-[2px]" :class="[(!isTransparent || opened) && !isBlue ? 'bg-black' : 'bg-active']" /> -->
       <button aria-label="Navigation"
         class="group flex flex-col h-8 w-8 justify-center items-center group p-2 -m-2 transition-transform"
         @click="handleNav(false)">
@@ -226,7 +225,7 @@ const isTransparent = computed(() => {
 
   <transition name="fly">
     <nav v-show="opened" @touchmove="e => { touchmoved = true }"
-      class="moreNav bg-beige-normal w-screen h-screen fixed left-0 bottom-0 z-20">
+      class="moreNav bg-beige-normal w-screen h-screen fixed left-0 bottom-0 z-30">
       <div
         class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-center md:justify-start absolute flex-col overflow-y-scroll gap-5 md:gap-20 pt-[62px] sm:pt-0">
         <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
@@ -270,21 +269,20 @@ const isTransparent = computed(() => {
   <!-- Scroll up -->
 
   <transition name="fade">
-    <button aria-label="Scroll Up" v-show="scrollY > 50" @click="handleScrollUp" @keypress="handleScrollUp"
-      class="flex justify-center items-center fixed bottom-5 left-10 bg-active hover:bg-blue duration-200 transition-all w-10 h-10 z-10">
+    <button aria-label="Scroll Up" v-show="scrollY > 50 && !opened" @click="handleScrollUp" @keypress="handleScrollUp"
+      class="flex justify-center items-center fixed bottom-5 left-5 md:left-10 bg-active hover:bg-blue duration-200 transition-all w-10 h-10 z-30">
       <font-awesome-icon :icon="['fas', 'angle-up']" size="lg"
         class="mx-2 text-blue hover:text-active duration-200 transition-all" />
     </button>
   </transition>
 
-  <!-- Let's Chat -->
+  <!-- WhatsApp -->
 
-  <button aria-label="Let's Chat"
-    class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group">
-    <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" href="https://wa.me/6594245994"
+  <button aria-label="WhatsApp"
+    class="flex justify-center gap-2 md:text-5xl text-3xl items-center fixed bottom-5 right-5 md:bottom-10 md:right-10 duration-200 transition-all w-auto h-10 z-10 p-3 text-active group hover:scale-125">
+    <a class="font-bold uppercase flex items-center gap-2" href="https://wa.me/6594245994"
       target="_blank" rel="noopener noreferrer">
-      <font-awesome-icon :icon="['fas', 'phone']" size="lg" class="my-3 group-hover:scale-125" />
-      <p>Let's&nbsp;chat</p>
+      <font-awesome-icon :icon="['fab', 'whatsapp']" class="my-3 group-hover:scale-125" />
     </a>
   </button>
 
@@ -292,11 +290,8 @@ const isTransparent = computed(() => {
 
   <transition name="fade">
     <button v-if="$route.path !== '/contact' && !pop" aria-label="Contact Us" @click="openPop()"
-      class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-1/2 right-0 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group -rotate-90 origin-bottom-right font-bold uppercase">
-      <!-- <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
-      href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer"> -->
-      <p>Contact&nbsp;us</p>
-      <!-- </a> -->
+      class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-1/2 bg-active hover:bg-blue right-0 duration-200 transition-all w-auto h-10 z-10 p-3 text-blue hover:text-active group -rotate-90 origin-bottom-right font-bold uppercase">
+      <p>Enquiries</p>
     </button>
   </transition>
 

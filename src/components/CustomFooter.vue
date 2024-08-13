@@ -1,54 +1,8 @@
-<script setup lang="ts">
-import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { onMounted, onUnmounted } from 'vue';
-import routes from '~pages';
-import { useRoute } from 'vue-router';
-
-gsap.registerPlugin(ScrollTrigger);
-
-function resize() {
-  // ScrollTrigger.refresh();
-}
-
-onMounted(() => {
-  // window.addEventListener('resize', resize);
-  // if (route.path === '/contact' || route.path === '/services') return
-  // window.setTimeout(() => {
-  //   ScrollTrigger.create({
-  //     trigger: "footer",
-  //     start: "top bottom",
-  //     end: "bottom bottom",
-  //     id: "footer",
-  //     // markers: true,
-  //     snap: {
-  //       snapTo: [0, 1],
-  //       delay: 0.3,
-  //       duration: 1,
-  //       ease: "power1.inOut",
-  //     }
-  //   })
-  // }, 1000)
-})
-
-onUnmounted(() => {
-  // window.removeEventListener('resize', resize);
-  // if (!ScrollTrigger.getById("footer")) return
-  // ScrollTrigger.getById("footer")!.kill()
-})
-</script>
-
 <template>
   <footer
-    class="flex flex-col items-start justify-start py-12 md:py-24 px-9 lg:px-20 2xl:px-36 lg:mx-auto w-screen gap-12 md:gap-24"
+    class="flex flex-col items-start justify-start py-12 md:py-24 px-9 lg:px-20 2xl:px-36 lg:mx-auto w-screen gap-12 md:gap-24 z-20 relative"
     :class="[$route.name === 'work-slug' ? 'bg-stone-300 text-active' : 'bg-beige-normal text-black']">
-    <!-- <video class="recolor max-h-10 md:max-h-24 md:-ml-3" playsinline loop autoplay="true" muted>
-      <source src="/assets/aboutus.mp4" type="video/mp4" />
-    </video> -->
-    <!-- <h3 class="text-blue text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON
-        INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3> -->
     <ul class="flex gap-8 md:gap-24 md:flex-row flex-col">
-      <!-- <li class="text-beige-lighter hover:text-active text-lg"><router-link to="/">Home</router-link></li> -->
       <li class="group"><router-link to="/work">
           <div>
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
@@ -76,8 +30,6 @@ onUnmounted(() => {
               What we do.</p>
           </div>
         </router-link></li>
-      <!-- <li class=" text-beige-lighter hover:text-active text-lg"><router-link to="/about#grant">Singapore
-                SMEs</router-link></li> -->
       <li class="group"><router-link to="/contact">
           <div>
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
@@ -102,15 +54,17 @@ onUnmounted(() => {
           rel="noopener noreferrer">
           <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl"
             class="mx-2 my-3 transition-all duration-200" />
-          <!-- <p class="absolute group-hover:opacity-100 opacity-0 text-active font-bold">(INSTAGRAM)</p>
-          <p class="text-beige-lighter group-hover:opacity-0">(INSTAGRAM)</p> -->
         </a>
         <a class="z-10 relative text-stone-500 hover:text-active hover:scale-150 transition-all" key="linkedin"
           href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank"
           rel="noopener noreferrer">
-          <!-- <p class="absolute group-hover:opacity-100 opacity-0 text-active font-bold">(LINKEDIN)</p>
-          <p class="text-beige-lighter group-hover:opacity-0">(LINKEDIN)</p> -->
           <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 transition-all duration-200" />
+        </a>
+        <a class="z-10 relative text-stone-500 hover:text-active hover:scale-150 transition-all" key="ig"
+          href="https://wa.me/6594245994" aria-label="Send a WhatsApp message to COMOMAYA" target="_blank"
+          rel="noopener noreferrer">
+          <font-awesome-icon :icon="['fab', 'square-whatsapp']" size="xl"
+            class="mx-2 my-3 transition-all duration-200" />
         </a>
       </div>
     </div>
