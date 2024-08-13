@@ -20,6 +20,7 @@ useHead({
 })
 
 const pop = ref(false)
+let timeout: ReturnType<typeof setTimeout>;
 const scrollY = ref(0);
 const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full transition ease transform duration-300 bg-active group-hover:bg-black`;
 const linkSelected = ref(false);
@@ -36,7 +37,7 @@ let hoverables: NodeListOf<HTMLAnchorElement> | null = null
 const cursor: Ref<HTMLDivElement | null> = ref(null);
 
 onMounted(() => {
-  setTimeout(() => {
+  timeout = setTimeout(() => {
     pop.value = true
   }, 10000)
   store.width = window.innerWidth
@@ -90,6 +91,11 @@ onMounted(() => {
     }
   }, { flush: 'pre', immediate: true, deep: true })
 })
+
+function openPop() {
+  pop.value = true;
+  timeout ? clearTimeout(timeout) : null;
+}
 
 function whatisLink(l: string) {
   if (l === 'grants') return '/about#grant'
@@ -284,7 +290,7 @@ const isTransparent = computed(() => {
 
   <!-- Contact Us -->
 
-  <button v-if="$route.path !== '/contact'" aria-label="Contact Us" @click="pop = true"
+  <button v-if="$route.path !== '/contact'" aria-label="Contact Us" @click="openPop()"
     class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-1/2 right-0 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group -rotate-90 origin-bottom-right font-bold uppercase">
     <!-- <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
       href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer"> -->

@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
-import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from "swiper";
 import 'swiper/scss';
-import { onMounted, ref, type Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import { useStore } from '../../stores';
 
 const modules = [Autoplay]
@@ -53,21 +52,6 @@ const testimonialsDate = [
 ]
 
 const swiperDOM = ref(null) as Ref<null | typeof Swiper>
-
-onMounted(() => {
-  const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
-  if (split) {
-    gsap.to(split, {
-      y: "-0.1em",
-      duration: 0.5,
-      stagger: 0.2,
-    })
-    gsap.to(split, {
-      autoAlpha: 1,
-      stagger: 0.2,
-    })
-  }
-});
 </script>
 
 <template>
@@ -177,11 +161,6 @@ onMounted(() => {
 
 
           <div class="overflow-hidden grid grid-cols-4 gap-1 md:gap-3 flex-shrink md:h-full md:w-1/2 py-5 md:py-0">
-            <!-- <picture>
-            <source srcset="/assets/theSquad.png" type="image/png">
-            <source srcset="/assets/theSquad.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/theSquad.png" alt="The Squad" />
-          </picture> -->
             <img class="aspect-square object-cover" v-for="person in people" :src="person"
               :alt="person.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
           </div>
@@ -226,32 +205,11 @@ onMounted(() => {
                 v-html="`${items[Object.keys(items)[0]]}`" />
               <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
                 v-html="`${Object.keys(items)[0]}`" />
-              <!-- <h2 class="text-stone-700 md:px-0 mt-2 font-medium text-base tracking-wider text-left lg:text-center">
-                {{ testimonialsDate[i] }}</h2> -->
             </swiper-slide>
           </swiper>
         </div>
       </section>
     </div>
-
-    <!--- END --->
-
-    <!-- <section
-      class="flex flex-col items-center justify-center mx-20 lg:mx-auto my-20 md:my-32 lg:pt-64 lg:p-72 max-w-7xl bg-stone-300">
-      <video class="mb-10 recolor" playsinline loop autoplay="true" muted>
-        <source src="/assets/aboutus.mp4" type="video/mp4" />
-      </video>
-      <div class="flex gap-10">
-        <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page"
-          target="_blank" rel="noopener noreferrer">
-          <p class="text-beige-lighter hover:text-active hover:font-bold">(INSTAGRAM)</p>
-        </a>
-        <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya"
-          aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-          <p class="text-beige-lighter hover:text-active hover:font-bold">(LINKEDIN)</p>
-        </a>
-      </div>
-    </section> -->
   </main>
 </template>
 
@@ -260,14 +218,7 @@ onMounted(() => {
 .swiper-button-prev {
   color: black;
 }
-
-// .swiper-button-next {
-//   transform: translateX(-1em) scale(0.6);
-// }
-
-// .swiper-button-prev {
-//   transform: translateX(1em) scale(0.6);
-// }</style>
+</style>
 
 <style lang="scss" scoped>
 .split span {
@@ -276,11 +227,6 @@ onMounted(() => {
   margin-right: 0.2em;
   display: inline-block;
   transform: translateY(400%);
-  //line-height: 0.6;
-
-  @media (min-width: 1024) {
-    // line-height: 0.7;
-  }
 }
 
 .flop {
