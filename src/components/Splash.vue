@@ -20,7 +20,7 @@
               Yes we do <strong class="font-extrabold">work</strong> that is fabulous.<br>Yes we offer a wide range of
               <strong class="font-extrabold">services</strong>.<br>Yes our team and <strong
                 class="font-extrabold">people</strong> are stellar.<br><strong class="font-extrabold">But we also work
-                in a way that is personal, flexible, agile, collaborative and we will try our best to not be beaten on
+                in a way that is personal, flexible, agile, collaborative<br>and we will try our best to not be beaten on
                 pricing and value for money.<br>Anything else on your wishlist?</strong>
             </p>
             <a class="transition-transform hover:scale-150 block origin-center text-center mr-auto w-fit"
