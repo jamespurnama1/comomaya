@@ -3,33 +3,33 @@ import { useHead } from '@unhead/vue'
 import { onMounted, ref, getCurrentInstance } from 'vue'
 import { gsap } from 'gsap'
 import { useRouter } from 'vue-router';
+import axios, { AxiosResponse } from 'axios';
 
 const router = useRouter();
 const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
+const phoneRegex = new RegExp(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/)
 const instance = getCurrentInstance();
 const posthog = instance?.appContext.config.globalProperties.$posthog;
 
 function handleSubmit() {
   incomplete.value = null
-  if (emailRegex.test(email.value) && name.value !== '' && message.value !== '') {
+  if (emailRegex.test(email.value) && phoneRegex.test(phone.value) && name.value !== '' && message.value !== '') {
     //email ok
     loading.value = true
     error.value = null
-    email.value = ''
     if (posthog) {
       posthog.identify(email.value, {
-        name: name.value
+        name: name.value,
+        phone: phone.value
       })
     }
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name.value, email: email.value, message: message.value })
-    };
-    fetch('/api/contact', requestOptions)
-      .then(response => {
-        if (response.ok) {
-        router.push('/thank-you')
+
+    const requestOptions = { name: name.value, email: email.value, phone: phone.value, message: message.value }
+
+    axios.post('/api/contact', requestOptions)
+      .then((response: AxiosResponse) => {
+        if (response.statusText) {
+          router.push('/thank-you')
         } else {
           throw new Error(`${response.status.toString()} error. Please try again later.`);
         }
@@ -40,12 +40,14 @@ function handleSubmit() {
     //email not ok
     if (name.value === '') incomplete.value = 'name'
     if (!emailRegex.test(email.value)) incomplete.value = 'email'
+    if (!phoneRegex.test(phone.value)) incomplete.value = 'phone'
     if (message.value === '') incomplete.value = 'message'
   }
 }
 
 const name = ref('');
 const email = ref('');
+const phone = ref('');
 const message = ref('');
 const error = ref(null as null | string);
 const incomplete = ref(null as null | string);
@@ -106,22 +108,31 @@ useHead({
       <form class="flex flex-col flex-wrap w-full md:w-2/3 content-start">
 
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="name">NAME</label>
-        <label v-if="incomplete === 'name'" class="text-red text-sm md:text-base" for="name">Please enter your
-          name.</label>
+        <label v-if="incomplete === 'name'" class="text-red text-sm md:text-base" for="name">Please enter
+          your&nbps;name.</label>
         <input v-model="name"
           class="bg-stone-300 autofill:bg-stone-300 w-full text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
           type="text" name="name">
 
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="email">E-MAIL</label>
         <label v-if="incomplete === 'email'" class="text-red text-sm md:text-base" for="email">Please double check you
-          e-mail
-          address.</label>
+          e-mail&nbps;address.</label>
         <input v-model="email"
           class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
           type="email" name="email">
 
+        <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="phone">PHONE</label>
+        <label v-if="incomplete === 'phone'" class="text-red text-sm md:text-base" for="phone">Please
+          double check
+          you
+          phone&nbsp;number.</label>
+        <input v-model="phone"
+          class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
+          :class="[incomplete === 'phone' ? 'mb-1' : 'md:mb-7 mb-4']" type="phone" name="phone">
+
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="message">MESSAGE</label>
-        <label v-if="incomplete === 'message'" class="text-red text-sm md:text-base" for="message">Please type in your message.</label>
+        <label v-if="incomplete === 'message'" class="text-red text-sm md:text-base" for="message">Please type in
+          your&nbps;message.</label>
         <div contenteditable id="message" @input="editMessage"
           class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none md:py-2"
           name="message"></div>
@@ -136,6 +147,15 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 60px #A0AAC4 inset !important;
+  background-color: #A0AAC4 !important;
+  background-clip: content-box !important;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
