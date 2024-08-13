@@ -86,7 +86,7 @@ function handleSubmit() {
 
     axios.post('/api/contact', requestOptions)
       .then((response: AxiosResponse) => {
-        if (response.statusText === 'OK') {
+        if (response.status === 200) {
           router.push('/thank-you')
         } else {
           throw new Error(`${response.status.toString()} error. Please try again later.`);
