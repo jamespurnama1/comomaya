@@ -36,6 +36,9 @@ let hoverables: NodeListOf<HTMLAnchorElement> | null = null
 const cursor: Ref<HTMLDivElement | null> = ref(null);
 
 onMounted(() => {
+  setTimeout(() => {
+    pop.value = true
+  }, 10000)
   store.width = window.innerWidth
   const classNames = [];
   if (navigator.userAgent.match(/(iPad|iPhone|iPod)/i)) classNames.push('device-ios');
@@ -168,7 +171,7 @@ const isTransparent = computed(() => {
 
   <!-- Pop -->
 
-  <transition name="fade">
+  <transition name="fly-right">
     <Pop v-if="pop" @close="pop = false" @mount="hoverLink()" />
   </transition>
 
@@ -270,12 +273,22 @@ const isTransparent = computed(() => {
 
   <!-- Let's Chat -->
 
-  <button @click="pop = true" aria-label="Scroll Up"
+  <button aria-label="Let's Chat"
     class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group">
-    <!-- <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
-      href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer"> -->
+    <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
+      href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
     <font-awesome-icon :icon="['fas', 'phone']" size="lg" class="my-3 group-hover:scale-125" />
     <p>Let's&nbsp;chat</p>
+    </a>
+  </button>
+
+  <!-- Contact Us -->
+
+  <button v-if="$route.path !== '/contact'" aria-label="Contact Us" @click="pop = true"
+    class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-1/2 right-0 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group -rotate-90 origin-bottom-right font-bold uppercase">
+    <!-- <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
+      href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer"> -->
+    <p>Contact&nbsp;us</p>
     <!-- </a> -->
   </button>
 
