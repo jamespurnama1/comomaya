@@ -1,13 +1,13 @@
 <template>
   <div
-    class="fixed top-1/2 -translate-y-1/2 right-0 z-40 p-12 bg-beige-lighter flex items-center justify-center gap-3 md:gap-10 flex-col max-w-[80%] md:max-w-full drop-shadow-2xl">
-    <div class="flex items-center justify-center gap-1 md:gap-5 flex-col max-w-full">
-      <img class="h-24 md:h-48 w-auto" src="@/assets/coffee.svg" alt="Coffee" />
-      <p class="text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance">
+    class="fixed top-1/2 -translate-y-1/2 right-0 z-40 p-5 md:p-12 bg-beige-lighter flex items-center justify-center gap-3 md:gap-10 flex-col max-w-[80%] md:max-w-full drop-shadow-2xl bg-opacity-85">
+    <!-- <div class="flex items-center justify-center gap-1 md:gap-5 flex-col max-w-full"> -->
+      <!-- <img class="h-24 md:h-48 w-auto" src="@/assets/coffee.svg" alt="Coffee" /> -->
+      <p class="text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3">
         Let's connect
         over&nbsp;coffee...
       </p>
-    </div>
+    <!-- </div> -->
     <form class="flex flex-col flex-wrap w-full content-start items-center justify-center">
       <input v-model="name"
         class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-blue placeholder:font-semibold px-2 py-4"
@@ -46,7 +46,7 @@
       <img v-else class="h-12 w-12 my-12 object-contain spin" src="@/assets/loader.svg" alt="loading" />
     </form>
     <button class="absolute top-5 right-5 my-3 hover:scale-125 hover:text-active transition-all duration-200">
-      <font-awesome-icon @click="closeModal()" :icon="['fas', 'square-xmark']" size="2xl" />
+      <font-awesome-icon @click="closeModal()" :icon="['fas', 'xmark']" size="xl" />
     </button>
   </div>
 </template>

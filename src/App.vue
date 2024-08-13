@@ -281,22 +281,24 @@ const isTransparent = computed(() => {
 
   <button aria-label="Let's Chat"
     class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-5 right-10 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group">
-    <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
-      href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
-    <font-awesome-icon :icon="['fas', 'phone']" size="lg" class="my-3 group-hover:scale-125" />
-    <p>Let's&nbsp;chat</p>
+    <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" href="https://wa.me/6594245994"
+      target="_blank" rel="noopener noreferrer">
+      <font-awesome-icon :icon="['fas', 'phone']" size="lg" class="my-3 group-hover:scale-125" />
+      <p>Let's&nbsp;chat</p>
     </a>
   </button>
 
   <!-- Contact Us -->
 
-  <button v-if="$route.path !== '/contact'" aria-label="Contact Us" @click="openPop()"
-    class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-1/2 right-0 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group -rotate-90 origin-bottom-right font-bold uppercase">
-    <!-- <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
+  <transition name="fade">
+    <button v-if="$route.path !== '/contact' && !pop" aria-label="Contact Us" @click="openPop()"
+      class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-1/2 right-0 bg-active hover:bg-blue duration-200 transition-all w-auto h-10 z-10 p-3 hover:text-active group -rotate-90 origin-bottom-right font-bold uppercase">
+      <!-- <a class="font-bold uppercase flex items-center gap-2 md:text-base text-xs" 
       href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer"> -->
-    <p>Contact&nbsp;us</p>
-    <!-- </a> -->
-  </button>
+      <p>Contact&nbsp;us</p>
+      <!-- </a> -->
+    </button>
+  </transition>
 
   <!-- Main component -->
 
