@@ -17,8 +17,7 @@ const transporter = nodemailer.createTransport({
       secure: true,
   });
 
-    // const body = await readBody(event)
-    const { name, email, message } = request.body;
+    const { name, email, message, phone } = request.body;
 
   await new Promise((resolve, reject) => {
       // verify connection configuration
@@ -40,8 +39,8 @@ const transporter = nodemailer.createTransport({
       replyTo: email,
       to: process.env.GMAIL_RECEIVE,
       subject: `New Message on COMOMAYA.com - ${name}`,
-      text: message,
-      html: message,
+      text: `message\nPlease reach at: ${phone} or ${email}`,
+      html: `message<br>Please reach at: ${phone} or ${email}`,
   };
 
   await new Promise((resolve, reject) => {
