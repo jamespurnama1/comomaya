@@ -109,14 +109,14 @@ useHead({
 
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="name">NAME</label>
         <label v-if="incomplete === 'name'" class="text-red text-sm md:text-base" for="name">Please enter
-          your&nbps;name.</label>
+          your&nbsp;name.</label>
         <input v-model="name"
           class="bg-stone-300 autofill:bg-stone-300 w-full text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
           type="text" name="name">
 
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="email">E-MAIL</label>
         <label v-if="incomplete === 'email'" class="text-red text-sm md:text-base" for="email">Please double check you
-          e-mail&nbps;address.</label>
+          e-mail&nbsp;address.</label>
         <input v-model="email"
           class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 focus:outline-none h-6 md:h-12"
           type="email" name="email">
@@ -132,7 +132,7 @@ useHead({
 
         <label class="text-beige-lighter text-lg md:text-xl font-semibold" for="message">MESSAGE</label>
         <label v-if="incomplete === 'message'" class="text-red text-sm md:text-base" for="message">Please type in
-          your&nbps;message.</label>
+          your&nbsp;message.</label>
         <div contenteditable id="message" @input="editMessage"
           class="bg-stone-300 autofill:bg-stone-300 text-black placeholder-stone-700 border-active text-lg md:text-xl border-b-4 mb-4 md:mb-7 resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none md:py-2"
           name="message"></div>
