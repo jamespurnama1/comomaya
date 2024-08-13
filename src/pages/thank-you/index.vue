@@ -36,13 +36,13 @@ useHead({
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
         <h1 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3">THANK YOU</h1>
         <h2
-          class="split max-w-4xl text-active text-5xl md:!leading-[7rem] md:text-4xl lg:text-7xl font-extrabold overflow-hidden">
+          class="split max-w-4xl text-active text-5xl md:text-4xl lg:text-7xl font-extrabold overflow-hidden">
           <span>we'll</span><span>contact</span>
           <span>you</span><span>soon!</span>
         </h2>
 
       <router-link aria-label="Go to Landing Page" to="/"
-        class="z-0 relative bg-stone-300 text-blue outline-4 py-10 px-1 mr-auto my-12 -ml-2 h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold">home
+        class="z-0 relative bg-stone-300 text-blue outline-4 px-1 mr-auto h-12 flex items-center hover:text-active text-4xl md:text-7xl font-extrabold">home
       </router-link>
     </div>
     </div>
