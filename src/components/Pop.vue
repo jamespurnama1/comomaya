@@ -1,13 +1,10 @@
 <template>
   <div
     class="fixed top-1/2 -translate-y-1/2 right-0 z-40 p-5 md:p-12 bg-beige-lighter flex items-center justify-center gap-3 md:gap-10 flex-col max-w-[80%] md:max-w-full drop-shadow-2xl bg-opacity-85 scale-75 origin-right">
-    <!-- <div class="flex items-center justify-center gap-1 md:gap-5 flex-col max-w-full"> -->
-      <!-- <img class="h-24 md:h-48 w-auto" src="@/assets/coffee.svg" alt="Coffee" /> -->
-      <p class="text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3">
-        Let's connect
-        over&nbsp;coffee...
-      </p>
-    <!-- </div> -->
+    <p class="text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3">
+      Let's connect
+      over&nbsp;coffee...
+    </p>
     <form class="flex flex-col flex-wrap w-full content-start items-center justify-center">
       <input v-model="name"
         class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-blue placeholder:font-semibold px-2 py-4"
@@ -52,8 +49,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, getCurrentInstance, onMounted, onBeforeUnmount } from 'vue';
+import { ref, getCurrentInstance, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import axios, { AxiosResponse } from 'axios';
 
 const router = useRouter();
 const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
@@ -83,14 +81,12 @@ function handleSubmit() {
         phone: phone.value
       })
     }
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name.value, email: email.value, phone: phone.value, message: message.value })
-    };
-    fetch('/api/contact', requestOptions)
-      .then(response => {
-        if (response.ok) {
+
+    const requestOptions = { name: name.value, email: email.value, phone: phone.value, message: message.value }
+
+    axios.post('/api/contact', requestOptions)
+      .then((response: AxiosResponse) => {
+        if (response.statusText === 'OK') {
           router.push('/thank-you')
         } else {
           throw new Error(`${response.status.toString()} error. Please try again later.`);
@@ -121,14 +117,8 @@ function closeModal() {
 }
 
 onMounted(() => {
-  // document.body.style.overflow = 'hidden';
   const contentEditable = document.querySelector('#message');
   contentEditable ? contentEditable.textContent = message.value : null;
   emit('mount')
-})
-
-onBeforeUnmount(() => {
-  // document.body.style.overflow = 'auto'
-
 })
 </script>
