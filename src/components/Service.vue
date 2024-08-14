@@ -8,9 +8,9 @@
           marketing, providing a full range of services to make your brand&nbsp;shine.</strong>
       </h4>
       <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 w-full" v-if="store.isFetched">
-        <div class="relative w-full bg-white" v-for="(service, index) in store.getServices">
+        <div class="relative w-full aspect-[4/3] bg-white p-4 flex items-center justify-center" v-for="(service, index) in store.getServices">
           <div
-            class="bg-opacity-80 w-[85%] flex items-center justify-between text-center flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5 absolute bg-beige-lighter h-42 md:h-64">
+            class="bg-opacity-80 w-[85%] flex items-center justify-between text-center flex-col p-5 bg-beige-lighter min-h-52 relative z-10">
             <span>
               <p class="font-medium text-sm md:text-xl">0{{ index + 1 }}</p>
               <h4 class="font-extrabold lowercase text-2xl xl:text-3xl"
@@ -21,7 +21,8 @@
               service.metadata.tags.replace(/\s\b(?=\S+$)/, '&nbsp;')
               }}</p>
           </div>
-          <img class="aspect-[4/3] object-cover" :src="`${service.thumbnail}?auto=format`" :alt="service.title" />
+          <img class="object-cover absolute w-full h-full z-0" :src="`${service.thumbnail}?auto=format`"
+            :alt="service.title" />
         </div>
       </div>
     </div>
