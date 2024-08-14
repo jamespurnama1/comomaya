@@ -171,7 +171,6 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
       <span id="grant" />
 
       <!--- RMC --->
-
       <RMC />
 
       <!--- BRANDS --->
