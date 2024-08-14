@@ -10,8 +10,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 w-full" v-if="store.isFetched">
         <div class="relative w-full bg-white" v-for="(service, index) in store.getServices">
           <div
-            class="bg-opacity-80 w-[85%] flex items-center justify-between text-center flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5"
-            :class="[$route.path === '/services' ? 'absolute bg-beige-lighter h-42 md:h-64' : 'relative h-64 2xl:h-96']">
+            class="bg-opacity-80 w-[85%] flex items-center justify-between text-center flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5 absolute bg-beige-lighter h-42 md:h-64">
             <span>
               <p class="font-medium text-sm md:text-xl">0{{ index + 1 }}</p>
               <h4 class="font-extrabold lowercase text-2xl xl:text-3xl"
@@ -20,14 +19,12 @@
             </span>
             <p class="font-bold text-xs xl:text-sm uppercase tracking-[0.2em] max-w-[90%] pt-1">{{
               service.metadata.tags.replace(/\s\b(?=\S+$)/, '&nbsp;')
-            }}</p>
-            <img v-if="$route.path === '/'" class="object-fit p-2 h-8 md:h-12 w-auto"
-              :src="`/assets/icons/${service.title.replace(/\s/g, '-').toLowerCase()}.svg`" </div>
-            <img v-if="$route.path === '/services'" class="aspect-[4/3] object-cover"
-              :src="`${service.thumbnail}?auto=format`" :alt="service.title" />
+              }}</p>
           </div>
+          <img class="aspect-[4/3] object-cover" :src="`${service.thumbnail}?auto=format`" :alt="service.title" />
         </div>
       </div>
+    </div>
   </section>
 </template>
 
