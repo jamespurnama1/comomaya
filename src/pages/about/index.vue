@@ -141,7 +141,7 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
         <div class="bg-blue left-0 md:block hidden md:w-1/2 absolute h-full z-0" />
         <div
           class="max-w-[1920px] md:px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center lg:flex-row relative mx-auto">
-          <div class="p-0 m-0 md:bg-blue flex-0 relative z-10 md:w-1/2">
+          <div class="p-0 m-0 bg-blue flex-0 relative z-10 md:w-1/2">
             <picture class="w-full min-h-0">
               <source srcset="/assets/globe.png" type="image/png">
               <source srcset="/assets/globe.webp" type="image/webp">
