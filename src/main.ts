@@ -4,14 +4,24 @@ import './fonts.scss'
 import './transition.scss'
 import App from './App.vue'
 import routes from '~pages'
-
+import { createHead } from '@unhead/vue'
+import posthogPlugin from "./plugins/posthog";
+import CustomFooter from '@/components/CustomFooter.vue';
+import Splash from '@/components/Splash.vue';
+import Service from '@/components/Service.vue';
+import Brands from '@/components/Brands.vue';
+import RMC from '@/components/RMC.vue';
+import Pop from '@/components/Pop.vue';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSquareInstagram, faLinkedin, faTwitter, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { faSquareInstagram, faLinkedin, faWhatsapp, faSquareWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faPhone, faSquareXmark, faXmark, faAnglesRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { createPinia } from 'pinia'
+import Vue3Lottie from 'vue3-lottie'
 
-library.add(faAngleUp, faSquareInstagram, faAnglesDown, faLinkedin, faTwitter, faPinterest, faWhatsapp, faBook, faPencil, faLaptop, faTrophy)
+const head = createHead()
+
+library.add(faAngleUp, faSquareXmark, faXmark, faSquareInstagram, faSquareWhatsapp, faAnglesDown, faLinkedin, faWhatsapp, faPhone, faBook, faPencil, faLaptop, faTrophy, faAnglesRight)
 const store = createPinia()
 
 // `export const createApp` is required instead of the original `createApp(App).mount('#app')`
@@ -26,6 +36,17 @@ export const createApp = ViteSSG(
   ({ app, router, routes, isClient, initialState }) => {
     // install plugins etc.
     app.component('font-awesome-icon', FontAwesomeIcon)
+    app.component('CustomFooter', CustomFooter)
+    app.component('Splash', Splash)
+    app.component('Brands', Brands)
+    app.component('Service', Service)
+    app.component('RMC', RMC)
+    app.component('Pop', Pop)
     app.use(store)
+    app.use(Vue3Lottie)
+    if (isClient) {
+      app.use(posthogPlugin)
+    }
+    app.use(head)
   },
 )

@@ -1,137 +1,148 @@
 <script setup lang="ts">
-  import { useHead } from '@vueuse/head'
-  import { gsap } from "gsap";
-  import { onMounted, onBeforeUnmount, reactive, ref, computed } from 'vue';
-  import axios, { AxiosResponse } from 'axios'
+import { useHead } from '@unhead/vue'
+import { onMounted, onBeforeUnmount, reactive, ref, type Ref, nextTick } from 'vue';
+import axios, { AxiosResponse } from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-  const response: { list: Featured[] } = reactive({ list: [] })
+const filterList = reactive({
+  "Strategy": 0,
+  "Naming": 0,
+  "Logo": 0,
+  "Identity": 0,
+  "Packaging": 0,
+  "Website": 0,
+  "Digital": 0,
+} as { [key in type]: number })
 
-  const link: any = computed(() => {
-    return response.list.map(x => ({
-      rel: 'preload',
-      as: 'image',
-      href: x.thumbnail.toString()
-    }))
+const hov = ref([]) as Ref<boolean[] | never[]>
+
+const filtered = ref({
+  "Strategy": false,
+  "Naming": false,
+  "Logo": false,
+  "Identity": false,
+  "Packaging": false,
+  "Website": false,
+  "Digital": false,
+} as { [key in type]: boolean })
+
+const response = ref({ list: [] as featured[] | never[] })
+
+
+async function load() {
+  axios.get(`https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects/64803dec2fb5fafdbb9670bc?read_key=${import.meta.env.VITE_COSMIC_KEY}&depth=1&props=metadata`, { withCredentials: false })
+    .then((res: AxiosResponse<List>) => {
+      response.value.list = res.data.object.metadata.list
+      response.value.list.forEach(x => x.metadata.typejson.type.forEach((y) => {
+        if (typeof filterList[y] === 'number') filterList[y]++
+      }))
+      filteredFunc()
+    }).catch((err) => {
+      console.error(err)
+    })
+}
+
+function filteredFunc() {
+  const entries = Object.entries(filtered.value) as unknown as [type, boolean][]
+  entries.forEach(([key, value]) => value ? null : delete filtered.value[key])
+  const f = response.value.list.filter(x => {
+    return entries.every(([key]) => {
+      return entries.length ? x.metadata.typejson.type.toString().match(`${key}`) : true
+    })
   })
+  return f
+}
 
-  async function load() {
-    axios.get('https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects/64803dec2fb5fafdbb9670bc?read_key=Yz8ifYSRHxv4SzRygKNMbdGZnUaTUAUZBbseBGOILB3eWpiwh1&depth=1&props=metadata', { withCredentials: false })
-      .then((res: AxiosResponse<List>) => {
-        response.list = res.data.object.metadata.list
-      }).catch((err) => {
-        console.error(err)
-      })
-	}
-
-  const imgSrc = ref("");
-  const imgAlt = ref("");
-  const show = ref(false);
-  let handleHover: Function = () => {};
-  let handleClick: Function = () => {};
-  let handleOut: Function = () => {};
-
-  const props = defineProps<{
-    target: {x: number, y: number}
-  }>()
-
-  const width = ref(0)
-
-  function resize() {
-    width.value = window.innerWidth
-  }
-
-  onMounted(() => {
-    loadContent()
-    
-    window.addEventListener('resize', resize)
-    resize()
-		
-		async function loadContent() {
-      const content = await load();
-      const imgEl: HTMLDivElement | null = document.querySelector('.imgP'); 
-      let raf: (number | null) = null;
-
-      function render() {
-        gsap.to(imgEl, {
-          x: props.target.x,
-          y: props.target.y,
-          duration: 1,
-        })
-        show.value ? raf = requestAnimationFrame(render) : null;
-      }
-
-      let clicked: number | null = null;
-
-      handleClick = (e: Event, i: number) => {
-        if (window.innerWidth > 768 || clicked === i) {
-          e.target ? window.location.href = (e.currentTarget as HTMLAnchorElement).getAttribute("href")! : null;
-        } else {
-          clicked = i
-          handleHover(null, i)
-        }
-      }
-
-      handleHover = (_e: MouseEvent | FocusEvent, i: number) => {
-        show.value = true;
-        imgSrc.value = response.list.map(x => `${x.thumbnail.toString()}?q=75&auto=format,compress`)[i];
-        imgAlt.value = response.list.map(x => x.title)[i];
-        gsap.to(imgEl, {
-          opacity: 1,
-          duration: 0.3,
-        });
-
-        raf = requestAnimationFrame(render);
-      }
-
-      handleOut = () => {
-        show.value = false;
-        gsap.to(imgEl, {
-          opacity: 0,
-          duration: 0.3,
-          onComplete: () => {
-            raf ? cancelAnimationFrame(raf) : null;
-          },
-        })
-      }
-    }
+function clearFilter() {
+  Object.entries(filtered.value).forEach(([key]) => {
+    filtered.value[key as type] = false;
   })
+}
 
-  useHead({
-    title: 'COMOMAYA - Work',
-    meta: [
-      {
-        name: 'COMOMAYA',
-        content: 'Work',
-      },
-    ],
-    link,
-  })
+onMounted(() => {
+  load()
+  // gsap.to('html', { backgroundColor: "#F2F2F1" })
+  // document.documentElement.setAttribute('data-theme', 'beige');
+})
 
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', resize)
-  })
+useHead({
+  title: 'COMOMAYA - Work',
+  meta: [
+    {
+      name: 'COMOMAYA',
+      content: 'Work',
+    },
+  ],
+})
 </script>
 
 <template>
-  <main class="min-h-screen flex justify-center py-32 bg-beige z-0 relative mx-10 md:mx-28 md:justify-start">
-    <img
-      :src="`${imgSrc}?auto=format`"
-			:srcset="`${imgSrc}?w=1024&auto=format 2048w,
-			  ${imgSrc}?w=640&auto=format 1024w,
-			  ${imgSrc}?w=480&auto=format 640w`"
-      :alt="imgAlt"
-      class="imgP fixed max-w-[10rem] md:max-w-md h-auto top-0 left-0 opacity-0 z-20 pointer-events-none"
-    />
-    <ul class="grid z-10">
-        <li v-for="(portfolio, i) in response.list">
-          <a :href="`/work/${portfolio.slug}`" @click.prevent="(e) => handleClick(e, i)" :aria-label="`Go to ${portfolio.title}`">
-            <div class="flex py-3 md:py-10 flex-wrap" @focus="(e) => handleHover(e, i)" @mouseenter="(e) => handleHover(e, i)" @onfocusout="handleOut" @mouseleave="() => handleOut()">
-              <h2 class="text-4xl md:text-7xl whitespace-nowrap font-semibold">{{portfolio.title}}</h2>
-              <h3 v-if="width > 768 || !portfolio.metadata.type_mobile" class="text-xs md:text-s font-semibold whitespace-nowrap">{{portfolio.metadata.type}}</h3>
-              <h3 v-else class="text-xs md:text-s font-semibold whitespace-nowrap">{{portfolio.metadata.type_mobile}}</h3>
-            </div>
-          </a>
-        </li>
+  <main
+    class="min-h-screen flex flex-col justify-center py-16 md:py-32 bg-stone-300 text-black z-0 relative px-9 md:px-20 xl:px-36 md:justify-start">
+    <div class="px-9 md:px-20 xl:px-36 absolute w-full left-0 top-10 md:top-20 my-5">
+      <h1 class="text-7xl font-extrabold tracking-tight text-active">work</h1>
+    </div>
+    <p class="flex flex-wrap text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2 pt-20 md:pt-14">
+      <span v-for="(value, key, i) in filterList" @click="filtered[key] = !filtered[key]" class="group">
+        <input :name="key" v-model="filtered[key]" type="checkbox" class="hidden bg-transparent text-transparent" />
+        <label class="group-hover:font-semibold group-hover:text-active whitespace-nowrap absolute"
+          :class="[filtered[key] ? 'font-bold text-active' : 'text-beige-lighter']">{{ key }} <sup
+            :class="[filtered[key] ? 'bg-active !text-blue' : 'bg-beige-lighter group-hover:bg-active !text-blue']"
+            v-if="typeof value === 'number'">{{ value }}</sup>{{ (i + 1 !== Object.keys(filterList).length) ||
+          Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
+        <label class="font-semibold whitespace-nowrap opacity-0"
+          :class="[filtered[key] ? 'font-bold text-active' : 'text-beige-lighter']">{{ key }} <sup
+            :class="[filtered[key] ? 'bg-active !text-blue' : 'bg-beige-lighter group-hover:bg-active !text-blue']"
+            v-if="typeof value === 'number'">{{ value }}</sup>{{ (i + 1 !== Object.keys(filterList).length) ||
+          Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
+        <wbr>
+      </span>
+      <button v-if="Object.values(filtered).some(v => v === true)" @click="clearFilter()"
+        class="hover:text-white font-semibold whitespace-nowrap text-active">
+        <font-awesome-icon :icon="['fas', 'square-xmark']" size="sm" class="" /> Clear filters
+      </button>
+    </p>
+    <ul v-if="filteredFunc().length" class="grid z-10 md:grid-cols-2 w-full max-w-7xl gap-5 mx-auto">
+      <li v-for="(portfolio, i) in filteredFunc()" :key="response.list.toString()" @mouseover="hov[i] = true"
+        @mouseleave="hov[i] = false">
+        <router-link :to="`/work/${portfolio.slug}`" :aria-label="`Go to ${portfolio.title}`">
+          <div class="relative w-full h-48 md:h-[24em] overflow-hidden">
+            <img :src="`${portfolio.thumbnail}?auto=format`" :srcset="`${portfolio.thumbnail}?w=1024&auto=format 2048w,
+                                  ${portfolio.thumbnail}?w=640&auto=format 1024w,
+                                  ${portfolio.thumbnail}?w=480&auto=format 640w`" :alt="portfolio.title"
+              class="w-full h-full object-cover transition-all duration-500" :class="[hov[i] ? 'scale-125' : '']" />
+          </div>
+          <!-- <div class="flex py-3 md:py-10 flex-wrap" @focus="(e) => handleHover(e, i)" @mouseenter="(e) => handleHover(e, i)" @onfocusout="handleOut" @mouseleave="() => handleOut()"> -->
+          <div class="flex items-center mt-2 select">
+            <img v-if="hov[i]" src="/assets/plus_blue.svg" class="cursor-pointer h-10 w-10 md:h-12 md:w-12 mr-3" />
+            <img v-else src="/assets/plus.svg" class="cursor-pointer h-6 w-6 md:h-12 md:w-12 mr-3" />
+            <span class="h-8 relative">
+              <h2
+                class="absolute whitespace-nowrap origin-left transition-all text-beige-lighter tracking-widest text-lg uppercase font-semibold duration-500"
+                :class="[hov[i] ? 'scale-125 opacity-0' : '']">
+                {{ portfolio.title }}</h2>
+              <h2
+                class="absolute whitespace-nowrap origin-left transition-all lowercase tracking-[-0.035em] text-active font-extrabold duration-500"
+                :class="[hov[i] ? 'opacity-100 scale-[2]' : 'opacity-0']">{{ portfolio.title }}</h2>
+            </span>
+          </div>
+        </router-link>
+      </li>
     </ul>
+    <p v-else>No result. Try clearing the filters.</p>
   </main>
 </template>
+
+<style lang="scss" scoped>
+strong {
+  font-weight: bold;
+}
+
+sup {
+  border-radius: 20px;
+  color: white;
+  padding: 0 5px;
+  font-size: 12px;
+  text-align: center;
+}
+</style>

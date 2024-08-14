@@ -1,25 +1,27 @@
 <script setup lang="ts">
-  import { useHead } from '@vueuse/head'
-  import { gsap } from 'gsap';
-  import { Swiper, SwiperSlide } from 'swiper/vue'
-  import { Autoplay, Navigation } from "swiper";
-  import 'swiper/scss'
-  import "swiper/css/navigation";
-  import { onMounted, onBeforeUnmount, ref } from 'vue';
+import { useHead } from '@unhead/vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay } from "swiper";
+import 'swiper/scss';
+import { ref, type Ref } from 'vue';
+import { useStore } from '../../stores';
 
-  const modules = [Autoplay, Navigation]
+const modules = [Autoplay]
+const store = useStore()
 
-  useHead({
-    title: 'COMOMAYA - About',
-    meta: [
-      {
-        name: 'COMOMAYA',
-        content: 'About',
-      },
-    ],
-  })
+const people = Object.values(import.meta.glob('@/assets/people/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
 
-const testimonials: {[key: string]: string}[] = [
+useHead({
+  title: 'COMOMAYA - About',
+  meta: [
+    {
+      name: 'COMOMAYA',
+      content: 'About',
+    },
+  ],
+})
+
+const testimonials: { [key: string]: string }[] = [
   {
     "TANUSHREE SETH | Chief Executive&nbsp;Officer | Mirror&nbsp;Mirror, Guild&nbsp;Capital": "&quot;Ridhi's deep experience in branding, design, and strategy coupled with her consulting experience on top beauty and personal care brands globally has given her a distinctive ability to provide strategies that leverage first-principles thinking and propose solutions that are uniquely defined for the brand under&nbsp;study.&quot;",
   },
@@ -49,321 +51,210 @@ const testimonialsDate = [
   ""
 ]
 
-const width = ref(0)
-
-function resize() {
-  width.value = window.innerWidth;
-}
-
-onMounted(() => {
-
-  window.addEventListener('resize', resize)
-
-  resize();
-
-  const split: null | NodeListOf<HTMLSpanElement> = document.querySelectorAll('.split span');
-    if (split) {
-      gsap.to(split, {
-        y: "-0.1em",
-        duration: 0.5,
-        stagger: 0.2,
-      })
-      gsap.to(split, {
-        autoAlpha: 1,
-        stagger: 0.2,
-      })
-    }
-  setTimeout(() => {
-    if (location.hash) {
-      document.querySelector(location.hash) ? window.scrollTo({
-        top: document.querySelector(location.hash)!.getBoundingClientRect().top - 50,
-        behavior: "smooth"
-      }) : null
-    }
-  }, 500);
-});
-
-	onBeforeUnmount(() => {
-    window.removeEventListener('resize', resize)
-	})
+const swiperDOM = ref(null) as Ref<null | typeof Swiper>
 </script>
 
 <template>
-  <main class="relative bg-black mx-auto flex flex-col justify-center pt-0 md:pt-20">
-    <section class="flex flex-col justify-center min-h-screen py-10 md:mx-32">
-      <h2 class="text-beige mx-5 md:mx-0 font-semibold tracking-widest mb-5">HELLO</h2>
-      <h1 class="split leading-10 mb-5 mx-5 md:mx-0 text-active text-4xl md:text-8xl font-semibold overflow-hidden md:w-2/3">
-        <span>We</span><span>are</span><strong><span>a</span><span>creative</span><span>boutique</span><span>agency</span></strong><span>and</span><span>we</span><strong><span>build</span><wbr><span>powerful</span>&nbsp;<span>brands</span></strong></h1>
-      <p class="text-white text-xl mx-5 md:mx-0 md:w-2/3"><strong>COMOMAYA</strong> exists in order to make international standards of branding &amp; design more accessible to new and upcoming
-      brands, business owners and start-ups alike. To provide the highest quality of work, by engaging some of the best
-      international talent there is, but without the exorbitant price tag that comes with hiring a top global agency. We are here to empower new business owners &amp; entrepreneurs with great design and powerful brands that tell a&nbsp;story…</p>
-    </section>
-    <div class="bg-white">
+  <main class="relative bg-stone-300 mx-auto flex flex-col justify-center overflow-hidden items-center">
+    <picture class="w-full">
+      <source srcset="/assets/tzo.avif">
+      <source srcset="/assets/tzo.webp">
+      <img src="/assets/tzo.jpg" alt="Tzo Packaging Design" class="w-full h-72 md:h-[36rem] object-cover" />
+    </picture>
+    <div class="w-full">
+      <h1 class="hidden">About</h1>
 
       <!--- RIDHI --->
 
-      <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row-reverse">
-        <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
-          <span class="relative pt-16 md:mb-1 flex items-center">
-            <h3 class="text-active text-2xl font-semibold tracking-widest text-left">
-              RIDHI&nbsp;SAIN
+      <section class="bg-beige-lighter overflow-visible w-full">
+        <div
+          class="max-w-[1920px] flex gap-8 md:gap-32 py-16 flex-col-reverse items-start justify-end md:flex-row-reverse mx-auto px-9 lg:px-20 xl:px-36">
+          <div class="md:w-2/3 my-auto md:pt-16">
+            <h3 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
+              FOUNDER &amp;&nbsp;CREATIVE
             </h3>
+            <span class="relative md:mb-1 flex md:flex-row flex-col md:items-center">
+              <h2 class="drama mb-2 text-6xl md:-ml-1 md:text-8xl text-left !leading-[0.75em] text-black">
+                <strong>ridhi</strong> sain
+              </h2>
               <picture>
                 <source srcset="/assets/awards.webp" type="image/webp">
-                <source srcset="/assets/awards.jpg" type="image/jpeg">
-                <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards">
+                <source srcset="/assets/awards.png" type="image/png">
+                <img class="md:pl-5 md:max-h-16 max-w-[100%] max-h-8 md:mt-3 md:mb-0 mb-5 mix-blend-multiply"
+                  src="/assets/awards.png" alt="Awards">
               </picture>
-          </span>
-          <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
-            <strong>Founder</strong> &amp; Creative&nbsp;Director
-          </h2>
-          <p class="pb-10 text-lg text-left text-black">
-            Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of <strong>COMOMAYA</strong> which she launched in March
-            2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK, Singapore &amp; India, Ridhi has worked with international agencies
-            such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also ex-Assoc Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led and helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's Dove, Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod Ricard, Kellogg's and many more.<br class="mt-2 block" style="content: ''">More recently, she has worked with smaller boutique
-            clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense passion to help
-            them through their creative journey.
-          </p>
-        </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
-          <picture>
-            <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
-            <source srcset="/assets/Ridhi.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/Ridhi.jpg" alt="Ridhi Sain" />
-          </picture>
+            </span>
+            <p class="text-base md:text-lg text-left text-black lg:max-w-[720px]">
+              Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of
+              <strong>COMOMAYA</strong> which she launched in March
+              2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK,
+              Singapore
+              &amp; India, Ridhi has worked with international agencies
+              such as Coley Porter Bell (part of the Ogilvy &amp; WPP Group), Elmwood, NiCE and WhyBD. She is also
+              ex-Assoc
+              Creative Director and ex-Design Director of Holmes &amp; Marchant, Cowan &amp; Pi Global where she has led
+              and
+              helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's
+              Dove,
+              Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod
+              Ricard, Kellogg's and many&nbsp;more.<br class="mt-2 block" style="content: ''"><br>More recently, she has
+              worked
+              with
+              smaller boutique
+              clients ranging from luxury, to corporate and digital start ups, bringing her vast experience and immense
+              passion to help
+              them through their creative&nbsp;journey.
+            </p>
+          </div>
+          <div class="w-full min-h-[15rem] md:w-auto overflow-hidden">
+            <picture>
+              <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
+              <source srcset="/assets/Ridhi.webp" type="image/webp">
+              <img class="w-full h-full object-contain max-w-[300px] md:py-16 m-auto" src="/assets/Ridhi.jpg"
+                alt="Ridhi Sain" />
+            </picture>
+          </div>
         </div>
       </section>
-
-            <!--- SONALI --->
-
-        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row">
-          <div class="md:w-2/3 my-auto px-5 md:px-16 md:pl-12 lg:pl-52">
-            <!-- <span class="relative pt-16 md:mb-1 flex items-center"> -->
-              <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest md:text-right">
-                SONALI&nbsp;SANI
-              </h3>
-                <!-- <picture>
-                  <source srcset="/assets/awards.webp" type="image/webp">
-                  <source srcset="/assets/awards.jpg" type="image/jpeg">
-                  <img class="md:ml-5 md:max-h-12 max-h-6 mx-5" src="/assets/awards.jpg" alt="Awards">
-                </picture> -->
-            <!-- </span> -->
-            <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden md:text-right text-black">
-              <strong>Client</strong>&nbsp;Director
-            </h2>
-            <p class="pb-10 text-lg md:text-right text-black">
-              Sonali Sani has had over a decade of experience in Client Services. She has worked with big international agencies and smaller boutique ones, across Singapore, the UK and Hong Kong. Her client list includes SGX, Pan Pacific Hotels &amp; Resorts, Intercontinental Hotels Group, Twinings Tea, McCormick, GSK, Reckitt Benckiser and Moneycorp to name a&nbsp;few.
-              <br class="mt-2 block" style="content: ''">
-              Sonali brings a wealth of knowledge and experience to Comomaya. She has a natural strength at maintaining strong relationships with all of our clients, helping them meet their business needs and growth potential, whilst ensuring this is done on time and on&nbsp;budget.
-            </p>
-          </div>
-          <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
-            <picture>
-              <source srcset="/assets/Sonali.jpg" type="image/jpeg">
-              <source srcset="/assets/Sonali.webp" type="image/webp">
-              <img class="w-full h-full object-contain" src="/assets/Sonali.jpg" alt="Sonali Sani" />
-            </picture>
-          </div>
-        </section>
-
-        <!--- Nishaa Bhojwani --->
-
-        <section id="ourPeople" class="relative flex flex-col-reverse justify-center md:min-h-[40vh] my-12 lg:my-24 bg-beige md:flex-row-reverse">
-          <div class="md:w-2/3 my-auto px-5 md:px-16 md:pr-12 lg:pr-52">
-              <h3 class="text-active text-2xl pt-16 font-semibold tracking-widest text-left">
-                NISHAA&nbsp;BHOJWANI
-              </h3>
-            <h2 class="drama mb-1 text-4xl md:text-7xl overflow-hidden text-left text-black">
-              <strong>Business</strong>&nbsp;Head
-            </h2>
-            <p class="pb-10 text-lg text-left text-black">
-             Nishaa Bhojwani is a seasoned business development professional with over a decade of experience in media and technology. She has worked for companies such as Google and Mastercard and her past client list includes some of the biggest names in media and technology across North America and Asia Pacific. Through a consultative sales approach, she is able to truly understand her clients needs and help deliver on hyper-targeted custom solutions. Nishaa has built a reputation of being results oriented and brings to Comomaya a proven track record of successfully cultivating and growing strategic relationships with SMEs as well as large&nbsp;enterprises.
-            </p>
-          </div>
-          <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-beige">
-            <picture>
-              <source srcset="/assets/Nishaa.jpg" type="image/jpeg">
-              <source srcset="/assets/Nishaa.webp" type="image/webp">
-              <img class="w-full h-full object-contain" src="/assets/Nishaa.jpg" alt="Nishaa Bhojwani" />
-            </picture>
-          </div>
-        </section>
 
       <!--- OUR PEOPLE --->
-      <section class="flex justify-center mt-12 lg:mt-24 bg-black flex-col">
-        <h3 class="text-active pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-right">
-          THE COMOMAYA&nbsp;SQUAD
-        </h3>
-        <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-right text-beige font-medium">
-          <strong>Our</strong> people
-        </h2>
-        <h3 v-if="width > 768" class="text-beige font-medium text-right text-3xl pb-5 px-12 mx-16 leading-tight md:w-2/3 md:ml-auto">
-          Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
-          with some of the best talent in the industry and across the&nbsp;globe.
-        </h3>
-      </section>
-
-      <section class="flex flex-col justify-center md:min-h-[40vh] my-12 mt-0 lg:mb-24 bg-beige md:flex-row">
-        <div class="md:w-2/3 p-0 m-0">
-          <picture>
-            <source srcset="/assets/globe.jpg" type="image/jpeg">
-            <source srcset="/assets/globe.webp" type="image/webp">
-            <img class="object-cover min-w-full min-h-full h-auto" src="/assets/globe.jpg" alt="Globe" />
-          </picture>
-        </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-black md:flex-row">
-          <h3 class="text-beige text-2xl text-right font-medium py-5 mx-16 leading-tight md:w-2/3">
-            Headquartered in Singapore, we cater to both a local and a global clientele. We work in an organic way, collaborating
-            with some of the best talent in the industry and across the&nbsp;globe.
+      <section class="bg-stone-300">
+        <div class="max-w-[1920px] px-9 lg:px-20 xl:px-36 flex justify-center flex-col pt-8 pb-4 md:py-1 mx-auto">
+          <h3 class="text-beige-lighter md:pt-16 text-sm md:text-lg font-semibold tracking-widest text-right">
+            INDUSTRY&nbsp;TALENT
           </h3>
-        </section>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <picture>
-            <source srcset="/assets/theSquad.jpg" type="image/jpeg">
-            <source srcset="/assets/theSquad.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/theSquad.jpg" alt="The Squad" />
-          </picture>
-        </div>
-      </section>
-
-      <!--- WHAT WE OFFER --->
-
-      <section id="ourServices" class="flex justify-center mt-12 lg:mt-24 bg-beige flex-col">
-        <h3 class="text-active pt-10 md:pt-16 px-12 md:mx-16 text-lg md:text-2xl font-semibold tracking-widest text-left">
-          WHAT WE&nbsp;OFFER
-        </h3>
-        <h2 class="drama md:pt-3 px-12 md:mx-16 pb-5 text-5xl md:text-7xl overflow-hidden text-left text-black font-medium">
-          <strong>Our</strong> services
-        </h2>
-        <h3 v-if="width > 768" class="text-black font-medium text-3xl pb-10 md:px-12 mx-16 md:w-2/3">
-            We have a vibrant portfolio of clients ranging from FMCG to
-            B2B and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary and
-            provide holistic services for your brand woven together from day&nbsp;one.
-        </h3>
-      </section>
-      
-      <section class="flex flex-col justify-center md:min-h-[40vh] my-12 mt-0 lg:mb-24 bg-beige md:flex-row">
-        <div class="md:w-2/3 p-0 m-0 bg-black">
-          <picture>
-            <source srcset="/assets/services.jpg" type="image/jpeg">
-            <source srcset="/assets/services.webp" type="image/webp">
-            <img class="object-contain min-w-full min-h-full h-auto" src="/assets/services.jpg" alt="list of services" />
-          </picture>
-        </div>
-        <section v-if="width <= 768" class="flex flex-col-reverse justify-center bg-beige md:flex-row">
-          <h3 class="text-black text-2xl font-medium py-5 mx-10">
-            We have a vibrant portfolio of clients ranging from FMCG to B2B
-            and from corporate to boutique &amp; luxury brands spread across various categories. We are multidisciplinary and
-            provide holistic services for your brand woven together from day&nbsp;one.
-          </h3>
-        </section>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <picture>
-            <source srcset="/assets/WhatWeOffer.jpg" type="image/jpeg">
-            <source srcset="/assets/WhatWeOffer.webp" type="image/webp">
-            <img class="w-full h-full object-contain" src="/assets/WhatWeOffer.jpg" alt="What we offer" />
-          </picture>
-        </div>
-      </section>
-      <span id="grant" />
-      <!--- RMC --->
-
-      <section class="bg-black md:flex-row relative flex flex-col justify-center md:min-h-[40vh] my-12 lg:my-24">
-        <div class="md:w-2/3 my-auto pt-10 md:pt-16 px-5 lg:px-16 lg:pl-52">
-          <h3 class="text-active text-lg md:text-2xl font-semibold tracking-widest text-right">
-            GRANTS &amp; SUBSIDIES
-          </h3>
-          <h2 class="drama mb-1 md:mb-3 text-5xl md:text-7xl overflow-hidden font-medium text-right text-beige">
-            Grants<br><strong>for&nbsp;SMEs</strong>
+          <h2
+            class="drama text-6xl md:text-8xl !leading-[0.75em] md:mb-3 overflow-hidden text-right text-active font-medium">
+            our <strong>people</strong>
           </h2>
-          <p class="pb-10 text-lg text-right text-beige">
-            We are certified as a Registered Management Consultant (RMC)
-            with IMC Singapore (Institute of Management Consultants).
-            Under the EDG (Enterprise Development Grant) program, Singapore&#8209;based SMEs (Small &amp; Medium Enterprises) can apply for up
-            to 70% of government funding towards their costs with us. If you qualify for this grant and are interested in this
-            opportunity you can find out more&nbsp;<a class='text-active cursor-pointer font-bold z-10' target="_blank" rel="noopener noreferrer" aria-label="Open Enterprise Development Program Application" href="https://www.enterprisesg.gov.sg/financial-support/enterprise-development-grant">here.</a>
-          </p>
-        </div>
-        <div class="w-full min-h-[15rem] md:w-1/2 overflow-hidden bg-black">
-          <picture>
-            <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
-            <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
-            <img class="w-full h-full object-cover" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
-          </picture>
+          <h3 v-if="store.getWidth >= 768"
+            class="text-black text-base md:text-lg text-right pb-5 !leading-snug lg:max-w-[720px] md:ml-auto">
+            Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
+            clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with
+            some
+            of the best talent in the industry and across the&nbsp;globe.
+          </h3>
         </div>
       </section>
+
+      <section class="relative">
+        <div class="bg-blue left-0 md:block hidden md:w-1/2 absolute h-full z-0" />
+        <div
+          class="max-w-[1920px] md:px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center lg:flex-row relative mx-auto">
+          <div class="p-0 m-0 bg-blue flex-0 relative z-10 md:w-1/2">
+            <picture class="w-full min-h-0">
+              <source srcset="/assets/globe.png" type="image/png">
+              <source srcset="/assets/globe.webp" type="image/webp">
+              <img class="object-contain py-3 md:p-5 w-full min-h-0" src="/assets/globe.png" alt="Globe" />
+            </picture>
+          </div>
+
+
+          <!-- Mobile Only -->
+          <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
+            <h3 class="text-black text-xl py-5 !leading-snug">
+              Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
+              clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with
+              some of the best talent in the industry and across the&nbsp;globe.
+            </h3>
+          </section>
+
+
+          <div class="overflow-hidden grid grid-cols-4 gap-1 md:gap-3 flex-shrink md:h-full md:w-1/2 py-5 md:py-0">
+            <img class="aspect-square object-cover" v-for="person in people" :src="person"
+              :alt="person.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+          </div>
+        </div>
+      </section>
+
+      <!-- <span id="services" /> -->
+      <span id="grant" />
+
+      <!--- RMC --->
+      <RMC />
+
+      <!--- BRANDS --->
+
+      <Brands />
 
       <!--- TESTIMONIALS --->
 
-      <section id="testimonials" class="bg-black flex flex-col justify-center mt-12 lg:mt-24">
-        <h3 class="text-active tracking-[1em] pb-16 pt-32 text-lg md:text-2xl font-semibold text-center">
-          TESTIMONIALS
-        </h3>
+      <section class="bg-blue">
+        <div class="max-w-[1920px] mx-auto px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
+          <h3
+            class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-5xl md:text-6xl lg:text-8xl font-semibold md:text-center">
+            client <strong>testimonials</strong>
+          </h3>
+          <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
+            class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
+            <img class="block w-7 h-7 md:w-10 md:h-10 object-contain" src="/assets/arrow-right.svg" alt="button next" />
+          </button>
+          <button @click="swiperDOM ? swiperDOM.$el.swiper.slidePrev() : null"
+            class="absolute left-3 md:left-10 md:hover:scale-150 transition-transform">
+            <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg"
+              alt="button previous" />
+          </button>
+          <swiper class="w-full" :autoplay="{
+            delay: 8000,
+            disableOnInteraction: false,
+          }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
+            <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
+              v-for="(items, i) in testimonials">
+              <blockquote class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
+                v-html="`${items[Object.keys(items)[0]]}`" />
+              <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
+                v-html="`${Object.keys(items)[0]}`" />
+            </swiper-slide>
+          </swiper>
+        </div>
       </section>
-      <swiper
-      class="min-h-[40vh] bg-black"
-      :autoplay="{
-        delay: 8000,
-        disableOnInteraction: false,
-      }"
-      :loop="true"
-      :navigation="true"
-      :modules="modules">
-      <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle" v-for="(items, i) in testimonials">
-        <h3 class="md:leading-10 text-xl md:text-3xl md:text-center font-medium text-beige px-16 md:px-20 my-auto" v-html="`${items[Object.keys(items)[0]]}`" />
-        <h2 class="text-active md:px-0 px-16 mt-7 font-medium text-lg md:text-2xl tracking-wider text-left md:text-center" v-html="`${Object.keys(items)[0]}`" />
-        <h2 class="text-active md:px-0 px-16 mt-2 font-medium text-base md:text-xl tracking-wider text-left md:text-center">{{ testimonialsDate[i] }}</h2>
-      </swiper-slide>
-    </swiper>
-  </div>
-
-    <!--- END --->
-
-    <section class="flex flex-col items-center justify-center p-20 md:pt-64 md:p-72 bg-black">
-    <video class="mb-10" playsinline loop autoplay="true" muted>
-      <source src="/assets/aboutus.mp4" type="video/mp4" />
-    </video>
-    <h3 class="text-beige text-base md:text-xl font-semibold tracking-widest text-center my-16">FOLLOW US ON INSTAGRAM&nbsp;&amp;&nbsp;LINKEDIN</h3>
-    <a class="z-10" key="ig" href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank" rel="noopener noreferrer">
-      <font-awesome-icon :icon="['fab', 'square-instagram']" size="xl" class="mx-2 my-3 text-active" />
-    </a>
-    <a class="z-10" key="linkedin" href="https://www.linkedin.com/company/comomaya" aria-label="Open Comomaya's Linkedin Page" target="_blank" rel="noopener noreferrer">
-      <font-awesome-icon :icon="['fab', 'linkedin']" size="xl" class="mx-2 my-3 text-active" />
-    </a>
-    </section>
+    </div>
   </main>
 </template>
 
 <style lang="scss">
-.split span {
-    opacity: 0;
-    visibility: hidden;
-    margin-right: 0.2em;
-    display: inline-block;
-    transform: translateY(400%);
-    line-height: 0.6;
-    font-family: "Barlow";
-    font-weight: 700;
-  }
+.swiper-button-next,
+.swiper-button-prev {
+  color: black;
+}
+</style>
 
-  .drama {
-    font-family: "Narziss";
+<style lang="scss" scoped>
+.split span {
+  opacity: 0;
+  visibility: hidden;
+  margin-right: 0.2em;
+  display: inline-block;
+  transform: translateY(400%);
+}
+
+.flop {
+  transition: all 0.5s ease;
+  transform: rotateX(-90deg) translateZ(-0.9375rem);
+  font-family: "Barlow";
+  font-weight: 800;
+  opacity: 0;
+  @apply absolute flex justify-center gap-5 h-24 md:h-32 items-center;
+
+  @media (min-width: 768px) {
+    transform: rotateX(-90deg) translateZ(-4rem);
   }
-  .drama strong {
-    font-weight: 800;
-    font-family: "Barlow";
-    letter-spacing: -0.015em;
+}
+
+.cube {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  perspective: 5000px;
+  @apply h-24 md:h-32;
+
+  @media (min-width: 768px) {
+    &:hover {
+      transform: rotateX(90deg);
+
+      .flop {
+        opacity: 1;
+      }
+    }
   }
-  .drama span {
-    letter-spacing: -0.15em;
-  }
-  .swiper-button-next, .swiper-button-prev {
-    color: white;
-  }
-  .swiper-button-next {
-      transform: translateX(-1em) scale(0.6);
-  }
-  .swiper-button-prev {
-      transform: translateX(1em) scale(0.6);
-  }
+}
 </style>

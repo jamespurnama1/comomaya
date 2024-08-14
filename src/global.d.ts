@@ -1,4 +1,14 @@
-interface Featured {
+
+type type =
+  "Strategy" |
+  "Naming" |
+  "Logo" |
+  "Identity" |
+  "Packaging" |
+  "Website" |
+  "Digital";
+
+interface featured {
   id: string,
   slug: string,
   title: string,
@@ -15,16 +25,50 @@ interface Featured {
   publish_at: null | Date,
   unpublish_at: null | Date,
   type: string,
-  metadata: {
+  metadata: featuredMetadata
+}
+
+interface service {
+  id: string,
+  slug: string,
+  title: string,
+  content: string,
+  bucket: string,
+  created_at: Date,
+  created_by: string,
+  modified_at: Date,
+  created: Date,
+  status: string,
+  thumbnail: URL,
+  published_at: Date,
+  modified_by: string,
+  publish_at: null | Date,
+  unpublish_at: null | Date,
+  type: string,
+  metadata: servicesMetadata
+}
+
+interface servicesMetadata {
+  background : {
+    url: URL
+    imgix_url: URL
+  },
+  description: string,
+  tags: string,
+}
+
+interface featuredMetadata {
     description: string,
     type: string,
+    typejson: {
+      type: type[]
+    },
     type_mobile?: string,
     client: string,
     our_services: string
     industry: string,
     featured_as: string,
   }
-}
   
 interface Landing {
   objects: {
@@ -33,10 +77,6 @@ interface Landing {
     }
   }[],
   total: number
-}
-
-interface Listing {
-
 }
 
 interface List {
