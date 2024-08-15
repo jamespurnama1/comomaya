@@ -156,7 +156,7 @@ onMounted(async () => {
   margin-right: 0.2em;
   display: inline-block;
   transform: translateY(400%);
-  line-height: 0.6;
+  line-height: 0.95em;
 }
 
 .flip {
