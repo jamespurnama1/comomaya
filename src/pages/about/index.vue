@@ -127,7 +127,7 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
             class="drama text-6xl md:text-8xl !leading-[0.75em] md:mb-3 overflow-hidden text-right text-active font-medium">
             our <strong>people</strong>
           </h2>
-          <h3 v-if="store.getWidth >= 768"
+          <h3 v-if="store.getWidth > 768"
             class="text-black text-base md:text-lg text-right pb-5 !leading-snug lg:max-w-[720px] md:ml-auto">
             Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
             clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with
@@ -140,7 +140,7 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
       <section class="relative">
         <div class="bg-blue left-0 md:block hidden md:w-1/2 absolute h-full z-0" />
         <div
-          class="max-w-[1920px] md:px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center lg:flex-row relative mx-auto">
+          class="max-w-[1920px] md:px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center md:flex-row relative mx-auto">
           <div class="p-0 m-0 bg-blue flex-0 relative z-10 md:w-1/2">
             <picture class="w-full min-h-0">
               <source srcset="/assets/globe.png" type="image/png">
@@ -151,7 +151,7 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
 
 
           <!-- Mobile Only -->
-          <section v-if="store.getWidth < 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
+          <section v-if="store.getWidth <= 768" class="flex flex-col-reverse justify-center px-9 lg:px-20 xl:px-36">
             <h3 class="text-black text-xl py-5 !leading-snug">
               Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global
               clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with
