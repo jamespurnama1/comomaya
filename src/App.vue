@@ -199,8 +199,9 @@ const isTransparent = computed(() => {
       <router-link v-if="store.getWidth > 570" aria-label="Go to Enterprise Singapore Grants & Subsidies"
         to="/about#grant" @click="handleNav(true)">
         <picture>
-          <source srcset="/assets/enterprise-singapore.avif">
-          <source srcset="/assets/enterprise-singapore.webp">
+          <source srcset="/assets/enterprise-singapore.avif" type="image/avif">
+          <source srcset="/assets/enterprise-singapore.webp" type="image/webp">
+          <source srcset="/assets/enterprise-singapore.png" type="image/png">
           <img src="/assets/enterprise-singapore.png" alt="Tzo Packaging Design"
             class="object-fit h-10 w-auto hover:scale-125 transition-transform" />
         </picture>
@@ -280,8 +281,8 @@ const isTransparent = computed(() => {
 
   <button aria-label="WhatsApp"
     class="flex justify-center gap-2 md:text-5xl text-3xl items-center fixed bottom-5 right-5 md:bottom-10 md:right-10 duration-200 transition-all w-auto h-10 z-10 p-3 text-active group hover:scale-125">
-    <a class="font-bold uppercase flex items-center gap-2" href="https://wa.me/6594245994"
-      target="_blank" rel="noopener noreferrer">
+    <a class="font-bold uppercase flex items-center gap-2" href="https://wa.me/6594245994" target="_blank"
+      rel="noopener noreferrer">
       <font-awesome-icon :icon="['fab', 'whatsapp']" class="my-3 group-hover:scale-125" />
     </a>
   </button>

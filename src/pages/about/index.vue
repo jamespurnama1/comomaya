@@ -57,8 +57,9 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
 <template>
   <main class="relative bg-stone-300 mx-auto flex flex-col justify-center overflow-hidden items-center">
     <picture class="w-full">
-      <source srcset="/assets/tzo.avif">
-      <source srcset="/assets/tzo.webp">
+      <source srcset="/assets/tzo.avif" type="image/avif">
+      <source srcset="/assets/tzo.webp" type="image/webp">
+      <source srcset="/assets/tzo.jpg" type="image/jpeg">
       <img src="/assets/tzo.jpg" alt="Tzo Packaging Design" class="w-full h-72 md:h-[36rem] object-cover" />
     </picture>
     <div class="w-full">
@@ -108,8 +109,8 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
           </div>
           <div class="w-full min-h-[15rem] md:w-auto overflow-hidden">
             <picture>
-              <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
               <source srcset="/assets/Ridhi.webp" type="image/webp">
+              <source srcset="/assets/Ridhi.jpg" type="image/jpeg">
               <img class="w-full h-full object-contain max-w-[300px] md:py-16 m-auto" src="/assets/Ridhi.jpg"
                 alt="Ridhi Sain" />
             </picture>
@@ -143,8 +144,8 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
           class="max-w-[1920px] md:px-9 lg:px-20 xl:px-36 flex flex-col justify-center items-center md:flex-row relative mx-auto">
           <div class="p-0 m-0 bg-blue flex-0 relative z-10 md:w-1/2">
             <picture class="w-full min-h-0">
-              <source srcset="/assets/globe.png" type="image/png">
               <source srcset="/assets/globe.webp" type="image/webp">
+              <source srcset="/assets/globe.png" type="image/png">
               <img class="object-contain py-3 md:p-5 w-full min-h-0" src="/assets/globe.png" alt="Globe" />
             </picture>
           </div>
