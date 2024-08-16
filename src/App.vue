@@ -173,7 +173,7 @@ const isTransparent = computed(() => {
 
   <div ref="cursor"
     class="origin-center cursor transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
-    :class="[store.getWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
+    :class="[store.getWidth <= 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
   <!-- Pop -->
 
@@ -199,8 +199,9 @@ const isTransparent = computed(() => {
       <router-link v-if="store.getWidth > 570" aria-label="Go to Enterprise Singapore Grants & Subsidies"
         to="/about#grant" @click="handleNav(true)">
         <picture>
-          <source srcset="/assets/enterprise-singapore.avif">
-          <source srcset="/assets/enterprise-singapore.webp">
+          <source srcset="/assets/enterprise-singapore.avif" type="image/avif">
+          <source srcset="/assets/enterprise-singapore.webp" type="image/webp">
+          <source srcset="/assets/enterprise-singapore.png" type="image/png">
           <img src="/assets/enterprise-singapore.png" alt="Tzo Packaging Design"
             class="object-fit h-10 w-auto hover:scale-125 transition-transform" />
         </picture>
@@ -227,7 +228,7 @@ const isTransparent = computed(() => {
     <nav v-show="opened" @touchmove="e => { touchmoved = true }"
       class="moreNav bg-beige-normal w-screen h-screen fixed left-0 bottom-0 z-30">
       <div
-        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-center md:justify-start absolute flex-col overflow-y-scroll gap-5 md:gap-20 pt-[62px] sm:pt-0">
+        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-center absolute flex-col overflow-y-scroll gap-5 md:gap-20 sm:pt-0">
         <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
           class="text-center relative h-min">
           <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
@@ -241,6 +242,17 @@ const isTransparent = computed(() => {
             <p class="flop text-active">
               <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
             </p>
+          </li>
+          <li v-if="store.getWidth <= 570" class="px-5 flex items-center justify-center py-5" @click="handleNav(true)">
+            <router-link to="/about#grant">
+              <picture>
+                <source srcset="/assets/enterprise-singapore.avif" type="image/avif">
+                <source srcset="/assets/enterprise-singapore.webp" type="image/webp">
+                <source srcset="/assets/enterprise-singapore.png" type="image/png">
+                <img src="/assets/enterprise-singapore.png" alt="Tzo Packaging Design"
+                  class="object-fit h-10 w-auto hover:scale-125 transition-transform" />
+              </picture>
+            </router-link>
           </li>
         </transition-group>
         <transition-group name="fade" tag="span"
@@ -280,8 +292,8 @@ const isTransparent = computed(() => {
 
   <button aria-label="WhatsApp"
     class="flex justify-center gap-2 md:text-5xl text-3xl items-center fixed bottom-5 right-5 md:bottom-10 md:right-10 duration-200 transition-all w-auto h-10 z-10 p-3 text-active group hover:scale-125">
-    <a class="font-bold uppercase flex items-center gap-2" href="https://wa.me/6594245994"
-      target="_blank" rel="noopener noreferrer">
+    <a class="font-bold uppercase flex items-center gap-2" href="https://wa.me/6594245994" target="_blank"
+      rel="noopener noreferrer">
       <font-awesome-icon :icon="['fab', 'whatsapp']" class="my-3 group-hover:scale-125" />
     </a>
   </button>
