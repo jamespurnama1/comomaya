@@ -22,8 +22,8 @@
       </div>
       <div class="w-full max-h-full flex justify-center items-center lg:w-2/5 overflow-hidden bg-black">
         <picture class="w-full h-full object-cover">
-          <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
           <source srcset="/assets/RMC_Stamp.webp" type="image/webp">
+          <source srcset="/assets/RMC_Stamp.jpg" type="image/jpeg">
           <img class="w-full h-full object-cover object-right" src="/assets/RMC_Stamp.jpg" alt="RMC Certified" />
         </picture>
       </div>
