@@ -173,7 +173,7 @@ const isTransparent = computed(() => {
 
   <div ref="cursor"
     class="origin-center cursor transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
-    :class="[store.getWidth < 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
+    :class="[store.getWidth <= 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
   <!-- Pop -->
 
@@ -228,7 +228,7 @@ const isTransparent = computed(() => {
     <nav v-show="opened" @touchmove="e => { touchmoved = true }"
       class="moreNav bg-beige-normal w-screen h-screen fixed left-0 bottom-0 z-30">
       <div
-        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-center md:justify-start absolute flex-col overflow-y-scroll gap-5 md:gap-20 pt-[62px] sm:pt-0">
+        class="w-full bottom-0 2xl:h-[calc(100%-116px)] lg:h-[calc(100%-74px)] sm:h-[calc(100%-106px)] h-[calc(100%-62px)] flex items-center justify-center absolute flex-col overflow-y-scroll gap-5 md:gap-20 sm:pt-0">
         <transition-group tag="ul" name="stagger-in" :style="{ '--total': links.length }"
           class="text-center relative h-min">
           <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
@@ -242,6 +242,17 @@ const isTransparent = computed(() => {
             <p class="flop text-active">
               <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
             </p>
+          </li>
+          <li v-if="store.getWidth <= 570" class="px-5 flex items-center justify-center py-5" @click="handleNav(true)">
+            <router-link to="/about#grant">
+              <picture>
+                <source srcset="/assets/enterprise-singapore.avif" type="image/avif">
+                <source srcset="/assets/enterprise-singapore.webp" type="image/webp">
+                <source srcset="/assets/enterprise-singapore.png" type="image/png">
+                <img src="/assets/enterprise-singapore.png" alt="Tzo Packaging Design"
+                  class="object-fit h-10 w-auto hover:scale-125 transition-transform" />
+              </picture>
+            </router-link>
           </li>
         </transition-group>
         <transition-group name="fade" tag="span"
