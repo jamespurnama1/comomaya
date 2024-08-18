@@ -6,6 +6,7 @@ export const useStore = defineStore('store', {
     return {
       featured: [] as featured[],
       services: [] as service[],
+      testimonials: [] as testimonials[],
       fetched: false,
       width: 0
     }
@@ -24,6 +25,10 @@ export const useStore = defineStore('store', {
       return state.services
     },
 
+    getTestimonials(state) {
+      return state.testimonials
+    },
+
     isFetched(state) {
       return state.fetched
     }
@@ -37,6 +42,7 @@ export const useStore = defineStore('store', {
       .then((res) => {
         this.featured = res.data.object.metadata.featured
         this.services = res.data.object.metadata.services
+        this.testimonials = res.data.object.metadata.testimonials
       }).catch((err) => {
         this.featured = []
         console.error(err)
