@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay } from "swiper";
-import 'swiper/scss';
-import { ref, type Ref } from 'vue';
 import { useStore } from '../../stores';
 
-const modules = [Autoplay]
 const store = useStore()
 
 const people = Object.values(import.meta.glob('@/assets/people/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
@@ -20,38 +15,6 @@ useHead({
     },
   ],
 })
-
-const testimonials: { [key: string]: string }[] = [
-  {
-    "TANUSHREE SETH | Chief Executive&nbsp;Officer | Mirror&nbsp;Mirror, Guild&nbsp;Capital": "&quot;Ridhi's deep experience in branding, design, and strategy coupled with her consulting experience on top beauty and personal care brands globally has given her a distinctive ability to provide strategies that leverage first-principles thinking and propose solutions that are uniquely defined for the brand under&nbsp;study.&quot;",
-  },
-  {
-    "WILLIAM WATSON | Vice&nbsp;President | Everstone&nbsp;Group": "&quot;Ridhi Sain of COMOMAYA was instrumental in driving the successful delivery and launch of Culinary Brands. As a professional consultant, she worked tirelessly to meet and exceed our expectations, not only in terms of the quality of brand strategy &amp; design outputs, but also in terms of timely&nbsp;delivery.&quot;",
-  },
-  {
-    "TANUSHREE SETH | Chief Executive&nbsp;Officer | Mirror&nbsp;Mirror, Guild&nbsp;Capital": "&quot;Every interaction with Ridhi is a pleasure; in fact the branding &amp; logo design project outcome was so successful, that we reached out to Ridhi again to join hands on a new project that has been recently kicked-off. The success of the branding and logo design project was largely attributable to Ridhi’s strong analytical, yet creative and design-led strategic consulting skills. We have been so happy to have her expertise as a consulting partner on this&nbsp;brand.&quot;",
-  },
-  {
-    "ROSHINI BAKSHI | Head of&nbsp;Impact | Managing&nbsp;Director | Private&nbsp;Equity | Everstone&nbsp;Group": "&quot;Ridhi &amp; COMOMAYA invested a lot of time in working on the brand strategy, vision, mission and proposition. Very good execution of the brand strategy in terms of identity and design elements. Differentiated and fresh approach. A pleasure working with COMOMAYA and we look forward to working with Ridhi Sain <wbr>on our next project&nbsp;together.&quot;"
-  },
-  {
-    "KRISHNAN NARAYAN | Founder &amp; Chief&nbsp;Technologist | Netracity&nbsp;LLC": "&quot;I worked with Ridhi Sain to help me with the market positioning, naming, design and brand strategy for my company, Netracity LLC based in Texas, USA. Ridhi &amp; COMOMAYA did a great job on the company mission &amp; vision and created the brand strategy &amp; logo to accurately communicate the company's strategy to my clients. Her interactions with me &amp; my team were very timely and professional. I highly recommend Ridhi Sain &amp;&nbsp;COMOMAYA.&quot;"
-  },
-  {
-    "MARGIE WARRELL, PhD | Bestselling Author &amp; Keynote Speaker	| CEO, Global Courage Leadership": "&quot;Love my new branding by the very talented Ridhi&nbsp;Sain&quot;"
-  }
-]
-
-const testimonialsDate = [
-  "October 2022",
-  "November 2022",
-  "October 2022",
-  "November 2022",
-  "September 2022",
-  ""
-]
-
-const swiperDOM = ref(null) as Ref<null | typeof Swiper>
 </script>
 
 <template>
@@ -175,40 +138,11 @@ const swiperDOM = ref(null) as Ref<null | typeof Swiper>
       <RMC />
 
       <!--- BRANDS --->
-
       <Brands />
 
       <!--- TESTIMONIALS --->
+      <Testimonials />
 
-      <section class="bg-blue">
-        <div class="max-w-[1920px] mx-auto px-12 md:px-20 xl:px-36 flex flex-col justify-center relative min-h-[70vh]">
-          <h3
-            class="text-active drama md:pb-3 pt-8 md:pt-20 lg:pt-16 text-5xl md:text-6xl lg:text-8xl font-semibold md:text-center">
-            client <strong>testimonials</strong>
-          </h3>
-          <button @click="swiperDOM ? swiperDOM.$el.swiper.slideNext() : null"
-            class="absolute right-3 md:right-10 md:hover:scale-150 transition-transform">
-            <img class="block w-7 h-7 md:w-10 md:h-10 object-contain" src="/assets/arrow-right.svg" alt="button next" />
-          </button>
-          <button @click="swiperDOM ? swiperDOM.$el.swiper.slidePrev() : null"
-            class="absolute left-3 md:left-10 md:hover:scale-150 transition-transform">
-            <img class="block w-7 h-7 md:w-10 md:h-10 object-contain rotate-180" src="/assets/arrow-right.svg"
-              alt="button previous" />
-          </button>
-          <swiper class="w-full" :autoplay="{
-            delay: 8000,
-            disableOnInteraction: false,
-          }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
-            <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
-              v-for="(items, i) in testimonials">
-              <blockquote class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
-                v-html="`${items[Object.keys(items)[0]]}`" />
-              <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
-                v-html="`${Object.keys(items)[0]}`" />
-            </swiper-slide>
-          </swiper>
-        </div>
-      </section>
     </div>
   </main>
 </template>

@@ -48,6 +48,26 @@ interface service {
   metadata: servicesMetadata
 }
 
+interface testimonials {
+  id: string,
+  slug: string,
+  title: string,
+  content: string,
+  bucket: string,
+  created_at: Date,
+  created_by: string,
+  modified_at: Date,
+  created: Date,
+  status: string,
+  thumbnail: URL,
+  published_at: Date,
+  modified_by: string,
+  publish_at: null | Date,
+  unpublish_at: null | Date,
+  type: string,
+  metadata: testimonialsMetadata
+}
+
 interface servicesMetadata {
   background : {
     url: URL
@@ -55,6 +75,11 @@ interface servicesMetadata {
   },
   description: string,
   tags: string,
+}
+
+interface testimonialsMetadata {
+  author: string,
+  quote: string,
 }
 
 interface featuredMetadata {

@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-beige-lighter">
+  <section class="bg-beige-lighter" v-if="store.isFetched">
     <div class="py-9 px-9 lg:px-20 xl:px-36 flex flex-col gap-5 items-start justify-center max-w-[1920px] mx-auto">
       <p class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left pt-5">OUR SERVICES</p>
       <h4
@@ -8,7 +8,8 @@
           marketing, providing a full range of services to make your brand&nbsp;shine.</strong>
       </h4>
       <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 w-full" v-if="store.isFetched">
-        <div class="relative w-full aspect-[4/3] bg-white p-4 flex items-center justify-center" v-for="(service, index) in store.getServices">
+        <div class="relative w-full aspect-[4/3] bg-white p-4 flex items-center justify-center"
+          v-for="(service, index) in store.getServices">
           <div
             class="bg-opacity-80 w-[85%] flex items-center justify-between text-center flex-col p-5 bg-beige-lighter min-h-52 relative z-10">
             <span>
