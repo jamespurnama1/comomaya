@@ -12,6 +12,7 @@ import Service from '@/components/Service.vue';
 import Brands from '@/components/Brands.vue';
 import RMC from '@/components/RMC.vue';
 import Pop from '@/components/Pop.vue';
+import Testimonials from '@/components/Testimonials.vue';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSquareInstagram, faLinkedin, faWhatsapp, faSquareWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faPhone, faSquareXmark, faXmark, faAnglesRight } from '@fortawesome/free-solid-svg-icons'
@@ -41,6 +42,7 @@ export const createApp = ViteSSG(
     app.component('Brands', Brands)
     app.component('Service', Service)
     app.component('RMC', RMC)
+    app.component('Testimonials', Testimonials)
     app.component('Pop', Pop)
     app.use(store)
     app.use(Vue3Lottie)

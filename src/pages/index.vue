@@ -90,6 +90,7 @@ function scrollDown() {
 		<Service />
 		<RMC />
 		<Brands />
+		<Testimonials />
 	</div>
 </template>
 
