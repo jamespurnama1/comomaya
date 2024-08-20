@@ -1,5 +1,5 @@
 <template>
-  <main class="relative bg-stone-300 mx-auto flex flex-col pt-10">
+  <main class="relative bg-stone-300 mx-auto flex flex-col pt-10" id="services">
     <section
       class="flex px-9 lg:px-20 xl:px-36 py-10 flex-col xl:flex-row min-h-[50vh] xl:min-h-[75vh] 2xl:gap-16 overflow-hidden relative w-full max-w-[1920px] mx-auto">
       <div class="w-1/2 pt-10 xl:py-32 h-full justify-center flex flex-col">
