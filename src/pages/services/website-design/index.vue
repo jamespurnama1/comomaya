@@ -28,21 +28,23 @@ onMounted(() => {
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
         <h1 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3 uppercase">Website Design</h1>
         <h2 class="split max-w-4xl text-active text-5xl md:text-4xl lg:text-7xl font-extrabold overflow-hidden">
+          Website design involves the planning and creation of websites using several different skills.
+        </h2>
+        <p class="mt-5 text-white">
           At COMOMAYA, we expertly address all aspects of website design Singapore, including UX web design, UI web
           design, web development, SEO, and hosting. We integrate these elements seamlessly to create fully functional
           websites that accurately, creatively, and convincingly represent your business.
-        </h2>
-        <p class="mt-5 text-white">
+          <br>
           Our approach to the best website design Singapore is grounded in core design principles, ensuring that every
           site we create is not only visually stunning but also highly functional. Our experienced web designers
           expertly combine balance, emphasis, rhythm, contrast, and unity to deliver exceptional results.
-
+          <br>
           COMOMAYA is recognized for its expertise and is one of the best website design agency Singapore, where we
           place a strong emphasis on both usability and aesthetics. Our web designers are up-to-date with the latest web
           accessibility guidelines, ensuring your website is accessible to all users. From UX web design that enhances
           user experience to UI web design that ensures an intuitive interface, we cover all front-end design processes
           with precision and creativity.
-
+          <br>
           Trust COMOMAYA for website design Singapore that makes your business stand out in the digital landscape.
         </p>
         <router-link aria-label="Go to Landing Page" to="/"

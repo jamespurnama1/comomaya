@@ -33,9 +33,10 @@ onMounted(() => {
         </h2>
         <p class="mt-5 text-white">
           With proper implementation, Digital marketing singapore COMOMAYA can bridge the gap between consumers and your
-          company through digital media &amp; technology. Our branding agency promotes brands, products and services via all
+          company through digital media &amp; technology. Our branding agency promotes brands, products and services via
+          all
           kinds of electronic media, such as websites, webstores, apps, social media, e-mail marketing and much more.
-
+          <br>
           We believe that digital marketing is an approach that enables you to learn and understand consumer behaviour
           better, since it makes getting feedback from customers faster and easier. We combine both traditional and
           digital methods of marketing to create a dynamic marketing plan for Digital Brand Engagement.
