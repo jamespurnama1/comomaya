@@ -4,29 +4,78 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 
 <url>
-  <loc>https://www.comomaya.com/</loc>
-  <lastmod>2023-01-09T06:02:23+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.comomaya.com/work</loc>
-  <lastmod>2023-01-09T06:02:23+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.comomaya.com/about</loc>
-  <lastmod>2023-01-09T06:02:23+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.comomaya.com/contact</loc>
-  <lastmod>2023-01-09T06:02:23+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://www.comomaya.com/</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>1.00</priority>
 </url>
 
+<url>
+<loc>https://www.comomaya.com/about</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://www.comomaya.com/work</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://www.comomaya.com/services</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://comomaya.com/services/brand-strategy</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://comomaya.com/services/design-collaterals</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://comomaya.com/services/design-identity</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://comomaya.com/services/naming-copy</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://comomaya.com/services/packaging-design</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://comomaya.com/services/performance-marketing</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://comomaya.com/services/social-media</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://comomaya.com/services/website-design</loc>
+<lastmod>2024-08-21T03:01:11+00:00</lastmod>
+<priority>0.80</priority>
+</url>
 
 </urlset>

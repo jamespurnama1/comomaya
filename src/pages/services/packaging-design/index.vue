@@ -29,16 +29,19 @@ onMounted(() => {
         <h1 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3 uppercase">Packaging Design
         </h1>
         <h2 class="split max-w-4xl text-active text-5xl md:text-4xl lg:text-7xl font-extrabold overflow-hidden">
-          At COMOMAYA, we specialize in creating stunning pack design and packaging design for your brand that not only
-          captures attention but also communicates your brand’s essence effectively. Our expertise in label design
-          ensures that every product you offer stands out on the shelf, resonating with your target audience.
+          Package design is all about planning and formulating the construction and graphical elements of a
+          product&apos;s package.
         </h2>
         <p class="mt-5 text-white">
+          At COMOMAYA, we specialize in creating stunning pack design and packaging design for your brand that not only
+          captures attention but also communicates your brand&apos;s essence effectively. Our expertise in label design
+          ensures that every product you offer stands out on the shelf, resonating with your target audience.
+          <br>
           As experts in beautiful packaging design solutions Singapore, we focus on developing packaging designs that
           are not only aesthetically pleasing but also functional and aligned with your brand identity. Whether you need
           a complete pack design for a new product or a refreshed label design to elevate an existing one, COMOMAYA
           delivers results that make a lasting impact.
-
+          <br>
           Our packaging design process is tailored to meet the unique needs of your brand, ensuring that your products
           are packaged in a way that enhances their appeal and marketability. With COMOMAYA, you can be confident that
           your packaging design reflects the quality and creativity of your brand, making us the go-to choice for
