@@ -8,7 +8,12 @@ export const useStore = defineStore('store', {
       services: [] as service[],
       testimonials: [] as testimonials[],
       fetched: false,
-      width: 0
+      width: 0,
+      form: {
+        name: '',
+        email: '',
+        phone: '',
+      }
     }
   },
 

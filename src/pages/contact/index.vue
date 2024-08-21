@@ -4,7 +4,9 @@ import { onMounted, ref, getCurrentInstance } from 'vue'
 import { gsap } from 'gsap'
 import { useRouter } from 'vue-router';
 import axios, { AxiosResponse } from 'axios';
+import { useStore } from '../../stores';
 
+const store = useStore()
 const router = useRouter();
 const emailRegex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
 const phoneRegex = new RegExp(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/)
@@ -29,6 +31,7 @@ function handleSubmit() {
     axios.post('/api/contact', requestOptions)
       .then((response: AxiosResponse) => {
         if (response.status === 200) {
+          store.form = { name: name.value, email: email.value, phone: phone.value }
           router.push('/thank-you')
         } else {
           throw new Error(`${response.status.toString()} error. Please try again later.`);
