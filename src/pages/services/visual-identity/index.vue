@@ -17,7 +17,7 @@ useHead({
 
 onMounted(() => {
   if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) return
-  // router.push('/#services')
+  router.push('/#services')
 })
 
 </script>
