@@ -44,6 +44,14 @@ const transporter = nodemailer.createTransport({
   };
 
   await new Promise((resolve, reject) => {
+    //check info
+    if (!name && !message && !phone && !email) {
+        const error = {
+            name: 'Bad Request',
+            code: 400
+        }
+        reject(error)
+    }
       // send mail
       transporter.sendMail(mailData, (err, info) => {
           if (err) {

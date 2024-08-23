@@ -19,6 +19,7 @@ import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faPhone,
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { createPinia } from 'pinia'
 import Vue3Lottie from 'vue3-lottie'
+import { createGtm } from '@gtm-support/vue-gtm';
 
 const head = createHead()
 
@@ -48,6 +49,12 @@ export const createApp = ViteSSG(
     app.use(Vue3Lottie)
     if (isClient) {
       app.use(posthogPlugin)
+      app.use(
+  createGtm({
+    id: "GTM-T4M77K2S",
+    vueRouter: router
+  })
+)
     }
     app.use(head)
   },
