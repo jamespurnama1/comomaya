@@ -86,11 +86,11 @@ function handleSubmit() {
 
     const requestOptions = { name: name.value, email: email.value, phone: phone.value, message: message.value }
 
-    axios.post('/api/contact', requestOptions)
+    axios.post(import.meta.env.VITE_API_ENDPOINT, requestOptions)
       .then((response: AxiosResponse) => {
         if (response.status === 200) {
-          closeModal()
           store.form = { name: name.value, email: email.value, phone: phone.value }
+          closeModal()
           router.push('/thank-you')
         } else {
           throw new Error(`${response.status.toString()} error. Please try again later.`);
