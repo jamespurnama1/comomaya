@@ -31,11 +31,11 @@ let thisPage = reactive({ content: {} as Content });
 const modules = [Pagination]
 
 useHead({
-  title: `COMOMAYA - ${thisPage.content ? thisPage.content.title : 'Works'}`,
+  title: () => `COMOMAYA - ${thisPage.content ? thisPage.content.title : 'Works'}`,
   meta: [
     {
       name: 'description',
-      content: thisPage.content.metadata ? thisPage.content.metadata.description : 'A creative boutique agency building powerful brands',
+      content: () => thisPage.content.metadata ? thisPage.content.metadata.description.replace(/&nbsp;|<br>/g, ' ') : 'A creative boutique agency building powerful brands',
     },
   ],
 })
