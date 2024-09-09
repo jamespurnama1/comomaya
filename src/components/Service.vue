@@ -7,7 +7,7 @@
         <strong>At Comomaya, we&apos;ve got you covered from brand strategy </strong>&amp; <strong>design to performance
           marketing, providing a full range of services to make your brand&nbsp;shine.</strong>
       </h4>
-      <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 w-full" v-if="store.isFetched">
+      <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 w-full grid-rows-1" v-if="store.isFetched">
         <a :href="`services/${service.slug}`"
           class="relative w-full bg-white p-4 flex items-center justify-center min-h-full sm:aspect-[4/3] 2xl:aspect-auto"
           v-for="(service, index) in store.getServices" @click.prevent>
