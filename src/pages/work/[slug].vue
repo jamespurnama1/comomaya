@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useHead } from '@unhead/vue'
 import { useStore } from '../../stores'
 import { reactive, ref } from 'vue'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from "swiper"
 import "swiper/scss/pagination"
 import 'swiper/scss'
@@ -155,7 +154,7 @@ onBeforeUnmount(() => {
       el: '.swiper-pagination',
       clickable: true
     }" :modules="modules" :slides-per-view="store.getWidth > 768 ? 3 : 1" :space-between="10">
-      <swiper-slide tag="a" v-for="work in store.getFeatured" :href="`/work/${work.slug}`">
+      <swiper-slide tag="a" v-for="work in store.getFeatured" :key="work.slug" :href="`/work/${work.slug}`">
         <div class="overflow-hidden h-96 w-full bg-cover bg-center"
           :style="`background-image: url(${work.thumbnail}?q=75&auto=format,compress)`">
           <p class="absolute z-20 text-white bottom-5 left-10 text-2xl">{{ work.title }}</p>
