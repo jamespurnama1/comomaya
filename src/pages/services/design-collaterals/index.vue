@@ -9,8 +9,8 @@ useHead({
   title: 'COMOMAYA - Design Identity',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Design Identity',
+      name: 'description',
+      content: 'Design is the art of visual communication.',
     },
   ],
 })

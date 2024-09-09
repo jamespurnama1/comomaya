@@ -9,8 +9,8 @@ useHead({
   title: 'COMOMAYA - Naming & Copy',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Naming & Copy',
+      name: 'description',
+      content: 'Having creative copywriting becomes more important than ever in this fast world.',
     },
   ],
 })

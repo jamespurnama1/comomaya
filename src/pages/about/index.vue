@@ -8,12 +8,6 @@ const people = Object.values(import.meta.glob('@/assets/people/*.{jpg,png,jpeg,s
 
 useHead({
   title: 'COMOMAYA - About',
-  meta: [
-    {
-      name: 'COMOMAYA',
-      content: 'About',
-    },
-  ],
 })
 </script>
 

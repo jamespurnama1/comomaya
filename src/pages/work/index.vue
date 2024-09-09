@@ -67,12 +67,6 @@ onMounted(() => {
 
 useHead({
   title: 'COMOMAYA - Work',
-  meta: [
-    {
-      name: 'COMOMAYA',
-      content: 'Work',
-    },
-  ],
 })
 </script>
 

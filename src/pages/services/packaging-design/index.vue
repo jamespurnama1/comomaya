@@ -9,8 +9,8 @@ useHead({
   title: 'COMOMAYA - Packaging Design',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Packaging Design',
+      name: 'description',
+      content: "Package design is all about planning and formulating the construction and graphical elements of a product's package.",
     },
   ],
 })

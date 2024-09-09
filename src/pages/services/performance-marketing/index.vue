@@ -9,8 +9,8 @@ useHead({
   title: 'COMOMAYA - Performance Marketing',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Performance Marketing',
+      name: 'description',
+      content: "Search Engine Optimization (SEO) is one of the most important aspects of web development in today's world.",
     },
   ],
 })

@@ -13,8 +13,8 @@ useHead({
   title: 'COMOMAYA - Branding | Design | Digital | Social Media',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Branding | Design | Digital | Social Media',
+      name: 'description',
+      content: 'A creative boutique agency building powerful brands',
     },
   ],
 })

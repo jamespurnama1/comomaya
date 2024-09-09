@@ -23,21 +23,21 @@ interface Content {
   };
 }
 
-useHead({
-  title: 'COMOMAYA - Work',
-  meta: [
-    {
-      name: 'COMOMAYA',
-      content: 'Work',
-    },
-  ],
-})
-
 const store = useStore()
 const route = useRoute()
 let contentID: number;
 let thisPage = reactive({ content: {} as Content });
 const modules = [Pagination]
+
+useHead({
+  title: `COMOMAYA - ${thisPage.content.title}`,
+  meta: [
+    {
+      name: 'description',
+      content: thisPage.content.metadata.description,
+    },
+  ],
+})
 
 store.load()
 

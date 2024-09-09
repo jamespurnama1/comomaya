@@ -9,8 +9,8 @@ useHead({
   title: 'COMOMAYA - Brand Strategy',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Brand Strategy',
+      name: 'description',
+      content: 'A brand is the most valuable asset of any business.',
     },
   ],
 })

@@ -9,8 +9,8 @@ useHead({
   title: 'COMOMAYA - Social Media',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Social Media',
+      name: 'description',
+      content: 'Whether it is a small-scale business venture or a giant corporation, digital marketing is described as the engine that drives businesses today.',
     },
   ],
 })

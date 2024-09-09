@@ -9,8 +9,8 @@ useHead({
   title: 'COMOMAYA - Website Design',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Website Design',
+      name: 'description',
+      content: 'Website design involves the planning and creation of websites using several different skills.',
     },
   ],
 })

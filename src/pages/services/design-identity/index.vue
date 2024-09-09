@@ -9,8 +9,8 @@ useHead({
   title: 'COMOMAYA - Visual Identity',
   meta: [
     {
-      name: 'COMOMAYA',
-      content: 'Visual Identity',
+      name: 'description',
+      content: 'Visual Identity Design encompasses your whole corporate identity.',
     },
   ],
 })
