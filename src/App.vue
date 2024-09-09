@@ -211,7 +211,7 @@ const isTransparent = computed(() => {
       <button aria-label="Navigation"
         class="group flex flex-col h-8 w-8 justify-center items-center group p-2 -m-2 transition-transform"
         @click="handleNav(false)">
-        <div v-for="i in 3" :class="[
+        <div v-for="i in 3" :key="i" :class="[
           (i === 1 && opened ? 'rotate-45 translate-y-1.5 bg-black group-hover:bg-active' : ''),
           (i === 2 && opened ? 'opacity-0 bg-black group-hover:bg-active' : ''),
           (i === 3 && opened ? '-rotate-45 -translate-y-1.5 bg-black group-hover:bg-active' : ''),

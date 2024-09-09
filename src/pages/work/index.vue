@@ -77,7 +77,7 @@ useHead({
       <h1 class="text-7xl font-extrabold tracking-tight text-active">work</h1>
     </div>
     <p class="flex flex-wrap text-base md:text-xl mb-5 pointer-cursor w-full md:w-1/2 pt-20 md:pt-14">
-      <span v-for="(value, key, i) in filterList" @click="filtered[key] = !filtered[key]" class="group">
+      <span :key="i" v-for="(value, key, i) in filterList" @click="filtered[key] = !filtered[key]" class="group">
         <input :name="key" v-model="filtered[key]" type="checkbox" class="hidden bg-transparent text-transparent" />
         <label class="group-hover:font-semibold group-hover:text-active whitespace-nowrap absolute"
           :class="[filtered[key] ? 'font-bold text-active' : 'text-beige-lighter']">{{ key }} <sup
@@ -97,7 +97,7 @@ useHead({
       </button>
     </p>
     <ul v-if="filteredFunc().length" class="grid z-10 md:grid-cols-2 w-full max-w-7xl gap-5 mx-auto">
-      <li v-for="(portfolio, i) in filteredFunc()" :key="response.list.toString()" @mouseover="hov[i] = true"
+      <li v-for="(portfolio, i) in filteredFunc()" :key="portfolio.slug" @mouseover="hov[i] = true"
         @mouseleave="hov[i] = false">
         <router-link :to="`/work/${portfolio.slug}`" :aria-label="`Go to ${portfolio.title}`">
           <div class="relative w-full h-48 md:h-[24em] overflow-hidden">

@@ -120,7 +120,7 @@ useHead({
 
           <div class="overflow-hidden grid grid-cols-4 gap-1 md:gap-3 flex-shrink md:h-full md:w-1/2 py-5 md:py-0">
             <img class="aspect-square object-cover" v-for="person in people" :src="person"
-              :alt="person.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+              :alt="person.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" :key="person" />
           </div>
         </div>
       </section>
