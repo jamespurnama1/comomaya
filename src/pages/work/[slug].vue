@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useHead } from '@unhead/vue'
 import { useStore } from '../../stores'
 import { reactive, ref } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from "swiper"
 import "swiper/scss/pagination"
 import 'swiper/scss'
@@ -30,11 +31,11 @@ let thisPage = reactive({ content: {} as Content });
 const modules = [Pagination]
 
 useHead({
-  title: `COMOMAYA - ${thisPage.content.title}`,
+  title: `COMOMAYA - ${thisPage.content ? thisPage.content.title : 'Works'}`,
   meta: [
     {
       name: 'description',
-      content: thisPage.content.metadata.description,
+      content: thisPage.content.metadata ? thisPage.content.metadata.description : 'A creative boutique agency building powerful brands',
     },
   ],
 })
