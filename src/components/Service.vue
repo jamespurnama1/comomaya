@@ -71,10 +71,6 @@ function schema() {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "accessMode": "visual",
-      "MainContentofPage": {
-        "@type": "WebPageElement",
-        "cssSelector": "#works",
-      },
       "mainEntity": {
         "@type": "ItemList",
         "itemListElement": [...hasPart.value]
