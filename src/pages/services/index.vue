@@ -40,6 +40,10 @@ import { useStore } from '../../stores';
 
 const store = useStore();
 
+if (!store.isFetched) {
+store.load();
+}
+
 const services = [
   "design",
   "identity",
@@ -91,10 +95,6 @@ onBeforeUnmount(() => {
   if (tl) tl.kill()
 });
 
-if (!store.isFetched) {
-  store.load();
-}
-
 useHead({
   title: () => `Services - COMOMAYA`,
   meta: [
@@ -106,6 +106,4 @@ useHead({
 });
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

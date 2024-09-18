@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import { useSchemaOrg } from '@unhead/schema-org';
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useStore } from '../stores';
 
 const store = useStore();
@@ -43,6 +43,12 @@ const services = ref([] as service[] | undefined);
 watch(() => store.getServices, (x) => {
   if (!x || !x.length) return
   services.value = [...x];
+  schema();
+})
+
+onMounted(() => {
+  if (!store.getServices || !store.getServices.length) return
+  services.value = [...store.getServices];
   schema();
 })
 

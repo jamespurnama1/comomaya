@@ -87,7 +87,7 @@ function scrollDown() {
 				class="object-cover w-full h-full relative brightness-75" />
 		</div>
 		<Splash />
-		<Service v-if="store.isFetched" :service="store.getServices" />
+		<Service v-if="store.isFetched" />
 		<RMC />
 		<Brands />
 		<Testimonials />
