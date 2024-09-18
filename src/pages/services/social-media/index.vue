@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
+const route = useRoute();
 
 useHead({
-  title: 'COMOMAYA - Social Media',
+  title: 'Social Media - COMOMAYA',
   meta: [
     {
       name: 'description',
       content: 'Whether it is a small-scale business venture or a giant corporation, digital marketing is described as the engine that drives businesses today.',
     },
+    {
+      property: 'og:title',
+      content: 'Social Media - COMOMAYA'
+    },
+    {
+      property: 'og:description',
+      content: "Whether it is a small-scale business venture or a giant corporation, digital marketing is described as the engine that drives businesses today."
+    },
+    {
+      property: 'og:url',
+      content: 'https://www.comomaya.com/services/social-media'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:site_name',
+      content: 'COMOMAYA'
+    },
   ],
 })
+
+useSchemaOrg([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "Service",
+    "url": `https://www.comomaya.com/services/${route.params.slug}`,
+    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "name": "Social Media",
+    "description": "Whether it is a small-scale business venture or a giant corporation, digital marketing is described as the engine that drives businesses today.",
+  }
+])
 
 onMounted(() => {
   if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) return

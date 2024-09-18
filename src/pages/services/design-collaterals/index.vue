@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
+const route = useRoute();
 
 useHead({
-  title: 'COMOMAYA - Design Identity',
+  title: 'Design Collaterals - COMOMAYA',
   meta: [
     {
       name: 'description',
       content: 'Design is the art of visual communication.',
     },
+    {
+      property: 'og:title',
+      content: 'Design Collaterals - COMOMAYA'
+    },
+    {
+      property: 'og:description',
+      content: 'Design is the art of visual communication.'
+    },
+    {
+      property: 'og:url',
+      content: 'https://www.comomaya.com/services/design-collaterals'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:site_name',
+      content: 'COMOMAYA'
+    },
   ],
 })
+
+useSchemaOrg([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "Service",
+    "url": `https://www.comomaya.com/services/${route.params.slug}`,
+    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "name": "Design Collaterals",
+    "description": "Design is the art of visual communication.",
+  }
+])
 
 onMounted(() => {
   if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) return

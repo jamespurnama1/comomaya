@@ -112,3 +112,13 @@ interface List {
   },
   total: number
 }
+
+interface creativeWork {
+  '@type': 'ListItem';
+  additionalType: 'CreativeWork';
+  name: string;
+  url: string;
+  identifier: string;
+  description: string;
+  image: URL;
+}

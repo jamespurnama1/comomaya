@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { useRouter } from 'vue-router';
 import axios, { AxiosResponse } from 'axios';
 import { useStore } from '../../stores';
+import { useSchemaOrg } from '@unhead/schema-org';
 
 const store = useStore()
 const router = useRouter();
@@ -74,10 +75,29 @@ onMounted(() => {
       stagger: 0.2,
     })
   }
+
+  useSchemaOrg([
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "Service",
+        "name": "COMOMAYA",
+        "url": "https://www.comomaya.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "General Inquiry",
+          "email": "ridhisain@comomaya.com",
+          "telephone": "+65-9424-5994",
+          "availableLanguage": ["English", "Hindi"]
+        },
+      }
+    }
+  ])
 })
 
 useHead({
-  title: 'COMOMAYA - Contact Us',
+  title: 'Contact Us - COMOMAYA',
 })
 
 </script>

@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
+const route = useRoute();
 
 useHead({
-  title: 'COMOMAYA - Naming & Copy',
+  title: 'Naming & Copy - COMOMAYA',
   meta: [
     {
       name: 'description',
       content: 'Having creative copywriting becomes more important than ever in this fast world.',
     },
+    {
+      property: 'og:title',
+      content: 'Naming & Copy - COMOMAYA'
+    },
+    {
+      property: 'og:description',
+      content: 'Having creative copywriting becomes more important than ever in this fast world.'
+    },
+    {
+      property: 'og:url',
+      content: 'https://www.comomaya.com/services/naming-copy'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:site_name',
+      content: 'COMOMAYA'
+    },
   ],
 })
+
+useSchemaOrg([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "Service",
+    "url": `https://www.comomaya.com/services/${route.params.slug}`,
+    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "name": "Naming & Copy",
+    "description": "Having creative copywriting becomes more important than ever in this fast world.",
+  }
+])
 
 onMounted(() => {
   if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) return

@@ -18,8 +18,8 @@
         delay: 8000,
         disableOnInteraction: false,
       }" :loop="true" :autoHeight="true" :simulateTouch="false" :modules="modules" ref="swiperDOM">
-        <swiper-slide class="h-full py-10 flex flex-col justify-center align-middle select-none"
-          v-for="(items, i) in store.getTestimonials">
+        <swiper-slide :key="items.metadata.quote" class="h-full py-10 flex flex-col justify-center align-middle select-none"
+          v-for="(items) in store.getTestimonials">
           <blockquote class="md:leading-10 text-base md:text-2xl lg:text-center text-beige-lighter my-auto"
             v-html="`&quot;${items.metadata.quote.replace(/\s\w+[.!?]?$/, '')}&nbsp;${items.metadata.quote.split(' ').pop()}&quot;`" />
           <h2 class="text-active md:px-0 mt-7 font-medium text-base tracking-wider text-left lg:text-center"
@@ -38,7 +38,7 @@ import 'swiper/scss';
 import { ref, type Ref } from 'vue';
 import { useStore } from '../stores';
 
-const store = useStore()
+const store = useStore();
 if (!store.isFetched) store.load()
 
 const swiperDOM = ref(null) as Ref<null | typeof Swiper>

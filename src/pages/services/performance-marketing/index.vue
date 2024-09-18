@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
+const route = useRoute();
 
 useHead({
-  title: 'COMOMAYA - Performance Marketing',
+  title: 'Performance Marketing - COMOMAYA',
   meta: [
     {
       name: 'description',
       content: "Search Engine Optimization (SEO) is one of the most important aspects of web development in today's world.",
     },
+    {
+      property: 'og:title',
+      content: 'Performance Marketing - COMOMAYA'
+    },
+    {
+      property: 'og:description',
+      content: "Search Engine Optimization (SEO) is one of the most important aspects of web development in today's world."
+    },
+    {
+      property: 'og:url',
+      content: 'https://www.comomaya.com/services/performance-marketing'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:site_name',
+      content: 'COMOMAYA'
+    },
   ],
 })
+
+useSchemaOrg([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "Service",
+    "url": `https://www.comomaya.com/services/${route.params.slug}`,
+    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "name": "Performance Marketing",
+    "description": "Search Engine Optimization (SEO) is one of the most important aspects of web development in today's world.",
+  }
+])
 
 onMounted(() => {
   if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) return

@@ -3,6 +3,7 @@ import { useHead } from '@unhead/vue'
 import { onMounted, onBeforeUnmount, reactive, ref, type Ref, nextTick } from 'vue';
 import axios, { AxiosResponse } from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { useSchemaOrg } from '@unhead/schema-org';
 
 const filterList = reactive({
   "Strategy": 0,
@@ -26,16 +27,45 @@ const filtered = ref({
   "Digital": false,
 } as { [key in type]: boolean })
 
-const response = ref({ list: [] as featured[] | never[] })
+const response = ref({ list: [] as featured[] | never[] });
 
+const hasPart = ref([] as creativeWork[]);
 
 async function load() {
   axios.get(`https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects/64803dec2fb5fafdbb9670bc?read_key=${import.meta.env.VITE_COSMIC_KEY}&depth=1&props=metadata`, { withCredentials: false })
     .then((res: AxiosResponse<List>) => {
       response.value.list = res.data.object.metadata.list
-      response.value.list.forEach(x => x.metadata.typejson.type.forEach((y) => {
-        if (typeof filterList[y] === 'number') filterList[y]++
-      }))
+      response.value.list.forEach(x => {
+        hasPart.value.push({
+          "@type": "ListItem",
+          "additionalType": "CreativeWork",
+          "name": x.title,
+          "url": `https://www.comomaya.com/work/${x.slug}`,
+          "identifier": `https://www.comomaya.com/work/${x.slug}`,
+          "description": x.metadata.description,
+          "image": x.thumbnail
+        })
+        x.metadata.typejson.type.forEach((y) => {
+          if (typeof filterList[y] === 'number') filterList[y]++
+        })
+      })
+
+      useSchemaOrg([
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "accessMode": "visual",
+          "MainContentofPage": {
+            "@type": "WebPageElement",
+            "cssSelector": "#works",
+          },
+          "mainEntityOfPage": {
+            "@type": "ItemList",
+            "itemListElement": [...hasPart.value]
+          }
+        }
+      ])
+
       filteredFunc()
     }).catch((err) => {
       console.error(err)
@@ -61,12 +91,10 @@ function clearFilter() {
 
 onMounted(() => {
   load()
-  // gsap.to('html', { backgroundColor: "#F2F2F1" })
-  // document.documentElement.setAttribute('data-theme', 'beige');
 })
 
 useHead({
-  title: 'COMOMAYA - Work',
+  title: 'Work - COMOMAYA',
 })
 </script>
 
@@ -83,12 +111,12 @@ useHead({
           :class="[filtered[key] ? 'font-bold text-active' : 'text-beige-lighter']">{{ key }} <sup
             :class="[filtered[key] ? 'bg-active !text-blue' : 'bg-beige-lighter group-hover:bg-active !text-blue']"
             v-if="typeof value === 'number'">{{ value }}</sup>{{ (i + 1 !== Object.keys(filterList).length) ||
-          Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
+              Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
         <label class="font-semibold whitespace-nowrap opacity-0"
           :class="[filtered[key] ? 'font-bold text-active' : 'text-beige-lighter']">{{ key }} <sup
             :class="[filtered[key] ? 'bg-active !text-blue' : 'bg-beige-lighter group-hover:bg-active !text-blue']"
             v-if="typeof value === 'number'">{{ value }}</sup>{{ (i + 1 !== Object.keys(filterList).length) ||
-          Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
+              Object.values(filtered).some(v => v === true) ? ', ' : '' }} </label>
         <wbr>
       </span>
       <button v-if="Object.values(filtered).some(v => v === true)" @click="clearFilter()"
@@ -96,7 +124,7 @@ useHead({
         <font-awesome-icon :icon="['fas', 'square-xmark']" size="sm" class="" /> Clear filters
       </button>
     </p>
-    <ul v-if="filteredFunc().length" class="grid z-10 md:grid-cols-2 w-full max-w-7xl gap-5 mx-auto">
+    <ul v-if="filteredFunc().length" class="grid z-10 md:grid-cols-2 w-full max-w-7xl gap-5 mx-auto" id="works">
       <li v-for="(portfolio, i) in filteredFunc()" :key="portfolio.slug" @mouseover="hov[i] = true"
         @mouseleave="hov[i] = false">
         <router-link :to="`/work/${portfolio.slug}`" :aria-label="`Go to ${portfolio.title}`">

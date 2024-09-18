@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
+const route = useRoute();
 
 useHead({
-  title: 'COMOMAYA - Visual Identity',
+  title: 'Visual Identity - COMOMAYA',
   meta: [
     {
       name: 'description',
       content: 'Visual Identity Design encompasses your whole corporate identity.',
     },
+    {
+      property: 'og:title',
+      content: 'Visual Identity - COMOMAYA'
+    },
+    {
+      property: 'og:description',
+      content: "Visual Identity Design encompasses your whole corporate identity."
+    },
+    {
+      property: 'og:url',
+      content: 'https://www.comomaya.com/services/visual-identity'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:site_name',
+      content: 'COMOMAYA'
+    },
   ],
 })
+
+useSchemaOrg([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "Service",
+    "url": `https://www.comomaya.com/services/${route.params.slug}`,
+    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "name": "Visual Identity",
+    "description": "Visual Identity Design encompasses your whole corporate identity.",
+  }
+])
 
 onMounted(() => {
   if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) return
@@ -28,7 +62,7 @@ onMounted(() => {
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
         <h1 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3 uppercase">Visual Identity</h1>
         <h2 class="split max-w-4xl text-active text-5xl md:text-4xl lg:text-7xl font-extrabold overflow-hidden">
-          Visual Identity Design encompasses your whole corporate identity.
+          Visual Identity Design encompasses your whole corporate&nbsp;identity.
         </h2>
         <p class="mt-5 text-white">
           Brand &amp; visual identity design is at the heart of your corporate identity, and COMOMAYA, a leading design

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onUpdated, ref, reactive, onMounted, computed, type Ref, watch } from 'vue'
-import { useHead } from '@unhead/vue'
+import { useHead, useSeoMeta } from '@unhead/vue'
 import { useRouter, useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 import { useStore } from './stores';
+import { useSchemaOrg } from '@unhead/schema-org'
 
 const router = useRouter()
 const route = useRoute()
@@ -17,6 +18,31 @@ useHead({
       content: 'A creative boutique agency building powerful brands',
     },
   ],
+})
+
+useSchemaOrg([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.comomaya.com",
+    "url": "https://www.comomaya.com",
+    "serviceType": "Boutique Creative Agency",
+    "sameAs": [
+      "https://www.instagram.com/comomaya",
+      "https://www.linkedin.com/company/comomaya"
+    ],
+    "logo": "https://www.comomaya.com/cropped-Comomaya_Symbol_Black_HD-270x270.png",
+    "name": "COMOMAYA",
+    "description": "A creative boutique agency building powerful brands",
+    "email": "ridhisain@comomaya.com",
+    "telephone": "+65-9424-5994"
+  }
+])
+
+useSeoMeta({
+  charset: 'utf-8',
+  description: 'A creative boutique agency building powerful brands',
+  ogImage: '',
 })
 
 const pop = ref(false)

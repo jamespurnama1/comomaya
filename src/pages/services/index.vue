@@ -11,7 +11,8 @@
           our <strong>services</strong>
         </h1>
         <p class="text-black md:text-3xl 2xl:text-5xl xl:pb-10 lg:max-w-[570px] font-bold">
-          At our core, we believe exceptional branding &amp; design should be accessible to all — whether you're a budding
+          At our core, we believe exceptional branding &amp; design should be accessible to all — whether you're a
+          budding
           startup or a thriving&nbsp;corporation.
         </p>
       </div>
@@ -19,7 +20,7 @@
       <div
         class="absolute pointer-events-none w-full xl:w-1/2 p-0 m-0 bg-beige lg:my-auto flex justify-center lg:justify-end gap-3 text-beige-lighter h-full right-9 lg:right-20 xl:right-36 top-0">
         <ul class="services-container overflow-hidden relative pb-10 h-full w-full">
-          <li v-for="value in [].concat(...Array(3).fill(services))"
+          <li :key="value" v-for="value in [].concat(...Array(3).fill(services))"
             class="service mb-1 font-extrabold text-blue text-xl md:text-5xl 2xl:text-7xl text-right whitespace-nowrap">
             {{ value }}<span class="text-active">.</span></li>
         </ul>
@@ -27,13 +28,17 @@
 
     </section>
     <span id="startup" />
-    <Service />
+    <Service v-if="store.isFetched" />
   </main>
 </template>
 
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from 'vue';
 import { gsap } from 'gsap';
+import { useHead } from '@unhead/vue';
+import { useStore } from '../../stores';
+
+const store = useStore();
 
 const services = [
   "design",
@@ -60,7 +65,6 @@ function checkHeight() {
   containerHeight.value = (document.querySelector('.services-container') as HTMLUListElement).offsetHeight;
 }
 
-
 onMounted(() => {
   checkHeight();
   document.addEventListener('resize', checkHeight)
@@ -85,7 +89,21 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   if (tl) tl.kill()
-})
+});
+
+if (!store.isFetched) {
+  store.load();
+}
+
+useHead({
+  title: () => `Services - COMOMAYA`,
+  meta: [
+    {
+      name: 'description',
+      content: "At our core, we believe exceptional branding & design should be accessible to all — whether you're a budding startup or a thriving corporation."
+    },
+  ],
+});
 </script>
 
 <style lang="scss">

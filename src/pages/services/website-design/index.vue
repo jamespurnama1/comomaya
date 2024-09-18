@@ -6,11 +6,31 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 useHead({
-  title: 'COMOMAYA - Website Design',
+  title: 'Website Design - COMOMAYA',
   meta: [
     {
       name: 'description',
       content: 'Website design involves the planning and creation of websites using several different skills.',
+    },
+    {
+      property: 'og:title',
+      content: 'Website Design - COMOMAYA'
+    },
+    {
+      property: 'og:description',
+      content: "Website design involves the planning and creation of websites using several different skills."
+    },
+    {
+      property: 'og:url',
+      content: 'https://www.comomaya.com/services/website-design'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:site_name',
+      content: 'COMOMAYA'
     },
   ],
 })

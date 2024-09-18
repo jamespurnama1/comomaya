@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 
 const router = useRouter();
+const route = useRoute();
 
 useHead({
-  title: 'COMOMAYA - Packaging Design',
+  title: 'Packaging Design - COMOMAYA',
   meta: [
     {
       name: 'description',
       content: "Package design is all about planning and formulating the construction and graphical elements of a product's package.",
     },
+    {
+      property: 'og:title',
+      content: 'Packaging Design - COMOMAYA'
+    },
+    {
+      property: 'og:description',
+      content: "Package design is all about planning and formulating the construction and graphical elements of a product's package."
+    },
+    {
+      property: 'og:url',
+      content: 'https://www.comomaya.com/services/packaging-design'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:site_name',
+      content: 'COMOMAYA'
+    },
   ],
 })
+
+useSchemaOrg([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "Service",
+    "url": `https://www.comomaya.com/services/${route.params.slug}`,
+    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "name": "Packaging Design",
+    "description": "Package design is all about planning and formulating the construction and graphical elements of a product's package.",
+  }
+])
 
 onMounted(() => {
   if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) return

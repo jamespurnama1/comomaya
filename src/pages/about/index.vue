@@ -1,14 +1,48 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import { useStore } from '../../stores';
+import { useSchemaOrg } from '@unhead/schema-org';
 
 const store = useStore()
 
 const people = Object.values(import.meta.glob('@/assets/people/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
 
 useHead({
-  title: 'COMOMAYA - About',
+  title: 'About - COMOMAYA',
 })
+
+useSchemaOrg([
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Service",
+      "name": "COMOMAYA",
+      "url": "https://www.comomaya.com",
+      "logo": "https://www.comomaya.com/cropped-Comomaya_Symbol_Black_HD-270x270.png",
+      "description": "A creative boutique agency building powerful brands",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "General Inquiry",
+        "email": "ridhisain@comomaya.com",
+        "telephone": "+65-9424-5994",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/comomaya",
+        "https://www.linkedin.com/company/comomaya"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Ridhi Sain",
+        "jobTitle": "Founder & Creative",
+        "url": "https://www.comomaya.com/about#ridhi"
+      },
+      "foundingDate": "2022-01-01",
+      "about": "Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with some of the best talent in the industry and across the globe."
+    }
+  }
+])
 </script>
 
 <template>
@@ -24,7 +58,7 @@ useHead({
 
       <!--- RIDHI --->
 
-      <section class="bg-beige-lighter overflow-visible w-full">
+      <section class="bg-beige-lighter overflow-visible w-full" id="ridhi">
         <div
           class="max-w-[1920px] flex gap-8 md:gap-32 py-16 flex-col-reverse items-start justify-end md:flex-row-reverse mx-auto px-9 lg:px-20 xl:px-36">
           <div class="md:w-2/3 my-auto md:pt-16">
