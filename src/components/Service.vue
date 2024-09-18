@@ -57,7 +57,7 @@ function schema() {
 
   services.value.forEach(x => {
     hasPart.value.push({
-      "@type": "ListItem",
+      "@type": "Service",
       "name": x.title,
       "url": `https://www.comomaya.com/services/${x.slug}`,
       "identifier": `https://www.comomaya.com/services/${x.slug}`,
@@ -75,7 +75,7 @@ function schema() {
         "@type": "WebPageElement",
         "cssSelector": "#works",
       },
-      "mainEntityOfPage": {
+      "mainEntity": {
         "@type": "ItemList",
         "itemListElement": [...hasPart.value]
       }

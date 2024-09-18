@@ -81,7 +81,7 @@ onMounted(() => {
       "@context": "https://schema.org",
       "@type": "ContactPage",
       "mainEntity": {
-        "@type": "Service",
+        "@type": "Organization",
         "name": "COMOMAYA",
         "url": "https://www.comomaya.com",
         "contactPoint": {

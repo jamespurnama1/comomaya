@@ -37,8 +37,7 @@ async function load() {
       response.value.list = res.data.object.metadata.list
       response.value.list.forEach(x => {
         hasPart.value.push({
-          "@type": "ListItem",
-          "additionalType": "CreativeWork",
+          "@type": "CreativeWork",
           "name": x.title,
           "url": `https://www.comomaya.com/work/${x.slug}`,
           "identifier": `https://www.comomaya.com/work/${x.slug}`,
@@ -59,7 +58,7 @@ async function load() {
             "@type": "WebPageElement",
             "cssSelector": "#works",
           },
-          "mainEntityOfPage": {
+          "mainEntity": {
             "@type": "ItemList",
             "itemListElement": [...hasPart.value]
           }

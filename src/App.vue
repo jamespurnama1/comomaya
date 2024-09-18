@@ -23,10 +23,9 @@ useHead({
 useSchemaOrg([
   {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "Organization",
     "@id": "https://www.comomaya.com",
     "url": "https://www.comomaya.com",
-    "serviceType": "Boutique Creative Agency",
     "sameAs": [
       "https://www.instagram.com/comomaya",
       "https://www.linkedin.com/company/comomaya"

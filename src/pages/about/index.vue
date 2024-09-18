@@ -16,7 +16,7 @@ useSchemaOrg([
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "mainEntity": {
-      "@type": "Service",
+      "@type": "Organization",
       "name": "COMOMAYA",
       "url": "https://www.comomaya.com",
       "logo": "https://www.comomaya.com/cropped-Comomaya_Symbol_Black_HD-270x270.png",
