@@ -114,7 +114,7 @@ interface List {
 }
 
 interface creativeWork {
-  '@type': 'ItemPage' | 'Service';
+  '@type': 'CreativeWork' | 'Service';
   additionalType: 'CreativeWork';
   name: string;
   url: string;
