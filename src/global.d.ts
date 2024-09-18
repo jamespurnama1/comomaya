@@ -115,7 +115,6 @@ interface List {
 
 interface creativeWork {
   '@type': 'CreativeWork' | 'Service';
-  additionalType: 'CreativeWork';
   name: string;
   url: string;
   identifier: string;
