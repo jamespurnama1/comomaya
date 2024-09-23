@@ -8,7 +8,7 @@ const router = useRouter();
 const route = useRoute();
 
 useHead({
-  title: 'Social Media - COMOMAYA',
+  title: 'Digital Marketing - COMOMAYA',
   meta: [
     {
       name: 'description',
@@ -16,7 +16,7 @@ useHead({
     },
     {
       property: 'og:title',
-      content: 'Social Media - COMOMAYA'
+      content: 'Digital Marketing - COMOMAYA'
     },
     {
       property: 'og:description',
@@ -24,7 +24,7 @@ useHead({
     },
     {
       property: 'og:url',
-      content: 'https://www.comomaya.com/services/social-media'
+      content: 'https://www.comomaya.com/services/digital-marketing'
     },
     {
       property: 'og:type',
@@ -44,7 +44,7 @@ useSchemaOrg([
     "@id": "Service",
     "url": `https://www.comomaya.com/services/${route.params.slug}`,
     "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
-    "name": "Social Media",
+    "name": "Digital Marketing",
     "description": "Whether it is a small-scale business venture or a giant corporation, digital marketing is described as the engine that drives businesses today.",
   }
 ])
@@ -60,7 +60,7 @@ onMounted(() => {
   <main class="bg-stone-300">
     <div class="max-w-[1920px] mx-auto px-9 lg:px-20 xl:px-36 flex flex-col justify-center pt-24 md:pt-20">
       <div class="min-h-[50vh] md:min-h-[75vh] justify-center flex flex-col">
-        <h1 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3 uppercase">Social Media</h1>
+        <h1 class="text-white text-lg md:text-xl font-semibold tracking-widest md:mb-3 uppercase">Digital Marketing</h1>
         <h2 class="split max-w-4xl text-active text-5xl md:text-4xl lg:text-7xl font-extrabold overflow-hidden">
           Whether it is a small-scale business venture or a giant corporation, digital marketing is described as the
           engine that drives businesses today.
