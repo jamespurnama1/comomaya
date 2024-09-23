@@ -12,7 +12,7 @@ const filterList = reactive({
   "Identity": 0,
   "Packaging": 0,
   "Website": 0,
-  "Digital": 0,
+  "Digital Marketing": 0,
 } as { [key in type]: number })
 
 const hov = ref([]) as Ref<boolean[] | never[]>
@@ -24,7 +24,7 @@ const filtered = ref({
   "Identity": false,
   "Packaging": false,
   "Website": false,
-  "Digital": false,
+  "Digital Marketing": false,
 } as { [key in type]: boolean })
 
 const response = ref({ list: [] as featured[] | never[] });

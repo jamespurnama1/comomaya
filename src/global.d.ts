@@ -6,7 +6,7 @@ type type =
   "Identity" |
   "Packaging" |
   "Website" |
-  "Digital";
+  "Digital Marketing";
 
 interface featured {
   id: string,
