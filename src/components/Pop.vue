@@ -1,11 +1,18 @@
 <template>
-  <div
-    class="fixed top-1/2 -translate-y-1/2 right-0 z-40 p-5 md:p-12 bg-beige-lighter flex items-center justify-center gap-3 md:gap-10 flex-col max-w-[80%] md:max-w-full drop-shadow-2xl bg-opacity-85 scale-75 origin-right">
-    <p class="text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3 pr-5">
+  <div :class="[done ? 'bg-stone-300' : 'bg-beige-lighter']"
+    class="fixed top-1/2 -translate-y-1/2 right-0 z-40 p-5 md:p-12 flex items-center justify-center gap-3 md:gap-10 flex-col max-w-[80%] md:max-w-full drop-shadow-2xl bg-opacity-85 scale-75 origin-right">
+    <p :class="[done ? 'opacity-0' : '']"
+      class="text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3 pr-5 transition-opacity">
       Let's connect
       over&nbsp;coffee...
     </p>
-    <form class="flex flex-col flex-wrap w-full content-start items-center justify-center">
+    <transition name="fade">
+      <p v-if="done" class="absolute top-5 md:top-12 text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3 pr-5">
+        Connect soon!
+      </p>
+    </transition>
+    <form key="form" :class="[done ? 'opacity-0' : '']"
+      class="flex flex-col flex-wrap w-full content-start items-center justify-center transition-opacity">
       <input v-model="name"
         class="bg-white autofill:bg-white w-full text-black placeholder-stone-700 md:text-xl focus:outline-none h-6 md:h-12 placeholder:text-blue placeholder:font-semibold px-2 py-4"
         :class="[incomplete === 'name' ? 'mb-1' : 'md:mb-7 mb-4']" type="text" name="name" placeholder="Name">
@@ -42,6 +49,12 @@
         type="submit" @click.prevent="handleSubmit()">submit</button>
       <img v-else class="h-12 w-12 my-12 object-contain spin" src="@/assets/loader.svg" alt="loading" />
     </form>
+    <transition name="scale">
+      <Vue3Lottie v-show="done" :key="done"
+        class="check absolute duration-700 h-5 object-contain md:h-6 img-responsive origin-center"
+        animationLink="./assets/check.json" :height="store.getWidth > 1024 ? 250 : 150"
+        :width="store.getWidth > 1024 ? 250 : 150" :loop="false" />
+    </transition>
     <button class="absolute top-5 right-5 my-3 hover:scale-125 hover:text-active transition-all duration-200">
       <font-awesome-icon @click="closeModal()" :icon="['fas', 'xmark']" size="xl" />
     </button>
@@ -70,6 +83,7 @@ const message = ref('Message');
 const error = ref(null as null | string);
 const incomplete = ref(null as null | string);
 const loading = ref(false);
+const done = ref(false);
 
 function handleSubmit() {
   incomplete.value = null
@@ -90,8 +104,12 @@ function handleSubmit() {
       .then((response: AxiosResponse) => {
         if (response.status === 200) {
           store.form = { name: name.value, email: email.value, phone: phone.value }
-          closeModal()
-          router.push('/thank-you')
+          done.value = true;
+          setTimeout(() => {
+            store.submitted = true;
+            closeModal()
+            router.push('/thank-you');
+          }, 1000)
         } else {
           throw new Error(`${response.status.toString()} error. Please try again later.`);
         }

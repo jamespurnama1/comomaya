@@ -8,6 +8,17 @@
   opacity: 0;
 }
 
+.scale-enter-active,
+.scale-leave-active {
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.3s linear;
+}
+
+.scale-enter-from,
+.scale-leave-to {
+  transform: scale(0);
+  opacity: 0;
+}
+
 .fly-enter-active,
 .fly-leave-active {
   transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.3s linear;

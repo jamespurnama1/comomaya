@@ -326,7 +326,7 @@ const isTransparent = computed(() => {
   <!-- Contact Us -->
 
   <transition name="fade">
-    <button v-if="$route.path !== '/contact' && !pop && !opened" aria-label="Contact Us" @click="openPop()"
+    <button v-if="$route.path !== '/contact' && !pop && !opened && !store.submitted" aria-label="Contact Us" @click="openPop()"
       class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-1/2 bg-active hover:bg-blue right-0 duration-200 transition-all w-auto h-10 z-30 p-3 text-blue hover:text-active group -rotate-90 origin-bottom-right font-bold uppercase">
       <p>Enquiries</p>
     </button>
