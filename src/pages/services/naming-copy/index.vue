@@ -2,10 +2,9 @@
 import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const route = useRoute();
 
 useHead({
   title: 'Naming & Copy - COMOMAYA',
@@ -42,8 +41,8 @@ useSchemaOrg([
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "Service",
-    "url": `https://www.comomaya.com/services/${route.params.slug}`,
-    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "url": `https://www.comomaya.com/services/naming-copy`,
+    "identifier": `https://www.comomaya.com/services/naming-copy`,
     "name": "Naming & Copy",
     "description": "Having creative copywriting becomes more important than ever in this fast world.",
   }

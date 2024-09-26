@@ -2,10 +2,9 @@
 import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const route = useRoute();
 
 useHead({
   title: 'Packaging Design - COMOMAYA',
@@ -42,8 +41,8 @@ useSchemaOrg([
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "Service",
-    "url": `https://www.comomaya.com/services/${route.params.slug}`,
-    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "url": `https://www.comomaya.com/services/packaging-design`,
+    "identifier": `https://www.comomaya.com/services/packaging-design`,
     "name": "Packaging Design",
     "description": "Package design is all about planning and formulating the construction and graphical elements of a product's package.",
   }

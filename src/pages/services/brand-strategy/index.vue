@@ -2,10 +2,9 @@
 import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const route = useRoute();
 
 useHead({
   title: 'Brand Strategy - COMOMAYA',
@@ -42,8 +41,8 @@ useSchemaOrg([
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "Service",
-    "url": `https://www.comomaya.com/services/${route.params.slug}`,
-    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "url": `https://www.comomaya.com/services/brand-strategy`,
+    "identifier": `https://www.comomaya.com/services/brand-strategy`,
     "name": "Brand Strategy",
     "description": "A brand is the most valuable asset of any business.",
   }])

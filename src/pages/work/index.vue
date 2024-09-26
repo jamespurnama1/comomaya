@@ -63,7 +63,9 @@ async function load() {
             "itemListElement": [...hasPart.value]
           }
         }
-      ])
+      ], {
+        tagDuplicateStrategy: 'replace'
+      })
 
       filteredFunc()
     }).catch((err) => {

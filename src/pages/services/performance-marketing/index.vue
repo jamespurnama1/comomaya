@@ -2,10 +2,9 @@
 import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const route = useRoute();
 
 useHead({
   title: 'Performance Marketing - COMOMAYA',
@@ -42,8 +41,8 @@ useSchemaOrg([
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "Service",
-    "url": `https://www.comomaya.com/services/${route.params.slug}`,
-    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "url": `https://www.comomaya.com/services/performance-marketing`,
+    "identifier": `https://www.comomaya.com/services/performance-marketing`,
     "name": "Performance Marketing",
     "description": "Search Engine Optimization (SEO) is one of the most important aspects of web development in today's world.",
   }

@@ -93,7 +93,9 @@ onMounted(() => {
         },
       }
     }
-  ])
+  ], {
+    tagDuplicateStrategy: 'replace'
+  })
 })
 
 useHead({

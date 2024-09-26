@@ -76,6 +76,8 @@ function schema() {
         "itemListElement": [...hasPart.value]
       }
     }
-  ])
+  ], {
+    tagDuplicateStrategy: 'replace'
+  })
 }
 </script>

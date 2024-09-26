@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -29,15 +29,15 @@ interface Content {
 const store = useStore();
 const route = useRoute<'/work/[slug]'>();
 let contentID: number;
-let thisPage = reactive({ content: {} as Content });
+let thisPage = ref({ content: { title: 'Works', thumbnail: '', slug: '', content: '', metadata: { description: 'A creative boutique agency building powerful brands' } } as Content });
 const modules = [Pagination];
 
 useHead({
-  title: () => `${thisPage.content ? thisPage.content.title : 'Works'} - COMOMAYA`,
+  title: () => `${thisPage.value.content.title} - COMOMAYA`,
   meta: [
     {
       name: 'description',
-      content: () => thisPage.content.metadata ? thisPage.content.metadata.description.replace(/&nbsp;|<br>/g, ' ') : 'A creative boutique agency building powerful brands',
+      content: () => thisPage.value.content.metadata.description.replace(/&nbsp;|<br>/g, ' '),
     },
   ],
 })
@@ -48,38 +48,37 @@ async function load() {
   axios.get(`https://api.cosmicjs.com/v3/buckets/comomayacom-production/objects?pretty=true&query=%7B%22type%22:%22portfolios%22%7D&read_key=${import.meta.env.VITE_COSMIC_KEY}&depth=1&props=slug,title,metadata,content,thumbnail`, { withCredentials: false })
     .then((res: AxiosResponse<{ objects: Content[] }>) => {
       contentID = res.data.objects.map(x => x.slug).indexOf(route.params.slug);
-      (thisPage as { content: Content }).content = res.data.objects[contentID];
+      thisPage.value.content = res.data.objects[contentID];
+      if (!thisPage.value.content) return;
       useSchemaOrg([
-        {
-          "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          "@id": "CreativeWork",
-          "url": `https://www.comomaya.com/work/${thisPage.content.slug}`,
-          "identifier": `https://www.comomaya.com/work/${thisPage.content.slug}`,
-          "thumbnailUrl": thisPage.content.thumbnail,
-          "image": thisPage.content.thumbnail,
-          "text": thisPage.content.content,
-          "description": thisPage.content.metadata.description,
-          "name": thisPage.content.title,
-          "headline": thisPage.content.title,
-          "genre": "http://vocab.getty.edu/aat/300418056",
-          "creator": {
-            "@type": "Organization",
-            "name": "COMOMAYA"
-          }
-        }
-      ])
+        schema.value
+      ], {
+        tagDuplicateStrategy: 'replace'
+      })
     }).catch((err) => {
       console.error(err)
       return err
     })
 }
 
-function handleResize() {
-  ScrollTrigger.refresh();
-}
-
-let featured = load();
+const schema = computed(() => ({
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": "CreativeWork",
+  "url": `https://www.comomaya.com/work/${thisPage.value.content.slug}`,
+  "identifier": `https://www.comomaya.com/work/${thisPage.value.content.slug}`,
+  "thumbnailUrl": thisPage.value.content.thumbnail,
+  "image": thisPage.value.content.thumbnail,
+  "text": thisPage.value.content.content,
+  "description": thisPage.value.content.metadata.description,
+  "name": thisPage.value.content.title,
+  "headline": thisPage.value.content.title,
+  "genre": "http://vocab.getty.edu/aat/300418056",
+  "creator": {
+    "@type": "Organization",
+    "name": "COMOMAYA"
+  }
+}))
 
 async function loadContent() {
 
@@ -114,11 +113,13 @@ async function loadContent() {
   });
 }
 
+load();
+
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
   document.documentElement.setAttribute('data-theme', 'beige');
 
-  watch(() => thisPage.content, (x) => {
+  watch(() => thisPage.value.content, (x) => {
     if (!x) return
     loadContent()
   })

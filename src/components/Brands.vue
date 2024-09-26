@@ -7,6 +7,15 @@ const globalBrands = Object.values(import.meta.glob('@/assets/brands_desktop/glo
 const boutiqueBrands = Object.values(import.meta.glob('@/assets/brands_desktop/boutique/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
 const globalBrandsMobile = Object.values(import.meta.glob('@/assets/brands_mobile/global/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
 const boutiqueBrandsMobile = Object.values(import.meta.glob('@/assets/brands_mobile/boutique/*.{jpg,png,jpeg,svg,webp}', { as: 'url', eager: true }));
+
+function brandAlt(brand: string): string {
+  const name = brand.match(/([^\/]+)(?=\.\w+$)/);
+  if (name) {
+    return decodeURI(name[0].toString());
+  } else {
+    return '';
+  }
+}
 </script>
 
 <template>
@@ -21,36 +30,37 @@ const boutiqueBrandsMobile = Object.values(import.meta.glob('@/assets/brands_mob
           CORPORATE
           BRANDS</p>
       </span>
-      <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
-        <div v-if="store.getWidth <= 768" v-for="brand in boutiqueBrandsMobile"
-          class="flex justify-center items-center w-full h-min">
-          <img class="object-contain w-20 lg:w-40 h-32 lg:py-5 lg:px-3 p-1" :src="brand"
-            :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
-        </div>
-        <div v-else v-for="brand in boutiqueBrands" class="flex justify-center items-center w-full h-min">
-          <img class="object-contain w-20 lg:w-40 h-32 lg:py-5 lg:px-3 p-1" :src="brand"
-            :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+      <div v-if="store.getWidth <= 768"
+        class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
+        <div :key="brand" v-for="brand in boutiqueBrandsMobile" class="flex justify-center items-center w-full h-min">
+          <img class="object-contain w-20 lg:w-40 h-32 lg:py-5 lg:px-3 p-1" :src="brand" :alt="brandAlt(brand)" />
         </div>
       </div>
-
-      <span>
-        <h2 class="text-blue drama text-5xl md:text-6xl lg:text-7xl font-semibold mt-20 -ml-2">
-          brands <br v-if="store.getWidth <= 768"><strong>we have<br>worked&nbsp;with</strong>
-        </h2>
-        <p class="text-blue text-sm md:text-lg font-semibold tracking-widest text-left">GLOBAL BRANDS</p>
-      </span>
-      <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
-        <div v-if="store.getWidth <= 768" v-for="brand in globalBrandsMobile"
-          class="flex justify-center items-center w-full h-full">
-          <img class="object-contain w-20 lg:w-40 h-32 lg:py-8 lg:px-5 p-1" :src="brand"
-            :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
-        </div>
-        <div v-else v-for="brand in globalBrands" class="flex justify-center items-center w-full h-full">
-          <img class="object-contain w-20 lg:w-40 h-32 lg:py-8 lg:px-5 p-1" :src="brand"
-            :alt="brand.match(/([^\/]+)(?=\.\w+$)/)![0].toString()" />
+      <div v-else
+        class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
+        <div v-for="brand in boutiqueBrands" :key="brand" class="flex justify-center items-center w-full h-min">
+          <img class="object-contain w-20 lg:w-40 h-32 lg:py-5 lg:px-3 p-1" :src="brand" :alt="brandAlt(brand)" />
         </div>
       </div>
+    </div>
 
+    <span>
+      <h2 class="text-blue drama text-5xl md:text-6xl lg:text-7xl font-semibold mt-20 -ml-2">
+        brands <br v-if="store.getWidth <= 768"><strong>we have<br>worked&nbsp;with</strong>
+      </h2>
+      <p class="text-blue text-sm md:text-lg font-semibold tracking-widest text-left">GLOBAL BRANDS</p>
+    </span>
+    <div v-if="store.getWidth <= 768"
+      class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
+      <div :key="brand" v-for="brand in globalBrandsMobile" class="flex justify-center items-center w-full h-full">
+        <img class="object-contain w-20 lg:w-40 h-32 lg:py-8 lg:px-5 p-1" :src="brand" :alt="brandAlt(brand)" />
+      </div>
+    </div>
+    <div v-else
+      class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
+      <div :key="brand" v-for="brand in globalBrands" class="flex justify-center items-center w-full h-full">
+        <img class="object-contain w-20 lg:w-40 h-32 lg:py-8 lg:px-5 p-1" :src="brand" :alt="brandAlt(brand)" />
+      </div>
     </div>
   </section>
 </template>

@@ -2,10 +2,9 @@
 import { useSchemaOrg } from '@unhead/schema-org';
 import { useHead } from '@unhead/vue';
 import { onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const route = useRoute();
 
 useHead({
   title: 'Design Collaterals - COMOMAYA',
@@ -42,8 +41,8 @@ useSchemaOrg([
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "Service",
-    "url": `https://www.comomaya.com/services/${route.params.slug}`,
-    "identifier": `https://www.comomaya.com/services/${route.params.slug}`,
+    "url": `https://www.comomaya.com/services/design-collaterals`,
+    "identifier": `https://www.comomaya.com/services/design-collaterals`,
     "name": "Design Collaterals",
     "description": "Design is the art of visual communication.",
   }

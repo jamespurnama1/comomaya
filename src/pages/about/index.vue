@@ -42,7 +42,9 @@ useSchemaOrg([
       "about": "Headquartered in Singapore, and with an equal footing in India, we cater to both a local and a global clientele that includes Dubai, USA, UK, Australia and more. We work in an organic way, collaborating with some of the best talent in the industry and across the globe."
     }
   }
-])
+], {
+  tagDuplicateStrategy: 'replace'
+})
 </script>
 
 <template>

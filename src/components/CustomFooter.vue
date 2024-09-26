@@ -1,14 +1,14 @@
 <template>
   <footer
     class="flex flex-col items-start justify-start py-12 md:py-24 px-9 lg:px-20 2xl:px-36 lg:mx-auto w-screen gap-12 md:gap-24 z-20 relative"
-    :class="[$route.name === 'work-slug' ? 'bg-stone-300 text-active' : 'bg-beige-normal text-black']">
+    :class="[$route.name === '/work/[slug]' ? 'bg-stone-300 text-active' : 'bg-beige-normal text-black']">
     <ul class="flex gap-8 md:gap-24 md:flex-row flex-col">
       <li class="group"><router-link to="/work">
           <div>
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               WORK</p>
             <p class="font-extrabold text-3xl tracking-tight"
-              :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
+              :class="[$route.name === '/work/[slug]' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               See it here.</p>
           </div>
         </router-link></li>
@@ -17,7 +17,7 @@
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               ABOUT</p>
             <p class="font-extrabold text-3xl tracking-tight -ml-1"
-              :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
+              :class="[$route.name === '/work/[slug]' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               Who we are.</p>
           </div>
         </router-link></li>
@@ -26,7 +26,7 @@
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               SERVICES</p>
             <p class="font-extrabold text-3xl tracking-tight -ml-1"
-              :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
+              :class="[$route.name === '/work/[slug]' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               What we do.</p>
           </div>
         </router-link></li>
@@ -35,7 +35,7 @@
             <p class="text-lg text-stone-500 font-semibold tracking-widest">
               CONTACT</p>
             <p class="font-extrabold text-3xl tracking-tight"
-              :class="[$route.name === 'work-slug' ? 'group-hover:text-blue' : 'group-hover:text-active']">
+              :class="[$route.name === '/work/[slug]' ? 'group-hover:text-blue' : 'group-hover:text-active']">
               Let's chat.</p>
           </div>
         </router-link></li>
