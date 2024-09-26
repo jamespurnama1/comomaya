@@ -31,15 +31,15 @@
 </template>
 
 <script setup lang="ts">
-const modules = [Autoplay]
-import { Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/scss';
-import { ref, type Ref } from 'vue';
-import { useStore } from '../stores';
+  const modules = [Autoplay]
+  import { Autoplay } from 'swiper/modules';
+  import { Swiper, SwiperSlide } from 'swiper/vue'
+  import 'swiper/scss';
+  import { ref, type Ref } from 'vue';
+  import { useStore } from '../stores';
 
-const store = useStore();
-if (!store.isFetched) store.load()
+  const store = useStore();
+  if (!store.isFetched) store.load()
 
-const swiperDOM = ref(null) as Ref<null | typeof Swiper>
+  const swiperDOM = ref(null) as Ref<null | typeof Swiper>
 </script>

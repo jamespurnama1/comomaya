@@ -1,13 +1,15 @@
 /// <reference types="vite-ssg" />
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import VueRouter from 'unplugin-vue-router/vite';
 import { fileURLToPath, URL } from 'url';
 import mkcert from 'vite-plugin-mkcert';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), Pages(), mkcert()],
+  plugins: [VueRouter({
+      /* options */
+    }),vue(), mkcert()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

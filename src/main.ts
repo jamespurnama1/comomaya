@@ -3,7 +3,7 @@ import './style.scss'
 import './fonts.scss'
 import './transition.scss'
 import App from './App.vue'
-import routes from '~pages'
+import { routes } from 'vue-router/auto-routes'
 import { createHead } from '@unhead/vue'
 import posthogPlugin from "./plugins/posthog";
 import CustomFooter from '@/components/CustomFooter.vue';
@@ -26,13 +26,15 @@ const head = createHead()
 library.add(faAngleUp, faSquareXmark, faXmark, faSquareInstagram, faSquareWhatsapp, faAnglesDown, faLinkedin, faWhatsapp, faPhone, faBook, faPencil, faLaptop, faTrophy, faAnglesRight)
 const store = createPinia()
 
+
 // `export const createApp` is required instead of the original `createApp(App).mount('#app')`
 export const createApp = ViteSSG(
   // the root component
   App,
   // vue-router options
   {
-    routes
+    routes,
+    base: import.meta.env.BASE_URL
   },
   // function to have custom setups
   ({ app, router, routes, isClient, initialState }) => {

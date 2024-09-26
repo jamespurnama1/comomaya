@@ -7,7 +7,8 @@
       over&nbsp;coffee...
     </p>
     <transition name="fade">
-      <p v-if="done" class="absolute top-5 md:top-12 text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3 pr-5">
+      <p v-if="done"
+        class="absolute top-5 md:top-12 text-black text-2xl md:text-3xl font-extrabold md:text-center text-balance pt-3 pr-5">
         Connect soon!
       </p>
     </transition>
@@ -35,8 +36,7 @@
         you
         phone&nbsp;number.</label>
 
-      <div contenteditable role="textbox" spellcheck="true" id="message" @input="editMessage"
-        @focus="(e) => { if (message === 'Message') (e.target as HTMLDivElement).textContent = ''; message = '' }"
+      <div contenteditable role="textbox" spellcheck="true" id="message" @input="editMessage" @focus="onFocus"
         class="bg-white autofill:bg-white placeholder-stone-700 md:text-xl resize-none w-full min-h-[24px] md:min-h-[36px] focus:outline-none px-2 py-1 md:py-3"
         :class="[message === 'Message' ? 'text-blue font-semibold' : 'text-black', incomplete === 'message' ? 'mb-1' : 'md:mb-7 mb-4']" />
       <label v-if="incomplete === 'message'" class="text-red mb-1 text-sm md:text-base" for="message">Please
@@ -84,6 +84,11 @@ const error = ref(null as null | string);
 const incomplete = ref(null as null | string);
 const loading = ref(false);
 const done = ref(false);
+
+function onFocus(e: FocusEvent) {
+  if (message.value !== 'Message') return;
+  (e.target as HTMLDivElement).textContent = ''; message.value = '';
+}
 
 function handleSubmit() {
   incomplete.value = null

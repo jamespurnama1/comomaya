@@ -144,13 +144,13 @@ function hoverLink() {
   })
 }
 
-function flip(e: TouchEvent | PointerEvent, touch: boolean, href: string) {
+function flip(e: TouchEvent | MouseEvent, touch: boolean, href: string) {
   if (touch && !touchmoved.value) {
     setTimeout(() => {
       router.push(whatisLink(href))
       handleNav(true);
     }, 600);
-  } else if ((e as PointerEvent).pointerType !== 'touch' && !touchmoved.value) {
+  } else if (!touchmoved.value) {
     router.push(whatisLink(href))
     handleNav(true);
   }
@@ -182,7 +182,7 @@ function handleScrollUp() {
 }
 
 const isBlue = computed(() => {
-  const blue = ['work-slug']
+  const blue = ['/work/[slug]']
   if (opened.value) return false
   return blue.some(item => item === route.name) ? true : false;
 })
@@ -198,7 +198,7 @@ const isTransparent = computed(() => {
 
   <div ref="cursor"
     class="origin-center cursor transform-gpu pointer-events-none z-50 fixed w-16 h-16 -top-8 -left-8 rounded-full opacity-0 transition-transform ease-out"
-    :class="[store.getWidth <= 570 ? '!opacity-0' : '', opened || $route.name === 'work-slug' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
+    :class="[store.getWidth <= 570 ? '!opacity-0' : '', opened || $route.name === '/work/[slug]' ? 'bg-stone-300' : 'bg-active !mix-blend-hard-light', $route.path === '/' && !opened ? 'mix-blend-hard-light' : 'mix-blend-multiply']" />
 
   <!-- Pop -->
 
@@ -258,15 +258,15 @@ const isTransparent = computed(() => {
           class="text-center relative h-min">
           <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
             class="px-5 cube md:my-0 2xl:text-8xl md:text-7xl sm:text-6xl text-5xl leading-[3rem] md:leading-[3.5rem]"
-            @touchend="e => flip(e, true, link)" @click="e => flip(e as PointerEvent, false, link)">
-            <p class="flip">
-              <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-              <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-              <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-            </p>
-            <p class="flop text-active">
-              <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-            </p>
+            @touchend="e => flip(e, true, link)" @click="(e) => flip(e, false, link)">
+              <p class="flip">
+                <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+                <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+                <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+              </p>
+              <p class="flop text-active">
+                <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+              </p>
           </li>
           <li v-if="store.getWidth <= 570" class="px-5 flex items-center justify-center py-5" @click="handleNav(true)">
             <router-link to="/about#grant">
@@ -326,7 +326,8 @@ const isTransparent = computed(() => {
   <!-- Contact Us -->
 
   <transition name="fade">
-    <button v-if="$route.path !== '/contact' && !pop && !opened && !store.submitted" aria-label="Contact Us" @click="openPop()"
+    <button v-if="$route.path !== '/contact' && !pop && !opened && !store.submitted" aria-label="Contact Us"
+      @click="openPop()"
       class="flex justify-center gap-2 md:text-base text-xs items-center fixed bottom-1/2 bg-active hover:bg-blue right-0 duration-200 transition-all w-auto h-10 z-30 p-3 text-blue hover:text-active group -rotate-90 origin-bottom-right font-bold uppercase">
       <p>Enquiries</p>
     </button>
