@@ -43,23 +43,25 @@ function brandAlt(brand: string): string {
         </div>
       </div>
     </div>
-
-    <span>
-      <h2 class="text-blue drama text-5xl md:text-6xl lg:text-7xl font-semibold mt-20 -ml-2">
-        brands <br v-if="store.getWidth <= 768"><strong>we have<br>worked&nbsp;with</strong>
-      </h2>
-      <p class="text-blue text-sm md:text-lg font-semibold tracking-widest text-left">GLOBAL BRANDS</p>
-    </span>
-    <div v-if="store.getWidth <= 768"
-      class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
-      <div :key="brand" v-for="brand in globalBrandsMobile" class="flex justify-center items-center w-full h-full">
-        <img class="object-contain w-20 lg:w-40 h-32 lg:py-8 lg:px-5 p-1" :src="brand" :alt="brandAlt(brand)" />
+    <div
+      class="max-w-[1920px] mx-auto flex flex-col justify-center relative min-h-[70vh] px-9 md:px-20 xl:px-36 py-10 md:py-20 lg:pt-16 gap-2 md:gap-10">
+      <span>
+        <h2 class="text-blue drama text-5xl md:text-6xl lg:text-7xl font-semibold mt-20 -ml-2">
+          brands <br v-if="store.getWidth <= 768"><strong>we have<br>worked&nbsp;with</strong>
+        </h2>
+        <p class="text-blue text-sm md:text-lg font-semibold tracking-widest text-left">GLOBAL BRANDS</p>
+      </span>
+      <div v-if="store.getWidth <= 768"
+        class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
+        <div :key="brand" v-for="brand in globalBrandsMobile" class="flex justify-center items-center w-full h-full">
+          <img class="object-contain w-20 lg:w-40 h-32 lg:py-8 lg:px-5 p-1" :src="brand" :alt="brandAlt(brand)" />
+        </div>
       </div>
-    </div>
-    <div v-else
-      class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
-      <div :key="brand" v-for="brand in globalBrands" class="flex justify-center items-center w-full h-full">
-        <img class="object-contain w-20 lg:w-40 h-32 lg:py-8 lg:px-5 p-1" :src="brand" :alt="brandAlt(brand)" />
+      <div v-else
+        class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-x-8 md:gap-y-12 lg:gap-x-10 lg:gap-y-16">
+        <div :key="brand" v-for="brand in globalBrands" class="flex justify-center items-center w-full h-full">
+          <img class="object-contain w-20 lg:w-40 h-32 lg:py-8 lg:px-5 p-1" :src="brand" :alt="brandAlt(brand)" />
+        </div>
       </div>
     </div>
   </section>

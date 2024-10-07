@@ -35,9 +35,9 @@
         <!-- 1B -->
         <div class="row-start-2 sm:row-start-1 row-span-1 col-start-1 sm:col-start-2 col-span-2 sm:col-span-1">
           <picture class="">
-            <source srcset=" /assets/fairtrade.webp" type="image/webp">
-            <source srcset="/assets/fairtrade.jpeg" type="image/jpeg">
-            <img class="object-cover w-full h-full object-left" src="/assets/fairtrade.jpeg" alt="Fairtrade">
+            <source srcset=" /assets/mirror-mirror.webp" type="image/webp">
+            <source srcset="/assets/mirror-mirror.jpg" type="image/jpeg">
+            <img class="object-cover w-full h-full object-left" src="/assets/mirror-mirror.jpg" alt="Mirror Mirror">
           </picture>
         </div>
 
