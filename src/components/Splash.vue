@@ -6,11 +6,12 @@
         HELLO
       </p>
 
-      <div class="grid grid-cols-1 sm:grid-rows-[min-content_max(1fr,10vh)_0.85fr] gap-5 w-full sm:grid-cols-[4fr_3fr]">
+      <div
+        class="grid grid-cols-1 grid-rows-[min-content_0.9fr_min-content] sm:grid-rows-[min-content_0.9fr_min-content] gap-5 w-full sm:grid-cols-[4fr_3fr]">
 
         <!-- 1A -->
         <div class="row-span-1 col-start-1 col-span-2 sm:col-span-1">
-          <div class="h-min-0 w-min-0">
+          <div class="min-h-0 w-full">
             <h1
               class="split drama text-3xl sm:text-4xl md:text-5xl 2xl:text-7xl text-active font-extrabold overflow-hidden relative !leading-[0.85]">
               <strong><span>We</span><span>are</span><span>COMOMAYA,</span><br><span>a</span><span>Singapore-based</span><br><span>boutique</span><span>creative</span><br><span>agency</span><span>just</span><span>like</span><br><span>any</span><span>other.</span><br><span
