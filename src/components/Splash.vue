@@ -37,7 +37,7 @@
           <picture class="">
             <source srcset=" /assets/mirror-mirror.webp" type="image/webp">
             <source srcset="/assets/mirror-mirror.jpg" type="image/jpeg">
-            <img class="object-cover w-full h-full object-left" src="/assets/mirror-mirror.jpg" alt="Mirror Mirror">
+            <img class="object-cover w-full h-full" src="/assets/mirror-mirror.jpg" alt="Mirror Mirror">
           </picture>
         </div>
 
