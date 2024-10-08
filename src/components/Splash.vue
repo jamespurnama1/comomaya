@@ -43,7 +43,7 @@
 
         <!-- 2A -->
         <div
-          class="flex flex-col sm:col-start-2 col-span-2 sm:col-span-1 row-start-3 sm:row-start-2 row-span-1 h-full p-8 md:pt-12 bg-beige-lighter">
+          class="flex flex-col sm:col-start-2 col-span-2 sm:col-span-1 row-start-3 row-span-1 h-full p-8 md:pt-12 bg-beige-lighter">
           <h2 class="text-stone-500 text-sm md:text-lg font-semibold tracking-widest text-left">
             INDUSTRIES WE CATER&nbsp;TO
           </h2>
@@ -75,7 +75,7 @@
         </div>
 
         <!-- 2B -->
-        <div class="sm:row-end-4 col-start-1 sm:row-start-2 col-span-2 sm:col-span-1 h-min-0 w-min-0">
+        <div class="sm:row-end-3 col-start-1 sm:row-start-2 col-span-2 h-min-0 w-min-0">
           <picture class="">
             <source srcset=" /assets/lovespun.webp" type="image/webp">
             <source srcset="/assets/lovespun.jpg" type="image/jpeg">
