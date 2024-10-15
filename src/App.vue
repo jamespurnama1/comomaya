@@ -210,7 +210,7 @@ const isTransparent = computed(() => {
 
   <nav
     class="fixed w-full top-0 left-0 flex py-3 2xl:py-4 px-9 lg:px-20 2xl:px-36 justify-between items-center z-40 transition-all origin-top-left bg-beige-normal"
-    :class="{ 'bg-opacity-0': isTransparent && !opened, '!bg-beige-normal': opened }">
+    :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-blue': isBlue, '!bg-beige-normal': opened }">
 
     <router-link aria-label="Go to Landing Page" to="/" @click="handleNav(true)">
       <Vue3Lottie

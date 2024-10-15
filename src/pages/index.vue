@@ -81,10 +81,11 @@ function scrollDown() {
 				src="/assets/arrow-right-darker.svg" alt="button next" />
 		</button>
 		<div class="overflow-hidden relative w-full h-[85vh]">
+      <div class="bg-gradient-to-b from-black to-transparent w-full h-24 opacity-35 absolute z-[1] top-0 left-0"></div>
 			<video v-if="store.getWidth > 768" muted autoplay preload="true" playsinline="true" loop src="/assets/hero.mp4"
-				class="object-cover w-full h-full relative brightness-75" />
+				class="object-cover w-full h-full relative" />
 			<video v-else muted autoplay preload="true" playsinline="true" loop src="/assets/hero_vertical.mp4"
-				class="object-cover w-full h-full relative brightness-75" />
+				class="object-cover w-full h-full relative" />
 		</div>
 		<Splash />
 		<Service v-if="store.isFetched" />

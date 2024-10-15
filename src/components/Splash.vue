@@ -34,11 +34,11 @@
         </div>
 
         <!-- 1B -->
-        <div class="row-start-2 sm:row-start-1 row-span-1 col-start-1 sm:col-start-2 col-span-2 sm:col-span-1">
+        <div class="row-start-2 sm:row-start-1 row-span-1 col-start-1 sm:col-start-2 col-span-2 sm:col-span-1 overflow-hidden">
           <picture class="">
             <source srcset=" /assets/mirror-mirror.webp" type="image/webp">
             <source srcset="/assets/mirror-mirror.jpg" type="image/jpeg">
-            <img class="object-cover w-full h-full" src="/assets/mirror-mirror.jpg" alt="Mirror Mirror">
+            <img class="object-cover w-full h-full scale-110 lg:scale-100" src="/assets/mirror-mirror.jpg" alt="Mirror Mirror">
           </picture>
         </div>
 
@@ -77,7 +77,12 @@
 
         <!-- 2B -->
         <div class="sm:row-end-3 col-start-1 sm:row-start-2 col-span-2 h-min-0 w-min-0">
-          <picture class="">
+          <picture v-if="store.getWidth <= 768" class="">
+            <source srcset=" /assets/lovespun_mobile.webp" type="image/webp">
+            <source srcset="/assets/lovespun_mobile.jpg" type="image/jpeg">
+            <img class="object-cover origin-top w-full h-full" src="/assets/lovespun_mobile.jpg" alt="Lovespun">
+          </picture>
+          <picture v-else class="">
             <source srcset=" /assets/lovespun.webp" type="image/webp">
             <source srcset="/assets/lovespun.jpg" type="image/jpeg">
             <img class="object-cover origin-top w-full h-full" src="/assets/lovespun.jpg" alt="Lovespun">

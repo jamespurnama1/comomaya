@@ -78,7 +78,7 @@ useSchemaOrg([
                   src="/assets/awards.png" alt="Awards">
               </picture>
             </span>
-            <p class="text-base md:text-lg text-left text-black lg:max-w-[720px]">
+            <p class="text-base md:text-lg text-left text-black lg:max-w-[720px] whitespace-pre-wrap">
               Ridhi Sain is an award-winning brand, identity &amp; packaging designer, and founder of
               <strong>COMOMAYA</strong> which she launched in March
               2022.<br class="mt-2 block" style="content: ''">With a career spanning almost 20 years in the UK,
@@ -90,8 +90,8 @@ useSchemaOrg([
               and
               helped strategise, conceptualise and direct creative work on multiple global brands such as Unilever's
               Dove,
-              Closeup &amp; Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod
-              Ricard, Kellogg's and many&nbsp;more.<br class="mt-2 block" style="content: ''"><br>More recently, she has
+              Closeup, Comfort as well as others such as Johnson &amp; Johnson, Nescafe, SKII, Kraft Heinz, Pernod
+              Ricard, Kellogg's and many&nbsp;more.<br class="mt-2 block" style="content: ''">More recently, she has
               worked
               with
               smaller boutique

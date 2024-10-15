@@ -12,7 +12,7 @@
           class="relative w-full bg-white p-4 flex items-center justify-center min-h-full sm:aspect-[4/3] 2xl:aspect-auto"
           v-for="(service, index) in services" @click.prevent :key="index">
           <div
-            class="bg-opacity-80 w-[85%] flex items-center justify-between text-center flex-col p-5 bg-beige-lighter relative z-10 2xl:h-full">
+            class="bg-opacity-85 w-[85%] flex items-center justify-between text-center flex-col p-5 bg-beige-lighter relative z-10 2xl:h-full">
             <span>
               <p class="font-medium text-sm xl:text-xl">0{{ index + 1 }}</p>
               <h4 class="font-extrabold lowercase text-2xl xl:text-3xl"
