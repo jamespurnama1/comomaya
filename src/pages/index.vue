@@ -22,8 +22,6 @@ useHead({
 
 let loaded = false;
 
-let imageFade: GSAPTimeline;
-
 async function loadContent() {
 	loaded = true;
 
@@ -61,7 +59,6 @@ watch(() => store.isFetched, (x) => {
 
 onBeforeUnmount(() => {
 	document.documentElement.setAttribute('data-theme', 'lavender');
-	if (imageFade) imageFade.kill()
 	window.removeEventListener('scroll', updateScroll)
 	if (!ScrollTrigger.getById("main")) return
 	ScrollTrigger.getById("main")!.kill()
