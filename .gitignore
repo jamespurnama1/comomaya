@@ -12,6 +12,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.clj-kondo
+.lsp
 
 .env
 

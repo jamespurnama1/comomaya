@@ -115,10 +115,10 @@ useHead({
           <span>a</span><span>conversation...</span>
         </h2>
         <div class="mt-5 text-2xl md:text-4xl flex flex-col">
-          <a class="z-10" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
+          <a class="z-10" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer" href="https://wa.me/6594245994">
             <p class="text-blue hover:text-active font-semibold mb-5">+65 9424 5994</p>
           </a>
-          <a class="z-10" href="mailto:ridhisain@comomaya.com">
+          <a class="z-10" aria-label="E-mail" href="mailto:ridhisain@comomaya.com">
             <p class="text-blue hover:text-active font-semibold mb-5">ridhisain@comomaya.com</p>
           </a>
         </div>

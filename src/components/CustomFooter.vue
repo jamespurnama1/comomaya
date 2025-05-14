@@ -45,9 +45,13 @@
       <li>India.</li>
     </ul>
     <div class="flex justify-between w-full md:flex-row flex-col-reverse gap-5">
-      <p class="text-stone-500 2xl:text-base text-sm">
-        © 2024 COMOMAYA. All rights reserved.
-      </p>
+      <div class="flex gap-2">
+        <p class="text-stone-500 2xl:text-base text-sm">
+          © 2025 COMOMAYA. All rights reserved.
+        </p>
+        <router-link class="text-stone-500 2xl:text-base text-sm" to="/privacy-policy"
+          aria-label="Privacy Policy">Privacy Policy</router-link>
+      </div>
       <div class="flex gap-1 md:gap-5 md:text-base text-sm">
         <a class="z-10 relative text-stone-500 hover:text-active hover:scale-150 transition-all" key="ig"
           href="https://instagram.com/comomaya" aria-label="Open Comomaya's Instagram Page" target="_blank"
