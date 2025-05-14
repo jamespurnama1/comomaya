@@ -101,9 +101,7 @@ useSchemaOrg([
           <br />
           <li>
             <h3 class="text-active font-extrabold text-xl">5. Data Security</h3>
-            <br />
-            We take reasonable steps to protect your personal information. However, please note that no online method
-            of transmission or storage is 100% secure.
+            We take reasonable steps to protect your personal information. However, please note that no online method of transmission or storage is 100% secure.
           </li>
           <br />
           <li>
