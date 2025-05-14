@@ -75,9 +75,11 @@ useSchemaOrg([
             <br />
             <strong>Personal Information</strong>: When you contact us through our website or subscribe to our
             newsletter, we may collect your name, email address, and any other information you voluntarily provide.
+            <br />
             <strong>Usage Data</strong>: We collect non-identifying data about how you use our site, such as pages
             visited, time spent,
             browser type, and referring websites. This helps us improve your experience.
+            <br />
             <strong>Cookies</strong>: We use cookies to track usage and improve our site's performance. You can disable
             cookies via your browser settings.
           </li>
@@ -101,7 +103,8 @@ useSchemaOrg([
           <br />
           <li>
             <h3 class="text-active font-extrabold text-xl">5. Data Security</h3>
-            We take reasonable steps to protect your personal information. However, please note that no online method of transmission or storage is 100% secure.
+            We take reasonable steps to protect your personal information. However, please note that no online method of
+            transmission or storage is 100% secure.
           </li>
           <br />
           <li>
