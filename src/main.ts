@@ -18,8 +18,8 @@ import { faSquareInstagram, faLinkedin, faWhatsapp, faSquareWhatsapp } from '@fo
 import { faAngleUp, faAnglesDown, faBook, faPencil, faLaptop, faTrophy, faPhone, faSquareXmark, faXmark, faAnglesRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { createPinia } from 'pinia'
-import Vue3Lottie from 'vue3-lottie'
 import { createGtm } from '@gtm-support/vue-gtm';
+import ClientOnly from '@/components/ClientOnly.vue'
 
 const head = createHead()
 
@@ -37,9 +37,10 @@ export const createApp = ViteSSG(
     base: import.meta.env.BASE_URL
   },
   // function to have custom setups
-  ({ app, router, routes, isClient, initialState }) => {
+  async ({ app, router, routes, isClient, initialState }) => {
     // install plugins etc.
     app.component('font-awesome-icon', FontAwesomeIcon)
+    app.component('ClientOnly', ClientOnly)
     app.component('CustomFooter', CustomFooter)
     app.component('Splash', Splash)
     app.component('Brands', Brands)
@@ -48,8 +49,9 @@ export const createApp = ViteSSG(
     app.component('Testimonials', Testimonials)
     app.component('Pop', Pop)
     app.use(store)
-    app.use(Vue3Lottie)
     if (isClient) {
+      const { default: Vue3Lottie } = await import('vue3-lottie')
+      app.use(Vue3Lottie)
       app.use(posthogPlugin)
       app.use(
   createGtm({

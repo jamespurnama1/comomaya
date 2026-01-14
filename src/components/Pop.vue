@@ -50,10 +50,12 @@
       <img v-else class="h-12 w-12 my-12 object-contain spin" src="@/assets/loader.svg" alt="loading" />
     </form>
     <transition name="scale">
-      <Vue3Lottie v-show="done" :key="done"
-        class="check absolute duration-700 h-5 object-contain md:h-6 img-responsive origin-center"
-        animationLink="./assets/check.json" :height="store.getWidth > 1024 ? 250 : 150"
-        :width="store.getWidth > 1024 ? 250 : 150" :loop="false" />
+      <ClientOnly>
+        <Vue3Lottie v-show="done" :key="done"
+          class="check absolute duration-700 h-5 object-contain md:h-6 img-responsive origin-center"
+          animationLink="./assets/check.json" :height="store.getWidth > 1024 ? 250 : 150"
+          :width="store.getWidth > 1024 ? 250 : 150" :loop="false" />
+      </ClientOnly>
     </transition>
     <button class="absolute top-5 right-5 my-3 hover:scale-125 hover:text-active transition-all duration-200">
       <font-awesome-icon @click="closeModal()" :icon="['fas', 'xmark']" size="xl" />

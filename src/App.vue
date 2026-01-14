@@ -213,11 +213,13 @@ const isTransparent = computed(() => {
     :class="{ 'bg-opacity-0': isTransparent && !opened, 'bg-blue': isBlue, '!bg-beige-normal': opened }">
 
     <router-link aria-label="Go to Landing Page" to="/" @click="handleNav(true)">
-      <Vue3Lottie
-        :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']"
-        class="logo transition-all duration-700 h-5 object-contain md:h-6 img-responsive origin-top-left"
-        animationLink="./assets/logo.json" :height="store.getWidth > 1024 ? 50 : 38"
-        :width="store.getWidth > 1024 ? 249 : 178" />
+      <ClientOnly>
+        <Vue3Lottie
+          :class="[(!isTransparent || opened) && !isBlue ? 'brightness-0 hover:brightness-100' : 'hover:brightness-200']"
+          class="logo transition-all duration-700 h-5 object-contain md:h-6 img-responsive origin-top-left"
+          animationLink="./assets/logo.json" :height="store.getWidth > 1024 ? 50 : 38"
+          :width="store.getWidth > 1024 ? 249 : 178" />
+      </ClientOnly>
     </router-link>
 
     <div class="flex items-center gap-3 md:gap-5 h-full">
