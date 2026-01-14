@@ -261,14 +261,14 @@ const isTransparent = computed(() => {
           <li v-for="(link, i) in links" :key="i" :style="{ '--i': i }"
             class="px-5 cube md:my-0 2xl:text-8xl md:text-7xl sm:text-6xl text-5xl leading-[3rem] md:leading-[3.5rem]"
             @touchend="e => flip(e, true, link)" @click="(e) => flip(e, false, link)">
-              <p class="flip">
-                <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-                <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-                <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
-              </p>
-              <p class="flop text-active">
-                <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
-              </p>
+            <p class="flip">
+              <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+              <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+              <span class="text-blue">{{ $route.path === whatisLink(link) ? "(YOU ARE HERE)" : '' }}</span>
+            </p>
+            <p class="flop text-active">
+              <a @click.prevent :aria-label="`Go to ${link}`">{{ link === '' ? 'home' : link }}</a>
+            </p>
           </li>
           <li v-if="store.getWidth <= 570" class="px-5 flex items-center justify-center py-5" @click="handleNav(true)">
             <router-link to="/about#grant">
