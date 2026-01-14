@@ -22,9 +22,7 @@
               Yes we do <strong class="font-extrabold">work</strong> that is&nbsp;fabulous.<br>Yes we offer a wide range
               of&nbsp;<strong class="font-extrabold">services</strong>.<br>Yes our team and <strong
                 class="font-extrabold">people</strong> are&nbsp;stellar.<br><strong class="font-extrabold">But we also
-                work
-                in a way that is personal, flexible, agile, collaborative and we will try our best to not be beaten on
-                pricing and value for&nbsp;money.<br>Anything else on your wishlist?</strong>
+                work in a way that is personal, flexible, agile and&nbsp;collaborative.<br>Anything else on your wishlist?</strong>
             </p>
             <a class="transition-transform hover:scale-150 block origin-center text-center mr-auto w-fit"
               href="https://wa.me/6594245994" target="_blank" rel="noopener noreferrer">
